@@ -1,0 +1,6 @@
+{
+  "name": "Green Garden - UK Gardening & Lifestyle Blog",
+  "description": "Expert UK gardening guides, seasonal tips, plant profiles, garden design inspiration, indoor houseplant care, and wildlife gardening advice.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
