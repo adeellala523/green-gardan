@@ -80,7 +80,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ setActiveTab, na
             <FileText className="w-5 h-5" />
           </div>
           <div className="text-2xl font-bold font-editorial text-[#14281c]">{articles.length}</div>
-          <div className="text-[11px] text-[#40916c] mt-1">30+ UK Guides</div>
+          <div className="text-[11px] text-[#40916c] mt-1">UK Botanical Guides</div>
         </div>
 
         <div 

@@ -24,6 +24,14 @@ body {
   color: #1a251e;
 }
 
+/* Subtle grid graph lines inspired by modern utility tools */
+.bg-grid-lines {
+  background-image: 
+    linear-gradient(to right, rgba(45, 106, 79, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 106, 79, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 h1, h2, h3, .font-editorial {
   font-family: var(--font-serif);
 }

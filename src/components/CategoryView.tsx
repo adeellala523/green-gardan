@@ -37,30 +37,22 @@ export const CategoryView: React.FC<CategoryViewProps> = ({ category, navigate }
         <span className="text-[#1b4332] font-semibold">{category.name}</span>
       </nav>
 
-      {/* Category Hero Banner */}
-      <div className="relative rounded-3xl overflow-hidden bg-[#18392b] text-white p-8 sm:p-12 mb-10 shadow-sm">
-        <div className="absolute inset-0 opacity-25 mix-blend-overlay">
-          <img
-            src={getOptimizedImageUrl(category.image, 1000, 75)}
-            alt={category.name}
-            loading="lazy"
-            decoding="async"
-            width={1000}
-            height={400}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Category Hero Banner (OmniTools style) */}
+      <div className="relative rounded-3xl overflow-hidden bg-[#fcfdfa] border border-[#dce8dd] p-8 sm:p-12 mb-10 shadow-2xs">
+        <div className="absolute inset-0 bg-grid-lines opacity-60 pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-72 h-72 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
+        
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold text-[#d8f3dc] mb-4">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>{categoryArticles.length} UK Gardening Guides</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#eef7ee] border border-[#cbe4ce] text-xs font-bold text-[#1b4332] mb-4">
+            <BookOpen className="w-3.5 h-3.5 text-[#2d6a4f]" />
+            <span>{categoryArticles.length} Essential Guides</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-bold font-editorial mb-4">
+          <h1 className="text-3xl sm:text-5xl font-bold font-sans text-[#12281c] mb-3">
             {category.name}
           </h1>
 
-          <p className="text-sm sm:text-base text-[#d8eedb] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#465e4e] leading-relaxed font-normal">
             {category.description}
           </p>
         </div>

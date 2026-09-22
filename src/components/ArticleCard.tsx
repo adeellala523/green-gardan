@@ -68,9 +68,23 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick, feat
           </h3>
 
           {/* Excerpt */}
-          <p className="text-sm text-[#4a5f4f] line-clamp-3 leading-relaxed mb-4">
+          <p className="text-sm text-[#4a5f4f] line-clamp-3 leading-relaxed mb-4 font-normal">
             {article.excerpt}
           </p>
+
+          {/* Tag Pills (OmniTools style) */}
+          {article.tags && article.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {article.tags.slice(0, 3).map((tag, idx) => (
+                <span 
+                  key={idx} 
+                  className="px-2.5 py-0.5 rounded-full bg-[#f4f8f4] border border-[#dce8dd] text-[#2d6a4f] text-[11px] font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Footer / Read More */}

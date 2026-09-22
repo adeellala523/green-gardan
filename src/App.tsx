@@ -23,17 +23,42 @@ const RouteLoadingFallback = () => (
   </div>
 );
 
+// Helper to extract and normalize current path from window.location
+function getInitialPath(): string {
+  if (typeof window === 'undefined') return '/';
+
+  // 1. Check URL query parameters (e.g. from 404.html fallback: ?p=/admin or ?route=admin)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectedPath = urlParams.get('p') || urlParams.get('route') || urlParams.get('path');
+    if (redirectedPath) {
+      const cleanPath = redirectedPath.startsWith('/') ? redirectedPath : `/${redirectedPath}`;
+      // Clean up the URL in the address bar without page reload
+      window.history.replaceState({}, '', cleanPath);
+      return cleanPath;
+    }
+  } catch {
+    // Ignore URLSearchParams error
+  }
+
+  // 2. Check hash route (e.g. #/admin or #admin)
+  if (window.location.hash) {
+    const rawHash = window.location.hash.replace(/^#\/?/, '/');
+    if (rawHash && rawHash !== '/') {
+      return rawHash.startsWith('/') ? rawHash : `/${rawHash}`;
+    }
+  }
+
+  // 3. Standard pathname
+  const path = window.location.pathname;
+  return path === '' ? '/' : path;
+}
+
 function BlogApp() {
   const { articles, categories, staticPages, siteSettings } = useBlog();
   
   // Track current path from window.location
-  const [currentPath, setCurrentPath] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      const path = window.location.pathname;
-      return path === '' ? '/' : path;
-    }
-    return '/';
-  });
+  const [currentPath, setCurrentPath] = useState<string>(() => getInitialPath());
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -47,13 +72,17 @@ function BlogApp() {
     }
   };
 
-  // Listen to popstate for browser back/forward buttons
+  // Listen to popstate and hashchange for browser back/forward and hash links
   useEffect(() => {
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname || '/');
+    const handleUrlChange = () => {
+      setCurrentPath(getInitialPath());
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
   }, []);
 
   // Parse path segments: e.g. "/gardening-tips/essential-pruning-guide-uk-climates"

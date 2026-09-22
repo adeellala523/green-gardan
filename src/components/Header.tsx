@@ -10,7 +10,11 @@ import {
   Mail, 
   BookOpen, 
   Info, 
-  AlertCircle
+  AlertCircle,
+  Flower2,
+  Leaf,
+  Compass,
+  HeartHandshake
 } from 'lucide-react';
 import { useBlog } from '../context/BlogContext';
 
@@ -21,43 +25,40 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearch }) => {
-  const { siteSettings, categories, isAdminLoggedIn } = useBlog();
+  const { siteSettings, categories } = useBlog();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
 
   const handleNavClick = (path: string) => {
     navigate(path);
     setMobileMenuOpen(false);
     setAboutDropdownOpen(false);
-    setMobileAboutOpen(false);
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Gardening Tips', path: '/gardening-tips' },
-    { name: 'Flowers & Plants', path: '/flowers-plants' },
-    { name: 'Indoor Gardening', path: '/indoor-gardening' },
-    { name: 'Garden Design', path: '/garden-design' },
-    { name: 'Wildlife & Sustainable', path: '/wildlife-sustainable-gardening' },
+    { name: 'Gardening Tips', path: '/gardening-tips', icon: Sprout },
+    { name: 'Flowers & Plants', path: '/flowers-plants', icon: Flower2 },
+    { name: 'Indoor Gardening', path: '/indoor-gardening', icon: Leaf },
+    { name: 'Garden Design', path: '/garden-design', icon: Compass },
+    { name: 'Wildlife & Nature', path: '/wildlife-sustainable-gardening', icon: HeartHandshake },
   ];
 
   const aboutLinks = [
     { name: 'About Us', path: '/about-us', icon: Info },
     { name: 'Contact Us', path: '/contact-us', icon: Mail },
     { name: 'Privacy Policy', path: '/privacy-policy', icon: ShieldCheck },
-    { name: 'Terms & Conditions', path: '/terms-and-conditions', icon: FileText },
+    { name: 'Terms of Service', path: '/terms-and-conditions', icon: FileText },
     { name: 'Cookie Policy', path: '/cookie-policy', icon: BookOpen },
     { name: 'Disclaimer', path: '/disclaimer', icon: AlertCircle },
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#fcfdfa]/95 backdrop-blur-md border-b border-[#e5ebe4] transition-all">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#e5ece4] transition-all">
       {/* Main Header Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-18 sm:h-20">
           
-          {/* Logo */}
+          {/* Logo in OmniTools style */}
           <a 
             href="/"
             onClick={(e) => {
@@ -68,30 +69,36 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
             id="brand-logo-btn"
             aria-label="Green Garden - Home"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#1b4332] flex items-center justify-center text-[#d8f3dc] shadow-sm group-hover:bg-[#2d6a4f] transition-all">
-              <Sprout className="w-6 h-6 transform group-hover:scale-110 transition-transform" />
+            <div className="w-10 h-10 rounded-xl bg-[#1b4332] flex items-center justify-center text-[#d8f3dc] shadow-sm group-hover:bg-[#2d6a4f] transition-all">
+              <Sprout className="w-5 h-5" />
             </div>
-            <div>
-              <span className="text-2xl sm:text-3xl font-bold font-editorial text-[#1b4332] tracking-tight block leading-none">
-                {siteSettings.siteName}
-              </span>
-              <span className="text-[11px] font-sans uppercase tracking-widest text-[#52796f] font-semibold block mt-1">
-                UK Gardening &amp; Nature
-              </span>
-            </div>
+            <span className="text-2xl font-bold font-sans tracking-tight text-[#14281c]">
+              Green<span className="text-[#2d6a4f]">Garden</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            <button
+              onClick={() => handleNavClick('/')}
+              className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
+                currentPath === '/'
+                  ? 'text-[#1b4332] bg-[#e7f2e8]' 
+                  : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
+              }`}
+            >
+              Home
+            </button>
+
             {navLinks.map((link) => {
               const isActive = currentPath === link.path;
               return (
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                  className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
                     isActive 
-                      ? 'text-[#1b4332] bg-[#e7f2e8] font-semibold' 
+                      ? 'text-[#1b4332] bg-[#e7f2e8]' 
                       : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
                   }`}
                 >
@@ -105,9 +112,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
               <button
                 onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
                 onMouseEnter={() => setAboutDropdownOpen(true)}
-                className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
                   aboutLinks.some(l => l.path === currentPath)
-                    ? 'text-[#1b4332] bg-[#e7f2e8] font-semibold'
+                    ? 'text-[#1b4332] bg-[#e7f2e8]'
                     : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
                 }`}
                 id="about-dropdown-btn"
@@ -121,9 +128,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
               {aboutDropdownOpen && (
                 <div 
                   onMouseLeave={() => setAboutDropdownOpen(false)}
-                  className="absolute right-0 mt-1 w-56 rounded-xl bg-white shadow-xl border border-[#e5ebe4] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute right-0 mt-1 w-56 rounded-2xl bg-white shadow-xl border border-[#e5ebe4] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                 >
-                  <div className="px-3 py-1.5 text-[11px] uppercase tracking-wider text-neutral-400 font-semibold border-b border-neutral-100">
+                  <div className="px-3.5 py-1.5 text-[11px] uppercase tracking-wider text-neutral-400 font-bold border-b border-neutral-100">
                     Publication &amp; Trust
                   </div>
                   {aboutLinks.map((item) => {
@@ -132,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
                       <button
                         key={item.path}
                         onClick={() => handleNavClick(item.path)}
-                        className="w-full text-left px-3 py-2 text-sm text-[#2b3a30] hover:bg-[#f4f8f4] hover:text-[#1b4332] flex items-center gap-2.5 transition-colors cursor-pointer"
+                        className="w-full text-left px-3.5 py-2 text-sm font-medium text-[#2b3a30] hover:bg-[#f4f8f4] hover:text-[#1b4332] flex items-center gap-2.5 transition-colors cursor-pointer"
                       >
                         <Icon className="w-4 h-4 text-[#52796f]" />
                         <span>{item.name}</span>
@@ -144,11 +151,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
             </div>
           </nav>
 
-          {/* Action Buttons: Search & Admin */}
+          {/* Action Buttons: Search & Mobile Hamburger */}
           <div className="flex items-center gap-2">
             <button
               onClick={openSearch}
-              className="p-2.5 rounded-full text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#edf4ed] transition-colors cursor-pointer"
+              className="p-2.5 rounded-xl text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#edf4ed] border border-transparent hover:border-[#d6e3d7] transition-all cursor-pointer"
               title="Search articles"
               aria-label="Search articles"
               id="search-open-btn"
@@ -156,79 +163,59 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button in OmniTools rounded-xl border style */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-lg text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#edf4ed] transition-colors cursor-pointer"
+              className="lg:hidden p-2.5 rounded-xl border border-[#d6e3d7] bg-white text-[#1b4332] hover:bg-[#f1f6f1] transition-all cursor-pointer shadow-2xs"
               aria-label="Toggle navigation menu"
               id="mobile-nav-toggle"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Navigation (Exactly like OmniTools Screenshot 2) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#fcfdfa] border-b border-[#e5ebe4] px-4 pt-3 pb-6 space-y-2 animate-in fade-in duration-200 shadow-lg">
-          <div className="space-y-1">
+        <div className="lg:hidden bg-white border-b border-[#e5ebe4] px-5 py-6 space-y-3 animate-in fade-in duration-200 shadow-xl">
+          <div className="space-y-2">
             {navLinks.map((link) => {
+              const Icon = link.icon;
               const isActive = currentPath === link.path;
               return (
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`w-full text-left px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                  className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer ${
                     isActive 
-                      ? 'bg-[#1b4332] text-white font-semibold' 
-                      : 'text-[#2b3a30] hover:bg-[#edf4ed]'
+                      ? 'bg-[#1b4332] text-white shadow-xs' 
+                      : 'text-[#14281c] hover:bg-[#f4f8f4]'
                   }`}
                 >
-                  {link.name}
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-[#2d6a4f]'}`} />
+                  <span>{link.name}</span>
                 </button>
               );
             })}
 
-            {/* Mobile About Accordion */}
-            <div className="pt-2">
-              <button
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-base font-medium text-[#2b3a30] hover:bg-[#edf4ed]"
-              >
-                <span>About Green Garden</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {mobileAboutOpen && (
-                <div className="pl-4 pr-2 py-1 space-y-1 bg-[#f4f8f4] rounded-lg mt-1">
-                  {aboutLinks.map((item) => (
-                    <button
-                      key={item.path}
-                      onClick={() => handleNavClick(item.path)}
-                      className="w-full text-left px-3 py-2 text-sm text-[#2b3a30] hover:text-[#1b4332] flex items-center gap-2"
-                    >
-                      <item.icon className="w-4 h-4 text-[#52796f]" />
-                      <span>{item.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="pt-4 border-t border-[#e5ebe4] flex justify-between items-center text-xs text-neutral-500">
-              <button 
-                onClick={() => handleNavClick('/sitemap.xml')}
-                className="font-medium text-[#1b4332] hover:underline"
-              >
-                XML Sitemap (/sitemap.xml)
-              </button>
-              <button 
-                onClick={() => handleNavClick('/contact-us')}
-                className="hover:underline text-neutral-600"
-              >
-                Contact Editorial Desk
-              </button>
+            <div className="pt-3 border-t border-[#edf2ee] space-y-1">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 px-4 block mb-2">
+                About &amp; Policies
+              </span>
+              {aboutLinks.slice(0, 4).map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.path}
+                    onClick={() => handleNavClick(item.path)}
+                    className="w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-sm font-medium text-[#385141] hover:bg-[#f4f8f4] cursor-pointer"
+                  >
+                    <Icon className="w-4 h-4 text-[#52796f]" />
+                    <span>{item.name}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

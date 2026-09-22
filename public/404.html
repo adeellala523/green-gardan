@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Garden - Redirecting...</title>
+  <script>
+    // Single Page Application (SPA) 404 Redirect Handler
+    // Redirects deep links back to index.html with the original path
+    (function() {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var targetUrl = '/' + '?p=' + encodeURIComponent(path + search) + (hash ? '&h=' + encodeURIComponent(hash) : '');
+      window.location.replace(targetUrl);
+    })();
+  </script>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background-color: #fcfdfa; color: #1b4332;">
+  <div style="text-align: center; padding: 20px;">
+    <h2 style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Loading Green Garden...</h2>
+    <p style="font-size: 14px; color: #52796f;">If you are not redirected automatically, <a href="/" style="color: #2d6a4f; font-weight: bold;">click here to go home</a>.</p>
+  </div>
+</body>
+</html>
