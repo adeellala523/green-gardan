@@ -20,9 +20,14 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div 
-              onClick={() => navigate('/')} 
+            <a 
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/');
+              }} 
               className="flex items-center gap-3 cursor-pointer inline-flex group"
+              aria-label="Green Garden - Home"
             >
               <div className="w-10 h-10 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-[#d8f3dc]">
                 <Sprout className="w-5 h-5" />
@@ -30,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               <span className="text-2xl font-bold font-editorial text-white tracking-tight">
                 {siteSettings.siteName}
               </span>
-            </div>
+            </a>
             
             <p className="text-sm text-[#c5dac8] leading-relaxed max-w-sm">
               {siteSettings.siteDescription}
@@ -141,6 +146,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-[#1b4332] hover:bg-[#2d6a4f] text-white transition-colors flex items-center gap-1 cursor-pointer"
               title="Back to top"
+              aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
               <span className="hidden sm:inline">Top</span>

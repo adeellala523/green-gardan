@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { FileCode, Globe, Layers, BookOpen, ExternalLink, Copy, Check, Download } from 'lucide-react';
 import { useBlog } from '../context/BlogContext';
 
 interface SitemapViewProps {
   navigate: (path: string) => void;
-  initialTab?: 'visual' | 'xml';
+  initialTab?: 'links' | 'xml';
 }
 
-export const SitemapView: React.FC<SitemapViewProps> = ({ navigate, initialTab = 'xml' }) => {
+export const SitemapView: React.FC<SitemapViewProps> = ({ navigate, initialTab = 'links' }) => {
   const { articles, categories, staticPages, siteSettings } = useBlog();
-  const [tab, setTab] = useState<'visual' | 'xml'>(initialTab);
+  const [tab, setTab] = useState<'links' | 'xml'>(initialTab);
   const [copied, setCopied] = useState(false);
 
   const publishedArticles = articles.filter(a => a.status === 'published');
@@ -46,8 +45,15 @@ ${publishedArticles.map(a => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-  const copyXml = () => {
-    navigator.clipboard.writeText(xmlContent);
+  const copyContent = () => {
+    if (tab === 'xml') {
+      navigator.clipboard.writeText(xmlContent);
+    } else {
+      const allLinksText = publishedArticles
+        .map(a => `${a.title}\n${baseUrl}/${a.categorySlug}/${a.slug}`)
+        .join('\n\n');
+      navigator.clipboard.writeText(allLinksText);
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -63,147 +69,177 @@ ${publishedArticles.map(a => `  <url>
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[#e5ebe4] pb-6 mb-8">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#40916c]">
-            Search Engine Index
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-bold font-editorial text-[#14281c]">
-            Site Map &amp; XML Feed
-          </h1>
-          <p className="text-xs text-[#52796f] mt-1">
-            Complete index of all {publishedArticles.length} UK gardening guides, categories, and legal pages.
-          </p>
+    <div className="min-h-screen bg-white text-neutral-900 p-4 sm:p-8 font-sans">
+      {/* Top minimal bar */}
+      <div className="max-w-4xl mx-auto mb-6 pb-3 border-b border-neutral-200 flex flex-wrap justify-between items-center gap-3 text-xs">
+        <div className="flex items-center gap-2">
+          <span className="font-mono font-bold text-neutral-900 text-sm">/sitemap.xml</span>
+          <span className="text-neutral-400">|</span>
+          <span className="text-neutral-600 font-mono text-[11px]">{publishedArticles.length} Posts</span>
         </div>
 
         <div className="flex items-center gap-2">
+          <div className="inline-flex rounded-lg border border-neutral-300 p-0.5 bg-neutral-50 text-[11px]">
+            <button
+              onClick={() => setTab('links')}
+              className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
+                tab === 'links'
+                  ? 'bg-[#1b4332] text-white shadow-xs'
+                  : 'text-neutral-600 hover:text-neutral-900'
+              }`}
+            >
+              Post Links (Text)
+            </button>
+            <button
+              onClick={() => setTab('xml')}
+              className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
+                tab === 'xml'
+                  ? 'bg-[#1b4332] text-white shadow-xs'
+                  : 'text-neutral-600 hover:text-neutral-900'
+              }`}
+            >
+              Raw XML Text
+            </button>
+          </div>
+
           <button
-            onClick={() => setTab('visual')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition-colors ${
-              tab === 'visual'
-                ? 'bg-[#1b4332] text-white'
-                : 'bg-white border border-[#cde2cf] text-[#1b4332] hover:bg-[#edf5ee]'
-            }`}
+            onClick={copyContent}
+            className="px-2.5 py-1 rounded-md border border-neutral-300 text-neutral-700 hover:bg-neutral-50 text-[11px] font-medium cursor-pointer transition-colors"
           >
-            Visual Directory
+            {copied ? 'Copied!' : tab === 'xml' ? 'Copy XML' : 'Copy All Links'}
           </button>
+
+          {tab === 'xml' && (
+            <button
+              onClick={downloadXml}
+              className="px-2.5 py-1 rounded-md bg-[#1b4332] text-white hover:bg-[#2d6a4f] text-[11px] font-medium cursor-pointer transition-colors"
+            >
+              Download
+            </button>
+          )}
+
           <button
-            onClick={() => setTab('xml')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition-colors ${
-              tab === 'xml'
-                ? 'bg-[#1b4332] text-white'
-                : 'bg-white border border-[#cde2cf] text-[#1b4332] hover:bg-[#edf5ee]'
-            }`}
+            onClick={() => navigate('/')}
+            className="text-emerald-700 hover:text-emerald-900 hover:underline text-xs font-medium cursor-pointer ml-2"
           >
-            Raw XML Code
+            ← Return to Green Garden
           </button>
         </div>
       </div>
 
-      {tab === 'visual' ? (
-        <div className="space-y-10">
-          {/* Categories & Pages */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs">
-              <div className="flex items-center gap-2 text-sm font-bold font-editorial text-[#14281c] mb-4">
-                <Layers className="w-4 h-4 text-[#2d6a4f]" />
-                <span>Primary Category Hubs</span>
-              </div>
-              <ul className="space-y-2 text-xs">
-                {categories.map((c) => (
-                  <li key={c.slug} className="flex justify-between items-center py-1 border-b border-neutral-50">
-                    <button
-                      onClick={() => navigate(`/${c.slug}`)}
-                      className="text-[#2b4233] hover:text-[#1b4332] font-medium hover:underline text-left cursor-pointer"
-                    >
-                      {c.name}
-                    </button>
-                    <span className="text-neutral-400 font-mono text-[11px]">/{c.slug}</span>
-                  </li>
-                ))}
-              </ul>
+      <div className="max-w-4xl mx-auto">
+        {tab === 'links' ? (
+          <div className="space-y-6">
+            <div className="border-b border-neutral-200 pb-3">
+              <h1 className="text-xl font-bold text-neutral-900 font-editorial">
+                Sitemap Index - All Post Links
+              </h1>
+              <p className="text-xs text-neutral-500 mt-1 font-mono">
+                Total articles: {publishedArticles.length} | Base URL: {baseUrl}
+              </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs">
-              <div className="flex items-center gap-2 text-sm font-bold font-editorial text-[#14281c] mb-4">
-                <Globe className="w-4 h-4 text-[#2d6a4f]" />
-                <span>Publication &amp; Legal Pages</span>
-              </div>
-              <ul className="space-y-2 text-xs">
-                {pagesList.map((p) => (
-                  <li key={p.slug} className="flex justify-between items-center py-1 border-b border-neutral-50">
-                    <button
-                      onClick={() => navigate(`/${p.slug}`)}
-                      className="text-[#2b4233] hover:text-[#1b4332] font-medium hover:underline text-left cursor-pointer"
-                    >
-                      {p.title}
-                    </button>
-                    <span className="text-neutral-400 font-mono text-[11px]">/{p.slug}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+            {/* List of all articles */}
+            <div className="space-y-3">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-mono">
+                Articles &amp; Posts ({publishedArticles.length})
+              </h2>
 
-          {/* Articles Index Grouped by Category */}
-          <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 sm:p-8 shadow-2xs space-y-6">
-            <div className="flex items-center gap-2 text-base font-bold font-editorial text-[#14281c]">
-              <BookOpen className="w-5 h-5 text-[#2d6a4f]" />
-              <span>All Horticultural Guides ({publishedArticles.length})</span>
-            </div>
-
-            {categories.map((cat) => {
-              const catArticles = publishedArticles.filter(a => a.categorySlug === cat.slug);
-              if (catArticles.length === 0) return null;
-              return (
-                <div key={cat.slug} className="border-t border-neutral-100 pt-4 space-y-2">
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-[#40916c]">
-                    {cat.name} ({catArticles.length})
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {catArticles.map((art) => (
-                      <div 
-                        key={art.id}
-                        onClick={() => navigate(`/${art.categorySlug}/${art.slug}`)}
-                        className="p-2 rounded-lg hover:bg-[#f6f9f6] text-xs text-[#2b4233] hover:text-[#1b4332] cursor-pointer flex items-center justify-between"
-                      >
-                        <span className="truncate pr-2">{art.title}</span>
-                        <span className="text-[10px] text-neutral-400 shrink-0">{art.readingTime}</span>
+              <ol className="divide-y divide-neutral-100 font-sans">
+                {publishedArticles.map((article, index) => {
+                  const postUrl = `${baseUrl}/${article.categorySlug}/${article.slug}`;
+                  return (
+                    <li key={article.id} className="py-2.5 flex flex-col gap-0.5">
+                      <div className="text-sm font-semibold text-neutral-900">
+                        <span className="text-neutral-400 font-mono text-xs mr-2">{index + 1}.</span>
+                        {article.title}
                       </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ) : (
-        <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs space-y-4">
-          <div className="flex flex-wrap justify-between items-center gap-2">
-            <span className="text-xs text-neutral-500 font-mono">XML Sitemap (Standard Sitemaps.org Protocol: /sitemap.xml)</span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={downloadXml}
-                className="px-3.5 py-1.5 rounded-lg border border-[#cde2cf] bg-white hover:bg-[#edf5ee] text-[#1b4332] text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors"
-              >
-                <Download className="w-3.5 h-3.5 text-[#2d6a4f]" />
-                <span>Download sitemap.xml</span>
-              </button>
-              <button
-                onClick={copyXml}
-                className="px-3.5 py-1.5 rounded-lg bg-[#1b4332] text-white text-xs font-semibold hover:bg-[#2d6a4f] flex items-center gap-1.5 cursor-pointer transition-colors"
-              >
-                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied XML!' : 'Copy XML'}</span>
-              </button>
+                      <div className="font-mono text-xs">
+                        <a
+                          href={postUrl}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate(`/${article.categorySlug}/${article.slug}`);
+                          }}
+                          className="text-emerald-700 hover:text-emerald-900 hover:underline break-all"
+                        >
+                          {postUrl}
+                        </a>
+                      </div>
+                      <div className="text-[11px] text-neutral-400 font-mono">
+                        Category: {article.categoryName} &bull; Date: {article.publishDate}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            {/* Categories Links */}
+            <div className="pt-4 border-t border-neutral-200 space-y-2">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-mono">
+                Category Links ({categories.length})
+              </h2>
+              <ul className="divide-y divide-neutral-100 font-mono text-xs">
+                {categories.map((cat) => {
+                  const catUrl = `${baseUrl}/${cat.slug}`;
+                  return (
+                    <li key={cat.slug} className="py-1.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                      <span className="font-sans font-medium text-neutral-800">{cat.name}</span>
+                      <a
+                        href={catUrl}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          navigate(`/${cat.slug}`);
+                        }}
+                        className="text-emerald-700 hover:underline"
+                      >
+                        {catUrl}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {/* Static Pages Links */}
+            <div className="pt-4 border-t border-neutral-200 space-y-2">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-mono">
+                Site &amp; Policy Pages ({pagesList.length})
+              </h2>
+              <ul className="divide-y divide-neutral-100 font-mono text-xs">
+                {pagesList.map((pg) => {
+                  const pageUrl = `${baseUrl}/${pg.slug}`;
+                  return (
+                    <li key={pg.slug} className="py-1.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                      <span className="font-sans font-medium text-neutral-800">{pg.title}</span>
+                      <a
+                        href={pageUrl}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          navigate(`/${pg.slug}`);
+                        }}
+                        className="text-emerald-700 hover:underline"
+                      >
+                        {pageUrl}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
-          <pre className="p-4 bg-neutral-900 rounded-xl text-emerald-400 font-mono text-xs overflow-x-auto max-h-[500px] leading-relaxed">
-            {xmlContent}
-          </pre>
-        </div>
-      )}
+        ) : (
+          <div className="space-y-3">
+            <div className="text-xs text-neutral-500 font-mono">
+              Standard XML Sitemap protocol output. Accessible directly at <code className="text-emerald-800 bg-neutral-100 px-1 py-0.5 rounded">/sitemap.xml</code>
+            </div>
+            <pre className="p-4 bg-neutral-900 rounded-xl text-emerald-400 font-mono text-xs overflow-x-auto leading-relaxed whitespace-pre select-all">
+              {xmlContent}
+            </pre>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

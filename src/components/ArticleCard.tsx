@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Article } from '../types';
+import { getOptimizedImageUrl, getUnsplashSrcSet } from '../utils/image';
 
 interface ArticleCardProps {
   article: Article;
@@ -9,6 +10,9 @@ interface ArticleCardProps {
 }
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick, featured = false }) => {
+  const cardImgSrc = getOptimizedImageUrl(article.featuredImage, featured ? 640 : 480, 75);
+  const cardImgSrcSet = getUnsplashSrcSet(article.featuredImage, featured ? [360, 640, 800] : [320, 480, 640]);
+
   return (
     <article 
       onClick={onClick}
@@ -21,9 +25,14 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick, feat
         featured ? 'md:col-span-6 h-64 md:h-full min-h-[260px]' : 'h-52 w-full'
       }`}>
         <img
-          src={article.featuredImage}
+          src={cardImgSrc}
+          srcSet={cardImgSrcSet}
+          sizes={featured ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'}
           alt={article.altText || article.title}
           loading="lazy"
+          decoding="async"
+          width={featured ? 640 : 480}
+          height={featured ? 380 : 280}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
         />
         <div className="absolute top-3 left-3">
@@ -70,6 +79,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick, feat
             <img 
               src={article.author.avatar} 
               alt={article.author.name}
+              width={24}
+              height={24}
+              loading="lazy"
+              decoding="async"
               className="w-6 h-6 rounded-full object-cover border border-[#c2d6c5]" 
             />
             <span className="text-xs text-[#52796f] font-medium truncate max-w-[140px]">

@@ -5,6 +5,7 @@ import { ArticleCard } from './ArticleCard';
 import { SeasonalSection } from './SeasonalSection';
 import { NewsletterBox } from './NewsletterBox';
 import { AdContainer } from './AdContainer';
+import { getOptimizedImageUrl } from '../utils/image';
 
 interface HomeViewProps {
   navigate: (path: string) => void;
@@ -33,10 +34,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1600&q=80"
+            src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=75"
+            srcSet="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=480&q=70 480w, https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=960&q=75 960w, https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1400&q=80 1400w"
+            sizes="100vw"
             alt="Vibrant British garden with blooming flowers and lush greenery"
+            width={1200}
+            height={600}
             className="w-full h-full object-cover object-center opacity-30"
             loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#122b20] via-[#122b20]/60 to-transparent" />
         </div>
@@ -153,9 +160,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
               >
                 <div className="h-44 overflow-hidden relative bg-[#f1f6f1]">
                   <img
-                    src={cat.image}
+                    src={getOptimizedImageUrl(cat.image, 480, 75)}
                     alt={cat.name}
                     loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={176}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

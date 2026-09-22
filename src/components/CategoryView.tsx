@@ -5,6 +5,7 @@ import { useBlog } from '../context/BlogContext';
 import { ArticleCard } from './ArticleCard';
 import { AdContainer } from './AdContainer';
 import { NewsletterBox } from './NewsletterBox';
+import { getOptimizedImageUrl } from '../utils/image';
 
 interface CategoryViewProps {
   category: Category;
@@ -40,8 +41,12 @@ export const CategoryView: React.FC<CategoryViewProps> = ({ category, navigate }
       <div className="relative rounded-3xl overflow-hidden bg-[#18392b] text-white p-8 sm:p-12 mb-10 shadow-sm">
         <div className="absolute inset-0 opacity-25 mix-blend-overlay">
           <img
-            src={category.image}
+            src={getOptimizedImageUrl(category.image, 1000, 75)}
             alt={category.name}
+            loading="lazy"
+            decoding="async"
+            width={1000}
+            height={400}
             className="w-full h-full object-cover"
           />
         </div>

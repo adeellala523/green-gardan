@@ -1,44 +1,47 @@
-import React from 'react';
-import { FileText, Copy, Check } from 'lucide-react';
+import React, { useState } from 'react';
 import { useBlog } from '../context/BlogContext';
 
-export const AdsTxtView: React.FC = () => {
+interface AdsTxtViewProps {
+  navigate?: (path: string) => void;
+}
+
+export const AdsTxtView: React.FC<AdsTxtViewProps> = ({ navigate }) => {
   const { adsenseSettings } = useBlog();
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const text = adsenseSettings.adsTxtContent || 'google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0';
 
   const copyText = () => {
-    navigator.clipboard.writeText(adsenseSettings.adsTxtContent);
+    navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs space-y-4">
-        <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
-          <div className="flex items-center gap-2">
-            <FileText className="w-5 h-5 text-[#2d6a4f]" />
-            <h1 className="text-lg font-bold font-editorial text-[#14281c]">
-              Public ads.txt
-            </h1>
-          </div>
-          <button
-            onClick={copyText}
-            className="px-3 py-1.5 rounded-lg bg-[#1b4332] text-white text-xs font-semibold hover:bg-[#2d6a4f] cursor-pointer flex items-center gap-1.5"
+    <div className="min-h-screen bg-white text-neutral-900 p-4 sm:p-8 font-mono text-sm">
+      <div className="mb-4 pb-2 border-b border-neutral-200 flex justify-between items-center text-xs font-sans text-neutral-500">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-semibold text-neutral-800">/ads.txt</span>
+          <button 
+            onClick={copyText} 
+            className="text-emerald-700 hover:text-emerald-800 underline cursor-pointer"
           >
-            {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copied ? 'Copied' : 'Copy'}</span>
+            {copied ? 'Copied!' : 'Copy text'}
           </button>
         </div>
-
-        <p className="text-xs text-neutral-500">
-          This record identifies authorized sellers of advertising space on Green Garden to combat ad fraud.
-        </p>
-
-        <pre className="p-4 bg-neutral-900 rounded-xl text-emerald-400 font-mono text-xs whitespace-pre-wrap leading-relaxed">
-          {adsenseSettings.adsTxtContent}
-        </pre>
+        {navigate && (
+          <button
+            onClick={() => navigate('/')}
+            className="text-neutral-500 hover:text-neutral-900 hover:underline cursor-pointer"
+          >
+            ← Return to Green Garden
+          </button>
+        )}
       </div>
+
+      <pre className="whitespace-pre-wrap select-all font-mono text-sm leading-relaxed text-neutral-900 bg-transparent m-0 font-normal">
+        {text}
+      </pre>
     </div>
   );
 };

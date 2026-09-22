@@ -16,6 +16,7 @@ import { useBlog } from '../context/BlogContext';
 import { AdContainer } from './AdContainer';
 import { ArticleCard } from './ArticleCard';
 import { NewsletterBox } from './NewsletterBox';
+import { getOptimizedImageUrl, getUnsplashSrcSet } from '../utils/image';
 
 interface ArticleViewProps {
   article: Article;
@@ -116,6 +117,10 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
             <img
               src={article.author.avatar}
               alt={article.author.name}
+              width={44}
+              height={44}
+              loading="lazy"
+              decoding="async"
               className="w-11 h-11 rounded-full object-cover border border-[#c2d6c5]"
             />
             <div>
@@ -141,8 +146,15 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
       {/* Featured Image */}
       <div className="mb-10 rounded-2xl overflow-hidden shadow-sm bg-[#eaf0ea]">
         <img
-          src={article.featuredImage}
+          src={getOptimizedImageUrl(article.featuredImage, 1000, 80)}
+          srcSet={getUnsplashSrcSet(article.featuredImage, [480, 800, 1200])}
+          sizes="(max-width: 768px) 100vw, 900px"
           alt={article.altText || article.title}
+          width={1000}
+          height={500}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-auto max-h-[500px] object-cover"
         />
         {article.altText && (

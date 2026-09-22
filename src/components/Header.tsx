@@ -53,35 +53,20 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
 
   return (
     <header className="sticky top-0 z-40 bg-[#fcfdfa]/95 backdrop-blur-md border-b border-[#e5ebe4] transition-all">
-      {/* Top Editorial Bar */}
-      <div className="bg-[#1b4332] text-[#e7f2e8] text-xs py-1.5 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center tracking-wide font-sans">
-          <div className="flex items-center gap-3">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#52b788]"></span>
-            <span>UK Gardening &amp; Lifestyle Publication</span>
-            <span className="text-[#a7d3ab]">|</span>
-            <span className="text-[#cde4ce]">Practical Advice for British Climates &amp; Soils</span>
-          </div>
-          <div className="flex items-center gap-4 text-[11px]">
-            <button 
-              onClick={() => handleNavClick('/sitemap.xml')} 
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              XML Sitemap (/sitemap.xml)
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Logo */}
-          <div 
-            onClick={() => handleNavClick('/')}
+          <a 
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('/');
+            }}
             className="flex items-center gap-3 cursor-pointer group select-none"
             id="brand-logo-btn"
+            aria-label="Green Garden - Home"
           >
             <div className="w-11 h-11 rounded-xl bg-[#1b4332] flex items-center justify-center text-[#d8f3dc] shadow-sm group-hover:bg-[#2d6a4f] transition-all">
               <Sprout className="w-6 h-6 transform group-hover:scale-110 transition-transform" />
@@ -94,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
                 UK Gardening &amp; Nature
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">

@@ -1,18 +1,27 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react';
 import { BlogProvider, useBlog } from './context/BlogContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
-import { CategoryView } from './components/CategoryView';
-import { ArticleView } from './components/ArticleView';
-import { PageView } from './components/PageView';
-import { SearchView } from './components/SearchView';
-import { SitemapView } from './components/SitemapView';
-import { AdsTxtView } from './components/AdsTxtView';
-import { RobotsView } from './components/RobotsView';
-import { AdminPanel } from './components/Admin/AdminPanel';
 import { updatePageSeo } from './utils/seo';
 import { Sprout, ArrowLeft, Search } from 'lucide-react';
+
+// Code-split non-critical and secondary views for optimal mobile performance
+const CategoryView = lazy(() => import('./components/CategoryView').then(m => ({ default: m.CategoryView })));
+const ArticleView = lazy(() => import('./components/ArticleView').then(m => ({ default: m.ArticleView })));
+const PageView = lazy(() => import('./components/PageView').then(m => ({ default: m.PageView })));
+const SearchView = lazy(() => import('./components/SearchView').then(m => ({ default: m.SearchView })));
+const SitemapView = lazy(() => import('./components/SitemapView').then(m => ({ default: m.SitemapView })));
+const AdsTxtView = lazy(() => import('./components/AdsTxtView').then(m => ({ default: m.AdsTxtView })));
+const RobotsView = lazy(() => import('./components/RobotsView').then(m => ({ default: m.RobotsView })));
+const AdminPanel = lazy(() => import('./components/Admin/AdminPanel').then(m => ({ default: m.AdminPanel })));
+
+const RouteLoadingFallback = () => (
+  <div className="py-24 text-center">
+    <div className="w-8 h-8 mx-auto border-3 border-[#2d6a4f] border-t-transparent rounded-full animate-spin" />
+    <span className="sr-only">Loading page...</span>
+  </div>
+);
 
 function BlogApp() {
   const { articles, categories, staticPages, siteSettings } = useBlog();
@@ -148,13 +157,13 @@ function BlogApp() {
         return <SearchView navigate={navigate} />;
 
       case 'sitemap':
-        return <SitemapView navigate={navigate} initialTab={normalizedPath === '/sitemap.xml' ? 'xml' : 'visual'} />;
+        return <SitemapView navigate={navigate} initialTab="links" />;
 
       case 'ads-txt':
-        return <AdsTxtView />;
+        return <AdsTxtView navigate={navigate} />;
 
       case 'robots':
-        return <RobotsView />;
+        return <RobotsView navigate={navigate} />;
 
       default:
         return (
@@ -189,6 +198,31 @@ function BlogApp() {
     }
   };
 
+  // Standalone plain text & links views without the main website shell
+  if (route.type === 'ads-txt') {
+    return (
+      <Suspense fallback={<RouteLoadingFallback />}>
+        <AdsTxtView navigate={navigate} />
+      </Suspense>
+    );
+  }
+
+  if (route.type === 'sitemap') {
+    return (
+      <Suspense fallback={<RouteLoadingFallback />}>
+        <SitemapView navigate={navigate} initialTab="links" />
+      </Suspense>
+    );
+  }
+
+  if (route.type === 'robots') {
+    return (
+      <Suspense fallback={<RouteLoadingFallback />}>
+        <RobotsView navigate={navigate} />
+      </Suspense>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfdfa] text-[#1e2f23] font-sans antialiased selection:bg-[#cde4ce] selection:text-[#0b2416]">
       {/* Global Header */}
@@ -200,14 +234,18 @@ function BlogApp() {
 
       {/* Main Content Area */}
       <main className="flex-grow">
-        {renderContent()}
+        <Suspense fallback={<RouteLoadingFallback />}>
+          {renderContent()}
+        </Suspense>
       </main>
 
       {/* Search Modal Overlay */}
       {isSearchOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-start justify-center pt-16 px-4 animate-in fade-in duration-150">
           <div className="bg-white rounded-3xl border border-[#cde2cf] w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl p-6 relative">
-            <SearchView navigate={navigate} onClose={() => setIsSearchOpen(false)} />
+            <Suspense fallback={<RouteLoadingFallback />}>
+              <SearchView navigate={navigate} onClose={() => setIsSearchOpen(false)} />
+            </Suspense>
           </div>
         </div>
       )}
