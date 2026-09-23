@@ -31,7 +31,7 @@ const slugifyHeading = (text: string) =>
   text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) => {
-  const { articles } = useBlog();
+  const { articles, siteSettings } = useBlog();
   const [copied, setCopied] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -42,7 +42,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
 
   // Share handlers
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const shareText = `${article.title} - Green Garden UK`;
+  const shareText = `${article.title} - ${siteSettings.siteName || 'Green Gardan UK'}`;
 
   const copyLink = () => {
     if (navigator.clipboard) {
@@ -141,8 +141,8 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Green Garden',
-      url: 'https://greengarden.co.uk',
+      name: siteSettings.siteName || 'Green Gardan',
+      url: siteSettings.canonicalBaseUrl || 'https://greengardan.co.uk',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',

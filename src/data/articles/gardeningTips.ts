@@ -225,7 +225,7 @@ Cut down green manures in spring with a sharp spade just as the first flowers ap
     isFeatured: true,
     isPopular: true,
     status: 'published',
-    seoTitle: "Beginner's Guide to Growing Vegetables in the UK | Green Garden",
+    seoTitle: "Beginner's Guide to Growing Vegetables in the UK | Green Gardan",
     metaDescription: "The ultimate beginner's guide to growing vegetables in the UK. Discover foolproof crops, planting calendars, sunlight requirements, and slug protection.",
     focusKeyword: 'growing vegetables UK beginners',
     canonicalUrl: '/gardening-tips/beginners-guide-growing-vegetables-uk',

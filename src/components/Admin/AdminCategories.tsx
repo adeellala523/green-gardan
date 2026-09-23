@@ -44,7 +44,7 @@ export const AdminCategories: React.FC = () => {
       ...prev,
       name,
       slug: prev.slug || slug,
-      seoTitle: `${name} | Green Garden UK`
+      seoTitle: `${name} | Green Gardan UK`
     }));
   };
 
@@ -58,7 +58,7 @@ export const AdminCategories: React.FC = () => {
         slug: formData.slug,
         description: formData.description || '',
         image: formData.image || 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80',
-        seoTitle: formData.seoTitle || `${formData.name} Guides | Green Garden`,
+        seoTitle: formData.seoTitle || `${formData.name} Guides | Green Gardan`,
         metaDescription: formData.metaDescription || formData.description
       });
       setMsg('New category added successfully!');

@@ -104,7 +104,7 @@ export const AdminArticles: React.FC<AdminArticlesProps> = ({ initialMode = 'lis
       ...prev,
       title,
       slug: editingArticle ? prev.slug : slug,
-      seoTitle: editingArticle ? prev.seoTitle : `${title} | Green Garden UK`
+      seoTitle: editingArticle ? prev.seoTitle : `${title} | Green Gardan UK`
     }));
   };
 
@@ -161,7 +161,7 @@ export const AdminArticles: React.FC<AdminArticlesProps> = ({ initialMode = 'lis
         altText: formData.altText || formData.title || '',
         author: {
           id: 'author-editorial',
-          name: 'Green Garden Editorial Team',
+          name: 'Green Gardan Editorial Team',
           role: 'Horticultural Writers & UK Gardeners',
           avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
           bio: 'Passionate British gardeners sharing actionable advice.'

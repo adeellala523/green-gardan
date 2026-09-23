@@ -67,13 +67,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
             }}
             className="flex items-center gap-3 cursor-pointer group select-none"
             id="brand-logo-btn"
-            aria-label="Green Garden - Home"
+            aria-label="Green Gardan - Home"
           >
             <div className="w-10 h-10 rounded-xl bg-[#1b4332] flex items-center justify-center text-[#d8f3dc] shadow-sm group-hover:bg-[#2d6a4f] transition-all">
               <Sprout className="w-5 h-5" />
             </div>
             <span className="text-2xl font-bold font-sans tracking-tight text-[#14281c]">
-              Green<span className="text-[#2d6a4f]">Garden</span>
+              Green<span className="text-[#2d6a4f]">Gardan</span>
             </span>
           </a>
 

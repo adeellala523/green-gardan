@@ -34,7 +34,7 @@ export const AdsTxtView: React.FC<AdsTxtViewProps> = ({ navigate }) => {
             onClick={() => navigate('/')}
             className="text-neutral-500 hover:text-neutral-900 hover:underline cursor-pointer"
           >
-            ← Return to Green Garden
+            ← Return to Green Gardan
           </button>
         )}
       </div>

@@ -115,6 +115,11 @@ function BlogApp() {
       return { type: 'robots' as const };
     }
 
+    // Google Search Console HTML File verification route: e.g. /google1234567890abcdef.html
+    if (normalizedPath.startsWith('/google') && normalizedPath.endsWith('.html')) {
+      return { type: 'google-verification' as const };
+    }
+
     // Check if matching a static trust/legal page (e.g. /about-us)
     const pageSlug = segments[0];
     if (segments.length === 1 && staticPages[pageSlug]) {
@@ -249,6 +254,15 @@ function BlogApp() {
       <Suspense fallback={<RouteLoadingFallback />}>
         <RobotsView navigate={navigate} />
       </Suspense>
+    );
+  }
+
+  if (route.type === 'google-verification') {
+    const rawFile = normalizedPath.replace(/^\//, '');
+    return (
+      <div className="min-h-screen bg-white text-neutral-900 font-mono text-sm p-8">
+        google-site-verification: {rawFile}
+      </div>
     );
   }
 

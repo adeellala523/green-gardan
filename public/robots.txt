@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /admin/
 
 # Search Engine Sitemaps
-Sitemap: https://greengarden.co.uk/sitemap.xml
+Sitemap: https://greengardan.co.uk/sitemap.xml

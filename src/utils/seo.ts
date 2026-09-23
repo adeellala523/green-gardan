@@ -11,8 +11,8 @@ export function updatePageSeo(
 ) {
   if (typeof document === 'undefined') return;
 
-  const siteName = data?.siteSettings?.siteName || 'Green Garden';
-  const baseUrl = data?.siteSettings?.canonicalBaseUrl || 'https://greengarden.co.uk';
+  const siteName = data?.siteSettings?.siteName || 'Green Gardan';
+  const baseUrl = data?.siteSettings?.canonicalBaseUrl || 'https://greengardan.co.uk';
 
   let title = `${siteName} - UK Gardening & Lifestyle Blog`;
   let description = data?.siteSettings?.siteDescription || 'Expert gardening tips, plant profiles, seasonal advice, and eco-friendly ideas for UK gardeners.';
@@ -124,7 +124,19 @@ export function updatePageSeo(
   // Set Google Site Verification if configured
   const gVer = data?.siteSettings?.googleVerificationCode || data?.siteSettings?.googleSiteVerification;
   if (gVer) {
-    setMeta('google-site-verification', gVer);
+    // Extract token if user accidentally pasted full meta tag: <meta name="google-site-verification" content="XYZ" />
+    let cleanToken = gVer.trim();
+    const match = cleanToken.match(/content=["']([^"']+)["']/i);
+    if (match && match[1]) {
+      cleanToken = match[1];
+    }
+    setMeta('google-site-verification', cleanToken);
+  } else {
+    // If empty or removed, remove existing meta tag if any
+    const existing = document.querySelector('meta[name="google-site-verification"]');
+    if (existing && existing.parentElement) {
+      existing.parentElement.removeChild(existing);
+    }
   }
 
   // Set Canonical Link

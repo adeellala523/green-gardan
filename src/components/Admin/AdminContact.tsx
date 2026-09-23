@@ -55,7 +55,7 @@ export const AdminContact: React.FC = () => {
 
               <div className="flex items-center justify-between pt-3 mt-2 text-xs">
                 <a
-                  href={`mailto:${msg.email}?subject=${encodeURIComponent('Re: ' + (msg.subject || 'Your inquiry to Green Garden'))}`}
+                  href={`mailto:${msg.email}?subject=${encodeURIComponent('Re: ' + (msg.subject || 'Your inquiry to Green Gardan'))}`}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1b4332] hover:text-[#2d6a4f]"
                 >
                   <CornerUpLeft className="w-3.5 h-3.5" />

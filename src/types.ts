@@ -113,6 +113,8 @@ export interface SiteSettings {
   footerText: string;
   googleVerificationCode: string;
   googleSiteVerification?: string;
+  googleVerificationMethod?: 'html_tag' | 'html_file' | 'dns';
+  googleHtmlFileName?: string;
   canonicalBaseUrl?: string;
   seasonalAdvice: SeasonalAdvice;
 }

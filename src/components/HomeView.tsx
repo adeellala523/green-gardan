@@ -167,17 +167,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
           );
         })}
 
-        {/* 4. About Green Garden Introduction Section */}
+        {/* 4. About Green Gardan Introduction Section */}
         <section className="bg-white rounded-3xl border border-[#d6e6d8] p-8 sm:p-12 shadow-2xs my-12">
           <div className="max-w-3xl space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-[#40916c]">
               Independent UK Botanical Publishing
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold font-sans text-[#13281a]">
-              About Green Garden
+              About Green Gardan
             </h2>
             <p className="text-sm sm:text-base text-[#385141] leading-relaxed font-normal">
-              Green Garden is dedicated to providing dependable, environmentally conscious gardening wisdom tailored exclusively for the climates and soils of Great Britain and Northern Ireland. We champion peat-free methods, biodiversity-rich wildlife sanctuaries, and realistic techniques for busy households.
+              Green Gardan is dedicated to providing dependable, environmentally conscious gardening wisdom tailored exclusively for the climates and soils of Great Britain and Northern Ireland. We champion peat-free methods, biodiversity-rich wildlife sanctuaries, and realistic techniques for busy households.
             </p>
             <div className="pt-2">
               <button

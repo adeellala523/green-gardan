@@ -4,15 +4,15 @@ export const initialPages: PageContent[] = [
   {
     id: 'page-about',
     slug: 'about-us',
-    title: 'About Green Garden',
+    title: 'About Green Gardan',
     subtitle: 'Practical gardening inspiration and trustworthy advice for growers across the United Kingdom.',
-    metaTitle: 'About Us | Green Garden - UK Gardening & Lifestyle Blog',
-    metaDescription: 'Learn about Green Garden, an independent UK horticultural publication dedicated to down-to-earth advice, biodiversity, plant care, and seasonal living.',
+    metaTitle: 'About Us | Green Gardan - UK Gardening & Lifestyle Blog',
+    metaDescription: 'Learn about Green Gardan, an independent UK horticultural publication dedicated to down-to-earth advice, biodiversity, plant care, and seasonal living.',
     lastUpdated: '2026-03-15',
     content: `
 ## Our Editorial Mission
 
-Founded by a passionate collective of British gardeners, allotment keepers, and environmental advocates, **Green Garden** was created with a clear purpose: to deliver practical, honest, and environmentally mindful gardening advice specifically tailored to the unique climate, soils, and seasonal rhythms of the United Kingdom.
+Founded by a passionate collective of British gardeners, allotment keepers, and environmental advocates, **Green Gardan** was created with a clear purpose: to deliver practical, honest, and environmentally mindful gardening advice specifically tailored to the unique climate, soils, and seasonal rhythms of the United Kingdom.
 
 British gardening is as varied as our landscape. From the maritime breezes of Cornwall to the frost pockets of the Scottish Borders, no two gardens share identical challenges. We cut through confusing horticultural jargon to offer clear, actionable advice whether you tend a suburban lawn, a windowsill herb planter, or a community allotment.
 
@@ -42,10 +42,10 @@ Our content is written and fact-checked by experienced gardeners. Where we recom
   {
     id: 'page-contact',
     slug: 'contact-us',
-    title: 'Contact Green Garden',
+    title: 'Contact Green Gardan',
     subtitle: 'We welcome questions, editorial feedback, and gardening story suggestions from our community.',
-    metaTitle: 'Contact Us | Green Garden Editorial Team',
-    metaDescription: 'Get in touch with the Green Garden editorial team. Send us your gardening questions, reader feedback, or horticultural partnership inquiries.',
+    metaTitle: 'Contact Us | Green Gardan Editorial Team',
+    metaDescription: 'Get in touch with the Green Gardan editorial team. Send us your gardening questions, reader feedback, or horticultural partnership inquiries.',
     lastUpdated: '2026-03-10',
     content: `
 ## We Would Love to Hear From You
@@ -57,12 +57,12 @@ Whether you have a question about a tricky corner of your border, feedback on on
 ### Editorial Enquiries
 
 For editorial submissions, horticultural corrections, or reader feedback:
-- **Email:** editorial@greengarden.co.uk (Official editorial desk)
+- **Email:** editorial@greengardan.co.uk (Official editorial desk)
 
 ### Advertising & Monetisation
 
-For Google AdSense compliance inquiries, privacy disclosures, or publisher requests:
-- **Email:** contact@greengarden.co.uk
+For Google AdSense and Ezoic compliance inquiries, privacy disclosures, or publisher requests:
+- **Email:** contact@greengardan.co.uk
 
 ### Response Times
 
@@ -74,13 +74,13 @@ Our team reviews messages from Monday to Friday. We endeavour to reply to all ge
     slug: 'privacy-policy',
     title: 'Privacy Policy',
     subtitle: 'Compliant with the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018.',
-    metaTitle: 'Privacy Policy | Green Garden',
-    metaDescription: 'Read the Green Garden Privacy Policy. Learn how we collect, store, and protect your personal information, in compliance with UK GDPR and AdSense rules.',
+    metaTitle: 'Privacy Policy | Green Gardan',
+    metaDescription: 'Read the Green Gardan Privacy Policy. Learn how we collect, store, and protect your personal information, in compliance with UK GDPR and AdSense rules.',
     lastUpdated: '2026-03-01',
     content: `
 ## 1. Introduction
 
-Green Garden ("we", "our", or "us") is dedicated to protecting the privacy and personal data of visitors to our website. This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
+Green Gardan ("we", "our", or "us") is dedicated to protecting the privacy and personal data of visitors to our website (greengardan.co.uk). This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
 
 ---
 
@@ -99,7 +99,7 @@ Green Garden ("we", "our", or "us") is dedicated to protecting the privacy and p
 
 ## 3. Google AdSense & Advertising Cookies
 
-We may display advertising powered by **Google AdSense**.
+We may display advertising powered by **Google AdSense** and **Ezoic**.
 
 - Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.
 - Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.
@@ -123,20 +123,20 @@ To exercise any of these statutory rights, please contact our data coordinator v
     id: 'page-terms',
     slug: 'terms-and-conditions',
     title: 'Terms & Conditions',
-    subtitle: 'Guidelines and terms of use for visitors and readers of Green Garden.',
-    metaTitle: 'Terms & Conditions | Green Garden',
-    metaDescription: 'Terms and conditions of using Green Garden. Read our guidelines on intellectual property, user responsibilities, and website usage.',
+    subtitle: 'Guidelines and terms of use for visitors and readers of Green Gardan.',
+    metaTitle: 'Terms & Conditions | Green Gardan',
+    metaDescription: 'Terms and conditions of using Green Gardan. Read our guidelines on intellectual property, user responsibilities, and website usage.',
     lastUpdated: '2026-03-01',
     content: `
 ## 1. Acceptance of Terms
 
-By accessing or reading the content published on **Green Garden**, you agree to be bound by these Terms and Conditions and all applicable laws and regulations of England and Wales.
+By accessing or reading the content published on **Green Gardan**, you agree to be bound by these Terms and Conditions and all applicable laws and regulations of England and Wales.
 
 ---
 
 ## 2. Intellectual Property Rights
 
-Unless otherwise indicated, all original written guides, editorial compilations, website layout, code, and graphical assets are the proprietary intellectual property of Green Garden and are protected under UK and international copyright treaties.
+Unless otherwise indicated, all original written guides, editorial compilations, website layout, code, and graphical assets are the proprietary intellectual property of Green Gardan and are protected under UK and international copyright treaties.
 
 You may:
 - Quote brief extracts (up to 150 words) provided clear attribution and a direct hyperlink to the original article are included.
@@ -149,7 +149,7 @@ You may not:
 
 ## 3. External Links
 
-Our articles frequently reference authoritative external resources (such as botanical databases, weather reports, and horticultural organizations). Green Garden is not responsible for the content, privacy practices, or availability of third-party external websites.
+Our articles frequently reference authoritative external resources (such as botanical databases, weather reports, and horticultural organizations). Green Gardan is not responsible for the content, privacy practices, or availability of third-party external websites.
     `
   },
   {
@@ -157,8 +157,8 @@ Our articles frequently reference authoritative external resources (such as bota
     slug: 'cookie-policy',
     title: 'Cookie Policy',
     subtitle: 'Information on how cookies and local storage are utilized on this publication.',
-    metaTitle: 'Cookie Policy | Green Garden',
-    metaDescription: 'Understand how Green Garden uses essential, analytical, and advertising cookies to ensure website speed and functionality.',
+    metaTitle: 'Cookie Policy | Green Gardan',
+    metaDescription: 'Understand how Green Gardan uses essential, analytical, and advertising cookies to ensure website speed and functionality.',
     lastUpdated: '2026-03-01',
     content: `
 ## 1. What Are Cookies?
@@ -181,9 +181,9 @@ These cookies remember your preferences (such as cookie consent choices or font 
 
 We use aggregated, anonymised analytics to understand which gardening guides resonate most with readers and to measure page loading speeds.
 
-### D. Advertising Cookies (Google AdSense)
+### D. Advertising Cookies (Google AdSense & Ezoic)
 
-When Google AdSense is active, cookies are placed to measure ad impressions and prevent fraudulent clicks in accordance with Google publisher policies.
+When advertising partners are active, cookies are placed to measure ad impressions and prevent fraudulent clicks in accordance with publisher policies.
 
 ---
 
@@ -197,13 +197,13 @@ You can control, disable, or delete cookies through your web browser settings. P
     slug: 'disclaimer',
     title: 'Gardening & Horticultural Disclaimer',
     subtitle: 'Important safety notices regarding plant toxicity, foraging, and outdoor tasks.',
-    metaTitle: 'Gardening Disclaimer & Safety Notices | Green Garden',
-    metaDescription: 'Important safety notices regarding gardening guidance, plant toxicity, pet safety, structural pruning, and outdoor tools on Green Garden.',
+    metaTitle: 'Gardening Disclaimer & Safety Notices | Green Gardan',
+    metaDescription: 'Important safety notices regarding gardening guidance, plant toxicity, pet safety, structural pruning, and outdoor tools on Green Gardan.',
     lastUpdated: '2026-03-01',
     content: `
 ## 1. General Information Only
 
-The articles, plant profiles, and gardening recommendations published on **Green Garden** are provided for general educational, lifestyle, and informational purposes only. While our team endeavours to keep information accurate and up to date, gardening outcomes depend heavily on local microclimates, weather extremes, and unpredictable soil conditions.
+The articles, plant profiles, and gardening recommendations published on **Green Gardan** are provided for general educational, lifestyle, and informational purposes only. While our team endeavours to keep information accurate and up to date, gardening outcomes depend heavily on local microclimates, weather extremes, and unpredictable soil conditions.
 
 ---
 
@@ -227,15 +227,15 @@ Pruning large trees, handling power machinery (such as hedge trimmers and chains
     slug: 'editorial-policy',
     title: 'Editorial & Fact-Checking Policy',
     subtitle: 'Our rigorous standards for horticultural accuracy, ethical publishing, and human expertise.',
-    metaTitle: 'Editorial & Fact-Checking Standards | Green Garden UK',
-    metaDescription: 'Read the Green Garden editorial guidelines. Discover how we research, vet against Royal Horticultural Society standards, fact-check, and update our British gardening guides.',
+    metaTitle: 'Editorial & Fact-Checking Standards | Green Gardan UK',
+    metaDescription: 'Read the Green Gardan editorial guidelines. Discover how we research, vet against Royal Horticultural Society standards, fact-check, and update our British gardening guides.',
     lastUpdated: '2026-03-20',
     content: `
 ## 1. Our Commitment to Horticultural Excellence
 
-At **Green Garden**, our highest priority is publishing accurate, trustworthy, and actionable botanical knowledge tailored specifically to the climate, native ecology, and soil varieties of the United Kingdom. We recognize that poor gardening advice can lead to crop loss, damaged soil ecosystems, wasted financial investment, and even danger to pets or family members.
+At **Green Gardan**, our highest priority is publishing accurate, trustworthy, and actionable botanical knowledge tailored specifically to the climate, native ecology, and soil varieties of the United Kingdom. We recognize that poor gardening advice can lead to crop loss, damaged soil ecosystems, wasted financial investment, and even danger to pets or family members.
 
-To prevent misinformation, every single guide published under the Green Garden imprint adheres to strict editorial, horticultural, and fact-checking protocols.
+To prevent misinformation, every single guide published under the Green Gardan imprint adheres to strict editorial, horticultural, and fact-checking protocols.
 
 ---
 
@@ -263,7 +263,7 @@ Every article undergoes a multi-stage review before public distribution:
 
 ## 4. Corrections Policy
 
-We take horticultural accuracy seriously. If you identify a factual error, ambiguous recommendation, or outdated seasonal advice in any guide, we encourage you to contact our editorial desk at **editorial@greengarden.co.uk**. We investigate all reported corrections within 48 business hours and publicly update the article with a clear revision date.
+We take horticultural accuracy seriously. If you identify a factual error, ambiguous recommendation, or outdated seasonal advice in any guide, we encourage you to contact our editorial desk at **editorial@greengardan.co.uk**. We investigate all reported corrections within 48 business hours and publicly update the article with a clear revision date.
     `
   },
   {
@@ -271,13 +271,13 @@ We take horticultural accuracy seriously. If you identify a factual error, ambig
     slug: 'advertising-disclosure',
     title: 'Advertising & Monetization Disclosure',
     subtitle: 'Transparent disclosures regarding digital advertising, sponsorships, and reader support.',
-    metaTitle: 'Advertising & Monetization Disclosure | Green Garden',
-    metaDescription: 'Understand how Green Garden monetizes its free publication through display advertising (Google AdSense, Ezoic) and our strict commitment to editorial independence.',
+    metaTitle: 'Advertising & Monetization Disclosure | Green Gardan',
+    metaDescription: 'Understand how Green Gardan monetizes its free publication through display advertising (Google AdSense, Ezoic) and our strict commitment to editorial independence.',
     lastUpdated: '2026-03-20',
     content: `
 ## 1. Editorial Independence Guarantee
 
-**Green Garden is 100% free and independent.** We believe that dependable, peat-free gardening guidance should be universally accessible to every aspiring grower without mandatory paywalls, subscriptions, or gated content.
+**Green Gardan is 100% free and independent.** We believe that dependable, peat-free gardening guidance should be universally accessible to every aspiring grower without mandatory paywalls, subscriptions, or gated content.
 
 To sustain our research, editorial salaries, website hosting, and seasonal testing plots, we support our publication through ethical digital display advertising and occasional affiliate partnerships.
 
@@ -297,7 +297,7 @@ We partner with programmatic advertising networks, including **Google AdSense** 
 
 ## 3. Affiliate Relationships & Product Recommendations
 
-From time to time, Green Garden may include affiliate links to gardening tools, peat-free composts, seed merchants, or gardening literature. If you click an affiliate link and make a purchase, we may receive a modest commission at absolutely zero additional cost to you.
+From time to time, Green Gardan may include affiliate links to gardening tools, peat-free composts, seed merchants, or gardening literature. If you click an affiliate link and make a purchase, we may receive a modest commission at absolutely zero additional cost to you.
 
 We only recommend tools, seeds, and equipment that our writers have personally used or that hold recognized credentials, such as the RHS Award of Garden Merit.
 
@@ -307,7 +307,7 @@ We only recommend tools, seeds, and equipment that our writers have personally u
 
 This disclosure is maintained in strict compliance with the **UK Advertising Standards Authority (ASA)**, the **Committee of Advertising Practice (CAP) Code**, and the **US Federal Trade Commission (FTC)** guidelines on digital endorsements and publisher transparency.
 
-If you have questions regarding our monetization practices, please write to our publisher desk at **contact@greengarden.co.uk**.
+If you have questions regarding our monetization practices, please write to our publisher desk at **contact@greengardan.co.uk**.
     `
   }
 ];

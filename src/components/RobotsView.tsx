@@ -15,7 +15,7 @@ Disallow: /admin
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: ${siteSettings.canonicalBaseUrl || 'https://greengarden.co.uk'}/sitemap.xml
+Sitemap: ${siteSettings.canonicalBaseUrl || 'https://greengardan.co.uk'}/sitemap.xml
 `;
 
   const copyText = () => {
@@ -41,7 +41,7 @@ Sitemap: ${siteSettings.canonicalBaseUrl || 'https://greengarden.co.uk'}/sitemap
             onClick={() => navigate('/')}
             className="text-neutral-500 hover:text-neutral-900 hover:underline cursor-pointer"
           >
-            ← Return to Green Garden
+            ← Return to Green Gardan
           </button>
         )}
       </div>

@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
-import { Search, Check, Globe, FileCode, ExternalLink, ShieldCheck, Eye } from 'lucide-react';
+import { 
+  Search, 
+  Check, 
+  Globe, 
+  FileCode, 
+  ExternalLink, 
+  ShieldCheck, 
+  Copy, 
+  Download, 
+  HelpCircle, 
+  CheckCircle2, 
+  Terminal,
+  Layers,
+  ArrowRight,
+  Sparkles
+} from 'lucide-react';
 import { useBlog } from '../../context/BlogContext';
 
 export const AdminSEO: React.FC = () => {
@@ -8,24 +23,61 @@ export const AdminSEO: React.FC = () => {
   const [siteName, setSiteName] = useState(siteSettings.siteName);
   const [siteDescription, setSiteDescription] = useState(siteSettings.siteDescription);
   const [googleVerification, setGoogleVerification] = useState(siteSettings.googleVerificationCode || siteSettings.googleSiteVerification || '');
-  const [canonicalBase, setCanonicalBase] = useState(siteSettings.canonicalBaseUrl || 'https://greengarden.co.uk');
+  const [canonicalBase, setCanonicalBase] = useState(siteSettings.canonicalBaseUrl || 'https://greengardan.co.uk');
+  const [googleHtmlFileName, setGoogleHtmlFileName] = useState(siteSettings.googleHtmlFileName || '');
+  const [activeVerifyMethod, setActiveVerifyMethod] = useState<'meta_tag' | 'html_file' | 'dns'>('meta_tag');
+  
   const [msg, setMsg] = useState('');
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  // Clean token helper
+  const extractCleanToken = (raw: string) => {
+    const trimmed = raw.trim();
+    const match = trimmed.match(/content=["']([^"']+)["']/i);
+    return match ? match[1] : trimmed;
+  };
+
+  const cleanToken = extractCleanToken(googleVerification);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
+    const tokenToSave = extractCleanToken(googleVerification);
+
     updateSiteSettings({
       siteName: siteName.trim(),
       siteDescription: siteDescription.trim(),
-      googleVerificationCode: googleVerification.trim(),
-      googleSiteVerification: googleVerification.trim(),
-      canonicalBaseUrl: canonicalBase.trim()
+      googleVerificationCode: tokenToSave,
+      googleSiteVerification: tokenToSave,
+      googleHtmlFileName: googleHtmlFileName.trim(),
+      canonicalBaseUrl: canonicalBase.trim().replace(/\/$/, '')
     });
-    setMsg('SEO configuration updated successfully!');
-    setTimeout(() => setMsg(''), 4000);
+    setMsg('Google Search Console & SEO settings saved and active!');
+    setTimeout(() => setMsg(''), 4500);
+  };
+
+  const copyToClipboard = (text: string, fieldName: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(fieldName);
+    setTimeout(() => setCopiedField(null), 2500);
+  };
+
+  const downloadVerificationHtmlFile = () => {
+    const filename = googleHtmlFileName.trim() || `google${cleanToken || 'site-verification'}.html`;
+    const content = `google-site-verification: ${filename}`;
+    const blob = new Blob([content], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename.endsWith('.html') ? filename : `${filename}.html`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   // Generate dynamic XML sitemap string
   const publishedArticles = articles.filter(a => a.status === 'published');
+  const sitemapUrl = `${canonicalBase}/sitemap.xml`;
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
@@ -35,7 +87,7 @@ export const AdminSEO: React.FC = () => {
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- Categories -->
+  <!-- Categories (${categories.length}) -->
 ${categories.map(c => `  <url>
     <loc>${canonicalBase}/${c.slug}</loc>
     <changefreq>weekly</changefreq>
@@ -51,33 +103,308 @@ ${publishedArticles.map(a => `  <url>
 </urlset>`;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-5xl">
       <div>
-        <h2 className="text-2xl font-bold font-editorial text-[#14281c]">
-          Search Engine Optimization (SEO) &amp; Sitemaps
+        <h2 className="text-2xl font-bold font-editorial text-[#14281c] flex items-center gap-2.5">
+          <Search className="w-6 h-6 text-[#2d6a4f]" />
+          Google Search Console &amp; SEO Engine
         </h2>
-        <p className="text-xs text-[#52796f]">
-          Fine-tune title tags, search console ownership, XML sitemaps, and robots.txt.
+        <p className="text-xs text-[#52796f] mt-1">
+          Complete Google Search Console (GSC) domain ownership verification, XML Sitemap submission, and live meta indexing for <strong>{canonicalBase}</strong>.
         </p>
       </div>
 
       {msg && (
-        <div className="p-4 rounded-xl bg-[#e7f2e8] text-[#1b4332] text-xs font-semibold flex items-center gap-2">
-          <Check className="w-4 h-4 text-[#40916c]" />
+        <div className="p-4 rounded-xl bg-[#e7f2e8] border border-[#a7d7b5] text-[#1b4332] text-xs font-semibold flex items-center gap-2.5 animate-fadeIn">
+          <CheckCircle2 className="w-5 h-5 text-[#2d6a4f] shrink-0" />
           <span>{msg}</span>
         </div>
       )}
 
-      {/* SEO Form */}
-      <form onSubmit={handleSave} className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs space-y-5">
-        <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
-          <Search className="w-5 h-5 text-[#2d6a4f]" />
-          <h3 className="text-base font-bold font-editorial text-[#14281c]">
-            Global Metadata &amp; Search Console
-          </h3>
+      {/* GSC Quick Status Card */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="p-4 rounded-2xl bg-white border border-[#e2ece2] shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[#52796f] font-medium">GSC Verification Status</span>
+            {cleanToken ? (
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 flex items-center gap-1">
+                <Check className="w-3 h-3" /> Active
+              </span>
+            ) : (
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
+                Pending Token
+              </span>
+            )}
+          </div>
+          <div className="text-sm font-bold font-mono text-[#14281c] mt-2 truncate">
+            {cleanToken ? `Token: ${cleanToken.substring(0, 16)}...` : 'Not configured yet'}
+          </div>
+          <div className="text-[11px] text-neutral-400 mt-1">
+            Injected in &lt;head&gt; via meta tag
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="p-4 rounded-2xl bg-white border border-[#e2ece2] shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[#52796f] font-medium">Indexed Sitemap</span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+              Ready
+            </span>
+          </div>
+          <div className="text-sm font-bold font-mono text-[#14281c] mt-2 truncate">
+            /sitemap.xml
+          </div>
+          <div className="text-[11px] text-neutral-400 mt-1">
+            {publishedArticles.length} guides + {categories.length} categories ready
+          </div>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-white border border-[#e2ece2] shadow-2xs">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[#52796f] font-medium">Search Console Link</span>
+            <ExternalLink className="w-3.5 h-3.5 text-[#2d6a4f]" />
+          </div>
+          <a
+            href="https://search.google.com/search-console"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-bold text-[#1b4332] hover:text-[#2d6a4f] hover:underline mt-2 inline-flex items-center gap-1.5"
+          >
+            Open Google Search Console ↗
+          </a>
+          <div className="text-[11px] text-neutral-400 mt-1">
+            Submit sitemap.xml in GSC property
+          </div>
+        </div>
+      </div>
+
+      {/* Step-by-Step Google Search Console Integration Wizard */}
+      <div className="bg-gradient-to-br from-[#f2f8f4] to-[#e8f4ec] rounded-2xl border border-[#c4e3cb] p-6 shadow-2xs space-y-4">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-[#2d6a4f]" />
+            <h3 className="text-base font-bold font-editorial text-[#14281c]">
+              How to Connect Green Gardan with Google Search Console (3 Simple Steps)
+            </h3>
+          </div>
+          <a
+            href="https://search.google.com/search-console"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1.5 rounded-xl bg-[#1b4332] hover:bg-[#2d6a4f] text-white text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs"
+          >
+            <span>Go to Search Console</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+          <div className="p-4 rounded-xl bg-white border border-[#d2e8d8] space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#1b4332] text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <span className="text-xs font-bold text-[#14281c]">Add Property in GSC</span>
+            </div>
+            <p className="text-[12px] text-[#3d5a45] leading-relaxed">
+              Open <strong>search.google.com/search-console</strong>. Click <strong>Add Property</strong>, choose <strong>URL prefix</strong>, and enter:
+            </p>
+            <div className="p-2 rounded-lg bg-neutral-50 border border-neutral-200 flex items-center justify-between text-xs font-mono">
+              <span className="truncate text-emerald-900">{canonicalBase}</span>
+              <button
+                type="button"
+                onClick={() => copyToClipboard(canonicalBase, 'url-prefix')}
+                className="text-neutral-500 hover:text-neutral-900 ml-2"
+                title="Copy URL"
+              >
+                {copiedField === 'url-prefix' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+              </button>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-white border border-[#d2e8d8] space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#1b4332] text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <span className="text-xs font-bold text-[#14281c]">Verify Ownership</span>
+            </div>
+            <p className="text-[12px] text-[#3d5a45] leading-relaxed">
+              In Google Search Console, choose <strong>HTML tag</strong>. Copy the verification code (or entire meta tag) and paste it into the field below. Click <strong>Save Global SEO</strong>.
+            </p>
+            <p className="text-[11px] text-neutral-500 italic">
+              Once saved, click "Verify" inside Google Search Console!
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-white border border-[#d2e8d8] space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#1b4332] text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <span className="text-xs font-bold text-[#14281c]">Submit Sitemap</span>
+            </div>
+            <p className="text-[12px] text-[#3d5a45] leading-relaxed">
+              In GSC sidebar, navigate to <strong>Sitemaps</strong>. In the "Add a new sitemap" box, type:
+            </p>
+            <div className="p-2 rounded-lg bg-neutral-50 border border-neutral-200 flex items-center justify-between text-xs font-mono">
+              <span className="text-emerald-900 font-bold">sitemap.xml</span>
+              <button
+                type="button"
+                onClick={() => copyToClipboard('sitemap.xml', 'sitemap-xml')}
+                className="text-neutral-500 hover:text-neutral-900 ml-2"
+                title="Copy Sitemap Name"
+              >
+                {copiedField === 'sitemap-xml' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+              </button>
+            </div>
+            <p className="text-[11px] text-neutral-500">
+              Google will index all {publishedArticles.length} guides within 24-48 hours.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Settings Form */}
+      <form onSubmit={handleSave} className="bg-white rounded-2xl border border-[#e2ece2] p-6 sm:p-8 shadow-2xs space-y-6">
+        <div className="border-b border-neutral-100 pb-4">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5 text-[#2d6a4f]" />
+            <h3 className="text-base font-bold font-editorial text-[#14281c]">
+              Google Search Console Ownership Credentials
+            </h3>
+          </div>
+          <p className="text-xs text-neutral-500 mt-1">
+            Choose your preferred verification method from Google Search Console. Method 1 (HTML tag) is immediate and requires zero server file uploading.
+          </p>
+        </div>
+
+        {/* Verification Method Tabs */}
+        <div className="flex flex-wrap gap-2 border-b border-neutral-200 pb-3">
+          <button
+            type="button"
+            onClick={() => setActiveVerifyMethod('meta_tag')}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
+              activeVerifyMethod === 'meta_tag'
+                ? 'bg-[#1b4332] text-white shadow-xs'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+            }`}
+          >
+            Method 1: HTML Meta Tag (Recommended &amp; Instant)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveVerifyMethod('html_file')}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
+              activeVerifyMethod === 'html_file'
+                ? 'bg-[#1b4332] text-white shadow-xs'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+            }`}
+          >
+            Method 2: HTML Verification File (Hostinger Upload)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveVerifyMethod('dns')}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
+              activeVerifyMethod === 'dns'
+                ? 'bg-[#1b4332] text-white shadow-xs'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+            }`}
+          >
+            Method 3: Domain DNS Record
+          </button>
+        </div>
+
+        {activeVerifyMethod === 'meta_tag' && (
+          <div className="space-y-3 bg-[#f8faf8] p-4 rounded-xl border border-[#d8e6d8]">
+            <div className="flex items-center justify-between">
+              <label className="block text-xs font-bold text-[#14281c]">
+                Google Search Console HTML Tag Verification Token
+              </label>
+              {cleanToken && (
+                <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  Tag Injected in DOM
+                </span>
+              )}
+            </div>
+
+            <div className="space-y-1.5">
+              <input
+                type="text"
+                value={googleVerification}
+                onChange={(e) => setGoogleVerification(e.target.value)}
+                placeholder='e.g. AbC123XyZ_token or <meta name="google-site-verification" content="..." />'
+                className="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs font-mono focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+              />
+              <p className="text-[11px] text-neutral-500">
+                You can paste either the <strong>raw token code</strong> or the <strong>full meta tag snippet</strong> provided by Google Search Console. We will automatically parse and embed it as:
+              </p>
+              <div className="p-2.5 rounded-lg bg-neutral-900 text-emerald-400 font-mono text-[11px] flex items-center justify-between">
+                <code>
+                  &lt;meta name="google-site-verification" content="{cleanToken || 'YOUR_VERIFICATION_TOKEN'}" /&gt;
+                </code>
+                {cleanToken && (
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard(`<meta name="google-site-verification" content="${cleanToken}" />`, 'tag-snippet')}
+                    className="text-neutral-400 hover:text-white ml-2"
+                    title="Copy meta tag"
+                  >
+                    {copiedField === 'tag-snippet' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeVerifyMethod === 'html_file' && (
+          <div className="space-y-4 bg-[#f8faf8] p-4 rounded-xl border border-[#d8e6d8]">
+            <div>
+              <label className="block text-xs font-bold text-[#14281c] mb-1">
+                Google HTML Verification File Name
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={googleHtmlFileName}
+                  onChange={(e) => setGoogleHtmlFileName(e.target.value)}
+                  placeholder="e.g. google1a2b3c4d5e6f.html"
+                  className="w-full px-4 py-2 rounded-xl border border-neutral-300 text-xs font-mono bg-white"
+                />
+                <button
+                  type="button"
+                  onClick={downloadVerificationHtmlFile}
+                  className="px-4 py-2 rounded-xl bg-[#1b4332] text-white hover:bg-[#2d6a4f] text-xs font-bold shrink-0 inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download .html file</span>
+                </button>
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">
+                Download this file and upload it into your Hostinger <strong>public_html/</strong> directory via File Manager.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {activeVerifyMethod === 'dns' && (
+          <div className="space-y-2 bg-[#f8faf8] p-4 rounded-xl border border-[#d8e6d8] text-xs">
+            <h4 className="font-bold text-[#14281c]">Domain DNS TXT Verification (Hostinger DNS Zone)</h4>
+            <p className="text-neutral-600 leading-relaxed">
+              If verifying the entire root domain (e.g. <code>greengardan.co.uk</code>):
+            </p>
+            <ol className="list-decimal list-inside space-y-1 text-neutral-700 pl-1">
+              <li>Log in to <strong>Hostinger hPanel</strong> &gt; <strong>Domains</strong> &gt; <strong>DNS / Nameservers</strong>.</li>
+              <li>Add a new <strong>TXT Record</strong> with:
+                <ul className="list-disc list-inside pl-4 mt-1 text-neutral-600 font-mono text-[11px]">
+                  <li>Name / Host: <code>@</code></li>
+                  <li>TXT Value: <code>google-site-verification={cleanToken || 'YOUR_CODE'}</code></li>
+                  <li>TTL: <code>14400</code></li>
+                </ul>
+              </li>
+              <li>Wait 5–10 minutes for DNS propagation, then click "Verify" in Google Search Console.</li>
+            </ol>
+          </div>
+        )}
+
+        {/* Global Metadata Inputs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
           <div>
             <label className="block text-xs font-bold text-neutral-700 mb-1">
               Publication Name
@@ -98,11 +425,11 @@ ${publishedArticles.map(a => `  <url>
               type="url"
               value={canonicalBase}
               onChange={(e) => setCanonicalBase(e.target.value)}
-              placeholder="https://greengarden.co.uk"
+              placeholder="https://greengardan.co.uk"
               className="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs font-mono focus:ring-2 focus:ring-[#2d6a4f]"
             />
             <p className="text-[11px] text-neutral-400 mt-1">
-              Used in XML sitemap and canonical links for your live domain on Hostinger.
+              Used in XML sitemap, canonical meta tags, and structured schema data.
             </p>
           </div>
         </div>
@@ -119,56 +446,54 @@ ${publishedArticles.map(a => `  <url>
           />
         </div>
 
-        <div>
-          <label className="block text-xs font-bold text-neutral-700 mb-1">
-            Google Search Console Verification Token
-          </label>
-          <input
-            type="text"
-            value={googleVerification}
-            onChange={(e) => setGoogleVerification(e.target.value)}
-            placeholder="e.g. AbC123XyZ-verification-token"
-            className="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs font-mono"
-          />
-          <p className="text-[11px] text-neutral-400 mt-1">
-            Injected automatically into the &lt;head&gt; tag as <code>&lt;meta name="google-site-verification" content="..."&gt;</code>.
-          </p>
-        </div>
-
-        <div className="flex justify-end pt-2">
+        <div className="flex items-center justify-between pt-2 border-t border-neutral-100">
+          <span className="text-xs text-neutral-400">
+            Changes reflect instantly in the document head and XML sitemap endpoints.
+          </span>
           <button
             type="submit"
-            className="px-6 py-2.5 rounded-xl bg-[#1b4332] hover:bg-[#2d6a4f] text-white text-xs font-bold transition-colors cursor-pointer"
+            className="px-6 py-2.5 rounded-xl bg-[#1b4332] hover:bg-[#2d6a4f] text-white text-xs font-bold transition-colors cursor-pointer shadow-sm"
           >
-            Save Global SEO
+            Save Google Search Console &amp; SEO
           </button>
         </div>
       </form>
 
-      {/* XML Sitemap Live Preview */}
+      {/* XML Sitemap Live Preview & Search Console Submission */}
       <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs space-y-4">
-        <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+        <div className="flex items-center justify-between border-b border-neutral-100 pb-3 flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <FileCode className="w-5 h-5 text-[#2d6a4f]" />
             <div>
               <h3 className="text-base font-bold font-editorial text-[#14281c]">
-                Dynamic XML Sitemap Preview
+                Dynamic XML Sitemap for Google Search Console
               </h3>
               <p className="text-[11px] text-neutral-400">
-                Includes {publishedArticles.length} published articles and {categories.length} categories.
+                Sitemap URL: <code className="text-[#1b4332] font-semibold">{sitemapUrl}</code>
               </p>
             </div>
           </div>
 
-          <a
-            href="/sitemap"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-[#2d6a4f] hover:underline flex items-center gap-1 font-medium"
-          >
-            <span>View Public /sitemap</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => copyToClipboard(sitemapUrl, 'sitemap-url')}
+              className="px-3 py-1.5 rounded-lg border border-neutral-300 text-xs font-medium text-neutral-700 hover:bg-neutral-50 inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+            >
+              {copiedField === 'sitemap-url' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+              <span>{copiedField === 'sitemap-url' ? 'Copied Sitemap URL' : 'Copy Sitemap URL'}</span>
+            </button>
+
+            <a
+              href="/sitemap.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-emerald-50 text-[#1b4332] hover:bg-emerald-100 text-xs font-semibold inline-flex items-center gap-1 transition-colors"
+            >
+              <span>View /sitemap.xml</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
 
         <div className="bg-neutral-900 rounded-xl p-4 overflow-x-auto max-h-72">

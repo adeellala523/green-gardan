@@ -1,17 +1,18 @@
 import { AdSenseSettings, AdUnit, SiteSettings } from '../types';
 
 export const initialSiteSettings: SiteSettings = {
-  siteName: 'Green Garden',
+  siteName: 'Green Gardan',
   tagline: 'Practical UK Gardening & Botanical Living',
   siteDescription: 'Expert UK gardening advice, seasonal schedules, plant profiles, houseplant care, and wildlife gardening guides for British gardeners.',
-  contactEmail: 'contact@greengarden.co.uk',
+  canonicalBaseUrl: 'https://greengardan.co.uk',
+  contactEmail: 'contact@greengardan.co.uk',
   socialLinks: {
-    facebook: 'https://facebook.com/greengardenuk',
-    twitter: 'https://twitter.com/greengardenuk',
-    instagram: 'https://instagram.com/greengardenuk',
-    pinterest: 'https://pinterest.com/greengardenuk'
+    facebook: 'https://facebook.com/greengardanuk',
+    twitter: 'https://twitter.com/greengardanuk',
+    instagram: 'https://instagram.com/greengardanuk',
+    pinterest: 'https://pinterest.com/greengardanuk'
   },
-  footerText: '© 2026 Green Garden. An independent UK gardening publication. All rights reserved.',
+  footerText: '© 2026 Green Gardan. An independent UK gardening publication. All rights reserved.',
   googleVerificationCode: '', // Configured via Admin Panel
   seasonalAdvice: {
     season: 'Spring',
@@ -32,7 +33,7 @@ export const initialAdSenseSettings: AdSenseSettings = {
   publisherId: '', // e.g. "ca-pub-XXXXXXXXXXXXXXXX" entered by administrator
   verificationCode: '', // <meta name="google-adsense-account" content="...">
   autoAdsEnabled: false,
-  adsTxtContent: '# Green Garden ads.txt\n# Enter your verified publisher line provided by Google AdSense below:\n# Example: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0'
+  adsTxtContent: '# Green Gardan ads.txt\n# Enter your verified publisher line provided by Google AdSense below:\n# Example: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0'
 };
 
 export const initialAdUnits: AdUnit[] = [

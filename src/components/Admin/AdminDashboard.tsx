@@ -41,7 +41,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ setActiveTab, na
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-semibold text-[#d8f3dc] mb-2">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Green Garden Editorial Admin</span>
+            <span>Green Gardan Editorial Admin</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold font-editorial">
             Admin Overview &amp; Control

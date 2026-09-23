@@ -61,7 +61,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ navigate }) => {
           </div>
 
           <h1 className="text-2xl font-bold font-editorial text-[#14281c] mb-1">
-            Green Garden Admin
+            Green Gardan Admin
           </h1>
           <p className="text-xs text-[#52796f] mb-6">
             Enter your administrative password to access publication controls, Google AdSense setup, and Hostinger deployment.
@@ -116,7 +116,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ navigate }) => {
     { id: 'pages', label: 'Pages (Trust & Legal)', icon: FileCheck },
     { id: 'adsense', label: 'AdSense & Ads.txt', icon: DollarSign },
     { id: 'adunits', label: 'Ad Placements', icon: Sliders },
-    { id: 'seo', label: 'SEO & Sitemaps', icon: Search },
+    { id: 'seo', label: 'Google Search Console & SEO', icon: Search },
     { id: 'settings', label: 'Site Settings', icon: Settings },
     { id: 'contact', label: 'Contact Messages', icon: Mail, badge: unreadMessagesCount },
     { id: 'hostinger', label: 'Hostinger Hosting & SQL', icon: HardDriveDownload, highlight: true },
@@ -132,7 +132,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ navigate }) => {
           </div>
           <div>
             <div className="text-xl font-bold font-editorial text-[#14281c] leading-none">
-              Green Garden Management
+              Green Gardan Management
             </div>
             <div className="text-[11px] text-[#52796f] mt-1 font-sans">
               UK Editorial CMS &amp; Monetization Suite

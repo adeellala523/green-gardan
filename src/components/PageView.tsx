@@ -161,7 +161,7 @@ export const PageView: React.FC<PageViewProps> = ({ page, navigate }) => {
               <CheckCircle2 className="w-12 h-12 mx-auto text-[#40916c] mb-3" />
               <h3 className="text-xl font-bold font-editorial mb-1">Message Received!</h3>
               <p className="text-sm text-[#3a5843] max-w-md mx-auto">
-                Thank you for getting in touch with Green Garden. Our editorial team reviews messages regularly and will reply to your email address soon.
+                Thank you for getting in touch with Green Gardan. Our editorial team reviews messages regularly and will reply to your email address soon.
               </p>
               <button
                 onClick={() => setSubmitted(false)}

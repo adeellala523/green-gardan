@@ -27,13 +27,13 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                 navigate('/');
               }} 
               className="flex items-center gap-3 cursor-pointer inline-flex group"
-              aria-label="Green Garden - Home"
+              aria-label="Green Gardan - Home"
             >
               <div className="w-10 h-10 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-[#d8f3dc]">
                 <Sprout className="w-5 h-5" />
               </div>
               <span className="text-2xl font-bold font-sans text-white tracking-tight">
-                Green<span className="text-[#52b788]">Garden</span>
+                Green<span className="text-[#52b788]">Gardan</span>
               </span>
             </a>
             
@@ -184,6 +184,18 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                   <span>Gardening Disclaimer</span>
                 </button>
               </li>
+              <li>
+                <button onClick={() => navigate('/sitemap.xml')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
+                  <span>XML Sitemap (Google Index)</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/robots.txt')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
+                  <span>Robots.txt</span>
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -191,7 +203,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
 
         {/* Bottom Bar matching Screenshot 3 */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-5 text-xs text-[#8fb494]">
-          <p>© 2026 Green Garden · Made with ❤️ for UK Gardeners 🇬🇧 · All guides are free, forever.</p>
+          <p>© 2026 Green Gardan · Made with ❤️ for UK Gardeners 🇬🇧 · All guides are free, forever.</p>
           
           {/* Badges in Screenshot 3 */}
           <div className="flex flex-wrap items-center justify-center gap-2">

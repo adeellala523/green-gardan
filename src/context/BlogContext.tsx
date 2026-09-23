@@ -98,7 +98,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_categories');
+      const saved = localStorage.getItem('greengarden_categories_v3');
       if (saved) {
         const parsed = JSON.parse(saved) as Category[];
         return parsed.map(c => ({
@@ -114,17 +114,9 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [pages, setPages] = useState<PageContent[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_pages');
+      const saved = localStorage.getItem('greengarden_pages_v4');
       if (saved) {
-        const parsed: PageContent[] = JSON.parse(saved);
-        const existingSlugs = new Set(parsed.map(p => p.slug));
-        const merged = [...parsed];
-        for (const initP of initialPages) {
-          if (!existingSlugs.has(initP.slug)) {
-            merged.push(initP);
-          }
-        }
-        return merged;
+        return JSON.parse(saved);
       }
     } catch {
       // fallback
@@ -154,8 +146,23 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [siteSettings, setSiteSettings] = useState<SiteSettings>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_site_settings');
-      if (saved) return JSON.parse(saved);
+      const saved = localStorage.getItem('greengarden_site_settings_v4') || localStorage.getItem('greengarden_site_settings');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (!parsed.siteName || parsed.siteName === 'Green Garden') {
+          parsed.siteName = 'Green Gardan';
+        }
+        if (!parsed.canonicalBaseUrl || parsed.canonicalBaseUrl.includes('greengarden.co.uk')) {
+          parsed.canonicalBaseUrl = 'https://greengardan.co.uk';
+        }
+        if (parsed.contactEmail && parsed.contactEmail.includes('greengarden.co.uk')) {
+          parsed.contactEmail = 'contact@greengardan.co.uk';
+        }
+        if (parsed.footerText && parsed.footerText.includes('Green Garden')) {
+          parsed.footerText = parsed.footerText.replace(/Green Garden/g, 'Green Gardan');
+        }
+        return { ...initialSiteSettings, ...parsed };
+      }
     } catch {
       // fallback
     }
@@ -175,7 +182,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
         name: 'Eleanor Vance',
         email: 'eleanor@example.co.uk',
         subject: 'Question on Sussex Clay Soils',
-        message: 'Hello Green Garden team, I read your article on improving garden soil and wanted to ask which organic mulch is best for heavy Sussex clay before winter.',
+        message: 'Hello Green Gardan team, I read your article on improving garden soil and wanted to ask which organic mulch is best for heavy Sussex clay before winter.',
         createdAt: '2026-03-18 14:22',
         status: 'unread'
       }
@@ -207,6 +214,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [categories]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_pages_v4', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages', JSON.stringify(pages));
   }, [pages]);
 
@@ -219,6 +227,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [adsenseSettings]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_site_settings_v4', JSON.stringify(siteSettings));
     localStorage.setItem('greengarden_site_settings', JSON.stringify(siteSettings));
   }, [siteSettings]);
 
@@ -355,7 +364,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return { success: false, message: 'Please provide a valid email address.' };
     }
     if (newsletterSubscribers.some(sub => sub.email === trimmed)) {
-      return { success: true, message: 'You are already subscribed to Green Garden!' };
+      return { success: true, message: 'You are already subscribed to Green Gardan!' };
     }
     const newSubscriber: NewsletterSubscriber = {
       id: `sub-${Date.now()}`,
@@ -363,7 +372,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
       subscribedAt: new Date().toISOString().split('T')[0]
     };
     setNewsletterSubscribers(prev => [newSubscriber, ...prev]);
-    return { success: true, message: 'Thank you! You have successfully subscribed to Green Garden.' };
+    return { success: true, message: 'Thank you! You have successfully subscribed to Green Gardan.' };
   };
 
   // Static pages map indexed by slug

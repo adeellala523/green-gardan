@@ -20,7 +20,7 @@ export const AdminHostinger: React.FC = () => {
   // Generate MySQL dump with actual current articles & categories
   const generateSqlDump = () => {
     let sql = `-- ==============================================================
--- Green Garden - UK Gardening & Lifestyle Blog
+-- Green Gardan - UK Gardening & Lifestyle Blog
 -- Hostinger Shared Hosting MySQL Database Dump
 -- Generated on: ${new Date().toISOString()}
 -- Compatible with MySQL 5.7+, MySQL 8.0+, MariaDB 10.3+
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS \`articles\` (
   \`content\` longtext NOT NULL,
   \`featured_image\` varchar(512) NOT NULL,
   \`alt_text\` varchar(255) DEFAULT NULL,
-  \`author_name\` varchar(128) DEFAULT 'Green Garden Editorial Team',
+  \`author_name\` varchar(128) DEFAULT 'Green Gardan Editorial Team',
   \`publish_date\` date NOT NULL,
   \`updated_date\` date DEFAULT NULL,
   \`reading_time\` varchar(32) DEFAULT '5 min read',
@@ -133,14 +133,14 @@ CREATE TABLE IF NOT EXISTS \`ad_units\` (
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'greengarden_hostinger_schema.sql');
+    link.setAttribute('download', 'greengardan_hostinger_schema.sql');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleDownloadHtaccess = () => {
-    const htaccess = `# Green Garden - Hostinger Shared Hosting Apache Configuration
+    const htaccess = `# Green Gardan - Hostinger Shared Hosting Apache Configuration
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS \`ad_units\` (
           Hostinger Shared Hosting Deployment Center
         </h2>
         <p className="text-xs text-[#52796f]">
-          Everything required to deploy Green Garden to your Hostinger web hosting account (hPanel, Apache, MySQL, PHP).
+          Everything required to deploy Green Gardan to your Hostinger web hosting account (hPanel, Apache, MySQL, PHP).
         </p>
       </div>
 
@@ -298,10 +298,10 @@ CREATE TABLE IF NOT EXISTS \`ad_units\` (
             <div className="space-y-1.5 flex-grow">
               <h4 className="font-bold text-sm text-[#14281c]">Set up MySQL Database in Hostinger hPanel</h4>
               <p>
-                Go to hPanel &gt; <strong>Databases</strong> &gt; <strong>MySQL Databases</strong>. Create a new database (e.g. <code className="bg-neutral-100 px-2 py-0.5 rounded font-mono text-[11px]">u123456_greengarden</code>) and user.
+                Go to hPanel &gt; <strong>Databases</strong> &gt; <strong>MySQL Databases</strong>. Create a new database (e.g. <code className="bg-neutral-100 px-2 py-0.5 rounded font-mono text-[11px]">u123456_greengardan</code>) and user.
               </p>
               <p>
-                Open <strong>phpMyAdmin</strong> from hPanel, select your database, click the <strong>Import</strong> tab, and upload the <code className="bg-neutral-100 px-2 py-0.5 rounded font-mono text-[11px]">greengarden_hostinger_schema.sql</code> file you downloaded above.
+                Open <strong>phpMyAdmin</strong> from hPanel, select your database, click the <strong>Import</strong> tab, and upload the <code className="bg-neutral-100 px-2 py-0.5 rounded font-mono text-[11px]">greengardan_hostinger_schema.sql</code> file you downloaded above.
               </p>
             </div>
           </div>

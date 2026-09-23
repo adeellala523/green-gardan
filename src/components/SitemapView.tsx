@@ -12,7 +12,7 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ navigate, initialTab =
   const [copied, setCopied] = useState(false);
 
   const publishedArticles = articles.filter(a => a.status === 'published');
-  const baseUrl = siteSettings.canonicalBaseUrl || 'https://greengarden.co.uk';
+  const baseUrl = siteSettings.canonicalBaseUrl || 'https://greengardan.co.uk';
   const pagesList = Object.values(staticPages);
 
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
@@ -122,7 +122,7 @@ ${publishedArticles.map(a => `  <url>
             onClick={() => navigate('/')}
             className="text-emerald-700 hover:text-emerald-900 hover:underline text-xs font-medium cursor-pointer ml-2"
           >
-            ← Return to Green Garden
+            ← Return to Green Gardan
           </button>
         </div>
       </div>

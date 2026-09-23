@@ -47,7 +47,7 @@ export const AdminAdSense: React.FC = () => {
         <div className="text-xs text-[#2e4736] leading-relaxed">
           <span className="font-bold text-[#1b4332]">Google AdSense Publisher Policy Guidelines:</span>
           <p className="mt-1">
-            Green Garden is pre-configured for Google AdSense compliance: clean editorial typography, full legal privacy notices (UK GDPR), non-intrusive placements, zero fake download buttons, and distinct "Advertisement" labelling. Once your AdSense application is reviewed, enter your Publisher ID below.
+            Green Gardan is pre-configured for Google AdSense and Ezoic compliance: clean editorial typography, full legal privacy notices (UK GDPR), non-intrusive placements, zero fake download buttons, and distinct "Advertisement" labelling. Once your AdSense or Ezoic application is reviewed, enter your Publisher ID below.
           </p>
         </div>
       </div>
