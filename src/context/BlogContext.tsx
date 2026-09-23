@@ -161,6 +161,10 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (parsed.footerText && parsed.footerText.includes('Green Garden')) {
           parsed.footerText = parsed.footerText.replace(/Green Garden/g, 'Green Gardan');
         }
+        if (!parsed.googleVerificationCode && !parsed.googleSiteVerification) {
+          parsed.googleVerificationCode = '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M';
+          parsed.googleSiteVerification = '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M';
+        }
         return { ...initialSiteSettings, ...parsed };
       }
     } catch {

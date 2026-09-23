@@ -13,7 +13,8 @@ export const initialSiteSettings: SiteSettings = {
     pinterest: 'https://pinterest.com/greengardanuk'
   },
   footerText: '© 2026 Green Gardan. An independent UK gardening publication. All rights reserved.',
-  googleVerificationCode: '', // Configured via Admin Panel
+  googleVerificationCode: '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M',
+  googleSiteVerification: '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M',
   seasonalAdvice: {
     season: 'Spring',
     title: 'UK Spring Gardening Priorities',
