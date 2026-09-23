@@ -14,7 +14,8 @@ import {
   ArrowLeft,
   Lock,
   Sprout,
-  AlertCircle
+  AlertCircle,
+  Zap
 } from 'lucide-react';
 import { useBlog } from '../../context/BlogContext';
 import { AdminDashboard } from './AdminDashboard';
@@ -24,6 +25,7 @@ import { AdminPages } from './AdminPages';
 import { AdminAdSense } from './AdminAdSense';
 import { AdminAdUnits } from './AdminAdUnits';
 import { AdminSEO } from './AdminSEO';
+import { AdminIndexingDashboard } from './AdminIndexingDashboard';
 import { AdminSettings } from './AdminSettings';
 import { AdminContact } from './AdminContact';
 import { AdminHostinger } from './AdminHostinger';
@@ -111,6 +113,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ navigate }) => {
   // Navigation Items
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'indexing', label: 'Google Indexing Hub & API', icon: Zap, highlight: true },
     { id: 'articles', label: 'Articles', icon: FileText },
     { id: 'categories', label: 'Categories', icon: Layers },
     { id: 'pages', label: 'Pages (Trust & Legal)', icon: FileCheck },
@@ -119,7 +122,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ navigate }) => {
     { id: 'seo', label: 'Google Search Console & SEO', icon: Search },
     { id: 'settings', label: 'Site Settings', icon: Settings },
     { id: 'contact', label: 'Contact Messages', icon: Mail, badge: unreadMessagesCount },
-    { id: 'hostinger', label: 'Hostinger Hosting & SQL', icon: HardDriveDownload, highlight: true },
+    { id: 'hostinger', label: 'Hostinger Hosting & SQL', icon: HardDriveDownload },
   ];
 
   return (
@@ -228,6 +231,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ navigate }) => {
         {/* Main Tab Content */}
         <div className="lg:col-span-9">
           {activeTab === 'dashboard' && <AdminDashboard setActiveTab={setActiveTab} navigate={navigate} />}
+          {activeTab === 'indexing' && <AdminIndexingDashboard />}
           {activeTab === 'articles' && <AdminArticles onViewArticle={(path) => navigate(path)} />}
           {activeTab === 'articles-add' && <AdminArticles initialMode="add" onViewArticle={(path) => navigate(path)} />}
           {activeTab === 'categories' && <AdminCategories />}

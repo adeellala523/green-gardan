@@ -3,28 +3,23 @@
   <!-- Homepage -->
   <url>
     <loc>https://greengardan.co.uk/</loc>
-    <lastmod>2026-03-24</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- Main Category Hubs -->
+  <!-- Category Hubs (5) -->
   <url>
     <loc>https://greengardan.co.uk/gardening-tips</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/plant-guides</loc>
+    <loc>https://greengardan.co.uk/flowers-plants</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/seasonal-gardening</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://greengardan.co.uk/wildlife-gardening</loc>
+    <loc>https://greengardan.co.uk/indoor-gardening</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,24 +28,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Trust & Policy Pages -->
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Trust & Legal Pages (8) -->
   <url>
     <loc>https://greengardan.co.uk/about-us</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://greengardan.co.uk/contact-us</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://greengardan.co.uk/editorial-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/advertising-disclosure</loc>
+    <loc>https://greengardan.co.uk/contact-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -74,70 +64,194 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <!-- Primary Articles -->
   <url>
-    <loc>https://greengardan.co.uk/gardening-tips/essential-pruning-guide-uk-climates</loc>
+    <loc>https://greengardan.co.uk/editorial-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/advertising-disclosure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Published Articles (30 guides) -->
+  <url>
+    <loc>https://greengardan.co.uk/gardening-tips/essential-gardening-jobs-uk-spring-garden</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/gardening-tips/organic-pest-control-uk-allotments</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/gardening-tips/how-to-improve-garden-soil-naturally</loc>
+    <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://greengardan.co.uk/gardening-tips/beginners-guide-growing-vegetables-uk</loc>
-    <lastmod>2026-03-24</lastmod>
+    <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/gardening-tips/composting-secrets-mastering-green-brown-ratio</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/gardening-tips/how-often-should-you-water-your-garden-uk</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/gardening-tips/reviving-heavy-clay-soils-uk-gardens</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/gardening-tips/how-to-make-compost-at-home-uk</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/plant-guides/monstera-deliciosa-complete-indoor-care</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/gardening-tips/prevent-common-garden-pests-naturally</loc>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/plant-guides/10-hardy-perennials-thrive-british-weather</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/flowers-plants/best-flowering-plants-for-uk-gardens</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/seasonal-gardening/spring-gardening-checklist-march-april-uk</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/flowers-plants/easy-to-grow-perennials-for-beginners-uk</loc>
+    <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/wildlife-gardening/creating-haven-solitary-bees-uk-gardens</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/flowers-plants/best-plants-for-a-sunny-garden-uk</loc>
+    <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/wildlife-gardening/building-wildlife-pond-small-uk-garden</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/flowers-plants/best-plants-for-shady-uk-gardens</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greengardan.co.uk/garden-design/cottage-garden-design-principles-modern-plots</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://greengardan.co.uk/flowers-plants/how-to-choose-plants-for-your-garden-soil-type-uk</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/flowers-plants/long-flowering-plants-for-british-gardens</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/indoor-gardening/best-indoor-plants-for-beginners</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/indoor-gardening/how-to-care-for-houseplants-in-winter-uk</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/indoor-gardening/top-10-low-light-houseplants-uk</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/indoor-gardening/how-often-water-indoor-plants-guide</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/indoor-gardening/how-to-prevent-common-houseplant-problems</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/indoor-gardening/creating-a-small-indoor-garden-at-home</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/garden-design/how-to-design-a-small-uk-garden</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/garden-design/easy-garden-ideas-for-modern-homes</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/garden-design/raised-bed-gardening-guide-uk</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/garden-design/low-maintenance-garden-design-uk</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/garden-design/how-to-choose-paving-patio-materials-uk</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/garden-design/cottage-garden-design-modern-plots</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening/how-to-make-your-garden-more-wildlife-friendly-uk</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening/plants-that-attract-bees-pollinators-uk</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening/how-to-build-a-wildlife-pond-uk</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening/peat-free-gardening-guide-uk</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening/how-to-help-british-hedgehogs-garden</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greengardan.co.uk/wildlife-sustainable-gardening/rainwater-harvesting-gardens-uk</loc>
+    <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

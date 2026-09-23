@@ -524,7 +524,18 @@ export const AdminArticles: React.FC<AdminArticlesProps> = ({ initialMode = 'lis
                 <tr key={art.id} className="hover:bg-[#fbfdfb] transition-colors">
                   <td className="py-3.5 px-4 max-w-sm">
                     <div className="font-bold text-[#14281c] truncate">{art.title}</div>
-                    <div className="text-[11px] text-neutral-400 font-mono truncate">/{art.categorySlug}/{art.slug}</div>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-[11px] text-neutral-400 font-mono truncate">/{art.categorySlug}/{art.slug}</span>
+                      <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold ${
+                        art.indexingStatus === 'indexed' 
+                          ? 'bg-emerald-100 text-emerald-800'
+                          : art.indexingStatus === 'submitted'
+                          ? 'bg-sky-100 text-sky-800'
+                          : 'bg-amber-50 text-amber-700 border border-amber-200/50'
+                      }`}>
+                        {art.indexingStatus === 'indexed' ? '● Indexed' : art.indexingStatus === 'submitted' ? '◐ Submitted' : '○ Needs GSC'}
+                      </span>
+                    </div>
                   </td>
 
                   <td className="py-3.5 px-4 whitespace-nowrap">

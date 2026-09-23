@@ -29,6 +29,8 @@ export interface Article {
   isFeatured?: boolean;
   isPopular?: boolean;
   status: 'published' | 'draft';
+  indexingStatus?: ArticleIndexingStatus;
+  lastIndexedAt?: string;
   faqs?: FAQItem[];
   seoTitle?: string;
   metaDescription?: string;
@@ -133,4 +135,16 @@ export interface NewsletterSubscriber {
   id: string;
   email: string;
   subscribedAt: string;
+}
+
+export type ArticleIndexingStatus = 'needs_submission' | 'submitted' | 'indexed';
+
+export interface GoogleIndexingApiSettings {
+  enabled: boolean;
+  serviceAccountEmail: string;
+  privateKeyOrJson: string;
+  autoIndexNewArticles: boolean;
+  lastPingTimestamp?: string;
+  lastPingStatus?: 'success' | 'failed' | 'idle';
+  lastPingMessage?: string;
 }

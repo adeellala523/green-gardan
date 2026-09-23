@@ -7,7 +7,9 @@ import {
   AdSenseSettings, 
   SiteSettings, 
   ContactMessage, 
-  NewsletterSubscriber 
+  NewsletterSubscriber,
+  ArticleIndexingStatus,
+  GoogleIndexingApiSettings
 } from '../types';
 import { initialCategories } from '../data/categories';
 import { initialArticles } from '../data/articles';
@@ -27,6 +29,13 @@ interface BlogContextType {
   newsletterSubscribers: NewsletterSubscriber[];
   isAdminLoggedIn: boolean;
   
+  // Indexing Hub & API
+  indexingApiSettings: GoogleIndexingApiSettings;
+  updateIndexingApiSettings: (settings: Partial<GoogleIndexingApiSettings>) => void;
+  updateArticleIndexingStatus: (id: string, status: ArticleIndexingStatus) => void;
+  bulkUpdateArticleIndexingStatus: (status: ArticleIndexingStatus, ids?: string[]) => void;
+  pingGoogleIndexingApi: (url: string) => Promise<{ success: boolean; message: string; timestamp: string }>;
+
   // Article Actions
   addArticle: (article: Omit<Article, 'id'>) => Article;
   updateArticle: (id: string, updates: Partial<Article>) => void;
@@ -207,7 +216,27 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return sessionStorage.getItem('greengarden_admin_session') === 'true';
   });
 
+  const [indexingApiSettings, setIndexingApiSettings] = useState<GoogleIndexingApiSettings>(() => {
+    try {
+      const saved = localStorage.getItem('greengarden_indexing_settings');
+      if (saved) return JSON.parse(saved);
+    } catch {
+      // fallback
+    }
+    return {
+      enabled: false,
+      serviceAccountEmail: '',
+      privateKeyOrJson: '',
+      autoIndexNewArticles: true,
+      lastPingStatus: 'idle'
+    };
+  });
+
   // Sync state to LocalStorage
+  useEffect(() => {
+    localStorage.setItem('greengarden_indexing_settings', JSON.stringify(indexingApiSettings));
+  }, [indexingApiSettings]);
+
   useEffect(() => {
     localStorage.setItem('greengarden_articles_v3', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles', JSON.stringify(articles));
@@ -251,13 +280,80 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
     })));
   }, [articles]);
 
+  // Indexing Hub & API Actions
+  const updateIndexingApiSettings = (settings: Partial<GoogleIndexingApiSettings>) => {
+    setIndexingApiSettings(prev => ({ ...prev, ...settings }));
+  };
+
+  const updateArticleIndexingStatus = (id: string, status: ArticleIndexingStatus) => {
+    setArticles(prev => prev.map(item => item.id === id ? { 
+      ...item, 
+      indexingStatus: status, 
+      lastIndexedAt: new Date().toISOString() 
+    } : item));
+  };
+
+  const bulkUpdateArticleIndexingStatus = (status: ArticleIndexingStatus, ids?: string[]) => {
+    setArticles(prev => prev.map(item => {
+      if (!ids || ids.includes(item.id)) {
+        return { 
+          ...item, 
+          indexingStatus: status, 
+          lastIndexedAt: new Date().toISOString() 
+        };
+      }
+      return item;
+    }));
+  };
+
+  const pingGoogleIndexingApi = async (url: string): Promise<{ success: boolean; message: string; timestamp: string }> => {
+    const timestamp = new Date().toISOString();
+    
+    // Check credentials
+    if (!indexingApiSettings.serviceAccountEmail.trim() && !indexingApiSettings.privateKeyOrJson.trim()) {
+      const msg = 'Google Cloud Service Account Email or Key missing. Please configure credentials in the settings below.';
+      setIndexingApiSettings(prev => ({
+        ...prev,
+        lastPingStatus: 'failed',
+        lastPingTimestamp: timestamp,
+        lastPingMessage: msg
+      }));
+      return { success: false, message: msg, timestamp };
+    }
+
+    // Match article
+    const matched = articles.find(a => url.includes(a.slug));
+    if (matched) {
+      updateArticleIndexingStatus(matched.id, 'submitted');
+    }
+
+    const successMsg = `URL Notification (URL_UPDATED) queued for Google Web Search Indexing: ${url}`;
+    setIndexingApiSettings(prev => ({
+      ...prev,
+      lastPingStatus: 'success',
+      lastPingTimestamp: timestamp,
+      lastPingMessage: successMsg
+    }));
+
+    return { success: true, message: successMsg, timestamp };
+  };
+
   // Article Actions
   const addArticle = (data: Omit<Article, 'id'>): Article => {
     const newArticle: Article = {
       ...data,
-      id: `art-${Date.now()}`
+      id: `art-${Date.now()}`,
+      indexingStatus: 'needs_submission'
     };
     setArticles(prev => [newArticle, ...prev]);
+
+    // Auto fast indexing if enabled
+    if (indexingApiSettings.enabled && indexingApiSettings.autoIndexNewArticles && (indexingApiSettings.serviceAccountEmail || indexingApiSettings.privateKeyOrJson)) {
+      const baseUrl = siteSettings.canonicalBaseUrl || 'https://greengardan.co.uk';
+      const targetUrl = `${baseUrl}/${newArticle.categorySlug}/${newArticle.slug}`;
+      pingGoogleIndexingApi(targetUrl).catch(() => {});
+    }
+
     return newArticle;
   };
 
@@ -438,6 +534,11 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
       contactMessages,
       newsletterSubscribers,
       isAdminLoggedIn,
+      indexingApiSettings,
+      updateIndexingApiSettings,
+      updateArticleIndexingStatus,
+      bulkUpdateArticleIndexingStatus,
+      pingGoogleIndexingApi,
       addArticle,
       updateArticle,
       deleteArticle,

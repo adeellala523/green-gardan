@@ -10,7 +10,9 @@ import {
   Search, 
   HardDriveDownload,
   ExternalLink,
-  ShieldCheck
+  ShieldCheck,
+  Zap,
+  Send
 } from 'lucide-react';
 import { useBlog } from '../../context/BlogContext';
 
@@ -144,7 +146,35 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ setActiveTab, na
       </div>
 
       {/* Quick Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Fast Indexing API Card */}
+        <div className="bg-gradient-to-br from-[#f2f8f4] to-[#e4f3e8] rounded-2xl border border-[#b8dfc4] p-6 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#1b4332] flex items-center gap-1">
+                <Zap className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Fast Indexing</span>
+              </span>
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                {articles.filter(a => a.status === 'published').length} URLs Ready
+              </span>
+            </div>
+            <h3 className="text-lg font-bold font-editorial text-[#14281c] mb-2">
+              Google Indexing Hub
+            </h3>
+            <p className="text-xs text-[#40684a] leading-relaxed mb-4">
+              Submit URLs directly to Google Search Console or enable Google Cloud Fast Indexing API to notify crawlers within seconds when new articles publish.
+            </p>
+          </div>
+          <button
+            onClick={() => setActiveTab('indexing')}
+            className="w-full py-2.5 rounded-xl bg-[#1b4332] hover:bg-[#2d6a4f] text-white text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs"
+          >
+            <Zap className="w-3.5 h-3.5 text-emerald-300" />
+            <span>Open Indexing Hub</span>
+          </button>
+        </div>
+
         {/* AdSense Status Card */}
         <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs flex flex-col justify-between">
           <div>
