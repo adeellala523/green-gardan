@@ -113,17 +113,74 @@ export const AdminAdSense: React.FC = () => {
           </div>
         </div>
 
-        {/* Ads.txt Manager */}
+        {/* Ads.txt Manager 301 Redirect Active Status */}
+        <div className="bg-gradient-to-br from-[#f2f8f4] to-[#e4f3e8] rounded-2xl border border-[#b8dfc4] p-6 shadow-2xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#cde4ce] pb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#1b4332] text-emerald-300 flex items-center justify-center shrink-0">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base font-bold font-editorial text-[#14281c]">
+                    Ads.txt Manager 301 Redirect (Active)
+                  </h3>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                    Enabled
+                  </span>
+                </div>
+                <p className="text-xs text-[#40684a] mt-0.5">
+                  Your website's <code>/ads.txt</code> is permanently redirected (301) to your central Ads.txt Manager endpoint.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="https://srv.adstxtmanager.com/19390/greengardan.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-[#1b4332] hover:text-[#2d6a4f] inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-[#c4e3cb] shadow-2xs self-start sm:self-auto"
+            >
+              <span>View Live AdstxtManager Endpoint</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          <div className="space-y-2">
+            <span className="text-xs font-bold text-[#14281c] block">
+              Active .htaccess 301 Redirect Directive:
+            </span>
+            <div className="p-3 bg-neutral-900 text-emerald-400 font-mono text-xs rounded-xl flex items-center justify-between gap-3 overflow-x-auto">
+              <code>Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/greengardan.co.uk</code>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText('Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/greengardan.co.uk');
+                  setSavedMsg('Copied 301 Redirect command to clipboard!');
+                  setTimeout(() => setSavedMsg(''), 3000);
+                }}
+                className="px-2.5 py-1 bg-neutral-800 hover:bg-neutral-700 text-white rounded text-[11px] font-semibold shrink-0 cursor-pointer"
+              >
+                Copy Rule
+              </button>
+            </div>
+            <p className="text-[11px] text-[#2d5038]">
+              This rule is embedded in your project's <code>public/.htaccess</code>, <code>public/_redirects</code>, and the downloadable Hostinger Apache configuration file.
+            </p>
+          </div>
+        </div>
+
+        {/* Local Fallback Ads.txt Editor */}
         <div className="bg-white rounded-2xl border border-[#e2ece2] p-6 shadow-2xs space-y-4">
           <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
             <div className="flex items-center gap-2">
               <FileText className="w-5 h-5 text-[#2d6a4f]" />
               <div>
                 <h3 className="text-base font-bold font-editorial text-[#14281c]">
-                  Public ads.txt Editor
+                  Local ads.txt Backup / Static Content
                 </h3>
                 <p className="text-[11px] text-neutral-400">
-                  Accessible publicly at <code>/ads.txt</code> to protect your ad inventory.
+                  Fallback content stored in your app if direct file serving is ever required.
                 </p>
               </div>
             </div>

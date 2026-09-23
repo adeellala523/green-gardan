@@ -1,8 +1,14 @@
+# 301 Redirect for ads.txt to Ads.txt Manager
+Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/greengardan.co.uk
+
 # Apache / LiteSpeed / Hostinger / cPanel SPA URL Rewrite Rules
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   
+  # 301 Redirect for ads.txt
+  RewriteRule ^ads\.txt$ https://srv.adstxtmanager.com/19390/greengardan.co.uk [R=301,L]
+
   # If requested resource exists as a physical file, directory, or symlink, serve it directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d [OR]

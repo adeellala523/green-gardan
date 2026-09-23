@@ -5,7 +5,25 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(), 
+      tailwindcss(),
+      {
+        name: 'ads-txt-redirect',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (req.url === '/ads.txt' || req.url?.startsWith('/ads.txt?')) {
+              res.writeHead(301, {
+                Location: 'https://srv.adstxtmanager.com/19390/greengardan.co.uk',
+              });
+              res.end();
+              return;
+            }
+            next();
+          });
+        },
+      }
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

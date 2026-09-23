@@ -1,3 +1,2 @@
-# Google AdSense Authorized Digital Sellers
-# Replace pub-XXXXXXXXXXXXXXXX with your approved AdSense Publisher ID
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/greengardan.co.uk
+# Managed dynamically via Ads.txt Manager (ID: 19390)

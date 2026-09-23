@@ -148,3 +148,13 @@ export interface GoogleIndexingApiSettings {
   lastPingStatus?: 'success' | 'failed' | 'idle';
   lastPingMessage?: string;
 }
+
+declare global {
+  interface Window {
+    ezstandalone?: {
+      cmd?: Array<() => void>;
+      [key: string]: any;
+    };
+  }
+}
+

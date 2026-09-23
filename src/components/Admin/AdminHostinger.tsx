@@ -141,10 +141,17 @@ CREATE TABLE IF NOT EXISTS \`ad_units\` (
 
   const handleDownloadHtaccess = () => {
     const htaccess = `# Green Gardan - Hostinger Shared Hosting Apache Configuration
+
+# 301 Redirect for ads.txt to Ads.txt Manager
+Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/greengardan.co.uk
+
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # 301 Redirect for ads.txt
+  RewriteRule ^ads\\.txt$ https://srv.adstxtmanager.com/19390/greengardan.co.uk [R=301,L]
 
   # Force HTTPS
   RewriteCond %{HTTPS} !=on
