@@ -13,6 +13,7 @@ import { initialCategories } from '../data/categories';
 import { initialArticles } from '../data/articles';
 import { initialPages } from '../data/pages';
 import { initialSiteSettings, initialAdSenseSettings, initialAdUnits } from '../data/settings';
+import { sanitizeImageUrl } from '../utils/image';
 
 interface BlogContextType {
   articles: Article[];
@@ -72,8 +73,23 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Load state from localStorage with fallback to initial data
   const [articles, setArticles] = useState<Article[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_articles');
-      if (saved) return JSON.parse(saved);
+      const saved = localStorage.getItem('greengarden_articles_v3');
+      if (saved) {
+        const parsed = JSON.parse(saved) as Article[];
+        return parsed.map(a => ({
+          ...a,
+          featuredImage: sanitizeImageUrl(a.featuredImage)
+        }));
+      }
+      // If previous version exists, preserve any user-created custom articles while taking the updated guides
+      const oldSaved = localStorage.getItem('greengarden_articles');
+      if (oldSaved) {
+        const parsedOld = JSON.parse(oldSaved) as Article[];
+        const customArticles = parsedOld.filter(a => !initialArticles.some(init => init.id === a.id));
+        const merged = [...initialArticles, ...customArticles];
+        localStorage.setItem('greengarden_articles_v3', JSON.stringify(merged));
+        return merged;
+      }
     } catch {
       // fallback
     }
@@ -83,7 +99,13 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
       const saved = localStorage.getItem('greengarden_categories');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved) as Category[];
+        return parsed.map(c => ({
+          ...c,
+          image: sanitizeImageUrl(c.image)
+        }));
+      }
     } catch {
       // fallback
     }
@@ -93,7 +115,17 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [pages, setPages] = useState<PageContent[]>(() => {
     try {
       const saved = localStorage.getItem('greengarden_pages');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed: PageContent[] = JSON.parse(saved);
+        const existingSlugs = new Set(parsed.map(p => p.slug));
+        const merged = [...parsed];
+        for (const initP of initialPages) {
+          if (!existingSlugs.has(initP.slug)) {
+            merged.push(initP);
+          }
+        }
+        return merged;
+      }
     } catch {
       // fallback
     }
@@ -166,6 +198,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Sync state to LocalStorage
   useEffect(() => {
+    localStorage.setItem('greengarden_articles_v3', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles', JSON.stringify(articles));
   }, [articles]);
 
@@ -357,8 +390,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Admin Auth
   const loginAdmin = (password: string): boolean => {
-    // Default master password during development: "admin123" or "greengarden2026" or "admin"
-    if (password === 'admin123' || password === 'greengarden2026' || password === 'admin') {
+    if (password === 'Adeel@1232') {
       sessionStorage.setItem('greengarden_admin_session', 'true');
       setIsAdminLoggedIn(true);
       return true;

@@ -29,29 +29,22 @@ const categoryIcons: Record<string, React.FC<{ className?: string }>> = {
   'wildlife-sustainable-gardening': HeartHandshake,
 };
 
-const categoryPillTags: Record<string, string[]> = {
-  'gardening-tips': ['Soil Health', 'Pruning', 'Compost', 'Frost Care'],
-  'flowers-plants': ['Perennials', 'Roses', 'Bulbs', 'Pollinators'],
-  'indoor-gardening': ['Low Light', 'Humidity', 'Propagation', 'Repotting'],
-  'garden-design': ['Small Spaces', 'Raised Beds', 'Cottage Style', 'Patios'],
-  'wildlife-sustainable-gardening': ['Hedgehogs', 'Bird Feeding', 'Ponds', 'Wildflowers'],
-};
-
 export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
   const { articles, categories } = useBlog();
 
   const publishedArticles = articles.filter(a => a.status === 'published');
-  
-  // Featured Articles (3 to 4)
-  const featuredArticles = publishedArticles.filter(a => a.isFeatured).slice(0, 4);
 
-  // Latest Articles
-  const latestArticles = [...publishedArticles]
-    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
-    .slice(0, 6);
-
-  // Popular / Evergreen Guides
-  const popularArticles = publishedArticles.filter(a => a.isPopular).slice(0, 4);
+  // Group latest 4 articles for each category
+  const categoryArticlesMap = React.useMemo(() => {
+    const map: Record<string, typeof publishedArticles> = {};
+    categories.forEach(cat => {
+      map[cat.slug] = publishedArticles
+        .filter(a => a.categorySlug === cat.slug)
+        .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+        .slice(0, 4);
+    });
+    return map;
+  }, [categories, publishedArticles]);
 
   return (
     <div className="space-y-12">
@@ -103,10 +96,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
           </div>
 
           {/* Section Divider */}
-          <div className="flex items-center justify-center gap-4 pt-8">
+          <div className="flex items-center justify-center gap-4 pt-4">
             <div className="h-px bg-[#d8e7d9] w-16 sm:w-28" />
             <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#52796f]">
-              5 ESSENTIAL TOPICS
+              LATEST UK GUIDES
             </span>
             <div className="h-px bg-[#d8e7d9] w-16 sm:w-28" />
           </div>
@@ -119,86 +112,39 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        
-        {/* 2. Topic Cards (OmniTools Bento Card Style in Screenshot 1 & 4) */}
-        <section id="categories-section" className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((cat) => {
-              const Icon = categoryIcons[cat.slug] || Sprout;
-              const tags = categoryPillTags[cat.slug] || ['UK Climate', 'Organic', 'Seasonal'];
-              return (
-                <div
-                  key={cat.slug}
-                  onClick={() => navigate(`/${cat.slug}`)}
-                  className="group bg-white rounded-3xl border border-[#dce8dd] p-7 shadow-2xs hover:border-[#2d6a4f] hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
-                >
-                  <div>
-                    {/* Top Icon squircle */}
-                    <div className="w-13 h-13 rounded-2xl bg-[#eef7ee] text-[#1b4332] flex items-center justify-center mb-5 group-hover:bg-[#1b4332] group-hover:text-[#d8f3dc] transition-all shadow-2xs">
-                      <Icon className="w-6 h-6" />
-                    </div>
 
-                    {/* Title */}
-                    <h3 className="text-xl sm:text-2xl font-bold font-sans text-[#13281a] group-hover:text-[#2d6a4f] transition-colors mb-2">
+        {/* Category-Wise Articles Sections (Each category name + 4 latest articles) */}
+        {categories.map((cat, index) => {
+          const Icon = categoryIcons[cat.slug] || Sprout;
+          const catArticles = categoryArticlesMap[cat.slug] || [];
+          if (catArticles.length === 0) return null;
+
+          return (
+            <React.Fragment key={cat.slug}>
+              <section className="space-y-6 pt-2">
+                {/* Category Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e5ece4] pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-[#eef7ee] text-[#1b4332] flex items-center justify-center shadow-2xs">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-bold font-sans text-[#14281c]">
                       {cat.name}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#465e4e] leading-relaxed line-clamp-2 mb-6 font-normal">
-                      {cat.description}
-                    </p>
+                    </h2>
                   </div>
 
-                  {/* Pill Tags (Screenshot 1 & 4 style) */}
-                  <div className="space-y-4 pt-4 border-t border-[#f0f5f0]">
-                    <div className="flex flex-wrap gap-1.5">
-                      {tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 rounded-full bg-[#f4f8f4] text-[#2d6a4f] text-xs font-semibold border border-[#e0ece1] group-hover:border-[#b7d5bb] transition-colors"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center justify-between text-xs font-bold text-[#1b4332] group-hover:text-[#2d6a4f] pt-1">
-                      <span>Explore Guides</span>
-                      <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
+                  <button
+                    onClick={() => navigate(`/${cat.slug}`)}
+                    className="text-xs sm:text-sm font-bold text-[#1b4332] hover:text-[#2d6a4f] inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#f0f6f1] hover:bg-[#e2ece2] transition-colors cursor-pointer self-start sm:self-auto shrink-0 shadow-2xs"
+                  >
+                    <span>View All {cat.name}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
-              );
-            })}
-          </div>
-        </section>
 
-        {/* 3. Featured Articles */}
-        {featuredArticles.length > 0 && (
-          <section className="space-y-6">
-            <div className="flex items-center justify-between border-b border-[#e5ece4] pb-4">
-              <div>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-[#40916c] block mb-1">
-                  Editor's Selection
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-[#14281c]">
-                  Featured Articles
-                </h2>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              {/* Primary Featured Article Card (Wide Layout) */}
-              <ArticleCard
-                article={featuredArticles[0]}
-                onClick={() => navigate(`/${featuredArticles[0].categorySlug}/${featuredArticles[0].slug}`)}
-                featured={true}
-              />
-
-              {/* Secondary Featured Articles Grid */}
-              {featuredArticles.slice(1).length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {featuredArticles.slice(1).map((art) => (
+                {/* 4 Latest Articles Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {catArticles.map((art) => (
                     <ArticleCard
                       key={art.id}
                       article={art}
@@ -206,78 +152,22 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
                     />
                   ))}
                 </div>
+              </section>
+
+              {/* Ad Unit placed in middle */}
+              {index === 1 && (
+                <AdContainer placement="homepage_middle" />
               )}
-            </div>
-          </section>
-        )}
 
-        {/* Ad Unit: Homepage Middle */}
-        <AdContainer placement="homepage_middle" />
+              {/* Seasonal Planting Section placed after 3rd category */}
+              {index === 2 && (
+                <SeasonalSection />
+              )}
+            </React.Fragment>
+          );
+        })}
 
-        {/* 4. Seasonal Planting & Horticultural Advice */}
-        <SeasonalSection />
-
-        {/* 5. Latest Articles Section */}
-        <section id="latest-articles-section" className="space-y-6">
-          <div className="flex items-center justify-between border-b border-[#e5ece4] pb-4">
-            <div>
-              <span className="text-xs uppercase font-extrabold tracking-wider text-[#40916c] block mb-1">
-                Fresh From The Garden
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-sans text-[#14281c]">
-                Latest Articles &amp; Guides
-              </h2>
-            </div>
-            <button
-              onClick={() => {
-                const el = document.getElementById('categories-section');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="text-xs sm:text-sm font-bold text-[#1b4332] hover:text-[#2d6a4f] inline-flex items-center gap-1 cursor-pointer"
-            >
-              <span>All Categories</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {latestArticles.map((art) => (
-              <ArticleCard
-                key={art.id}
-                article={art}
-                onClick={() => navigate(`/${art.categorySlug}/${art.slug}`)}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* 6. Popular / Evergreen Guides */}
-        {popularArticles.length > 0 && (
-          <section className="space-y-6">
-            <div className="flex items-center justify-between border-b border-[#e5ece4] pb-4">
-              <div>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-[#40916c] block mb-1">
-                  Reader Favorites
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-[#14281c]">
-                  Essential British Guides
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {popularArticles.map((art) => (
-                <ArticleCard
-                  key={art.id}
-                  article={art}
-                  onClick={() => navigate(`/${art.categorySlug}/${art.slug}`)}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* 7. About Green Garden Introduction Section */}
+        {/* 4. About Green Garden Introduction Section */}
         <section className="bg-white rounded-3xl border border-[#d6e6d8] p-8 sm:p-12 shadow-2xs my-12">
           <div className="max-w-3xl space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-[#40916c]">
@@ -301,7 +191,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
           </div>
         </section>
 
-        {/* 8. Newsletter Section */}
+        {/* 5. Newsletter Section */}
         <NewsletterBox />
 
         {/* Ad Unit: Homepage Bottom */}

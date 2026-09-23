@@ -221,5 +221,93 @@ Many popular garden and houseplant species—including, but not limited to, *Dig
 
 Pruning large trees, handling power machinery (such as hedge trimmers and chainsaws), and excavating ground near buried electrical cables require appropriate personal protective equipment (PPE) and professional training. When in doubt, consult a qualified, insured tree surgeon (arborist) or landscape contractor.
     `
+  },
+  {
+    id: 'page-editorial-policy',
+    slug: 'editorial-policy',
+    title: 'Editorial & Fact-Checking Policy',
+    subtitle: 'Our rigorous standards for horticultural accuracy, ethical publishing, and human expertise.',
+    metaTitle: 'Editorial & Fact-Checking Standards | Green Garden UK',
+    metaDescription: 'Read the Green Garden editorial guidelines. Discover how we research, vet against Royal Horticultural Society standards, fact-check, and update our British gardening guides.',
+    lastUpdated: '2026-03-20',
+    content: `
+## 1. Our Commitment to Horticultural Excellence
+
+At **Green Garden**, our highest priority is publishing accurate, trustworthy, and actionable botanical knowledge tailored specifically to the climate, native ecology, and soil varieties of the United Kingdom. We recognize that poor gardening advice can lead to crop loss, damaged soil ecosystems, wasted financial investment, and even danger to pets or family members.
+
+To prevent misinformation, every single guide published under the Green Garden imprint adheres to strict editorial, horticultural, and fact-checking protocols.
+
+---
+
+## 2. Research & Sourcing Standards
+
+Our editorial team relies exclusively on authoritative, scientifically grounded botanical resources:
+- **Royal Horticultural Society (RHS):** Cultivar selections, Award of Garden Merit (AGM) criteria, pruning timings, and hardiness ratings (H1a to H7).
+- **UK Peatland Strategy & Natural England:** Environmental recommendations for peat-free growing media and sustainable water conservation.
+- **UK Met Office Plant Hardiness & Frost Data:** Regional planting dates tailored to Southern England, the Midlands, Wales, Northern England, and Scotland.
+- **Peer-Reviewed Agronomy:** Soil microbial biology, mycorrhizal fungi development, and organic biological pest management (nemaslug, beneficial predators).
+
+We strictly prohibit automated content scraping or unverified generic gardening advice that fails to reflect British seasonal and weather realities.
+
+---
+
+## 3. Expert Review & Fact-Checking Process
+
+Every article undergoes a multi-stage review before public distribution:
+1. **Initial Draft by Field Practitioner:** Drafted by an experienced British gardener, allotment holder, or horticultural specialist with hands-on cultivation experience.
+2. **Technical Fact-Checking:** Botanical nomenclature (Latin binomials), hardiness ratings, soil pH recommendations, and pest treatments are verified against authoritative reference literature.
+3. **Safety & Toxicity Screening:** Any mention of toxic flora (e.g. *Digitalis*, *Aconitum*, *Euphorbia*) is cross-checked against veterinary safety databases to guarantee clear warnings are included.
+4. **Regular Seasonal Auditing:** Articles are revisited annually or bi-annually to reflect evolving environmental legislation (e.g. UK peat sales bans, approved organic controls) and changing weather patterns.
+
+---
+
+## 4. Corrections Policy
+
+We take horticultural accuracy seriously. If you identify a factual error, ambiguous recommendation, or outdated seasonal advice in any guide, we encourage you to contact our editorial desk at **editorial@greengarden.co.uk**. We investigate all reported corrections within 48 business hours and publicly update the article with a clear revision date.
+    `
+  },
+  {
+    id: 'page-advertising-disclosure',
+    slug: 'advertising-disclosure',
+    title: 'Advertising & Monetization Disclosure',
+    subtitle: 'Transparent disclosures regarding digital advertising, sponsorships, and reader support.',
+    metaTitle: 'Advertising & Monetization Disclosure | Green Garden',
+    metaDescription: 'Understand how Green Garden monetizes its free publication through display advertising (Google AdSense, Ezoic) and our strict commitment to editorial independence.',
+    lastUpdated: '2026-03-20',
+    content: `
+## 1. Editorial Independence Guarantee
+
+**Green Garden is 100% free and independent.** We believe that dependable, peat-free gardening guidance should be universally accessible to every aspiring grower without mandatory paywalls, subscriptions, or gated content.
+
+To sustain our research, editorial salaries, website hosting, and seasonal testing plots, we support our publication through ethical digital display advertising and occasional affiliate partnerships.
+
+Our editorial opinions are never for sale. Advertisers, ad networks, and commercial sponsors exert zero influence over our article ratings, plant recommendations, critical assessments, or botanical advice.
+
+---
+
+## 2. Programmatic Display Advertising (Ezoic & Google AdSense)
+
+We partner with programmatic advertising networks, including **Google AdSense** and **Ezoic Inc.**, to display contextual advertisements across our articles.
+
+- These networks use cookies and device identifiers to serve non-intrusive, relevant advertisements to readers.
+- You can review and adjust your personalized advertising choices at any time via our Cookie Policy or Google Ads Settings.
+- We deliberately constrain ad density to preserve page loading speed, readability, and a clean user experience on both mobile devices and desktop computers.
+
+---
+
+## 3. Affiliate Relationships & Product Recommendations
+
+From time to time, Green Garden may include affiliate links to gardening tools, peat-free composts, seed merchants, or gardening literature. If you click an affiliate link and make a purchase, we may receive a modest commission at absolutely zero additional cost to you.
+
+We only recommend tools, seeds, and equipment that our writers have personally used or that hold recognized credentials, such as the RHS Award of Garden Merit.
+
+---
+
+## 4. Compliance with UK ASA & FTC Guidelines
+
+This disclosure is maintained in strict compliance with the **UK Advertising Standards Authority (ASA)**, the **Committee of Advertising Practice (CAP) Code**, and the **US Federal Trade Commission (FTC)** guidelines on digital endorsements and publisher transparency.
+
+If you have questions regarding our monetization practices, please write to our publisher desk at **contact@greengarden.co.uk**.
+    `
   }
 ];

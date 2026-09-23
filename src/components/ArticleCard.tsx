@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Article } from '../types';
-import { getOptimizedImageUrl, getUnsplashSrcSet } from '../utils/image';
+import { getOptimizedImageUrl, getUnsplashSrcSet, DEFAULT_FALLBACK_IMAGE } from '../utils/image';
 
 interface ArticleCardProps {
   article: Article;
@@ -33,6 +33,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick, feat
           decoding="async"
           width={featured ? 640 : 480}
           height={featured ? 380 : 280}
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.onerror = null;
+            target.srcset = '';
+            target.src = DEFAULT_FALLBACK_IMAGE;
+          }}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
         />
         <div className="absolute top-3 left-3">

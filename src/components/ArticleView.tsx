@@ -9,19 +9,26 @@ import {
   ChevronDown, 
   Bookmark, 
   Send,
-  ArrowLeft
+  ArrowLeft,
+  CheckCircle2,
+  Sparkles,
+  ShieldCheck,
+  BookOpen
 } from 'lucide-react';
 import { Article } from '../types';
 import { useBlog } from '../context/BlogContext';
 import { AdContainer } from './AdContainer';
 import { ArticleCard } from './ArticleCard';
 import { NewsletterBox } from './NewsletterBox';
-import { getOptimizedImageUrl, getUnsplashSrcSet } from '../utils/image';
+import { getOptimizedImageUrl, getUnsplashSrcSet, DEFAULT_FALLBACK_IMAGE } from '../utils/image';
 
 interface ArticleViewProps {
   article: Article;
   navigate: (path: string) => void;
 }
+
+const slugifyHeading = (text: string) => 
+  text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) => {
   const { articles } = useBlog();
@@ -64,7 +71,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
     .map(line => line.replace('## ', '').trim());
 
   const renderFormattedText = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+    const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|`.*?`)/g);
     return parts.map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return <strong key={i} className="font-semibold text-[#14281c]">{part.slice(2, -2)}</strong>;
@@ -72,12 +79,98 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
       if (part.startsWith('*') && part.endsWith('*')) {
         return <em key={i} className="italic text-[#1d3524]">{part.slice(1, -1)}</em>;
       }
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return <code key={i} className="px-1.5 py-0.5 rounded bg-[#ebf3ec] text-[#1b4332] font-mono text-xs">{part.slice(1, -1)}</code>;
+      }
       return part;
     });
   };
 
+  const renderTable = (tableMarkdown: string, key: number) => {
+    const lines = tableMarkdown.trim().split('\n').filter(l => l.trim().startsWith('|'));
+    if (lines.length < 2) return null;
+    const parseRow = (line: string) => line.split('|').slice(1, -1).map(c => c.trim());
+    const headerCells = parseRow(lines[0]);
+    const isSeparator = (line: string) => /^[|\s-:]+$/.test(line);
+    const dataLines = lines.slice(1).filter(l => !isSeparator(l));
+
+    return (
+      <div key={key} className="my-8 overflow-x-auto rounded-2xl border border-[#d2e5d4] shadow-2xs bg-white">
+        <table className="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr className="bg-[#eef6ef] border-b border-[#cde2cf] text-[#14281c] font-bold">
+              {headerCells.map((h, idx) => (
+                <th key={idx} className="py-3.5 px-4 sm:px-5">
+                  {renderFormattedText(h)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#e8f1e9] text-[#293d2e]">
+            {dataLines.map((row, rIdx) => {
+              const cells = parseRow(row);
+              return (
+                <tr key={rIdx} className={rIdx % 2 === 1 ? 'bg-[#fcfdfc]' : 'bg-white'}>
+                  {cells.map((cell, cIdx) => (
+                    <td key={cIdx} className="py-3 px-4 sm:px-5 leading-relaxed">
+                      {renderFormattedText(cell)}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
+  // Structured Data Schema
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt || article.metaDescription,
+    image: [article.featuredImage],
+    datePublished: article.publishDate,
+    dateModified: article.updatedDate || article.publishDate,
+    author: {
+      '@type': 'Person',
+      name: article.author.name,
+      jobTitle: article.author.role,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Green Garden',
+      url: 'https://greengarden.co.uk',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': currentUrl,
+    },
+  };
+
+  const faqSchema = article.faqs && article.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: article.faqs.map(f => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer,
+      },
+    })),
+  } : null;
+
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+      {/* Schema.org Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
+
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-[#52796f] mb-6 overflow-x-auto whitespace-nowrap">
         <button onClick={() => navigate('/')} className="hover:text-[#1b4332] cursor-pointer">Home</button>
@@ -110,6 +203,12 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
         <p className="text-lg text-[#3c5242] leading-relaxed mb-6 font-serif italic">
           {article.excerpt}
         </p>
+
+        {/* E-E-A-T Trust & Fact-Check Callout */}
+        <div className="flex flex-wrap items-center gap-2.5 p-3 rounded-xl bg-[#eef7ee] border border-[#cbe4ce] text-xs text-[#1b4332] mb-6">
+          <ShieldCheck className="w-4 h-4 text-[#2d6a4f] shrink-0" />
+          <span><strong>Fact-Checked &amp; RHS Standards Reviewed:</strong> Written by verified UK horticultural specialists for British climate zones and peat-free practice.</span>
+        </div>
 
         {/* Author & Timing Row */}
         <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-[#e7eee6] text-xs sm:text-sm text-[#556e5c]">
@@ -155,6 +254,12 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
           loading="eager"
           fetchPriority="high"
           decoding="async"
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.onerror = null;
+            target.srcset = '';
+            target.src = DEFAULT_FALLBACK_IMAGE;
+          }}
           className="w-full h-auto max-h-[500px] object-cover"
         />
         {article.altText && (
@@ -164,20 +269,33 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
         )}
       </div>
 
-      {/* Table of Contents (for structured guides) */}
-      {headings.length > 2 && (
-        <div className="bg-[#f4f8f4] border border-[#d2e5d4] rounded-2xl p-6 mb-10">
-          <div className="font-bold text-sm uppercase tracking-wider text-[#1b4332] mb-3 flex items-center gap-2">
+      {/* Table of Contents (Clickable with smooth jump links) */}
+      {headings.length > 1 && (
+        <div className="bg-[#f4f8f4] border border-[#d2e5d4] rounded-2xl p-6 mb-10 shadow-2xs">
+          <div className="font-bold text-sm uppercase tracking-wider text-[#1b4332] mb-3.5 flex items-center gap-2">
             <Bookmark className="w-4 h-4 text-[#2d6a4f]" />
-            <span>Table of Contents</span>
+            <span>Table of Contents (Jump to Section)</span>
           </div>
           <ul className="space-y-2 text-sm text-[#2b4233]">
-            {headings.map((h, i) => (
-              <li key={i} className="flex items-baseline gap-2">
-                <span className="text-xs text-[#52796f] font-mono">{i + 1}.</span>
-                <span className="hover:text-[#1b4332] font-medium">{h}</span>
-              </li>
-            ))}
+            {headings.map((h, i) => {
+              const targetId = slugifyHeading(h);
+              return (
+                <li key={i} className="flex items-baseline gap-2">
+                  <span className="text-xs text-[#52796f] font-mono">{i + 1}.</span>
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById(targetId);
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className="text-left text-[#1b4332] hover:text-[#2d6a4f] hover:underline font-medium cursor-pointer"
+                  >
+                    {h}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
@@ -188,16 +306,38 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
           const trimmed = paragraph.trim();
           if (!trimmed) return null;
 
+          // Check if it's a Markdown Table
+          if (trimmed.startsWith('|') && trimmed.includes('\n|')) {
+            return renderTable(trimmed, index);
+          }
+
+          // Check if it's a Blockquote / Pro Tip
+          if (trimmed.startsWith('> ')) {
+            const quoteContent = trimmed.replace(/^>\s?/gm, '');
+            return (
+              <div 
+                key={index} 
+                className="my-7 p-5 rounded-2xl bg-[#f2f8f3] border-l-4 border-[#2d6a4f] text-[#1b4332] text-[15px] sm:text-base leading-relaxed shadow-2xs"
+              >
+                {renderFormattedText(quoteContent)}
+              </div>
+            );
+          }
+
           const lines = trimmed.split('\n');
           const firstLine = lines[0].trim();
 
           // Render H2
           if (firstLine.startsWith('## ')) {
             const headingText = firstLine.replace(/^##\s+/, '');
+            const targetId = slugifyHeading(headingText);
             const remainingLines = lines.slice(1).join('\n').trim();
             return (
               <React.Fragment key={index}>
-                <h2 className="text-xl sm:text-2xl font-bold font-editorial text-[#172e20] mt-9 mb-3 pt-4 border-t border-[#ebf2ea] first:border-t-0 first:pt-0">
+                <h2 
+                  id={targetId}
+                  className="scroll-mt-24 text-xl sm:text-2xl font-bold font-editorial text-[#172e20] mt-10 mb-3 pt-4 border-t border-[#ebf2ea] first:border-t-0 first:pt-0"
+                >
                   {headingText}
                 </h2>
                 {remainingLines && (
@@ -212,10 +352,14 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
           // Render H3
           if (firstLine.startsWith('### ')) {
             const headingText = firstLine.replace(/^###\s+/, '');
+            const targetId = slugifyHeading(headingText);
             const remainingLines = lines.slice(1).join('\n').trim();
             return (
               <React.Fragment key={index}>
-                <h3 className="text-lg sm:text-xl font-bold font-editorial text-[#1d3827] mt-6 mb-2">
+                <h3 
+                  id={targetId}
+                  className="scroll-mt-24 text-lg sm:text-xl font-bold font-editorial text-[#1d3827] mt-7 mb-2"
+                >
                   {headingText}
                 </h3>
                 {remainingLines && (

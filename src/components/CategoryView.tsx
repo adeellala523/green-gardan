@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { ChevronRight, Filter, BookOpen } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { Category } from '../types';
 import { useBlog } from '../context/BlogContext';
 import { ArticleCard } from './ArticleCard';
 import { AdContainer } from './AdContainer';
 import { NewsletterBox } from './NewsletterBox';
-import { getOptimizedImageUrl } from '../utils/image';
 
 interface CategoryViewProps {
   category: Category;
@@ -43,11 +42,6 @@ export const CategoryView: React.FC<CategoryViewProps> = ({ category, navigate }
         <div className="absolute top-1/2 right-10 -translate-y-1/2 w-72 h-72 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
         
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#eef7ee] border border-[#cbe4ce] text-xs font-bold text-[#1b4332] mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-[#2d6a4f]" />
-            <span>{categoryArticles.length} Essential Guides</span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl font-bold font-sans text-[#12281c] mb-3">
             {category.name}
           </h1>

@@ -1,5 +1,5 @@
 import { Article } from '../../types';
-import { defaultAuthor } from './gardeningTips';
+import { defaultAuthor } from '../author';
 
 export const flowersPlantsArticles: Article[] = [
   {
@@ -8,13 +8,13 @@ export const flowersPlantsArticles: Article[] = [
     slug: 'best-flowering-plants-for-uk-gardens',
     categorySlug: 'flowers-plants',
     categoryName: 'Flowers & Plants',
-    excerpt: 'Explore top-performing flowering plants tested to flourish in the UK climate, delivering months of colour, nectar for bees, and hardy resilience.',
+    excerpt: 'Explore top-performing flowering plants tested to flourish in the UK climate, delivering months of colour, nectar for bees, and hardy resilience against rain and wind.',
     featuredImage: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
     altText: 'Lush English country cottage garden bursting with purple lupins, roses, and foxgloves',
     author: defaultAuthor,
     publishDate: '2026-03-10',
     updatedDate: '2026-03-29',
-    readingTime: '7 min read',
+    readingTime: '10 min read',
     tags: ['Flowers', 'Cottage Garden', 'Perennials', 'Pollinators', 'Hardy Plants'],
     isFeatured: true,
     isPopular: true,
@@ -26,71 +26,77 @@ export const flowersPlantsArticles: Article[] = [
     faqs: [
       {
         question: 'What is the longest flowering perennial for UK borders?',
-        answer: 'Geranium "Rozanne" is widely considered the champion, producing vibrant violet-blue saucer flowers non-stop from late May right until the first hard frosts in November.'
+        answer: 'Geranium "Rozanne" (Cranesbill) is widely recognized by the Royal Horticultural Society as the ultimate long-flowering perennial. It produces masses of white-centred violet-blue saucer blossoms without interruption from late May until the first hard frosts in November.'
       },
       {
-        question: 'Are English roses difficult to care for?',
-        answer: 'Modern shrub roses bred by David Austin and other British growers are bred for high disease resistance against mildew and black spot, making them straightforward to grow with annual pruning and mulching.'
+        question: 'Are modern English shrub roses difficult to maintain without chemicals?',
+        answer: 'Modern repeat-flowering shrub roses bred by David Austin, Harkness, and Peter Beales possess high genetic resistance to black spot (*Diplocarpon rosae*) and powdery mildew. Provided they are planted in full sun, mulched annually with rich compost, and pruned in late winter, they thrive entirely chemical-free.'
+      },
+      {
+        question: 'How do I stop perennials from flopping over in wet British summers?',
+        answer: 'Perennials flop when given excess synthetic nitrogen fertilizer or when struck by sudden heavy rainstorms. Support them in April using brushwood birch pea sticks or metal link stakes before growth reaches 30cm, and practice the "Chelsea Chop" in late May on tall varieties like sedums, heleniums, and phlox.'
       }
     ],
     content: `
 ## Crafting the Quintessential British Floral Border
 
-Few sights in horticulture match the romance and sensory abundance of an English flower garden in full bloom. Yet, creating a border that performs consistently despite unpredictable UK weather requires selecting plants that thrive in our damp springs and temperate summers.
+Few sights in world horticulture rival the sensory splendour of an English herbaceous border in midsummer. The gentle interweaving of spire flowers, pillowy mounds of cranesbill, and the honeyed perfume of climbing roses represent centuries of British gardening craft.
 
-Here are the standout flowering champions that combine dazzling visual impact with proven British garden hardiness.
-
----
-
-## 1. Hardy Cranesbill (*Geranium* 'Rozanne')
-
-Named "Plant of the Centenary" at the RHS Chelsea Flower Show, this exceptional perennial forms mounds of deeply cut green foliage smothered in white-centred violet-blue flowers.
-
-- **Flowering Period:** May to November (nearly six full months!).
-- **Conditions:** Thrives in sun or partial shade; tolerates heavy clay and dry spells once established.
-- **Garden Role:** Front-of-border groundcover that effectively smothers weeds.
+However, British weather—marked by sudden driving Atlantic downpours, cool overcast spells, and occasional scorchers—demands plants with exceptional physical durability. Here are the champion flowering plants that hold the prestigious **RHS Award of Garden Merit (AGM)**, guaranteeing proven resilience across UK growing conditions.
 
 ---
 
-## 2. Salvia (*Salvia nemorosa* 'Caradonna')
+## 1. Master Flowering Calendar & Plant Specifications
 
-With upright, dark purple-black stems supporting dense spikes of glowing violet-blue flowers, this architectural salvia provides dramatic vertical rhythm.
-
-- **Flowering Period:** June through to October if cut back lightly after the first summer flush.
-- **Pollinator Magnet:** Bees and hoverflies visit its nectar-rich florets all summer.
-- **Drought Resilience:** Once established, it requires little supplemental watering.
-
----
-
-## 3. Echinacea (*Echinacea purpurea* / Coneflower)
-
-Originating from prairies, coneflowers have become modern British garden staples, holding their daisy-like blooms proudly on sturdy stems that rarely require staking.
-
-- **Aesthetic Bonus:** Leave the attractive conical seedheads intact throughout winter for frost-encrusted architectural interest and food for goldfinches.
+| Plant Name | Flower Colour & Form | Flowering Window | Ideal Sunlight | RHS Hardiness Rating |
+| --- | --- | --- | --- | --- |
+| ***Geranium* 'Rozanne'** | Violet-blue saucer with white eye | May to November | Full sun to partial shade | H7 (Fully hardy to -20°C) |
+| ***Salvia nemorosa* 'Caradonna'** | Deep violet-purple spires on black stems | June to October | Full sun (sheltered) | H7 (Fully hardy) |
+| ***Echinacea purpurea* 'Magnus'** | Carmine-pink reflexed petals, orange cone | July to September | Full sun | H5 (Hardy to -15°C) |
+| ***Astrantia major* 'Roma'** | Soft rose-pink pincushion bracts | June to September | Partial shade to sun | H7 (Fully hardy) |
+| ***Erysimum* 'Bowles’s Mauve'** | Scented lilac-mauve wallflower clusters | February to October | Full sun, dry soils | H4 (Hardy to -10°C) |
+| ***Rudbeckia fulgida* 'Goldsturm'** | Golden yellow daisy with chocolate cone | August to October | Full sun to light shade | H6 (Hardy to -15°C) |
 
 ---
 
-## 4. Astrantia major (Masterwort)
+## 2. In-Depth Profiles of the Top British Garden Performers
 
-A beloved mainstay of cottage borders and woodland margins, Astrantia produces pincushion-like florets surrounded by papery bracts in shades of ruby, blush, and ivory.
+### 1. Hardy Cranesbill (*Geranium* 'Rozanne' AGM)
+Named the "Plant of the Centenary" at the RHS Chelsea Flower Show, 'Rozanne' is arguably the finest border perennial introduced in the last 50 years. Unlike older geranium cultivars that bloom for three weeks in June and turn scruffy, 'Rozanne' weaves gracefully through neighbouring shrubs and rose bushes, producing a continuous carpet of 5cm luminous blooms. It tolerates heavy clay, thrives in gravel gardens, and smothers weed seeds beneath dense, marbled green foliage.
 
-- **Shade Tolerance:** Flourishes in damp, semi-shaded borders where other sun-worshippers fail.
+### 2. Architectural Salvia (*Salvia nemorosa* 'Caradonna')
+With striking upright jet-black stems that rise through borders, 'Caradonna' provides vital vertical contrast against rounded shrub forms. Its nectar-rich florets are visited tirelessly by native bumblebees (*Bombus lapidarius*) and hoverflies. When the initial June flower spikes fade, shear the entire plant down by half and water thoroughly; within three weeks, it will produce a fresh second wave of autumn blooms.
+
+### 3. Coneflower (*Echinacea purpurea*)
+Originating from open prairies, coneflowers bring architectural elegance to late-summer borders. Their stiff, fibrous stems hold the blooms aloft without any need for staking, even during blustery August gales. 
+
+> 💡 **RHS Master Gardener Tip:** Resist the urge to tidy away spent coneflower heads in autumn. Leave the dark conical seed structures standing throughout winter—they catch morning frost crystals spectacularly and provide vital winter seeds for visiting goldfinches.
+
+---
+
+## 3. The "Chelsea Chop": Extending Your Summer Flower Season
+
+To prevent tall late-summer perennials from growing leggy and flopping over during summer downpours, adopt the traditional British gardening technique known as the **Chelsea Chop** (performed in late May, coinciding with the Chelsea Flower Show):
+
+1. **Which Plants to Chop:** Ideal for *Phlox paniculata*, *Helenium*, *Echinacea*, *Hylotelephium* (Sedum), and *Campanula lactiflora*.
+2. **The Method:** Using sharp shears, cut back one-third to one-half of the stems in a clump by 30–50%.
+3. **The Result:** The uncut stems flower at their normal time in July, while the pruned stems branch outwards and flower 3 to 4 weeks later in late August, effectively doubling your flowering window and creating bushier, sturdier plants.
     `
   },
   {
     id: 'art-8',
-    title: 'Easy-to-Grow Perennials for Beginners in the UK',
+    title: 'Easy-to-Grow Perennials for Beginners in the UK: 6 Bulletproof Plants',
     slug: 'easy-to-grow-perennials-for-beginners-uk',
     categorySlug: 'flowers-plants',
     categoryName: 'Flowers & Plants',
-    excerpt: 'Skip the frustration of fussy specimens. These bulletproof perennial flowers thrive in almost any UK soil, return reliably each spring, and require minimal fuss.',
-    featuredImage: 'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=1200&q=80',
-    altText: 'Vibrant yellow rudbeckia and purple nepeta growing vigorously in a UK border',
+    excerpt: 'Skip the disappointment of fussy nursery specimens. These bulletproof perennial flowers thrive in almost any UK soil, return reliably each spring, and shrug off slugs.',
+    featuredImage: 'https://images.unsplash.com/photo-1507290439931-a861b5a38200?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Vibrant yellow rudbeckia and purple nepeta growing vigorously in a sunny UK border',
     author: defaultAuthor,
     publishDate: '2026-03-01',
     updatedDate: '2026-03-20',
-    readingTime: '6 min read',
-    tags: ['Perennials', 'Beginners', 'Hardy', 'Low Maintenance'],
+    readingTime: '9 min read',
+    tags: ['Perennials', 'Beginners', 'Hardy', 'Low Maintenance', 'UK Borders'],
     isFeatured: false,
     isPopular: true,
     status: 'published',
@@ -100,40 +106,46 @@ A beloved mainstay of cottage borders and woodland margins, Astrantia produces p
     canonicalUrl: '/flowers-plants/easy-to-grow-perennials-for-beginners-uk',
     faqs: [
       {
-        question: 'What is the difference between an annual and a perennial?',
-        answer: 'An annual completes its entire life cycle—germinating, flowering, setting seed, and dying—within a single year. A perennial lives for multiple years, dying back to root level in winter and regrowing each spring.'
+        question: 'What is the fundamental difference between an annual and a perennial?',
+        answer: 'An annual completes its entire biological cycle—germinating from seed, flowering, setting seed, and dying—within one single growing season. A herbaceous perennial lives for many years, dying back to root level during winter dormancy and returning stronger and larger every spring.'
       },
       {
-        question: 'When should beginner perennials be planted in the UK?',
-        answer: 'Autumn (September to November) is the gold standard because warm soil and seasonal rain allow roots to establish before winter dormancy. Early spring (March to May) is also excellent.'
+        question: 'When is the absolute best time to plant perennials in Britain?',
+        answer: 'Autumn (mid-September through October) is the horticultural gold standard in the UK. The soil retains summer warmth, and autumn rains allow roots to establish deeply before winter without the watering demands of spring-planted specimens.'
       }
     ],
     content: `
-## Why Perennials are a Gardener's Best Investment
+## Why Perennials are the Best Horticultural Investment
 
-When starting your first garden, buying trays of annual bedding plants can quickly become expensive and exhausting. Perennials, on the other hand, are the true workhorses of the garden: plant them once, and they reward you year after year, growing in size, resilience, and beauty.
+When first cultivating a garden, it is easy to spend hundreds of pounds on temporary annual bedding plants that perish at the first touch of November frost. Herbaceous perennials, however, are the true cornerstone of sustainable gardening: plant them once, and they return faithfully year after year, increasing in vigour, bloom count, and resilience.
 
-For beginner gardeners seeking guaranteed success without fussy feeding regimes, these hardy options will never let you down.
-
----
-
-## 1. *Alchemilla mollis* (Lady's Mantle)
-Known for scalloped, soft velvety leaves that capture morning dew droplets like sparkling diamonds. In June, frothy clouds of chartreuse-yellow flowers erupt over the foliage, blending beautifully alongside any companion colour.
+For novices who want high-impact borders without complex pruning rules or daily watering routines, these six bulletproof species will flourish even under beginner care.
 
 ---
 
-## 2. *Nepeta* (Catmint)
-If you struggle with lavender in damp UK clay, plant *Nepeta* 'Walker\\'s Low' or 'Junior Walker'. Its aromatic grey-green leaves deter pests, and it erupts in billowing lavender-blue floral spires from May to September. Cut it back hard in midsummer, and it flushes fresh foliage within a fortnight.
+## 1. Top Low-Maintenance UK Perennials
+
+| Plant Name | Height & Spread | Soil Tolerance | Slug Resistance Level |
+| --- | --- | --- | --- |
+| ***Alchemilla mollis* (Lady's Mantle)** | 40cm x 50cm | Tolerates poor, dry, or boggy clay | ★★★★★ (Completely Immune) |
+| ***Nepeta* 'Walker's Low' (Catmint)** | 60cm x 60cm | Dry, sandy, or stony soils | ★★★★★ (Aromatic Deterrent) |
+| ***Hylotelephium* 'Autumn Joy' (Sedum)** | 50cm x 40cm | Excellent in dry, sun-baked clay | ★★★★☆ (High Resilience) |
+| ***Brunnera macrophylla* 'Jack Frost'** | 35cm x 40cm | Moist, damp woodland shade | ★★★★☆ (Rough hairy leaves) |
+| ***Geranium macrorrhizum*** | 30cm x 60cm | Dry shade beneath trees | ★★★★★ (Impervious to pests) |
+| ***Aquilegia vulgaris* (Granny's Bonnet)** | 60cm x 30cm | Any moist, well-drained soil | ★★★★☆ (Self-seeds freely) |
 
 ---
 
-## 3. *Rudbeckia fulgida* var. *sullivantii* 'Goldsturm'
-Golden coneflowers provide pure joy from August through October. Their bright golden-yellow petals surround a dark central cone, illuminating late-summer borders when early flowers have faded.
+## 2. Detailed Guides to the Best Beginner Varieties
 
----
+### 1. *Alchemilla mollis* (Lady's Mantle)
+Famous for its soft, scalloped, velvet leaves that hold morning dew droplets like silver beads of mercury. In June, mounds of foliage are enveloped by frothy clouds of chartreuse-yellow flowers that harmonize effortlessly with all blues, purples, and pinks. If foliage looks tired in August, sheer it right down to the ground; within two weeks, fresh emerald foliage will emerge.
 
-## 4. *Sedum* (*Hylotelephium* 'Autumn Joy')
-Fleshy succulent leaves look tidy in spring, forming broccoli-like heads that open into dusky pink florets in late August, aging to rich bronze in autumn. Impervious to drought and beloved by butterflies.
+### 2. *Nepeta x faassenii* 'Walker's Low' (Catmint)
+If you love the romantic look of lavender but battle with cold, soggy British winter clay, Catmint is your saviour. Its aromatic grey-green leaves deter rabbits, deer, and slugs, producing billowing lavender-blue floral wands from May until October.
+
+### 3. *Brunnera macrophylla* 'Jack Frost'
+For shady corners where other flowering plants struggle, Brunnera offers large heart-shaped silver leaves with intricate green veins, topped in April and May with clusters of sky-blue forget-me-not blossoms.
     `
   },
   {
@@ -142,14 +154,14 @@ Fleshy succulent leaves look tidy in spring, forming broccoli-like heads that op
     slug: 'best-plants-for-a-sunny-garden-uk',
     categorySlug: 'flowers-plants',
     categoryName: 'Flowers & Plants',
-    excerpt: 'Have a south-facing garden baked in all-day sun? Discover drought-tolerant Mediterranean and gravel garden favourites that thrive in warm UK borders.',
+    excerpt: 'Have a south-facing garden baked in all-day sun? Discover drought-tolerant Mediterranean and gravel garden favourites that thrive through British heatwaves without wilting.',
     featuredImage: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=1200&q=80',
     altText: 'Sunny garden border with aromatic lavender, verbena bonariensis, and grasses in afternoon light',
     author: defaultAuthor,
     publishDate: '2026-02-18',
     updatedDate: '2026-03-08',
-    readingTime: '6 min read',
-    tags: ['Sunny Garden', 'Drought Tolerant', 'Lavender', 'Gravel Garden'],
+    readingTime: '9 min read',
+    tags: ['Sunny Garden', 'Drought Tolerant', 'Lavender', 'Gravel Garden', 'Climate Resilient'],
     isFeatured: false,
     isPopular: false,
     status: 'published',
@@ -159,36 +171,39 @@ Fleshy succulent leaves look tidy in spring, forming broccoli-like heads that op
     canonicalUrl: '/flowers-plants/best-plants-for-a-sunny-garden-uk',
     faqs: [
       {
-        question: 'Which lavender variety is best suited to the UK climate?',
-        answer: 'English lavender (Lavandula angustifolia) cultivars such as "Hidcote" and "Munstead" are far hardier to wet British winters than French or Spanish varieties, which are prone to root rot.'
+        question: 'Which lavender variety is genuinely hardy in the damp UK climate?',
+        answer: 'English lavender (*Lavandula angustifolia*) cultivars such as "Hidcote" (deep violet-blue) and "Munstead" (soft lavender) are fully hardy down to -15°C and survive wet UK winters provided they have free-draining soil. French lavender (*Lavandula stoechas*) with butterfly "ears" is tender and easily killed by winter waterlogging.'
+      },
+      {
+        question: 'How do Mediterranean plants survive prolonged drought without watering?',
+        answer: 'Sun-adapted species possess silver or grey foliage that reflects intense ultraviolet light, waxy leaf cuticles that limit moisture transpiration, and deep taproots that seek water tables several feet below ground.'
       }
     ],
     content: `
-## Designing for the Sunniest Plots
+## Designing for High-Sun, Low-Water British Gardens
 
-A south or west-facing garden is a gardener's dream for vibrant colour, but during July and August heatwaves, shallow-rooted plants can wilt quickly.
+A south-facing or west-facing British garden with all-day sun exposure is an incredible canvas for floral abundance. However, during July and August heatwaves, standard cottage perennials can wilt severely without constant watering can intervention.
 
-The secret to success in sun-drenched plots is looking towards plants that naturally evolved in Mediterranean scrublands, coastal banks, or dry prairies.
-
----
-
-## 1. *Verbena bonariensis* (Purple Top)
-Slender, see-through stems reach 1.5m tall, topped with clusters of tiny purple-violet blossoms. Because of its airy habit, you can plant it right in the middle or front of sunny borders without obscuring the plants behind it.
+By drawing inspiration from Beth Chatto’s pioneering Gravel Garden in Essex—which was never watered artificially once established—you can build a sun-drenched sanctuary that remains radiant and drought-proof.
 
 ---
 
-## 2. English Lavender (*Lavandula angustifolia* 'Hidcote')
-Compact, intensely aromatic, and rich in essential oils that protect it from heat stress. Plant along sunny pathways where brushing past releases its soothing fragrance.
+## 1. Drought-Tolerant Sun Champions
+
+| Plant Species | Botanical Name | Visual Characteristics | Pruning & Care Advice |
+| --- | --- | --- | --- |
+| **English Lavender** | *Lavandula angustifolia* 'Hidcote' | Deep purple aromatic spikes; silver-grey evergreen foliage. | Prune back by one-third in late August; never cut into old woody brown stems. |
+| **Purple Vervain** | *Verbena bonariensis* | See-through airy stems 1.5m tall topped with purple clusters. | Cut stems to base in March after winter frost danger passes; self-seeds naturally. |
+| **Mexican Feather Grass** | *Stipa tenuissima* | Wispy, golden-green shimmering plumes that billow in wind. | Comb out dead brown blades in March with gloved hands; do not shear. |
+| **Russian Sage** | *Salvia yangii* (formerly *Perovskia*) | Lavender-blue floral haze over aromatic silvery-white stems. | Cut hard back to low woody buds (10cm) in early April. |
 
 ---
 
-## 3. *Stipa tenuissima* (Mexican Feather Grass)
-Soft, wispy ornamental grass that catches every gentle breeze, shimmering pale green in early summer and softening to golden blonde by late August.
+## 2. Principles of the Gravel Garden
 
----
-
-## 4. *Cistus* (Sun Rose)
-An evergreen shrub with papery white or pink flowers that unfurl each morning in full sun. Highly tolerant of poor, sandy, or gravelly soils.
+To create a virtually maintenance-free sunny border:
+1. **Soil Drainage:** Fork coarse horticultural grit or 10mm pea gravel into the top 15cm of soil to prevent winter waterlogging.
+2. **Gravel Mulch:** After planting, top the entire bed with a 5cm layer of clean angular pea shingle or crushed granite. This acts as a barrier against surface evaporation and prevents weed seeds from germinating.
     `
   },
   {
@@ -203,8 +218,8 @@ An evergreen shrub with papery white or pink flowers that unfurl each morning in
     author: defaultAuthor,
     publishDate: '2026-02-05',
     updatedDate: '2026-02-28',
-    readingTime: '6 min read',
-    tags: ['Shade Garden', 'Hostas', 'Ferns', 'North Facing', 'Foliage'],
+    readingTime: '9 min read',
+    tags: ['Shade Garden', 'Hostas', 'Ferns', 'North Facing', 'Foliage', 'Woodland'],
     isFeatured: false,
     isPopular: true,
     status: 'published',
@@ -214,52 +229,53 @@ An evergreen shrub with papery white or pink flowers that unfurl each morning in
     canonicalUrl: '/flowers-plants/best-plants-for-shady-uk-gardens',
     faqs: [
       {
-        question: 'What is the difference between dry shade and damp shade?',
-        answer: 'Dry shade occurs under large trees or beneath building eaves where rain rarely penetrates. Damp shade occurs where moisture stays in the soil but direct sunlight is blocked by high walls or fences.'
+        question: 'What is the critical difference between dry shade and damp shade?',
+        answer: 'Dry shade occurs beneath large mature deciduous trees (such as beech or sycamore) or under deep house eaves where rainfall is physically intercepted. Damp shade occurs along north-facing brick walls or low-lying garden borders where sunlight is blocked but ground moisture remains high.'
+      },
+      {
+        question: 'Which hostas are the most resistant to slug damage?',
+        answer: 'Choose varieties with thick, corrugated, leathery leaves such as *Hosta sieboldiana* "Elegans", "Halcyon", "Sum and Substance", or "June". Slugs find their dense cellular structure difficult to chew, leaving them pristine.'
       }
     ],
     content: `
-## Embracing the Calming Elegance of Shade
+## Embracing the Quiet Majesty of Shade
 
-Many homeowners despair over north-facing gardens or borders cast into deep shadow by neighbouring brick walls and mature trees. However, shade gardens offer an atmosphere of peaceful, verdant tranquility that bright sunny borders rarely replicate.
+Many UK gardeners view a north-facing aspect or shaded boundary wall with despair. Yet woodland and shade gardening offers an atmosphere of serene, architectural sophistication that brightly sun-baked plots often lack.
 
-The key to mastering shade is focusing on **leaf texture, contrasting forms, and variegated foliage** that reflects available light.
-
----
-
-## 1. *Helleborus* (Christmas & Lenten Roses)
-Blooms from January through April when little else is stirring in the garden. Leathery evergreen leaves are topped with nodding cups of slate-grey, white, maroon, or freckled green petals.
+The secret to a triumphant shade border is prioritizing **leaf texture, contrasting geometry, and light-reflecting foliage**.
 
 ---
 
-## 2. *Hostas* (Plantain Lilies)
-The kings of foliage architecture. From the giant corrugated blue leaves of *Hosta sieboldiana* 'Elegans' to the crisp creamy margins of *Hosta* 'Patriot', they add instant structure. Choose thick-leaved varieties to deter slugs.
+## 1. Top Shade Performers for British Conditions
+
+| Plant Name | Shade Type Suited | Aesthetic Feature | Hardiness |
+| --- | --- | --- | --- |
+| ***Helleborus x hybridus* (Lenten Rose)** | Dry or damp shade | Nodding winter cups in plum, slate, cream from Jan–April. | H7 (Fully hardy) |
+| ***Dryopteris erythrosora* (Autumn Fern)** | Damp woodland shade | Triangular fronds emerging coppery bronze before maturing green. | H7 (Fully hardy) |
+| ***Sarcococca confusa* (Sweet Box)** | Dry shade under eaves | Glossy evergreen foliage with intense honey-vanilla winter perfume. | H5 (Hardy to -15°C) |
+| ***Epimedium grandiflorum* (Barrenwort)** | Dry shade beneath trees | Dainty fairy-winged blossoms; heart-shaped bronze-edged leaves. | H7 (Fully hardy) |
 
 ---
 
-## 3. Hardy Ferns (*Dryopteris erythrosora* & *Polystichum*)
-Unfurl architectural fronds each spring in fresh copper tones before maturing to deep emerald. Thrives in damp, shaded woodland humus.
+## 2. Soil Preparation for Shady Plots
 
----
-
-## 4. *Sarcococca confusa* (Sweet Box)
-A glossy, compact evergreen shrub with understated white winter blossoms that emit an intoxicating honey-vanilla fragrance across chilly winter gardens.
+Shady soils, especially beneath mature tree canopies, are frequently starved of organic humus. Generously incorporate leaf mould, peat-free compost, and composted bark every autumn to restore soil moisture retention and microbial activity.
     `
   },
   {
     id: 'art-11',
-    title: 'How to Choose Plants for Your Garden Soil Type in Britain',
+    title: 'How to Choose Plants for Your UK Garden Soil Type',
     slug: 'how-to-choose-plants-for-your-garden-soil-type-uk',
     categorySlug: 'flowers-plants',
     categoryName: 'Flowers & Plants',
-    excerpt: 'Stop fighting your soil. Discover the principle of "right plant, right place" to match your perennials and shrubs to acid, alkaline, clay, or sandy British ground.',
+    excerpt: 'Stop fighting your soil. Discover the foundational principle of "right plant, right place" to match your perennials and shrubs to acid, alkaline, clay, or sandy British ground.',
     featuredImage: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80',
     altText: 'British gardener examining plant root ball before setting it into prepared border soil',
     author: defaultAuthor,
     publishDate: '2026-01-22',
     updatedDate: '2026-02-14',
-    readingTime: '7 min read',
-    tags: ['Soil Types', 'Plant Selection', 'Clay Soil', 'Alkaline Soil'],
+    readingTime: '9 min read',
+    tags: ['Soil Types', 'Plant Selection', 'Clay Soil', 'Alkaline Soil', 'Acidic Soil'],
     isFeatured: false,
     isPopular: false,
     status: 'published',
@@ -270,58 +286,42 @@ A glossy, compact evergreen shrub with understated white winter blossoms that em
     faqs: [
       {
         question: 'Can I grow camellias or rhododendrons in chalky soil?',
-        answer: 'Not directly in the ground, as alkaline lime causes severe iron chlorosis (yellowing leaves). You can, however, grow them magnificently in containers filled with ericaceous (acidic) peat-free compost.'
+        answer: 'Not directly in the garden bed. Free calcium carbonates in chalky ground lock up iron, causing severe iron chlorosis (leaves turning pale yellow with dark green veins) and eventual death. Instead, plant them in glazed patio containers filled with ericaceous (acidic) peat-free compost watered with collected rainwater.'
       }
     ],
     content: `
-## The Golden Rule: Right Plant, Right Place
+## The First Law of Horticulture: Right Plant, Right Place
 
-One of the most frequent causes of plant disappointment is buying specimens based solely on nursery flower tags without considering whether your garden soil can support them.
+The single most common mistake in home gardening is choosing plants purely based on attractive nursery photos, without assessing whether your native soil can sustain their physiological needs.
 
-Working with your soil rather than perpetually fighting against its natural chemistry yields thriving, disease-free borders.
-
----
-
-## 1. Top Plants for Heavy British Clay
-Clay soil is nutrient-dense and moisture-retentive, but requires species that tolerate winter wet:
-- *Cornus sanguinea* (Dogwoods)
-- *Geranium phaeum* and *Geranium pratense*
-- *Rosa rugosa* and robust English shrub roses
-- *Viburnum opulus* (Guelder Rose)
+Selecting species genetically adapted to your soil’s pH and texture eliminates the need for expensive chemical interventions, disease treatments, and premature plant replacements.
 
 ---
 
-## 2. Top Plants for Shallow Chalk & Limestone
-Alkaline soils drain quickly and lack available iron, but suit lime-loving species:
-- *Ceanothus* (Californian Lilac)
-- *Campanula carpatica*
-- *Scabiosa columbaria* (Small Scabious)
-- *Buddleja davidii*
+## 1. Plant Selection Matrix by British Soil Geology
 
----
-
-## 3. Top Plants for Acidic Soils (Low pH)
-Acid soil (pH under 6.0) is the exclusive playground of ericaceous flora:
-- *Rhododendron* and *Azalea*
-- *Camellia japonica*
-- *Calluna vulgaris* (Heather)
-- *Pieris japonica*
+| Soil Geology | pH Range | Characteristic Species That Thrive Naturally | Species to Strictly Avoid |
+| --- | --- | --- | --- |
+| **Heavy London / Midlands Clay** | 6.5 to 7.5 | *Rosa* (Roses), *Viburnum*, *Cornus* (Dogwoods), *Hydrangea*, *Geranium phaeum*. | Lavender, rosemary, cistus (prone to root rot in winter wet). |
+| **Chalk & Limestone (Downs)** | 7.5 to 8.5 | *Ceanothus*, *Campanula*, *Scabiosa*, *Clematis*, *Buddleja*. | *Rhododendron*, *Camellia*, *Pieris*, Blueberries (suffer chlorosis). |
+| **Sandy / Gravelly Heath** | 5.5 to 6.5 | *Eryngium* (Sea Holly), *Cistus*, *Stipa*, *Sedum*, *Echinops*. | Moisture-loving astilbes, gunnera, primulas. |
+| **Acid Peaty / Heathland** | 4.5 to 5.5 | *Rhododendron*, *Azalea*, *Calluna* (Heather), *Magnolia*, *Hydrangea* (deep blue). | Calciphiles like wild clematis, hellebores, boxwood. |
     `
   },
   {
     id: 'art-12',
-    title: 'Long-Flowering Plants for British Gardens: Non-Stop Colour',
+    title: 'Long-Flowering Plants for British Gardens: Non-Stop Colour from May to Frost',
     slug: 'long-flowering-plants-for-british-gardens',
     categorySlug: 'flowers-plants',
     categoryName: 'Flowers & Plants',
-    excerpt: 'Make every square foot of your garden work harder. Discover perennials, climbers, and shrubs that bloom for four months or longer in UK conditions.',
+    excerpt: 'Make every square foot of your garden work harder. Discover perennials, climbers, and shrubs that bloom for four to six months consecutively in UK conditions.',
     featuredImage: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80',
     altText: 'Colourful long-flowering perennial border with hydrangeas, salvias, and cosmos in full bloom',
     author: defaultAuthor,
     publishDate: '2026-01-10',
     updatedDate: '2026-02-02',
-    readingTime: '6 min read',
-    tags: ['Long Flowering', 'Colour', 'Borders', 'Garden Planning'],
+    readingTime: '9 min read',
+    tags: ['Long Flowering', 'Colour', 'Borders', 'Garden Planning', 'Extended Bloom'],
     isFeatured: false,
     isPopular: true,
     status: 'published',
@@ -331,31 +331,28 @@ Acid soil (pH under 6.0) is the exclusive playground of ericaceous flora:
     canonicalUrl: '/flowers-plants/long-flowering-plants-for-british-gardens',
     faqs: [
       {
-        question: 'How do I keep perennials blooming for longer?',
-        answer: 'Deadhead spent flowerheads at least once a week to prevent the plant from directing energy into seed production. A light liquid seaweed feed in July also encourages secondary flower flushes.'
+        question: 'How do I encourage perennials to continue producing flower buds?',
+        answer: 'Deadhead faded flowers weekly before they set seed. Once a plant forms seed pods, hormone signals instruct it to halt bud production. Regular removal of spent flowers redirects cellular energy into secondary and tertiary bloom cycles.'
       }
     ],
     content: `
-## Maximising Every Square Inch of Border Space
+## Maximising Visual ROI in Small British Gardens
 
-In smaller UK gardens, every single plant must earn its keep. Species that bloom for a brief fortnight and leave behind nondescript foliage can leave borders looking sparse during peak summer months.
+In modest suburban gardens, town courtyards, and terrace borders, space is at an absolute premium. Planting varieties that flower for only ten days in June leaves borders dull and uninspiring for the remaining five months of outdoor living.
 
-By deliberately choosing varieties known for extended flowering endurance, you can enjoy vibrant blossoms from late spring straight into late autumn.
-
----
-
-## 1. *Erigeron karvinskianus* (Mexican Fleabane)
-A perennial that seeds gracefully into stone walls, steps, and paving cracks. Its daisy-like flowers open pure white, age to delicate pink, and persist from May until November frosts.
+By selecting powerhouse varieties celebrated for persistent flowering endurance, your garden remains a vibrant tapestry of colour and nectar from late spring through to the sharp frosts of November.
 
 ---
 
-## 2. *Hydrangea paniculata* 'Limelight'
-Unlike fussy mophead hydrangeas, panicle varieties bloom on fresh spring wood and tolerate direct sun. Cones of creamy-lime florets emerge in July, mature to ivory in August, and flush dusky rose-pink in autumn.
+## 1. Top Long-Flowering Champions for UK Borders
 
----
-
-## 3. *Erysimum* 'Bowles\\'s Mauve' (Perennial Wallflower)
-A miracle of flowering stamina that often blooms for nine or even ten continuous months in milder regions of the British Isles.
+| Plant Name | Flower Duration | Height & Spread | Pruning Tip for Extra Blooms |
+| --- | --- | --- | --- |
+| ***Erigeron karvinskianus* (Mexican Fleabane)** | May to November (6 months) | 20cm x 50cm | Shear lightly in August to trigger an explosive autumn display. |
+| ***Hydrangea paniculata* 'Limelight'** | July to October (4 months) | 1.8m x 1.5m | Prune stems hard back to low buds in March for huge floral cones. |
+| ***Erysimum* 'Bowles’s Mauve' (Wallflower)** | February to October (8+ months) | 75cm x 60cm | Trim off spent terminal flower spikes periodically. |
+| ***Clematis* 'Princess Diana'** | July to October (4 months) | 3m climber | Cut back to 20cm from ground level in late February (Group 3). |
+| ***Geum* 'Totally Tangerine'** | May to October (5 months) | 70cm x 50cm | Keep picking flowers for indoor vases; it responds with more buds. |
     `
   }
 ];

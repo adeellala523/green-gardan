@@ -133,19 +133,31 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
           {/* Company & Legal */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#74c69d] mb-4 font-sans">
-              COMPANY
+              TRUST &amp; POLICIES
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-sm">
               <li>
                 <button onClick={() => navigate('/about-us')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Contact Us</span>
+                  <span>About Us</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/editorial-policy')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
+                  <span>Editorial &amp; Fact-Checking Policy</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/advertising-disclosure')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
+                  <span>Advertising &amp; Affiliate Disclosure</span>
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/contact-us')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Editorial Desk</span>
+                  <span>Contact Editorial Desk</span>
                 </button>
               </li>
               <li>

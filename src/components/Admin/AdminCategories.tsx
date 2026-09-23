@@ -31,7 +31,7 @@ export const AdminCategories: React.FC = () => {
       name: '',
       slug: '',
       description: '',
-      image: 'https://images.unsplash.com/photo-1592417817098-8f3d6eb228cc?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80',
       seoTitle: '',
       metaDescription: ''
     });
@@ -57,7 +57,7 @@ export const AdminCategories: React.FC = () => {
         name: formData.name,
         slug: formData.slug,
         description: formData.description || '',
-        image: formData.image || 'https://images.unsplash.com/photo-1592417817098-8f3d6eb228cc?auto=format&fit=crop&w=800&q=80',
+        image: formData.image || 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80',
         seoTitle: formData.seoTitle || `${formData.name} Guides | Green Garden`,
         metaDescription: formData.metaDescription || formData.description
       });

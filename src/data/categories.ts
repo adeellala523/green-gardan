@@ -6,7 +6,7 @@ export const initialCategories: Category[] = [
     name: 'Gardening Tips',
     slug: 'gardening-tips',
     description: 'Practical, down-to-earth advice tailored specifically for the UK climate, soil conditions, and changing British seasons.',
-    image: 'https://images.unsplash.com/photo-1592417817098-8f3d6eb228cc?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
     seoTitle: 'UK Gardening Tips & Practical Advice | Green Garden',
     metaDescription: 'Discover actionable UK gardening tips, seasonal schedules, soil care, vegetable growing guides, and low-maintenance gardening techniques.'
@@ -36,7 +36,7 @@ export const initialCategories: Category[] = [
     name: 'Garden Design',
     slug: 'garden-design',
     description: 'Inspirational layouts, compact courtyard ideas, border planning, visual depth techniques, and low-maintenance modern landscaping.',
-    image: 'https://images.unsplash.com/photo-1558904541-efa8c4a08931?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
     seoTitle: 'UK Garden Design Ideas & Border Planning | Green Garden',
     metaDescription: 'Creative small garden design ideas, border layouts, wildlife-friendly structures, and styling techniques to make small UK gardens feel bigger.'

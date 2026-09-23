@@ -1,21 +1,21 @@
 import { Article } from '../../types';
-import { defaultAuthor } from './gardeningTips';
+import { defaultAuthor } from '../author';
 
 export const indoorGardeningArticles: Article[] = [
   {
     id: 'art-13',
-    title: 'Best Indoor Plants for Beginners: Unkillable Houseplants',
+    title: 'Best Indoor Plants for Beginners: Tough, Unkillable Houseplants for UK Homes',
     slug: 'best-indoor-plants-for-beginners',
     categorySlug: 'indoor-gardening',
     categoryName: 'Indoor Gardening',
-    excerpt: 'Bring calming greenery into your living space without fear of plant casualties. These resilient houseplants tolerate irregular watering, dry radiators, and dim light.',
+    excerpt: 'Bring calming greenery into your living space without fear of plant casualties. These resilient houseplants tolerate irregular watering, dry radiators, and dim British winter light.',
     featuredImage: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=80',
     altText: 'Collection of healthy potted indoor plants including monstera and snake plant in a modern British living room',
     author: defaultAuthor,
     publishDate: '2026-03-08',
     updatedDate: '2026-03-27',
-    readingTime: '6 min read',
-    tags: ['Houseplants', 'Beginners', 'Indoor Plants', 'Home Decor'],
+    readingTime: '9 min read',
+    tags: ['Houseplants', 'Beginners', 'Indoor Plants', 'Home Decor', 'Air Purifying'],
     isFeatured: true,
     isPopular: true,
     status: 'published',
@@ -25,47 +25,65 @@ export const indoorGardeningArticles: Article[] = [
     canonicalUrl: '/indoor-gardening/best-indoor-plants-for-beginners',
     faqs: [
       {
-        question: 'Which houseplant is the most forgiving if I forget to water it?',
-        answer: 'The ZZ Plant (Zamioculcas zamiifolia) and Snake Plant (Sansevieria) store water in their rhizomes and thick leaves, easily enduring 4 to 6 weeks of neglect.'
+        question: 'Which houseplant is genuinely the most forgiving if I forget to water it?',
+        answer: 'The ZZ Plant (*Zamioculcas zamiifolia*) and Snake Plant (*Sansevieria*) are virtually indestructible in domestic settings. Both store substantial water reserves in fleshy underground rhizomes and thick fibrous leaves, easily withstanding 4 to 6 weeks without water.'
       },
       {
-        question: 'Are any of these beginner houseplants safe for curious cats and dogs?',
-        answer: 'Cast Iron Plants (Aspidistra elatior) and Spider Plants (Chlorophytum comosum) are completely non-toxic to household pets.'
+        question: 'Are any of these beginner houseplants non-toxic and safe for cats and dogs?',
+        answer: 'Cast Iron Plants (*Aspidistra elatior*), Spider Plants (*Chlorophytum comosum*), and Boston Ferns (*Nephrolepis exaltata*) are 100% non-toxic to domestic pets according to veterinary safety guidelines. Snake plants and ZZ plants contain insoluble calcium oxalates and should be kept on elevated shelves out of reach of nibbling pets.'
+      },
+      {
+        question: 'How do I stop my indoor plants from dying in a dark hallway or north-facing room?',
+        answer: 'Choose species native to dense tropical forest floors that naturally adapted to low photosynthetic conditions: the Cast Iron Plant, ZZ Plant, or Aglaonema (Chinese Evergreen). Wipe dust from their leaves monthly with a damp cloth so every available photon of ambient light can be absorbed.'
       }
     ],
     content: `
-## Green Sanctuaries Inside UK Homes
+## Crafting a Green Indoor Sanctuary in British Homes
 
-The desire to bring nature indoors has transformed British interiors. Houseplants purify our indoor air, lower stress levels, and add sculptural beauty to bookshelves, desks, and windowsills.
+Houseplants have surged in popularity across the UK, turning urban flats and suburban semi-detached homes into peaceful, biophilic retreats. Living alongside foliage has been scientifically proven to reduce cortisol stress levels, sharpen cognitive focus, and humidify dry indoor environments.
 
-However, many beginner indoor gardeners feel disheartened after losing a fussy fern or overwatered succulent. The secret to indoor confidence is starting with varieties that naturally adapt to typical UK domestic environments—namely central heating, fluctuating humidity, and shorter winter daylight hours.
-
----
-
-## 1. Snake Plant (*Sansevieria trifasciata*)
-Also known as "Mother-in-law's Tongue", this architectural powerhouse features sword-shaped, variegated leaves that grow upright.
-- **Lighting:** Tolerates everything from dim corners to sunny windowsills.
-- **Watering:** Water only when the potting mix is dry throughout. In winter, this might mean watering once a month.
+However, many well-intentioned indoor gardeners give up after an overwatered succulent turns to jelly or a fragile calathea crisps on a radiator windowsill. The key to effortless indoor greenery is selecting species naturally suited to typical British domestic conditions—namely dry central heating in winter, drafty sash windows, and reduced daylight between November and February.
 
 ---
 
-## 2. ZZ Plant (*Zamioculcas zamiifolia*)
-Featuring glossy, emerald-green leaflets along wand-like stems, the ZZ plant thrives on neglect. Its underground potato-like tubers store moisture reserves, making it virtually impervious to skipped waterings.
+## 1. Master Houseplant Comparison & Care Matrix
+
+| Plant Common Name | Botanical Species | Light Tolerance | Watering Frequency (Winter / Summer) | Pet Toxicity Status |
+| --- | --- | --- | --- | --- |
+| **Snake Plant / Mother-in-Law’s Tongue** | *Sansevieria trifasciata* | Low light to full sun | Once every 4–6 weeks / Once every 2 weeks | Mildly toxic if chewed |
+| **ZZ Plant** | *Zamioculcas zamiifolia* | Dim shade to bright indirect | Once every 4–6 weeks / Once every 2 weeks | Mildly toxic if chewed |
+| **Devil’s Ivy / Golden Pothos** | *Epipremnum aureum* | Medium to bright indirect | When top 50% dries / Weekly | Mildly toxic if chewed |
+| **Cast Iron Plant** | *Aspidistra elatior* | Deep shade to medium light | When top 50% dries / Every 10 days | **100% Pet Safe** |
+| **Spider Plant** | *Chlorophytum comosum* | Bright indirect to light shade | When top 30% dries / Weekly | **100% Pet Safe** |
+| **Monstera Deliciosa (Swiss Cheese)** | *Monstera deliciosa* | Medium to bright indirect | When top 5cm dries / Weekly | Mildly toxic if chewed |
 
 ---
 
-## 3. Devil's Ivy (*Epipremnum aureum* / Pothos)
-A fast-growing trailing vine with heart-shaped, marled leaves. Looks spectacular cascading from high bookshelves or draped across mantels. It clearly tells you when it needs water by drooping slightly, bouncing back within hours of a drink.
+## 2. In-Depth Profiles of the Top Resilient Varieties
+
+### 1. Snake Plant (*Sansevieria trifasciata*)
+Often called the "unkillable plant," Sansevieria features architectural, sword-like succulent leaves with bright cream and silver-green banding. It utilizes Crassulacean Acid Metabolism (CAM) photosynthesis, opening its stomata at night to absorb carbon dioxide and release oxygen while you sleep—making it ideal for bedrooms.
+
+- **Care Rule:** The only way to kill a snake plant is drowning its root ball in stagnant water. Plant in a terracotta pot with a 50/50 blend of peat-free indoor compost and perlite, and water only when the pot feels light as a feather.
+
+### 2. ZZ Plant (*Zamioculcas zamiifolia*)
+Featuring glossy, sculptural leaflets aligned like green feathers along fleshy wands, the ZZ plant looks almost artificial in its perfection. Originating from seasonally dry regions of East Africa, it stores gallons of water in potato-like underground tubers. It thrives in windowless hallways, corporate offices, and basement flats with minimal natural light.
+
+### 3. Golden Pothos (*Epipremnum aureum*)
+A vigorously trailing tropical vine with marbled jade-and-gold leaves. Perfect for draping over bookshelves, suspended macrame planters, or climbing up moss poles. Pothos visibly communicates its hydration needs: its leaves soften and droop slightly when thirsty, rebounding within two hours of a thorough drink.
 
 ---
 
-## 4. Spider Plant (*Chlorophytum comosum*)
-An enduring classic that effortlessly produces arching stems laden with baby "spiderettes" that you can snip off and pot up for friends.
+## 3. The 3 Cardinal Rules of Indoor Plant Longevity
+
+1. **Always Use Pots with Drainage Holes:** Never plant directly into decorative ceramic pots without bottom drainage holes. Trapped irrigation water turns anaerobic in 48 hours, suffocating root cells and causing irreversible root rot.
+2. **Bottom-Watering Technique:** Place nursery pots into a shallow tray containing 3cm of tepid water for 20 minutes, allowing capillary action to draw moisture upwards. Discard any standing water left in the saucer.
+3. **Wipe Leaves Regularly:** Household dust, cooking oils, and pet dander coat foliage, blocking stomata. Gently wipe leaves monthly using a soft microfiber cloth dipped in tepid rainwater.
     `
   },
   {
     id: 'art-14',
-    title: 'How to Care for Houseplants in Winter in the UK',
+    title: 'How to Care for Houseplants in Winter in the UK: Overcoming Radiators & Dark Days',
     slug: 'how-to-care-for-houseplants-in-winter-uk',
     categorySlug: 'indoor-gardening',
     categoryName: 'Indoor Gardening',
@@ -75,8 +93,8 @@ An enduring classic that effortlessly produces arching stems laden with baby "sp
     author: defaultAuthor,
     publishDate: '2026-02-12',
     updatedDate: '2026-03-02',
-    readingTime: '6 min read',
-    tags: ['Winter Care', 'Houseplants', 'Heating', 'Humidity'],
+    readingTime: '8 min read',
+    tags: ['Winter Care', 'Houseplants', 'Heating', 'Humidity', 'Seasonal Care'],
     isFeatured: false,
     isPopular: false,
     status: 'published',
@@ -86,99 +104,89 @@ An enduring classic that effortlessly produces arching stems laden with baby "sp
     canonicalUrl: '/indoor-gardening/how-to-care-for-houseplants-in-winter-uk',
     faqs: [
       {
-        question: 'Should I fertilise my indoor plants in winter?',
-        answer: 'No. Most tropical houseplants enter semi-dormancy between November and February due to reduced daylight. Applying fertiliser during this period can burn dormant roots and produce weak, leggy growth.'
+        question: 'Should I fertilise my indoor plants during the British winter?',
+        answer: 'Strictly no. Between late October and March, reduced daylight hours cause houseplants to enter semi-dormancy, slowing metabolic growth. Applying synthetic nitrogen or general plant food during winter causes mineral salt build-up in the soil and burns sensitive root tips.'
+      },
+      {
+        question: 'How do I raise humidity around my plants without buying an expensive electric humidifier?',
+        answer: 'Group your houseplants closely together so they create a shared humid microclimate through transpiration. Alternatively, place plant pots on shallow trays filled with gravel or clay pebbles and water (keeping the pot base just above the water line), or relocate humidity-loving ferns to the bathroom.'
       }
     ],
     content: `
 ## Surviving the British Winter Indoors
 
-While our outdoor gardens sleep under frost, indoor houseplants face a difficult combination of challenges from November to February: short daylight hours, cold drafts from sash windows, and hot, dry air generated by central heating radiators.
+While your outdoor garden sleeps peacefully beneath frost, indoor tropical houseplants face their most stressful period of the year between November and February.
 
-By making a few tactical adjustments to your winter plant routine, your indoor jungle will emerge into spring healthy and vibrant.
-
----
-
-## 1. Slash Your Watering Frequency
-
-Because daylight drops significantly in the UK winter, houseplants slow their metabolic rates and consume far less moisture.
-- Always check the compost depth with your finger before pouring water.
-- Empty excess water from saucers after 15 minutes; roots sitting in cold water during winter will rapidly succumb to fungal root rot.
+British homes subject tropical understory plants to a contradictory environment: hot, desiccating dry air from central heating radiators, coupled with biting cold drafts leaking through windowpanes, and a drastic 70% drop in available daylight.
 
 ---
 
-## 2. Combat Radiator Dryness
+## 1. Winter Houseplant Adjustments Matrix
 
-Central heating reduces indoor relative humidity down to 20–30%, far below the 60% tropical species prefer.
-- **Group plants together:** Creating dense plant clusters creates a microclimate of shared transpiration.
-- **Pebble trays:** Place plant pots onto trays filled with pea gravel and water, ensuring the pot base sits above the water line.
-- **Relocate away from direct heat:** Never place tender prayer plants or calatheas directly above a roaring radiator.
+| Environmental Hazard | Direct Impact on Plants | Actionable Home Solution |
+| --- | --- | --- |
+| **Hot Radiator Plumes** | Crispy leaf margins; rapid spider mite infestation. | Move plants at least 1 metre away from active radiator panels and convection heaters. |
+| **Short Daylight Hours** | Pale, leggy growth; leaf drop; stalled photosynthesis. | Move plants closer to south-facing windows; wipe window glass to maximize light transmission. |
+| **Cold Window Glass Drafts** | Chilled root balls; black vascular collapse. | Ensure foliage does not touch freezing glass panes; close curtains behind plants at dusk. |
+| **Cold Saturated Soil** | Fungal root rot; yellow translucent leaves. | Slash watering frequency by 50% to 75%; always test soil moisture before watering. |
 
 ---
 
-## 3. Chase the Weak Winter Sunlight
+## 2. Adjusting Your Watering Cadence
 
-Move plants closer to south-facing windows during winter to capture every precious hour of daylight, but ensure their leaves do not touch freezing window glass at night.
+Because metabolic activity slows during winter, houseplants absorb water at a fraction of their summer speed. A plant that drank a weekly soak in July may only need moisture once every 3 to 4 weeks in January. Always insert a wooden chopstick or your index finger 5cm into the potting mix: if it comes out damp with compost adhering to it, step away from the watering can.
     `
   },
   {
     id: 'art-15',
-    title: 'Best Low-Light Houseplants for Dim UK Rooms and Hallways',
-    slug: 'best-low-light-houseplants-uk-homes',
+    title: 'Top 10 Low-Light Houseplants That Flourish in Shady UK Rooms',
+    slug: 'top-10-low-light-houseplants-uk',
     categorySlug: 'indoor-gardening',
     categoryName: 'Indoor Gardening',
-    excerpt: 'Not every room boasts bright French doors. Discover leafy architectural varieties that actively thrive in shadowy hallways, north-facing bedrooms, and bathrooms.',
-    featuredImage: 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1200&q=80',
-    altText: 'Peace lily and cast iron plant thriving in a softly lit British hallway corner',
+    excerpt: 'Do you have a dark north-facing flat or windowless bathroom? Discover 10 resilient, shade-loving houseplants that stay lush and green in low-light environments.',
+    featuredImage: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Lush green tropical houseplants displayed in a shaded modern interior corner',
     author: defaultAuthor,
-    publishDate: '2026-01-30',
-    updatedDate: '2026-02-19',
-    readingTime: '5 min read',
-    tags: ['Low Light', 'Houseplants', 'Bathrooms', 'Hallways'],
+    publishDate: '2026-01-28',
+    updatedDate: '2026-02-18',
+    readingTime: '9 min read',
+    tags: ['Low Light', 'Houseplants', 'Shade Plants', 'Urban Flats'],
     isFeatured: false,
     isPopular: true,
     status: 'published',
-    seoTitle: 'Best Low-Light Houseplants for Dim UK Rooms & Hallways',
-    metaDescription: 'Top low-light houseplants that flourish in shady UK flats and dark rooms. Discover Cast Iron Plants, Peace Lilies, and Chinese Evergreens.',
-    focusKeyword: 'best low light houseplants UK',
-    canonicalUrl: '/indoor-gardening/best-low-light-houseplants-uk-homes',
+    seoTitle: 'Top 10 Low-Light Houseplants That Flourish in Shady UK Rooms',
+    metaDescription: 'The best low-light houseplants for UK homes. Proven shade-tolerant varieties including Cast Iron Plant, Aglaonema, and Parlour Palm for dim rooms.',
+    focusKeyword: 'low light houseplants UK',
+    canonicalUrl: '/indoor-gardening/top-10-low-light-houseplants-uk',
     faqs: [
       {
-        question: 'Can any houseplant survive in a windowless bathroom?',
-        answer: 'No living plant can survive long-term in total darkness without light. For windowless bathrooms, use a timer-controlled LED grow light bulb or rotate two plants between a sunny window and the bathroom every fortnight.'
+        question: 'Can any houseplant survive in a completely windowless room?',
+        answer: 'No living plant can survive permanently in zero light without synthetic full-spectrum LED grow bulbs. However, species like the ZZ Plant and Cast Iron Plant can thrive under standard domestic fluorescent or LED desk lamps for 8–10 hours a day.'
       }
     ],
     content: `
-## Illuminating the Darker Corners of Your Home
+## Brightening Dim Spaces with Resilient Foliage
 
-Victorian terraced homes, basement flats, and long entrance hallways are classic hallmarks of British architecture, but they often lack generous natural light.
+Many urban flats in London, Manchester, and Edinburgh contend with narrow lightwells, north-facing windows, or rooms shadowed by adjacent brick buildings.
 
-Thankfully, many tropical understory plants evolved on rainforest floors beneath dense tree canopies, making them naturally adapted to low-light conditions.
-
----
-
-## 1. *Aspidistra elatior* (Cast Iron Plant)
-Famous since Victorian times for surviving gas lamps, cold drafts, and neglect. Leathery, dark-green spear-like foliage maintains pristine elegance in deep shade.
+Thankfully, millions of years of evolutionary history on dense rainforest floors have equipped certain tropical species to harvest the faintest rays of ambient light with extraordinary efficiency.
 
 ---
 
-## 2. *Spathiphyllum* (Peace Lily)
-Glossy foliage paired with elegant white spathes. Peace lilies actually prefer indirect or low light, as direct summer sun will scorch their delicate white blooms.
+## 1. Top Shade-Tolerant Houseplants
 
----
-
-## 3. *Aglaonema* (Chinese Evergreen)
-One of the most decorative shade plants, featuring silver, cream, and pink marbling across broad leaves. Thrives even under ordinary domestic fluorescent or LED lighting.
-
----
-
-## 4. *Philodendron hederaceum* (Heartleaf Philodendron)
-A forgiving climber that tolerates low-light shelves, draping gracefully with glossy, deep-emerald leaves.
+| Plant Name | Botanical Name | Best Position in UK Homes |
+| --- | --- | --- |
+| **Cast Iron Plant** | *Aspidistra elatior* | Victorian hallways, dim book alcoves, cold entries. |
+| **Chinese Evergreen** | *Aglaonema commutatum* | North-facing bedrooms, living room sideboards. |
+| **Parlour Palm** | *Chamaedorea elegans* | Shaded corners, coffee tables, home offices. |
+| **Peace Lily** | *Spathiphyllum wallisii* | Shaded bathrooms, warm kitchens with medium ambient light. |
+| **Prayer Plant** | *Maranta leuconeura* | Low-light bookshelves; folds leaves upward at night. |
     `
   },
   {
     id: 'art-16',
-    title: 'How Often Should You Water Indoor Plants? The Finger Test & Rules',
+    title: 'How Often Should You Water Indoor Plants? The Finger Test & Science-Backed Rules',
     slug: 'how-often-water-indoor-plants-guide',
     categorySlug: 'indoor-gardening',
     categoryName: 'Indoor Gardening',
@@ -188,7 +196,7 @@ A forgiving climber that tolerates low-light shelves, draping gracefully with gl
     author: defaultAuthor,
     publishDate: '2026-01-18',
     updatedDate: '2026-02-10',
-    readingTime: '5 min read',
+    readingTime: '8 min read',
     tags: ['Watering', 'Houseplant Health', 'Root Rot', 'Plant Tips'],
     isFeatured: false,
     isPopular: false,
@@ -199,37 +207,32 @@ A forgiving climber that tolerates low-light shelves, draping gracefully with gl
     canonicalUrl: '/indoor-gardening/how-often-water-indoor-plants-guide',
     faqs: [
       {
-        question: 'Why do calendar watering schedules fail?',
-        answer: 'Temperature, humidity, day length, pot material (terracotta vs plastic), and plant growth phases change constantly. A plant may need water every 5 days in a warm June, but only every 20 days in a cool November.'
+        question: 'Why do strict calendar watering routines ("every Sunday") kill plants?',
+        answer: 'Indoor microclimates fluctuate constantly. An indoor plant absorbs moisture at drastically different rates depending on season, ambient temperature, relative humidity, cloud cover, and pot porosity. Rigid calendar watering guarantees waterlogging in winter and underwatering during summer heatwaves.'
       }
     ],
     content: `
-## Why "Water Every Sunday" Kills Houseplants
+## Why "Watering Every Sunday" Kills Houseplants
 
-The single biggest mistake made by well-intentioned plant parents is adhering to rigid calendar schedules. Plants do not drink on a clock; they absorb water based on environmental conditions.
+Overwatering does not mean providing too much water in a single watering event; it means watering too frequently, keeping the potting soil continuously waterlogged.
 
----
-
-## 1. Master the 2-Inch Finger Test
-Before picking up your watering can, insert your index finger two knuckles deep into the potting mix.
-- If it feels cool, damp, and soil particles cling to your skin: **Do not water.**
-- If it feels completely dry, dusty, and crumbly: **Water thoroughly.**
+Plant roots require oxygen just as much as water. When air pockets in the compost remain perpetually flooded, aerobic roots suffocate and drown, allowing anaerobic water moulds (*Pythium* and *Phytophthora*) to attack the root tissues, causing fatal root rot.
 
 ---
 
-## 2. The Pot Lift Technique
-Terracotta and plastic pots become substantially lighter when their soil dries out. After a thorough watering, pick up the pot to feel its "heavy" baseline. Within a week or two, lifting it will instantly tell you if the root ball has depleted its moisture reservoir.
+## 1. Diagnosing Your Plant: Overwatered vs. Underwatered
 
----
-
-## 3. Yellowing Leaves: Overwatering vs Underwatering
-- **Overwatered:** Leaves turn soft, translucent yellow with mushy brown patches, often accompanied by foul-smelling soil.
-- **Underwatered:** Leaves become crisp, papery, dry at the tips, and droop limp from stem to base.
+| Symptom | Overwatering (Root Suffocation) | Underwatering (Dehydration) |
+| --- | --- | --- |
+| **Foliage Texture** | Soft, limp, rubbery, translucent yellow. | Crisp, papery, dry, brittle leaf margins. |
+| **Soil Smell** | Sour, marshy, sulfurous rot odour. | Completely dry, dusty, pulling away from pot rim. |
+| **Pot Weight** | Unusually heavy even several days after watering. | Feather-light when lifted. |
+| **Remedy** | Unpot immediately, trim rotten black roots, repot in dry gritty mix. | Soak pot in tepid water basin for 30 minutes until bubbling stops. |
     `
   },
   {
     id: 'art-17',
-    title: 'How to Prevent Common Houseplant Problems: Pests, Fungus & Rot',
+    title: 'How to Prevent & Treat Common Houseplant Problems Organically',
     slug: 'how-to-prevent-common-houseplant-problems',
     categorySlug: 'indoor-gardening',
     categoryName: 'Indoor Gardening',
@@ -239,8 +242,8 @@ Terracotta and plastic pots become substantially lighter when their soil dries o
     author: defaultAuthor,
     publishDate: '2026-01-08',
     updatedDate: '2026-01-29',
-    readingTime: '7 min read',
-    tags: ['Plant Care', 'Pests', 'Fungus Gnats', 'Organic Remedies'],
+    readingTime: '9 min read',
+    tags: ['Plant Care', 'Pests', 'Fungus Gnats', 'Organic Remedies', 'Plant Health'],
     isFeatured: false,
     isPopular: false,
     status: 'published',
@@ -250,38 +253,30 @@ Terracotta and plastic pots become substantially lighter when their soil dries o
     canonicalUrl: '/indoor-gardening/how-to-prevent-common-houseplant-problems',
     faqs: [
       {
-        question: 'How do I get rid of tiny black flies (fungus gnats) around my houseplants?',
-        answer: 'Fungus gnats breed in damp topsoil. Let the top 5cm of compost dry out completely, bottom-water your pots, and add a 1cm layer of horticultural sand or grit to the soil surface to prevent adults from laying eggs.'
+        question: 'How do I eradicate fungus gnats (tiny black flies) permanently?',
+        answer: 'Fungus gnat larvae feed on decaying organic matter in soggy topsoil. Let the top 5cm of compost dry out completely, bottom-water your plants, top-dress pots with 1cm of coarse horticultural sand (which prevents adult gnats from laying eggs), and apply biological nematodes (*Steinernema feltiae*) to the soil.'
       }
     ],
     content: `
-## Troubleshooting Your Houseplant Clinic
+## Troubleshooting Your Home Botanical Clinic
 
-Even the most attentive plant owners occasionally encounter unexpected visitors or mysterious leaf spots. Prompt, organic action keeps pests from spreading to the rest of your collection.
-
----
-
-## 1. Eradicating Fungus Gnats
-Those infuriating little flies hovering around your television screen or coffee mug originate in continuously damp houseplant potting compost.
-- **Control Strategy:** Let pots dry between waterings. Use yellow sticky insect traps to capture adults, and apply organic neem oil or beneficial nematodes (*Steinernema feltiae*) to the soil to eliminate larvae.
+Even the most conscientious indoor gardener will eventually encounter unexpected leaf discolouration, webbing, or flying insects. Swift, organic diagnosis stops minor issues from spreading across your houseplant collection.
 
 ---
 
-## 2. Spider Mites and Dry Air
-Tiny webbing appearing in leaf axils accompanied by fine speckling usually indicates spider mites, which thrive in dry indoor radiator air.
-- **Cure:** Wipe down both sides of leaves with a diluted solution of insecticidal soap or horticultural horticultural oil, and boost surrounding humidity with pebble trays.
+## 1. Quick Diagnostic Guide for Indoor Plant Ailments
 
----
-
-## 3. Crispy Brown Leaf Tips
-Brown, crispy tips on spider plants, calatheas, or dracaenas are usually caused by either:
-1. Tap water fluoride or chlorine sensitivity (use rainwater or filtered water instead).
-2. Severely dry atmospheric humidity.
+| Visual Symptom | Root Cause | Organic Solution |
+| --- | --- | --- |
+| **Tiny black flies hovering over pots** | Fungus gnats (*Sciaridae*) breeding in wet compost. | Allow topsoil to dry; top with 1cm horticultural grit; apply Steinernema nematodes. |
+| **Fine webbing in leaf axils with yellow mottling** | Red spider mites (*Tetranychidae*) thriving in dry radiator air. | Wash leaves thoroughly under shower; spray with diluted horticultural soap; raise humidity. |
+| **Sticky clear droplets on leaves and furniture** | Scale insects or mealybugs excreting honeydew. | Dab individual pests with a cotton swab dipped in 70% surgical spirit (rubbing alcohol). |
+| **Brown crispy leaf tips on spider plants or calatheas** | Tap water chlorine/fluoride sensitivity or low humidity. | Switch exclusively to collected rainwater or distilled water; group plants together. |
     `
   },
   {
     id: 'art-18',
-    title: 'Creating a Small Indoor Garden at Home: Windowsills to Terrariums',
+    title: 'Creating a Small Indoor Garden at Home: Windowsills to Bottle Terrariums',
     slug: 'creating-a-small-indoor-garden-at-home',
     categorySlug: 'indoor-gardening',
     categoryName: 'Indoor Gardening',
@@ -291,8 +286,8 @@ Brown, crispy tips on spider plants, calatheas, or dracaenas are usually caused 
     author: defaultAuthor,
     publishDate: '2025-12-28',
     updatedDate: '2026-01-20',
-    readingTime: '6 min read',
-    tags: ['Indoor Garden', 'Terrariums', 'Small Space', 'Herbs'],
+    readingTime: '8 min read',
+    tags: ['Indoor Garden', 'Terrariums', 'Small Space', 'Herbs', 'Urban Living'],
     isFeatured: false,
     isPopular: false,
     status: 'published',
@@ -303,31 +298,23 @@ Brown, crispy tips on spider plants, calatheas, or dracaenas are usually caused 
     faqs: [
       {
         question: 'Which herbs grow best on an indoor UK kitchen windowsill?',
-        answer: 'Basil, flat-leaf parsley, chives, and mint perform reliably on a south- or west-facing kitchen windowsill that receives at least 4–5 hours of direct light daily.'
+        answer: 'Basil, flat-leaf Italian parsley, chives, and mint perform reliably on a south- or west-facing kitchen windowsill that receives at least 4 to 5 hours of direct sunlight daily.'
       }
     ],
     content: `
-## Maximising Botanical Charm in Compact Spaces
+## Botanical Abundance in Compact Urban Footprints
 
-Living in an urban flat without an outdoor garden does not mean you have to forgo the therapeutic pleasures of gardening. With smart styling and vertical displays, you can craft a verdant indoor oasis even in modest footprints.
-
----
-
-## 1. Vertical Plant Shelving & Ladders
-Floor space may be limited, but walls and vertical axes offer untapped opportunities.
-- Position a slim bamboo ladder shelf beside a bright window.
-- Place trailing plants (*Pothos*, *String of Hearts*) on top tiers, with upright architectural foliage (*Monstera*, *Calathea*) on middle shelves.
+You do not need a sprawling country estate or even a private balcony to experience the joys of gardening. With vertical styling, dedicated plant shelves, and miniature closed terrariums, any urban flat can be transformed into a lush living haven.
 
 ---
 
-## 2. Closed Glass Bottle Terrariums
-Sealed glass vessels create self-sustaining mini ecosystems that recycle their own moisture through evaporation and condensation, requiring watering only once or twice a year.
-- Ideal candidates: Fittonia (Nerve Plant), dwarf ferns, and cushions of live sheet moss.
+## 1. The Closed Bottle Terrarium: A Self-Sustaining Biosphere
 
----
-
-## 3. The Chef's Windowsill Herb Trough
-Plant a narrow rectangular trough with parsley, coriander, thyme, and mint. Snip fresh sprigs directly into your cooking all year round.
+Sealed glass terrariums recycle their own internal moisture through continuous cycles of evaporation, condensation, and plant transpiration:
+1. **Drainage Base:** Add 2cm of clean pea shingle topped with a fine layer of activated horticultural charcoal to keep the air sweet and prevent bacterial souring.
+2. **Soil Substrate:** Add 4cm of sterile peat-free compost.
+3. **Plant Selection:** Use humidity-loving miniatures like *Fittonia albivenis* (Nerve Plant), miniature *Pilea*, and emerald cushion moss (*Leucobryum glaucum*).
+4. **Maintenance:** Mist lightly once with rainwater, seal the cork lid, and position in bright indirect light. Once balanced, a sealed terrarium requires opening only once or twice a year!
     `
   }
 ];

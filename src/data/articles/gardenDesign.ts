@@ -1,10 +1,10 @@
 import { Article } from '../../types';
-import { defaultAuthor } from './gardeningTips';
+import { defaultAuthor } from '../author';
 
 export const gardenDesignArticles: Article[] = [
   {
     id: 'art-19',
-    title: 'How to Design a Small UK Garden: Spatial Tricks & Layouts',
+    title: 'How to Design a Small UK Garden: Spatial Tricks, Layouts & Vertical Planting',
     slug: 'how-to-design-a-small-uk-garden',
     categorySlug: 'garden-design',
     categoryName: 'Garden Design',
@@ -14,7 +14,7 @@ export const gardenDesignArticles: Article[] = [
     author: defaultAuthor,
     publishDate: '2026-03-04',
     updatedDate: '2026-03-25',
-    readingTime: '7 min read',
+    readingTime: '9 min read',
     tags: ['Small Garden', 'Garden Design', 'Courtyards', 'Urban Gardens', 'Patios'],
     isFeatured: true,
     isPopular: true,
@@ -25,48 +25,61 @@ export const gardenDesignArticles: Article[] = [
     canonicalUrl: '/garden-design/how-to-design-a-small-uk-garden',
     faqs: [
       {
-        question: 'Should I use small plants in a small garden?',
-        answer: 'Counterintuitively, no! Filling a small space with dozens of tiny pots makes it look cluttered and smaller. Using fewer, larger architectural plants (such as an ornamental birch or broad-leaved fatsia) creates a sense of grandeur and calm.'
+        question: 'Should I choose small dwarf plants for a small UK garden?',
+        answer: 'Counterintuitively, no! Packing a small garden with dozens of miniature pots and dainty plants makes the space feel cluttered, noisy, and even smaller. Professional landscape designers use fewer, larger architectural specimens (such as a multi-stem Himalayan birch, a Japanese maple, or broad-leaved Fatsia japonica) to create calm, grandeur, and depth.'
       },
       {
-        question: 'How can I hide unsightly boundary fences in a new-build garden?',
-        answer: 'Paint fences in a dark charcoal or deep forest green (which makes the boundary optically recede into foliage), then mount horizontal cedar battens or wire trellises clothed in evergreen climbers like Trachelospermum jasminoides.'
+        question: 'How do I disguise ugly boundary lap fences in a narrow new-build garden?',
+        answer: 'Paint timber fences in a deep charcoal grey (e.g. Anthracite) or dark olive-black. Dark tones absorb light, causing the boundary fence to visually "recede" and disappear into the background foliage, while mounting horizontal batten trellises allows evergreen climbers like *Trachelospermum jasminoides* to cover the surface in scented white flowers.'
+      },
+      {
+        question: 'What is the best paving material for a small British courtyard?',
+        answer: 'Vitrified outdoor porcelain tiles (20mm thickness). Their non-porous surface prevents moss, lichen, and black spot from penetrating during wet British winters, providing a clean, non-slip surface that stays pristine with minimal jet-washing.'
       }
     ],
     content: `
-## Transforming Modest British Footprints
+## Transforming Modest British Footprints into Outdoor Havens
 
-The average UK domestic garden size has shrunk over recent decades, with modern housing developments often featuring compact rectangular plots bordered by timber lap panels. However, a modest garden does not have to feel restrictive.
+The average domestic garden in the United Kingdom has contracted noticeably over recent decades, with modern housing developments often featuring compact rectangular footprints bordered on three sides by 1.8-metre timber fence panels.
 
-With thoughtful spatial planning and classical design illusions, even a small urban plot can feel expansive, luxurious, and deeply restorative.
-
----
-
-## 1. Break the Space into Distinct "Garden Rooms"
-
-The most common mistake in small gardens is leaving an uninterrupted rectangle of lawn surrounded by narrow perimeter borders, allowing the eye to register the plot's modest boundaries in a single glance.
-
-- **Divide and Conquer:** Use low hedges, slatted timber screens, or tall architectural grasses to partially screen a hidden dining area or reading nook.
-- **The Journey of Discovery:** When visitors cannot see the entire garden from the back door, the space immediately feels larger and invites exploration.
+However, having a modest courtyard or terrace does not mean you have to sacrifice beauty or functionality. With deliberate spatial zoning, optical geometry, and vertical planting, even a narrow 5x8-metre urban plot can feel spacious, private, and deeply restorative.
 
 ---
 
-## 2. Harness the Vertical Dimension
+## 1. Small Garden Design Strategies Matrix
 
-When square footage is limited, direct your attention upwards:
-- Cover walls and fence boundaries in scented climbers such as *Trachelospermum jasminoides* (Star Jasmine), *Clematis armandii*, or climbing roses.
-- Install living wall modular planters or hanging wall troughs for ferns, trailing strawberries, and culinary herbs.
+| Design Principle | The Common Rookie Mistake | The Landscape Architect Solution |
+| --- | --- | --- |
+| **Spatial Layout** | Central rectangle of patchy lawn with narrow borders. | Broken into diagonal zones or outdoor "rooms" linked by pathways. |
+| **Plant Scale** | Dozens of small 1-litre potted annuals everywhere. | 3 to 5 large structural anchor plants with lush underplanting. |
+| **Boundaries** | Untreated orange-brown timber lap fence panels. | Painted dark charcoal; covered in horizontal trellis and scented climbers. |
+| **Paving Geometry** | Paving slabs laid parallel to the house wall. | Laid on a 45-degree diagonal to draw the eye outward to corners. |
+| **Storage & Seating** | Bulky plastic shed taking up 25% of the garden. | Built-in timber L-shaped bench seating with internal waterproof storage. |
 
 ---
 
-## 3. Play with Optical Geometry and Diagonals
+## 2. Breaking the Plot into Distinct "Garden Rooms"
 
-Laying patio pavers or decking boards diagonally (at a 45-degree angle to the house wall) creates long visual sightlines that trick the brain into perceiving extra width. Similarly, a circular lawn or diamond paving pattern draws focus inwards rather than towards confining boundaries.
+When visitors step out of your kitchen and can absorb the entire boundary of your garden in one glance, the brain immediately registers the space as small.
+
+By creating partial screens using slatted timber battens, ornamental grasses (*Calamagrostis* 'Karl Foerster'), or evergreen pleached trees, you divide the footprint into distinct destinations:
+- **Zone 1 (Al Fresco Terrace):** Dining table and outdoor kitchen directly adjoining the house.
+- **Zone 2 (The Discovery Pathway):** A winding gravel path fringed with fragrant lavender and nepeta.
+- **Zone 3 (The Secluded Retreat):** A hidden bench or fire pit nestled behind lush foliage at the far corner.
+
+---
+
+## 3. Harnessing the Vertical Plane
+
+When square footage on the ground is limited, look upwards to your boundary walls:
+- **Evergreen Star Jasmine (*Trachelospermum jasminoides*):** Glossy dark green leaves that flush bronze in winter, smothered in intoxicatingly sweet star-shaped white blossoms throughout July and August.
+- **Living Wall Planters:** Mount modular felt pocket planters or cedar troughs against sunlit brick walls for growing strawberries, cut-and-come-again salads, and culinary herbs.
+- **Trellis Spacing:** Install horizontal timber battens with 15mm gaps to give contemporary architectural lines while supporting rambling climbing roses and clematis.
     `
   },
   {
     id: 'art-20',
-    title: 'Easy Garden Ideas for Modern Homes: Clean Lines & Texture',
+    title: 'Easy Garden Ideas for Modern UK Homes: Clean Lines & Naturalistic Texture',
     slug: 'easy-garden-ideas-for-modern-homes',
     categorySlug: 'garden-design',
     categoryName: 'Garden Design',
@@ -76,7 +89,7 @@ Laying patio pavers or decking boards diagonally (at a 45-degree angle to the ho
     author: defaultAuthor,
     publishDate: '2026-02-22',
     updatedDate: '2026-03-14',
-    readingTime: '6 min read',
+    readingTime: '8 min read',
     tags: ['Modern Garden', 'Contemporary', 'Porcelain Paving', 'Minimalist'],
     isFeatured: false,
     isPopular: false,
@@ -87,238 +100,222 @@ Laying patio pavers or decking boards diagonally (at a 45-degree angle to the ho
     canonicalUrl: '/garden-design/easy-garden-ideas-for-modern-homes',
     faqs: [
       {
-        question: 'Is porcelain paving better than traditional sandstone in the UK?',
-        answer: 'Porcelain has a non-porous surface that resists moss and green algae growth during damp British winters, making it virtually maintenance-free and slip-resistant compared to softer sandstones.'
+        question: 'Is porcelain paving superior to Indian sandstone in the wet British climate?',
+        answer: 'Outdoor porcelain is substantially more durable in the UK. Because it has an absorption rate below 0.05%, water cannot penetrate the tile, preventing winter frost fractures and stopping moss, algae, and lichen from taking root. Traditional porous sandstone easily discolours and requires annual high-pressure washing and chemical sealing.'
       }
     ],
     content: `
-## Merging Indoor Living with Outdoor Simplicity
+## Bridging Interior Style and Outdoor Architecture
 
-Modern British homes, particularly those featuring open-plan kitchens with bi-fold or sliding glass doors, benefit immensely from an outdoor garden that feels like a natural extension of the interior.
+Modern British homes, particularly properties featuring open-plan kitchens with sliding or bi-fold glass doors, look spectacular when the outdoor garden functions as a natural visual extension of the indoor living space.
 
-Achieving this seamless flow relies on restrained palettes, enduring materials, and contrasting textures.
-
----
-
-## 1. Unified Level Transitions
-Keep interior flooring and exterior patio pavers at the exact same level (incorporating appropriate drainage channels) to eliminate visual thresholds and visually double your living space.
+Achieving this seamless architectural flow does not require sterile concrete; the modern aesthetic thrives on pairing crisp geometric hardscaping with billowing, wildlife-friendly naturalistic planting.
 
 ---
 
-## 2. Rendered Raised Beds
-Construct raised brick beds painted in crisp off-white or soft graphite grey. These provide:
-- Comfortable bench-height seating along the bed edges.
-- Deep, fertile soil reservoirs free from poor native subsoil.
-- Clean architectural lines that frame soft, billowy planting.
+## 1. Hardscaping Material Comparison for Contemporary Gardens
 
----
-
-## 3. Architectural Flora
-Contrast geometric hard landscaping with soft, airy plants:
-- *Calamagrostis* x *acutiflora* 'Karl Foerster' (Feather Reed Grass)
-- *Fatsia japonica* for dramatic, glossy evergreen focal points
-- Multi-stem *Betula utilis* var. *jacquemontii* (Himalayan Birch) with striking ghostly-white bark lit from below with warm LED uplighters.
+| Material | Aesthetic Style | Maintenance Required | Lifespan in UK Climate |
+| --- | --- | --- | --- |
+| **Outdoor Porcelain (20mm)** | Ultra-clean, contemporary, consistent colour. | Low (Occasional wash with soapy water). | 30+ Years (Frost and stain-proof). |
+| **Rendered Blockwork Beds** | Crisp architectural walls painted white or slate. | Medium (Repaint or clean every 2–3 years). | 20+ Years. |
+| **Millboard Composite Decking** | Warm wood-look without splintering or rotting. | Very Low (No oiling or treating needed). | 25+ Years. |
+| **Corten Steel Planters** | Industrial rustic warmth; rich orange patina. | Zero (Naturally self-sealing rust layer). | 40+ Years. |
     `
   },
   {
     id: 'art-21',
-    title: 'How to Create a Wildlife-Friendly Garden Layout',
-    slug: 'how-to-create-a-wildlife-friendly-garden-layout',
+    title: 'Raised Bed Gardening: The Complete UK Construction & Planting Blueprint',
+    slug: 'raised-bed-gardening-guide-uk',
     categorySlug: 'garden-design',
     categoryName: 'Garden Design',
-    excerpt: 'You do not have to let your garden turn into an overgrown jungle to welcome hedgehogs, songbirds, and butterflies. Discover tidy, wildlife-centric design principles.',
-    featuredImage: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1200&q=80',
-    altText: 'Wildlife-friendly garden pond reflecting green native plants with stepping stones and water lilies',
+    excerpt: 'Overcome stubborn clay, poor drainage, and back strain. Discover how to build, fill, and plant productive wooden raised garden beds in British conditions.',
+    featuredImage: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Sturdy wooden timber raised vegetable beds in a sunny British allotment garden filled with lush crops',
     author: defaultAuthor,
-    publishDate: '2026-02-15',
-    updatedDate: '2026-03-05',
-    readingTime: '7 min read',
-    tags: ['Wildlife Garden', 'Garden Layout', 'Ponds', 'Hedgehog Highway'],
+    publishDate: '2026-02-14',
+    updatedDate: '2026-03-01',
+    readingTime: '9 min read',
+    tags: ['Raised Beds', 'Vegetables', 'Allotment', 'Timber Beds', 'Soil Care'],
     isFeatured: false,
     isPopular: true,
     status: 'published',
-    seoTitle: 'How to Design a Wildlife-Friendly Garden: Beautiful & Biodiverse',
-    metaDescription: 'Design a wildlife garden that looks structured and beautiful while supporting British birds, hedgehogs, frogs, and pollinating bees.',
-    focusKeyword: 'wildlife friendly garden design UK',
-    canonicalUrl: '/garden-design/how-to-create-a-wildlife-friendly-garden-layout',
+    seoTitle: 'Raised Bed Gardening: Complete UK Guide to Building & Planting',
+    metaDescription: 'Complete UK blueprint for raised bed gardening. How to choose timber, calculate soil volumes, optimize drainage, and grow prolific vegetables.',
+    focusKeyword: 'raised bed gardening UK',
+    canonicalUrl: '/garden-design/raised-bed-gardening-guide-uk',
     faqs: [
       {
-        question: 'Does a wildlife pond need a pump or filter?',
-        answer: 'Not necessarily! A wildlife-focused pond relies on a healthy balance of native oxygenating plants (like Hornwort) and surface-covering water lilies, allowing natural biological cycles to keep water crystal clear.'
+        question: 'What is the optimal height and width for a garden raised bed in the UK?',
+        answer: 'The ideal width is 1.2 metres (4 feet), allowing you to easily reach the centre of the bed from either side without ever stepping on and compacting the soil. The optimal height ranges from 30cm (for standard vegetable roots) to 60–90cm for gardeners seeking easy accessibility without bending.'
+      },
+      {
+        question: 'Should I line the inside of my wooden raised beds with plastic?',
+        answer: 'Line the vertical timber sides with breathable landscape membrane or dimpled builder’s polythene (keeping the bottom open to bare soil). This protects the timber from continuous damp soil contact, extending the lifespan of softwoods by 5 to 7 years, while allowing earthworms to enter from below.'
       }
     ],
     content: `
-## Architecture Meets Biodiversity
+## Why Raised Beds are the UK Gardener's Secret Weapon
 
-A prevalent misconception in UK gardening is that a wildlife garden must look neglected, unkempt, and messy. In reality, thoughtful design can incorporate wildlife sanctuaries seamlessly within a stylish, contemporary layout.
+For millions of British gardeners battling heavy, waterlogged clay in winter or shallow chalk on slopes, raised beds offer absolute control over your growing medium.
 
----
-
-## 1. Include a Stepped Wildlife Pond
-Even a miniature pond (or converted half-whisky barrel) is the single most impactful feature you can add for biodiversity:
-- Ensure at least one gently sloping edge with pebbles or logs so visiting hedgehogs, birds, and frogs can drink and climb out safely.
-- Position the pond where it receives a balance of morning sun and afternoon shade.
+Raised beds warm up 2 to 3 weeks earlier in spring than open ground, drain freely during torrential rainstorms, prevent compaction because you never walk on the growing soil, and create an orderly, aesthetically pleasing garden architecture.
 
 ---
 
-## 2. Install a Hedgehog Highway
-Britain's hedgehog population has declined significantly, partly due to impenetrable modern fence lines. Cut a discreet 13cm x 13cm (5-inch) square hole at the base of your boundary fences to connect your garden with neighbours' plots, establishing vital foraging corridors.
+## 1. Calculating Soil Volume for Your Beds
+
+To avoid over-ordering or under-ordering bulk bags of soil, use this standard volumetric formula:
+\`Length (m) x Width (m) x Height (m) = Volume in Cubic Metres (m³)\`
+
+| Raised Bed Dimensions | Volume in Cubic Metres | 850kg Bulk Bags Needed |
+| --- | --- | --- |
+| **2.4m x 1.2m x 0.3m (Standard)** | 0.86 m³ | 1 Bulk Bag (approx. 0.8m³) |
+| **2.4m x 1.2m x 0.45m (Deep)** | 1.30 m³ | 1.5 to 2 Bulk Bags |
+| **1.8m x 0.9m x 0.3m (Compact)** | 0.49 m³ | 0.6 Bulk Bag (or 10x 50L sacks) |
 
 ---
 
-## 3. Layered Canopy Structure
-Wildlife thrives on vertical diversity:
-- **Upper canopy:** Small native trees like Rowan (*Sorbus aucuparia*) or Crab Apple (*Malus sylvestris*).
-- **Shrub tier:** Hawthorn, blackthorn, and viburnums for berry food supplies.
-- **Ground layer:** Dense native perennials and log piles hidden beneath ornamental planting.
+## 2. The "Hugelkultur" Layering Technique to Cut Soil Costs
+
+Filling a deep raised bed entirely with expensive bagged compost can be costly. Instead, adopt the permaculture Hugelkultur layering method:
+1. **Bottom 40%:** Pack the base with rotten logs, thick fallen branches, and coarse woody prunings. As this wood slowly decomposes over 5 years, it acts as a subterranean sponge, holding moisture during summer heatwaves.
+2. **Middle 20%:** Add turf sods (grass-side down), straw, shredded cardboard, and half-rotted autumn leaves.
+3. **Top 40%:** Fill the top layer with a 50/50 blend of screened topsoil and rich peat-free multi-purpose compost for root growth.
     `
   },
   {
     id: 'art-22',
-    title: 'Best Ideas for a Low-Maintenance Garden: Practical Design Guide',
-    slug: 'best-ideas-for-low-maintenance-garden-design',
+    title: 'Low-Maintenance Garden Design: Beautiful UK Spaces with Minimal Effort',
+    slug: 'low-maintenance-garden-design-uk',
     categorySlug: 'garden-design',
     categoryName: 'Garden Design',
-    excerpt: 'Discover smart hardscaping, self-seeding gravel paths, automated drip irrigation, and resilient evergreen structures that require minimal weekend upkeep.',
-    featuredImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    altText: 'Low maintenance gravel garden path with architectural boulders and drought tolerant grasses',
+    excerpt: 'Desire a breathtaking garden without spending every weekend weeding, mowing, and spraying? Learn how smart layout decisions and self-sufficient plants slash maintenance.',
+    featuredImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Peaceful low maintenance gravel and shrub garden with stone bench in morning sun',
     author: defaultAuthor,
-    publishDate: '2026-01-26',
+    publishDate: '2026-01-30',
     updatedDate: '2026-02-15',
-    readingTime: '6 min read',
-    tags: ['Low Maintenance', 'Garden Ideas', 'Gravel Garden', 'Landscaping'],
+    readingTime: '8 min read',
+    tags: ['Low Maintenance', 'Gravel Garden', 'Easy Gardening', 'Shrubs'],
     isFeatured: false,
     isPopular: false,
     status: 'published',
-    seoTitle: 'Best Ideas for a Low-Maintenance Garden Design in the UK',
-    metaDescription: 'Cut your weekend gardening chores by half with these low-maintenance UK garden design concepts. Smart materials, groundcover tricks, and hardy plants.',
-    focusKeyword: 'low maintenance garden ideas UK',
-    canonicalUrl: '/garden-design/best-ideas-for-low-maintenance-garden-design',
+    seoTitle: 'Low-Maintenance Garden Design: Easy UK Garden Ideas',
+    metaDescription: 'Clever design strategies for low-maintenance UK gardens. Replace high-care lawns, choose weed-suppressing perennials, and install automated drip irrigation.',
+    focusKeyword: 'low maintenance garden design UK',
+    canonicalUrl: '/garden-design/low-maintenance-garden-design-uk',
     faqs: [
       {
-        question: 'What is the most maintenance-free mulch for borders?',
-        answer: 'A 5cm layer of bark chippings or Scottish cobbles over a permeable geotextile membrane suppresses 95% of weed seeds and reduces evaporation during summer.'
+        question: 'What is the biggest source of high maintenance in a typical UK garden?',
+        answer: 'A traditional lawn is the single largest time commitment in a garden, requiring weekly mowing, edging, scarifying, aerating, fertilising, and weed removal from March through October. Replacing high-wear turf with a gravel garden, clover lawn, or paved dining terrace eliminates 70% of weekly garden chores.'
       }
     ],
     content: `
-## Designing Out Tedious Tasks
+## The Philosophy of Effortless Gardening
 
-Garden design is as much about deciding what chores you *don't* want to do as it is about aesthetics. If you dread repetitive weeding, constant edging, and daily summer watering, integrate these structural solutions into your plan.
-
----
-
-## 1. The Gravel & Mediterranean Garden Model
-Inspired by Beth Chatto's legendary drought-tolerant garden in Essex:
-- Excavate lawn areas, lay a heavy-duty permeable membrane, and dress with 50mm of angular gravel or pea shingle.
-- Cut planting slits into the membrane and insert drought-proof perennials (thyme, sedum, euphorbia, sea holly).
-- Once established, these plants thrive purely on natural rainfall.
+A low-maintenance garden is not a sterile expanse of artificial grass and plastic furniture; it is an intelligently planned, living space where durable hard landscaping and self-sufficient perennial plants work in harmony with nature.
 
 ---
 
-## 2. Install Discreet Drip Irrigation
-Instead of lugging hoses across the garden after work, install a hidden micro-drip pipe connected to a battery-operated tap timer. It delivers water directly to plant root zones at 5:00 AM, cutting water consumption in half while safeguarding your investment.
+## 1. Weed Suppression Through Dense Layering
+
+Bare soil is an ecological vacuum that nature immediately seeks to colonise with opportunistic weed seeds. 
+- Plant groundcover perennials like *Geranium macrorrhizum*, *Alchemilla mollis*, and *Pachysandra terminalis* at dense 30cm spacings.
+- Within one growing season, their foliage forms an impenetrable green carpet that completely blocks sunlight from reaching dormant weed seeds.
+- Top all unplanted border ground with a 7cm layer of composted wood bark.
     `
   },
   {
     id: 'art-23',
-    title: 'How to Plan Garden Borders Like a Professional Landscape Designer',
-    slug: 'how-to-plan-garden-borders-like-a-pro',
+    title: 'How to Choose Paving and Patio Materials for British Weather',
+    slug: 'how-to-choose-paving-patio-materials-uk',
     categorySlug: 'garden-design',
     categoryName: 'Garden Design',
-    excerpt: 'Master the art of border depth, height graduation, colour palettes, and repetition to create dramatic, layered herbaceous borders that bloom sequentially.',
-    featuredImage: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80',
-    altText: 'Vibrant, layered herbaceous border with foxgloves, peonies, and delphiniums in British estate garden',
+    excerpt: 'From slippery moss on Indian sandstone to frost heave and drainage regulations, choose the right patio paving for the wet British climate.',
+    featuredImage: 'https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Pristine light grey outdoor porcelain paving patio laid outside modern British home',
     author: defaultAuthor,
-    publishDate: '2026-01-14',
+    publishDate: '2026-01-15',
     updatedDate: '2026-02-05',
-    readingTime: '7 min read',
-    tags: ['Garden Borders', 'Planting Plan', 'Herbaceous Border', 'Colour Schemes'],
+    readingTime: '8 min read',
+    tags: ['Paving', 'Patios', 'Hardscaping', 'Porcelain', 'Sandstone'],
     isFeatured: false,
-    isPopular: true,
+    isPopular: false,
     status: 'published',
-    seoTitle: 'How to Plan Garden Borders Like a Pro: UK Planting Guide',
-    metaDescription: 'Step-by-step masterclass in planning long-lasting garden borders. Layering heights, repeating drifts, coordinating bloom times, and seasonal anchors.',
-    focusKeyword: 'how to plan garden borders UK',
-    canonicalUrl: '/garden-design/how-to-plan-garden-borders-like-a-pro',
+    seoTitle: 'Paving & Patio Materials Guide for UK Climates',
+    metaDescription: 'Find the best paving materials for wet British weather. Compare vitrified porcelain, Indian sandstone, Yorkstone, and permeable resin gravel.',
+    focusKeyword: 'paving patio materials UK',
+    canonicalUrl: '/garden-design/how-to-choose-paving-patio-materials-uk',
     faqs: [
       {
-        question: 'How deep should a garden border be?',
-        answer: 'For a layered, dynamic border, aim for a minimum depth of 1.5 to 2 metres (5 to 6.5 feet). Narrow 60cm borders force you to plant in a single thin line, limiting seasonal impact.'
+        question: 'Do I need UK planning permission to install a new garden patio?',
+        answer: 'In the UK, laying a patio in your rear garden falls under Permitted Development rights and does not require planning permission, provided the surface is permeable or slopes towards a border/lawn to prevent surface water runoff entering municipal storm sewers (SuDS regulations).'
       }
     ],
     content: `
-## The Secrets of Award-Winning Border Design
+## Hardscaping for Persistent Atlantic Rain
 
-Have you ever visited a historic National Trust garden or RHS flower show and wondered how their borders appear so lush, cohesive, and effortless?
+Patios in the United Kingdom endure challenging environmental cycles: torrential autumn downpours, extended winter frost-thaw cycles, and damp shaded conditions that foster thick green algae and slippery black mould.
 
-Professional border planning relies on mathematical rhythms and layered planting formulas that you can easily replicate at home.
-
----
-
-## 1. The Three-Tier Height Formula
-- **Back of the Border (Structural Anchors):** Tall shrubs, climbing trellises, or towering perennials (*Delphinium*, *Thalictrum*, *Helianthus*).
-- **Middle Tier (The Main Performers):** Medium-height perennials (1.5 to 3 feet) such as *Salvia*, *Echinacea*, *Astrantia*, and *Paeonia*.
-- **Front of the Border (The Skirt):** Spilling groundcovers (*Alchemilla mollis*, *Hardy Geraniums*, *Erigeron*) that soften the hard edge between border soil and path.
+Choosing the right paving material and installing a solid sub-base ensures your terrace remains safe, level, and beautiful for decades.
 
 ---
 
-## 2. Plant in Drifts, Never as Isolated Singles
-Resist the temptation to buy one of everything at the garden centre. Single plants look scattered and restless. Instead, buy perennials in odd-numbered clusters (3, 5, or 7 of the same variety) and plant them in natural sweeping drifts.
+## 1. Paving Comparison: Durability vs Cost
 
----
-
-## 3. Repetition Creates Visual Rhythm
-Repeat key plants (for example, a drift of purple *Nepeta* every few metres along the border length). This repetition guides the viewer's eye along the garden and creates a sense of harmony.
+| Paving Option | Slip Resistance in Rain | Frost Heave Resistance | Relative Cost per m² (Materials Only) |
+| --- | --- | --- | --- |
+| **Vitrified Porcelain (R11)** | Outstanding (Textured surface) | Flawless (Non-porous) | £35 – £65 / m² |
+| **Natural Indian Sandstone** | Moderate (Becomes slippery if algae forms) | Vulnerable if unsealed | £25 – £45 / m² |
+| **Reclaimed English Yorkstone** | High | Very High (Durable heirloom stone) | £90 – £150 / m² |
+| **Permeable Resin-Bound Gravel** | High (Drains immediately) | High | £40 – £70 / m² |
     `
   },
   {
     id: 'art-24',
-    title: 'How to Make a Small Garden Feel Larger: 7 Proven Visual Illusions',
-    slug: 'how-to-make-a-garden-feel-larger-illusions',
+    title: 'Cottage Garden Design: Recreating British Romanticism in Modern Plots',
+    slug: 'cottage-garden-design-modern-plots',
     categorySlug: 'garden-design',
     categoryName: 'Garden Design',
-    excerpt: 'Use trompe-l’œil mirrors, borrowed landscapes, curving walkways, and atmospheric colour temperature tricks to expand perceived boundary distances.',
-    featuredImage: 'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1200&q=80',
-    altText: 'Winding curved stone pathway disappearing behind lush planting to make garden feel bigger',
+    excerpt: 'Billowing foxgloves, fragrant climbing roses, rustic brick pathways, and informal abundance. Learn how to recreate authentic English cottage garden charm.',
+    featuredImage: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Traditional English country cottage garden with rustic wooden picket gate and foxgloves',
     author: defaultAuthor,
-    publishDate: '2026-01-04',
+    publishDate: '2026-01-05',
     updatedDate: '2026-01-22',
-    readingTime: '6 min read',
-    tags: ['Spatial Illusions', 'Small Garden', 'Design Tricks', 'Landscaping'],
+    readingTime: '9 min read',
+    tags: ['Cottage Garden', 'English Garden', 'Roses', 'Foxgloves', 'Informal Planting'],
     isFeatured: false,
-    isPopular: false,
+    isPopular: true,
     status: 'published',
-    seoTitle: 'How to Make a Garden Feel Larger: 7 Visual Illusion Secrets',
-    metaDescription: 'Optical tricks to make small UK gardens feel bigger. Borrowed landscapes, curved pathways, atmospheric colour gradients, and clever mirror placement.',
-    focusKeyword: 'make garden feel larger UK',
-    canonicalUrl: '/garden-design/how-to-make-a-garden-feel-larger-illusions',
+    seoTitle: 'Cottage Garden Design for Modern British Homes: Complete Guide',
+    metaDescription: 'How to design an authentic English cottage garden. Discover traditional plant combinations, self-seeding flowers, climbing roses, and rustic materials.',
+    focusKeyword: 'cottage garden design UK',
+    canonicalUrl: '/garden-design/cottage-garden-design-modern-plots',
     faqs: [
       {
-        question: 'Are outdoor mirrors safe for garden birds?',
-        answer: 'Yes, if installed thoughtfully. Never position a mirror facing open sky. Always place it at ground level partially concealed behind leafy foliage, or choose aged, antiqued mirror glass with a rustic treillage frame.'
+        question: 'How do I prevent a cottage garden from looking like a chaotic, unkempt mess in winter?',
+        answer: 'Incorporate structural evergreen "bones" throughout the borders. Introduce clipped box balls, dwarf yew pillars, or evergreen shrubs like *Viburnum tinus* and *Sarcococca*. When herbaceous perennials die back in November, these crisp evergreen shapes hold the garden together.'
       }
     ],
     content: `
-## Master Optical Illusions in the Garden
+## The Enduring Romance of the English Cottage Garden
 
-Human visual perception is surprisingly easy to influence. Landscape architects regularly use classical design techniques to make a fifty-foot town garden feel like a sprawling private sanctuary.
+The traditional cottage garden is arguably Britain’s greatest contribution to world landscape design. Originating as practical peasant plots where edible crops, culinary herbs, and flowering plants grew in dense, companionable harmony, it was immortalised in the early 20th century by Gertrude Jekyll and Vita Sackville-West.
 
----
-
-## 1. The Power of the Winding Path
-A straight path allows the eye to zip straight to the back fence in a fraction of a second, confirming the garden's compact limits. A gently curving S-bend path, where the final destination disappears behind a billowing shrub or decorative arch, implies that the garden extends far beyond what is immediately visible.
+Unlike rigid geometric landscaping, a cottage garden embraces joyful abundance, self-seeding volunteers, and layers of delightful fragrance.
 
 ---
 
-## 2. Warm Colours Up Front, Cool Colours in the Distance
-- Warm colours (reds, oranges, vibrant yellows) draw attention and appear optically closer.
-- Cool colours (lavender, soft blues, silver-greys, pale mauves) naturally recede from human vision.
-- By planting fiery crocosmias near the patio and pale blue Russian sage or lavender at the far end of the plot, you increase the perceived depth of your garden.
+## 1. The Core Plant Palette of the Authentic Cottage Border
 
----
-
-## 3. "Borrowing" Surrounding Landscapes (Shakkei)
-Look beyond your garden boundary. Does a neighbour have a mature weeping birch, or is there a distant church steeple? Frame that distant feature with an archway or gap in your hedging to incorporate that scenery into your own private view.
+| Layer | Classic British Species | Aesthetic Role |
+| --- | --- | --- |
+| **Canopy / Climbers** | *Rosa* 'Gertrude Jekyll', *Lonicera periclymenum* (Honeysuckle), *Clematis viticella*. | Scents the garden; clothes rustic pergolas and walls. |
+| **Vertical Spires** | *Digitalis purpurea* (Foxglove), *Delphinium*, *Verbascum*, *Alcea rosea* (Hollyhock). | Dramatic vertical rhythm puncturing horizontal clouds. |
+| **Billowing Mounds** | *Nepeta*, English shrub roses, *Paeonia* (Peonies), *Phlox paniculata*. | Soft, romantic volume and colour saturation. |
+| **Self-Seeding Weavers** | *Aquilegia* (Granny’s Bonnet), *Erigeron karvinskianus*, *Nigella damascena* (Love-in-a-Mist). | Naturally fills every bare gap between larger perennials. |
     `
   }
 ];
