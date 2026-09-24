@@ -35,22 +35,36 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
     setAboutDropdownOpen(false);
   };
 
-  const navLinks = [
-    { name: 'Gardening Tips', path: '/gardening-tips', icon: Sprout },
-    { name: 'Flowers & Plants', path: '/flowers-plants', icon: Flower2 },
-    { name: 'Indoor Gardening', path: '/indoor-gardening', icon: Leaf },
-    { name: 'Garden Design', path: '/garden-design', icon: Compass },
-    { name: 'Wildlife & Nature', path: '/wildlife-sustainable-gardening', icon: HeartHandshake },
-  ];
+  const categoryIconMap: Record<string, React.ElementType> = {
+    'gardening-tips': Sprout,
+    'flowers-plants': Flower2,
+    'indoor-gardening': Leaf,
+    'garden-design': Compass,
+    'wildlife-sustainable-gardening': HeartHandshake,
+  };
+
+  const navLinks = categories.map(cat => ({
+    name: cat.name,
+    path: `/${cat.slug}`,
+    icon: categoryIconMap[cat.slug] || Sprout,
+  }));
 
   const aboutLinks = [
-    { name: 'About Us', path: '/about-us', icon: Info },
+    { name: 'About Us', path: '/about', icon: Info },
     { name: 'Contact Us', path: '/contact-us', icon: Mail },
     { name: 'Privacy Policy', path: '/privacy-policy', icon: ShieldCheck },
     { name: 'Terms of Service', path: '/terms-and-conditions', icon: FileText },
     { name: 'Cookie Policy', path: '/cookie-policy', icon: BookOpen },
     { name: 'Disclaimer', path: '/disclaimer', icon: AlertCircle },
   ];
+
+  const isLinkActive = (path: string) => {
+    if (currentPath === path) return true;
+    if (path === '/flowers-plants' && (currentPath === '/flowers' || currentPath.startsWith('/flowers-plants/') || currentPath.startsWith('/flowers/'))) return true;
+    if (path === '/wildlife-sustainable-gardening' && (currentPath === '/wildlife-nature' || currentPath.startsWith('/wildlife-sustainable-gardening/') || currentPath.startsWith('/wildlife/'))) return true;
+    if (path !== '/' && currentPath.startsWith(path + '/')) return true;
+    return false;
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#e5ece4] transition-all">
@@ -91,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
             </button>
 
             {navLinks.map((link) => {
-              const isActive = currentPath === link.path;
+              const isActive = isLinkActive(link.path);
               return (
                 <button
                   key={link.path}
@@ -182,7 +196,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
           <div className="space-y-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
-              const isActive = currentPath === link.path;
+              const isActive = isLinkActive(link.path);
               return (
                 <button
                   key={link.path}

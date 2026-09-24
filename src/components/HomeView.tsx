@@ -169,22 +169,33 @@ export const HomeView: React.FC<HomeViewProps> = ({ navigate }) => {
 
         {/* 4. About Green Gardan Introduction Section */}
         <section className="bg-white rounded-3xl border border-[#d6e6d8] p-8 sm:p-12 shadow-2xs my-12">
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl space-y-5">
             <span className="text-xs font-bold uppercase tracking-wider text-[#40916c]">
-              Independent UK Botanical Publishing
+              Independent UK Botanical Publishing · Registered Brand
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold font-sans text-[#13281a]">
-              About Green Gardan
+              About Green Gardan &amp; Our Name
             </h2>
             <p className="text-sm sm:text-base text-[#385141] leading-relaxed font-normal">
-              Green Gardan is dedicated to providing dependable, environmentally conscious gardening wisdom tailored exclusively for the climates and soils of Great Britain and Northern Ireland. We champion peat-free methods, biodiversity-rich wildlife sanctuaries, and realistic techniques for busy households.
+              Green Gardan is dedicated to providing dependable, environmentally conscious gardening wisdom tailored exclusively for the climates and soils of Great Britain and Northern Ireland. We champion 100% peat-free methods, biodiversity-rich wildlife sanctuaries, and realistic techniques for British growers.
             </p>
+
+            {/* Why 'Green Gardan'? Domain & Brand Heritage explanation */}
+            <div className="bg-[#f2f8f3] border border-[#cfe3d3] rounded-2xl p-5 text-sm text-[#223d2b] space-y-2">
+              <p className="font-bold text-[#1b4332] text-xs uppercase tracking-wide">
+                Why is our domain spelled "Green Gardan"?
+              </p>
+              <p className="text-xs sm:text-[13px] leading-relaxed text-[#35523d]">
+                The distinctive spelling <strong>"Gardan"</strong> is our registered brand homage to historical Middle English botanical root words (<em>geard</em> / <em>gard</em>, signifying an enclosed, thriving natural sanctuary) combined with the multicultural heritage of our founding allotment keepers where <em>"gardan"</em> represents a personal green haven. It reflects our independent voice: honest, sustainable, and grounded in real British soil.
+              </p>
+            </div>
+
             <div className="pt-2">
               <button
-                onClick={() => navigate('/about-us')}
+                onClick={() => navigate('/about')}
                 className="px-6 py-2.5 rounded-xl bg-[#1b4332] text-white text-xs sm:text-sm font-semibold hover:bg-[#2d6a4f] transition-colors cursor-pointer inline-flex items-center gap-2 shadow-2xs"
               >
-                <span>Learn More About Our Team &amp; Ethos</span>
+                <span>Read Our Founding Story &amp; Meet the Team</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

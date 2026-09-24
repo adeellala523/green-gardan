@@ -5,27 +5,27 @@ export const initialCategories: Category[] = [
     id: 'cat-1',
     name: 'Gardening Tips',
     slug: 'gardening-tips',
-    description: 'Practical, down-to-earth advice tailored specifically for the UK climate, soil conditions, and changing British seasons.',
+    description: 'Actionable UK gardening schedules, monthly checklists, soil enrichment, composting science, watering techniques, and practical crop maintenance.',
     image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
-    seoTitle: 'UK Gardening Tips & Practical Advice | Green Gardan',
+    seoTitle: 'UK Gardening Tips, Soil Care & Seasonal Advice | Green Gardan',
     metaDescription: 'Discover actionable UK gardening tips, seasonal schedules, soil care, vegetable growing guides, and low-maintenance gardening techniques.'
   },
   {
     id: 'cat-2',
-    name: 'Flowers & Plants',
+    name: 'Flowers',
     slug: 'flowers-plants',
-    description: 'Curated plant profiles, long-flowering perennials, native British varieties, and ideal plant selections for sunny borders or damp shade.',
+    description: 'Outdoor flower identification, hardy perennials, annuals, shrubs, tree planting, and selecting suitable species for sunny borders or wet British shade.',
     image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
-    seoTitle: 'Best Flowers & Plants for UK Gardens | Green Gardan',
-    metaDescription: 'Find the best flowering plants, hardy perennials, shade-tolerant varieties, and soil-specific plant guides for British gardens.'
+    seoTitle: 'Best Flowers, Perennials & Outdoor Blooms for UK Gardens | Green Gardan',
+    metaDescription: 'Find the best flowering plants, hardy perennials, shade-tolerant blooms, and soil-specific flower guides for British gardens.'
   },
   {
     id: 'cat-3',
     name: 'Indoor Gardening',
     slug: 'indoor-gardening',
-    description: 'Transform your home with thriving houseplants, winter care tips, low-light botanical solutions, and container propagation.',
+    description: 'Houseplant care guides, indoor repotting, humidity control, winter light management, and pest prevention for UK homes and flats.',
     image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
     seoTitle: 'Houseplants & Indoor Gardening Guides | Green Gardan',
@@ -35,20 +35,20 @@ export const initialCategories: Category[] = [
     id: 'cat-4',
     name: 'Garden Design',
     slug: 'garden-design',
-    description: 'Inspirational layouts, compact courtyard ideas, border planning, visual depth techniques, and low-maintenance modern landscaping.',
+    description: 'Spatial layouts, patio design, raised beds, compact courtyard ideas, boundary fencing, and landscape planning for British gardens.',
     image: 'https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
-    seoTitle: 'UK Garden Design Ideas & Border Planning | Green Gardan',
+    seoTitle: 'UK Garden Design Ideas, Courtyards & Border Planning | Green Gardan',
     metaDescription: 'Creative small garden design ideas, border layouts, wildlife-friendly structures, and styling techniques to make small UK gardens feel bigger.'
   },
   {
     id: 'cat-5',
-    name: 'Wildlife & Sustainable Gardening',
+    name: 'Wildlife & Nature',
     slug: 'wildlife-sustainable-gardening',
-    description: 'Create thriving ecosystems with pollinator-friendly flora, bird sanctuaries, rainwater harvesting, and peat-free sustainable practices.',
+    description: 'Creating biodiverse habitats, nectar calendars for native UK pollinators, hedgehog conservation, wildlife ponds, and peat-free ecological gardening.',
     image: 'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=800&q=80',
     articleCount: 6,
-    seoTitle: 'Wildlife & Sustainable Gardening UK | Green Gardan',
+    seoTitle: 'Wildlife & Nature Gardening UK: Habitats & Biodiversity | Green Gardan',
     metaDescription: 'Learn how to support British pollinators, attract garden birds, reduce water consumption, and build an organic, eco-friendly garden.'
   }
 ];

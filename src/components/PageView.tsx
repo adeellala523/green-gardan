@@ -139,6 +139,101 @@ export const PageView: React.FC<PageViewProps> = ({ page, navigate }) => {
         })}
       </div>
 
+      {/* About Page Visual Team Cards Showcase (Ezoic & Google Quality Compliance) */}
+      {(page.id === 'page-about' || page.slug === 'about' || page.slug === 'about-us') && (
+        <section className="mt-8 pt-8 border-t border-[#d8e6d9] space-y-8">
+          <div className="space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#40916c]">
+              Editorial Credentials &amp; Transparency
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-editorial text-[#14281c]">
+              Our Editorial Board &amp; Horticulturists
+            </h2>
+            <p className="text-sm text-[#465e4e]">
+              Every guide on Green Gardan is vetted by experienced British gardeners, allotment holders, and RHS-certified specialists.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Muhammad Harpal */}
+            <div className="bg-white rounded-2xl border border-[#dce8dd] p-6 shadow-2xs space-y-4">
+              <div className="flex items-center gap-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" 
+                  alt="Muhammad Harpal" 
+                  className="w-16 h-16 rounded-full object-cover border-2 border-[#52b788]"
+                />
+                <div>
+                  <h3 className="text-lg font-bold text-[#14281c]">Muhammad Harpal</h3>
+                  <p className="text-xs font-semibold text-[#2d6a4f]">Founder &amp; Head Horticultural Editor</p>
+                  <p className="text-[11px] text-[#6e8a75]">Surrey &amp; Greater London · 15+ Yrs Cultivation</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-[#385141] leading-relaxed">
+                Passionate allotment holder and kitchen gardener. Founded Green Gardan to deliver practical, weather-adapted UK horticultural wisdom and champion 100% peat-free growing methods across British soils.
+              </p>
+            </div>
+
+            {/* Fiona Campbell */}
+            <div className="bg-white rounded-2xl border border-[#dce8dd] p-6 shadow-2xs space-y-4">
+              <div className="flex items-center gap-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" 
+                  alt="Fiona Campbell" 
+                  className="w-16 h-16 rounded-full object-cover border-2 border-[#52b788]"
+                />
+                <div>
+                  <h3 className="text-lg font-bold text-[#14281c]">Fiona Campbell</h3>
+                  <p className="text-xs font-semibold text-[#2d6a4f]">Senior Horticultural Editor (RHS Master)</p>
+                  <p className="text-[11px] text-[#6e8a75]">Somerset · 18+ Yrs RHS Certified</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-[#385141] leading-relaxed">
+                RHS-certified Master Horticulturist with nearly two decades tending ornamental perennial borders, cottage gardens, and consulting on RHS Award of Garden Merit selections.
+              </p>
+            </div>
+
+            {/* Eleanor Vance */}
+            <div className="bg-white rounded-2xl border border-[#dce8dd] p-6 shadow-2xs space-y-4">
+              <div className="flex items-center gap-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" 
+                  alt="Eleanor Vance" 
+                  className="w-16 h-16 rounded-full object-cover border-2 border-[#52b788]"
+                />
+                <div>
+                  <h3 className="text-lg font-bold text-[#14281c]">Eleanor Vance</h3>
+                  <p className="text-xs font-semibold text-[#2d6a4f]">Native Flora &amp; Biodiversity Lead</p>
+                  <p className="text-[11px] text-[#6e8a75]">Devon · Botanical Ecologist</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-[#385141] leading-relaxed">
+                Specializes in British wildflowers, pollinator nectar calendars, wildlife corridors, and hedgerow protection. Advocates for organic non-chemical pest deterrence.
+              </p>
+            </div>
+
+            {/* Dr. Alistair Ross */}
+            <div className="bg-white rounded-2xl border border-[#dce8dd] p-6 shadow-2xs space-y-4">
+              <div className="flex items-center gap-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" 
+                  alt="Dr. Alistair Ross" 
+                  className="w-16 h-16 rounded-full object-cover border-2 border-[#52b788]"
+                />
+                <div>
+                  <h3 className="text-lg font-bold text-[#14281c]">Dr. Alistair Ross</h3>
+                  <p className="text-xs font-semibold text-[#2d6a4f]">Soil Science &amp; Organic Advisor</p>
+                  <p className="text-[11px] text-[#6e8a75]">Edinburgh · PhD Environmental Soil Science</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-[#385141] leading-relaxed">
+                Soil biologist advising on domestic composting, peatland conservation under the UK Peat Action Plan, rainwater harvesting, and regenerative gardening techniques.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* If this is Contact Us, render the interactive contact form */}
       {page.slug === 'contact-us' && (
         <section className="bg-white rounded-3xl border border-[#d3e5d5] p-6 sm:p-10 shadow-sm mt-8">

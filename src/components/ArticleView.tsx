@@ -212,21 +212,27 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
 
         {/* Author & Timing Row */}
         <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-[#e7eee6] text-xs sm:text-sm text-[#556e5c]">
-          <div className="flex items-center gap-3">
+          <button
+            onClick={() => navigate('/about')}
+            className="flex items-center gap-3 text-left hover:opacity-90 transition-opacity cursor-pointer group"
+          >
             <img
               src={article.author.avatar}
               alt={article.author.name}
-              width={44}
-              height={44}
+              width={46}
+              height={46}
               loading="lazy"
               decoding="async"
-              className="w-11 h-11 rounded-full object-cover border border-[#c2d6c5]"
+              className="w-11 h-11 rounded-full object-cover border-2 border-[#52b788] group-hover:border-[#1b4332] transition-colors shrink-0"
             />
             <div>
-              <div className="font-semibold text-[#14281c]">{article.author.name}</div>
-              <div className="text-[11px] text-[#6b8271]">{article.author.role}</div>
+              <div className="font-semibold text-[#14281c] group-hover:text-[#2d6a4f] transition-colors flex items-center gap-1.5">
+                <span>{article.author.name}</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#e7f2e8] text-[#1b4332] font-semibold border border-[#cde2cf]">Author</span>
+              </div>
+              <div className="text-[11px] text-[#6b8271] font-medium">{article.author.role}</div>
             </div>
-          </div>
+          </button>
 
           <div className="flex items-center gap-4 text-xs">
             <span className="flex items-center gap-1.5">
@@ -493,22 +499,34 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, navigate }) =
       )}
 
       {/* Author Bio Box */}
-      <div className="my-10 p-6 rounded-2xl bg-[#edf5ee] border border-[#d0e5d3] flex flex-col sm:flex-row items-center sm:items-start gap-5">
+      <div className="my-10 p-6 sm:p-8 rounded-2xl bg-[#edf5ee] border border-[#d0e5d3] flex flex-col sm:flex-row items-center sm:items-start gap-5 shadow-xs">
         <img
           src={article.author.avatar}
           alt={article.author.name}
-          className="w-16 h-16 rounded-full object-cover border-2 border-[#1b4332] shrink-0"
+          className="w-18 h-18 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-[#1b4332] shrink-0"
         />
-        <div className="text-center sm:text-left">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#40916c] mb-1">
-            Written by
+        <div className="text-center sm:text-left flex-1">
+          <div className="flex flex-wrap items-center justify-center sm:justify-between gap-2 mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#40916c]">
+              Written by {article.author.role}
+            </span>
+            <button
+              onClick={() => navigate('/about')}
+              className="text-xs font-semibold text-[#1b4332] hover:text-[#2d6a4f] underline cursor-pointer"
+            >
+              Meet Our Editorial Team →
+            </button>
           </div>
-          <h3 className="text-lg font-bold font-editorial text-[#12281a] mb-2">
+          <h3 className="text-xl font-bold font-editorial text-[#12281a] mb-2">
             {article.author.name}
           </h3>
-          <p className="text-sm text-[#385140] leading-relaxed">
+          <p className="text-sm text-[#385140] leading-relaxed mb-3">
             {article.author.bio}
           </p>
+          <div className="pt-3 border-t border-[#d8e8da] flex items-center justify-center sm:justify-start gap-2 text-xs text-[#52796f]">
+            <ShieldCheck className="w-4 h-4 text-[#2d6a4f] shrink-0" />
+            <span>Fact-checked against UK RHS standards, soil conservation policies, and 100% peat-free guidelines.</span>
+          </div>
         </div>
       </div>
 

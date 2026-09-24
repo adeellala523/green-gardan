@@ -118,6 +118,7 @@ export interface SiteSettings {
   googleVerificationMethod?: 'html_tag' | 'html_file' | 'dns';
   googleHtmlFileName?: string;
   canonicalBaseUrl?: string;
+  googleAnalyticsId?: string;
   seasonalAdvice: SeasonalAdvice;
 }
 

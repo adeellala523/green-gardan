@@ -82,21 +82,26 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Load state from localStorage with fallback to initial data
   const [articles, setArticles] = useState<Article[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_articles_v3');
+      const saved = localStorage.getItem('greengarden_articles_v6');
       if (saved) {
         const parsed = JSON.parse(saved) as Article[];
-        return parsed.map(a => ({
-          ...a,
-          featuredImage: sanitizeImageUrl(a.featuredImage)
-        }));
+        return parsed.map(a => {
+          const initMatch = initialArticles.find(init => init.id === a.id);
+          return {
+            ...a,
+            author: initMatch ? initMatch.author : a.author,
+            categoryName: initMatch ? initMatch.categoryName : a.categoryName,
+            featuredImage: sanitizeImageUrl(a.featuredImage)
+          };
+        });
       }
       // If previous version exists, preserve any user-created custom articles while taking the updated guides
-      const oldSaved = localStorage.getItem('greengarden_articles');
+      const oldSaved = localStorage.getItem('greengarden_articles_v5') || localStorage.getItem('greengarden_articles_v3') || localStorage.getItem('greengarden_articles');
       if (oldSaved) {
         const parsedOld = JSON.parse(oldSaved) as Article[];
         const customArticles = parsedOld.filter(a => !initialArticles.some(init => init.id === a.id));
         const merged = [...initialArticles, ...customArticles];
-        localStorage.setItem('greengarden_articles_v3', JSON.stringify(merged));
+        localStorage.setItem('greengarden_articles_v6', JSON.stringify(merged));
         return merged;
       }
     } catch {
@@ -107,7 +112,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_categories_v3');
+      const saved = localStorage.getItem('greengarden_categories_v5');
       if (saved) {
         const parsed = JSON.parse(saved) as Category[];
         return parsed.map(c => ({
@@ -123,7 +128,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [pages, setPages] = useState<PageContent[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_pages_v4');
+      const saved = localStorage.getItem('greengarden_pages_v5');
       if (saved) {
         return JSON.parse(saved);
       }
@@ -190,6 +195,9 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
           parsed.googleVerificationCode = '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M';
           parsed.googleSiteVerification = '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M';
         }
+        if (!parsed.googleAnalyticsId) {
+          parsed.googleAnalyticsId = 'G-NVBMLP15K0';
+        }
         return { ...initialSiteSettings, ...parsed };
       }
     } catch {
@@ -254,16 +262,19 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [indexingApiSettings]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_articles_v6', JSON.stringify(articles));
+    localStorage.setItem('greengarden_articles_v5', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles_v3', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles', JSON.stringify(articles));
   }, [articles]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_categories_v5', JSON.stringify(categories));
     localStorage.setItem('greengarden_categories', JSON.stringify(categories));
   }, [categories]);
 
   useEffect(() => {
-    localStorage.setItem('greengarden_pages_v4', JSON.stringify(pages));
+    localStorage.setItem('greengarden_pages_v5', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages', JSON.stringify(pages));
   }, [pages]);
 
@@ -492,9 +503,26 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return { success: true, message: 'Thank you! You have successfully subscribed to Green Gardan.' };
   };
 
-  // Static pages map indexed by slug
+  // Static pages map indexed by slug and key aliases
   const staticPages = pages.reduce<Record<string, PageContent>>((acc, p) => {
     acc[p.slug] = p;
+    // Common aliases for URL robustness
+    if (p.slug === 'about') {
+      acc['about-us'] = p;
+      acc['about.html'] = p;
+    } else if (p.slug === 'about-us') {
+      acc['about'] = p;
+      acc['about.html'] = p;
+    } else if (p.slug === 'privacy-policy') {
+      acc['privacy'] = p;
+      acc['privacy.html'] = p;
+    } else if (p.slug === 'contact-us') {
+      acc['contact'] = p;
+      acc['contact.html'] = p;
+    } else if (p.slug === 'terms-and-conditions') {
+      acc['terms'] = p;
+      acc['terms.html'] = p;
+    }
     return acc;
   }, {});
 

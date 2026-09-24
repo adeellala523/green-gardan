@@ -27,7 +27,7 @@ export const AdContainer: React.FC<AdContainerProps> = ({ placement, className =
     customLabel: 'Advertisement'
   };
 
-  // Only hide if the ad unit is explicitly marked as disabled by the user
+  // If user disabled ad unit, return null
   if (matchedAd && matchedAd.status === 'disabled') {
     return null;
   }
@@ -52,42 +52,34 @@ export const AdContainer: React.FC<AdContainerProps> = ({ placement, className =
       });
     }
 
-    // 2. Append the physical <script> tag into the ad placement container DOM
-    const container = adSlotRef.current;
-    if (container) {
-      const existing = container.querySelector('script[data-ez-placement]');
-      if (!existing) {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.setAttribute('data-ez-placement', placement);
-        script.text = `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`;
-        container.appendChild(script);
+    // 2. Append physical <script> tag into the ad placement container DOM on production
+    if (isProduction) {
+      const container = adSlotRef.current;
+      if (container) {
+        const existing = container.querySelector('script[data-ez-placement]');
+        if (!existing) {
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.setAttribute('data-ez-placement', placement);
+          script.text = `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`;
+          container.appendChild(script);
+        }
       }
     }
   }, [placement, isProduction]);
 
-  const label = activeAd.customLabel || activeAd.label || 'Advertisement';
-
+  // Per Ezoic compliance: do not render visible empty ad placeholder boxes when no ad is served
   return (
     <div 
-      className={`my-6 mx-auto w-full max-w-4xl text-center overflow-hidden transition-all ${className}`}
+      className={`mx-auto w-full max-w-4xl text-center overflow-hidden transition-all empty:hidden ${className}`}
       data-ad-placement={placement}
     >
-      {/* Editorial Compliance Label (FTC & UK ASA standard) */}
-      <div className="text-[10px] sm:text-[11px] font-sans font-medium tracking-widest uppercase text-neutral-400/80 mb-1 select-none text-center">
-        {label}
-      </div>
-
-      {/* Ezoic Ad Placement Container */}
+      {/* Ezoic Ad Placement Container - collapsed until Ezoic fills it */}
       <div 
         ref={adSlotRef}
         id={`ez-ad-${placement}`}
-        className="ezoic-ad border border-dashed border-neutral-300/80 bg-neutral-50/70 rounded-xl py-8 px-4 flex flex-col items-center justify-center min-h-[100px] sm:min-h-[130px] md:min-h-[180px] my-1 relative transition-all text-center"
-      >
-        <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-neutral-400 select-none">
-          Ad Placeholder
-        </span>
-      </div>
+        className="ezoic-ad w-full flex items-center justify-center min-h-0 empty:hidden"
+      />
     </div>
   );
 };

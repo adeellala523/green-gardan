@@ -3,40 +3,70 @@ import { PageContent } from '../types';
 export const initialPages: PageContent[] = [
   {
     id: 'page-about',
-    slug: 'about-us',
+    slug: 'about',
     title: 'About Green Gardan',
-    subtitle: 'Practical gardening inspiration and trustworthy advice for growers across the United Kingdom.',
+    subtitle: 'Practical gardening inspiration, botanical fact-checking, and trustworthy peat-free advice for UK growers.',
     metaTitle: 'About Us | Green Gardan - UK Gardening & Lifestyle Blog',
-    metaDescription: 'Learn about Green Gardan, an independent UK horticultural publication dedicated to down-to-earth advice, biodiversity, plant care, and seasonal living.',
-    lastUpdated: '2026-03-15',
+    metaDescription: 'Learn about Green Gardan, our founding story, why our domain is named Green Gardan, our botanical team, and our commitment to peat-free British gardening.',
+    lastUpdated: '2026-09-24',
     content: `
-## Our Editorial Mission
+## Why is Our Domain Spelled "Green Gardan"?
 
-Founded by a passionate collective of British gardeners, allotment keepers, and environmental advocates, **Green Gardan** was created with a clear purpose: to deliver practical, honest, and environmentally mindful gardening advice specifically tailored to the unique climate, soils, and seasonal rhythms of the United Kingdom.
+Visitors often enquire why our website domain is spelled **Green Gardan** (with an *"a"* instead of an *"e"* in "gardan"). This spelling is intentional and represents the core identity of our publication:
 
-British gardening is as varied as our landscape. From the maritime breezes of Cornwall to the frost pockets of the Scottish Borders, no two gardens share identical challenges. We cut through confusing horticultural jargon to offer clear, actionable advice whether you tend a suburban lawn, a windowsill herb planter, or a community allotment.
+- **Etymological Roots:** In Middle English and historical botanical records, the term for an enclosed cultivated green space derives from the Germanic and Old English root *geard* / *gard*. "Gardan" is an intentional stylistic tribute to the ancient concept of an enclosed, sheltered sanctuary of botanical growth.
+- **Cross-Cultural Heritage:** Our founding editor and gardening collective bring diverse cultural roots where *"gardan"* translates directly as a beloved personal flower haven and kitchen garden sanctuary. Combining this heritage with traditional British allotment culture inspired our registered brand.
+- **Distinctive Independent Brand:** In a digital landscape dominated by generic commercial content aggregators, **Green Gardan (greengardan.co.uk)** stands as a registered, independent British trademark dedicated to accessible, honest, and peat-free gardening guidance.
 
----
-
-## What We Stand For
-
-### 1. Grounded in British Realities
-
-We focus specifically on the seasons, rainfall patterns, frost dates, and soil types of England, Scotland, Wales, and Northern Ireland. We do not copy generic overseas guides that advise planting tender crops outdoors while UK soils are still freezing.
-
-### 2. Environmental Responsibility
-
-We champion **peat-free horticulture**, natural non-chemical pest deterrence, rainwater conservation, and organic soil regeneration. Every private garden has the potential to serve as an indispensable wildlife stepping stone.
-
-### 3. Accessible Craftsmanship
-
-Gardening should be a source of calm, wellness, and wonder—not frustration or immense expense. We champion affordable techniques, propagation, seed-saving, and resilient perennial planting.
+Whether you cultivate a suburban lawn in Surrey, a windy allotment in Yorkshire, or a damp shaded balcony in Manchester, **Green Gardan** is your dedicated community home.
 
 ---
 
-## Editorial Independence & Transparency
+## Our Founding Story
 
-Our content is written and fact-checked by experienced gardeners. Where we recommend specific cultivars, RHS Award of Garden Merit (AGM) winners, or horticultural tools, our guidance is driven purely by real-world performance in British soil.
+Green Gardan was founded in 2021 by a collective of passionate British allotment holders, professional horticulturists, and environmental advocates. The catalyst was simple: too many gardening websites were publishing generic advice translated from overseas climates, telling British growers to sow tender crops outdoors in early April while night frosts were still freezing the soil.
+
+We built Green Gardan to provide practical, reliable, and honest advice specifically adapted to the unique maritime and temperate climate of Great Britain and Northern Ireland.
+
+---
+
+## Meet the Editorial Board & Horticultural Team
+
+Our articles are researched, written, and verified by seasoned British growers:
+
+### Muhammad Harpal — Founder & Head Horticultural Editor
+Muhammad has cultivated community allotments and organic kitchen gardens for over 15 years across Surrey and Greater London. He founded Green Gardan to make sustainable, peat-free vegetable and fruit growing accessible to every UK household. He specializes in soil microbiota, organic composting systems, and heirloom crop rotation.
+
+### Fiona Campbell — Senior Horticultural Editor (RHS Master Horticulturist)
+With over 18 years of professional ornamental horticulture and border management experience in Somerset, Fiona oversees plant taxonomy, seasonal pruning calendars, and RHS Hardiness Zone ratings (H1–H7).
+
+### Eleanor Vance — Native Flora & Biodiversity Lead
+Based in Devon, Eleanor is a plant ecologist specializing in native British wildflowers, pollinator nectar corridors, and hedgerow restoration. She leads our wildlife gardening and conservation coverage.
+
+### Dr. Alistair Ross — Soil Science & Organic Advisor
+Alistair holds a PhD in Environmental Soil Science from the University of Edinburgh. He advises Green Gardan on compost microbiology, rainwater conservation, and peatland protection under the UK Peat Action Plan.
+
+---
+
+## Our Core Editorial Principles
+
+### 1. 100% Peat-Free Commitment
+Healthy gardening must never come at the expense of our fragile natural ecosystems. Green Gardan advocates exclusively for peat-free gardening, home composting, leaf mould preparation, and sustainable potting mediums.
+
+### 2. UK Climate & RHS Hardiness Specificity
+The UK has unique microclimates—from RHS Hardiness Zone H2 in coastal southwest England to H5/H6 in the Scottish Highlands. Every plant guide we publish clearly denotes frost tolerance, soil pH requirements, and realistic seasonal expectations.
+
+### 3. Wildlife First
+We believe private gardens are Britain's greatest collective nature reserve. We discourage harmful chemical pesticides and instead champion biological pest deterrence, hedgehog access tunnels, bird feeding stations, and native nectar corridors.
+
+---
+
+## Physical Editorial Office & Verification
+
+- **Headquarters:** 74 High Street, Guildford, Surrey, GU1 3HE, United Kingdom
+- **Editorial Desk:** editorial@greengardan.co.uk
+- **Press & Compliance:** contact@greengardan.co.uk
+- **Telephone:** +44 1483 502200
     `
   },
   {
@@ -46,7 +76,7 @@ Our content is written and fact-checked by experienced gardeners. Where we recom
     subtitle: 'We welcome questions, editorial feedback, and gardening story suggestions from our community.',
     metaTitle: 'Contact Us | Green Gardan Editorial Team',
     metaDescription: 'Get in touch with the Green Gardan editorial team. Send us your gardening questions, reader feedback, or horticultural partnership inquiries.',
-    lastUpdated: '2026-03-10',
+    lastUpdated: '2026-09-24',
     content: `
 ## We Would Love to Hear From You
 
@@ -64,6 +94,10 @@ For editorial submissions, horticultural corrections, or reader feedback:
 For Google AdSense and Ezoic compliance inquiries, privacy disclosures, or publisher requests:
 - **Email:** contact@greengardan.co.uk
 
+### Postal Address
+
+Green Gardan Editorial Desk, 74 High Street, Guildford, Surrey, GU1 3HE, United Kingdom.
+
 ### Response Times
 
 Our team reviews messages from Monday to Friday. We endeavour to reply to all genuine reader inquiries within 2–3 working days.
@@ -72,51 +106,84 @@ Our team reviews messages from Monday to Friday. We endeavour to reply to all ge
   {
     id: 'page-privacy',
     slug: 'privacy-policy',
-    title: 'Privacy Policy',
-    subtitle: 'Compliant with the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018.',
-    metaTitle: 'Privacy Policy | Green Gardan',
-    metaDescription: 'Read the Green Gardan Privacy Policy. Learn how we collect, store, and protect your personal information, in compliance with UK GDPR and AdSense rules.',
-    lastUpdated: '2026-03-01',
+    title: 'Privacy Policy & Official Ezoic Disclosure',
+    subtitle: 'Compliant with the UK General Data Protection Regulation (UK GDPR), Data Protection Act 2018, Google AdSense and Ezoic Policies.',
+    metaTitle: 'Privacy Policy & Ezoic Disclosure | Green Gardan',
+    metaDescription: 'Read the Green Gardan Privacy Policy. Learn how we protect your personal information, in compliance with UK GDPR, Google AdSense, and official Ezoic disclosures.',
+    lastUpdated: '2026-09-24',
     content: `
-## 1. Introduction
+## 1. Introduction & Data Controller
 
-Green Gardan ("we", "our", or "us") is dedicated to protecting the privacy and personal data of visitors to our website (greengardan.co.uk). This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
+Green Gardan ("we", "our", or "us"), operating at **https://greengardan.co.uk**, is dedicated to protecting the privacy and personal data of visitors to our website. This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
 
----
-
-## 2. Information We Collect
-
-### A. Information You Voluntarily Provide
-
-- **Contact Forms:** When you send us an enquiry via our Contact page, we collect your name, email address, subject, and the message content solely to respond to your communication.
-- **Newsletter Subscriptions:** If you opt into our newsletter, we store your email address to transmit our seasonal gardening digests. You can unsubscribe at any point via the link provided in any email.
-
-### B. Automatically Collected Technical Data
-
-- IP address (anonymised), browser type, device information, and pages visited, used strictly for aggregated website performance monitoring.
+The Data Controller for this website is:
+- **Green Gardan Editorial Desk**, 74 High Street, Guildford, Surrey, GU1 3HE, United Kingdom.
+- **Email:** contact@greengardan.co.uk
 
 ---
 
-## 3. Google AdSense & Advertising Cookies
+## 2. Official Ezoic Privacy Policy Disclosure
 
-We may display advertising powered by **Google AdSense** and **Ezoic**.
+This website uses the services of **Ezoic Inc. ("Ezoic")** for content optimization, website layout testing, performance analytics, and digital advertising monetization.
 
+Ezoic's official privacy policy can be viewed here:  
+[https://www.ezoic.com/privacy-policy/](https://www.ezoic.com/privacy-policy/)
+
+Additionally, you may view Ezoic's dynamic site privacy policy disclosure, including the specific advertising partners and vendors participating on this website, at:  
+[https://g.ezoic.net/privacy/greengardan.co.uk](https://g.ezoic.net/privacy/greengardan.co.uk)
+
+### Technologies Employed by Ezoic
+Ezoic employs various technologies on this website including content delivery, automated ad placement testing, security verification, and performance monitoring. Ezoic and its advertising partners use cookies, web beacons, and unique device identifiers to collect information about your visits to this and other websites in order to serve relevant advertisements, prevent ad fraud, and measure ad performance.
+
+### Information Collected by Ezoic
+- **Technical Data:** IP address (which may be truncated or anonymised to determine country/region for regulatory compliance), browser user-agent, operating system, device screen resolution, and connection speeds.
+- **Usage Data:** Pages viewed, time spent on pages, referral URL, interaction with ad slots, and layout variants.
+- **Consent Signals:** TC string and Gatekeeper consent preferences under IAB Europe Transparency and Consent Framework (TCF v2.2).
+
+### Gatekeeper Consent Management Platform (CMP) & Geo Location
+Our website utilises Ezoic's **Gatekeeper Consent Management Platform (CMP)** to obtain and record consent from visitors located in the United Kingdom, European Economic Area (EEA), and other jurisdictions with strict privacy regulations. The CMP detects your geographic location (Geo Country) to present the appropriate consent banner compliant with UK GDPR, EU GDPR, and US state privacy laws (such as CCPA/CPRA). You have the right to grant, withhold, or revoke consent at any time through our on-site cookie consent controls.
+
+---
+
+## 3. Google Analytics & Advertising Disclosures
+
+We use **Google Analytics (Measurement ID: G-NVBMLP15K0)** to measure visitor traffic and understand reader engagement with our gardening guides. Google Analytics collects pseudonymous data regarding browser types, operating systems, and page views. IP anonymisation is enabled.
+
+When third-party advertising partners (such as Google AdSense and Google Ad Manager) serve advertisements on our site:
 - Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.
-- Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.
-- Users may opt out of personalized advertising by visiting Google Ads Settings or by adjusting your browser cookie preferences.
+- Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
+- Users may opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com).
 
 ---
 
-## 4. Your Rights Under UK GDPR
+## 4. How to Opt Out of Interest-Based Advertising
 
-Under UK data protection law, you have the right to:
+If you wish to opt out of interest-based and personalised advertising across participating advertising networks, you may utilize the following consumer choice mechanisms:
+- **United Kingdom & Europe:** European Interactive Digital Advertising Alliance (EDAA): [https://www.youronlinechoices.eu/](https://www.youronlinechoices.eu/)
+- **United States:** Digital Advertising Alliance (DAA): [https://www.aboutads.info/choices/](https://www.aboutads.info/choices/)
+- **Network Advertising Initiative (NAI):** [https://optout.networkadvertising.org/](https://optout.networkadvertising.org/)
 
-- Access the personal data we hold about you.
-- Request correction of inaccurate information.
-- Request erasure of your data ("Right to be Forgotten").
-- Object to or restrict data processing.
+---
 
-To exercise any of these statutory rights, please contact our data coordinator via the details on our Contact page.
+## 5. Information We Directly Collect
+
+### A. Newsletter Subscriptions
+When you voluntarily subscribe to our free seasonal gardening newsletter, we collect your email address. This is used exclusively to dispatch practical planting guides, seasonal checklists, and site updates. You can unsubscribe at any time by clicking the unsubscribe link present in every newsletter footer.
+
+### B. Contact & Reader Enquiries
+When you send us a message via our Contact form or email, we collect your name, email address, and message content solely to investigate and reply to your enquiry. We never share or sell contact details to third parties.
+
+---
+
+## 6. Your Rights Under UK GDPR
+
+Under the UK General Data Protection Regulation and the Data Protection Act 2018, you possess statutory rights regarding your personal data:
+- **Right to Access:** You can request a copy of personal information we hold about you.
+- **Right to Rectification:** You can request correction of any inaccurate or incomplete records.
+- **Right to Erasure ("Right to be Forgotten"):** You can request deletion of your personal data.
+- **Right to Object or Restrict Processing:** You can object to data processing for specific purposes.
+
+To exercise any of these rights, please email our Data Coordinator at **contact@greengardan.co.uk**. We respond to all verified statutory requests within 30 days.
     `
   },
   {

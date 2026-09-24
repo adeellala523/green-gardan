@@ -1,5 +1,5 @@
 import { Article } from '../../types';
-import { defaultAuthor } from '../author';
+import { authorFiona, authorEleanor, authorMuhammad } from '../author';
 
 export const indoorGardeningArticles: Article[] = [
   {
@@ -11,7 +11,7 @@ export const indoorGardeningArticles: Article[] = [
     excerpt: 'Bring calming greenery into your living space without fear of plant casualties. These resilient houseplants tolerate irregular watering, dry radiators, and dim British winter light.',
     featuredImage: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=80',
     altText: 'Collection of healthy potted indoor plants including monstera and snake plant in a modern British living room',
-    author: defaultAuthor,
+    author: authorFiona,
     publishDate: '2026-03-08',
     updatedDate: '2026-03-27',
     readingTime: '9 min read',
@@ -90,7 +90,7 @@ A vigorously trailing tropical vine with marbled jade-and-gold leaves. Perfect f
     excerpt: 'Dry radiators, drafty single-glazed windows, and short grey days present unique hazards. Learn how to protect your tropical houseplants through the British winter.',
     featuredImage: 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1200&q=80',
     altText: 'Indoor tropical houseplant sitting beside a warm window during winter in the UK',
-    author: defaultAuthor,
+    author: authorFiona,
     publishDate: '2026-02-12',
     updatedDate: '2026-03-02',
     readingTime: '8 min read',
@@ -146,7 +146,7 @@ Because metabolic activity slows during winter, houseplants absorb water at a fr
     excerpt: 'Do you have a dark north-facing flat or windowless bathroom? Discover 10 resilient, shade-loving houseplants that stay lush and green in low-light environments.',
     featuredImage: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1200&q=80',
     altText: 'Lush green tropical houseplants displayed in a shaded modern interior corner',
-    author: defaultAuthor,
+    author: authorFiona,
     publishDate: '2026-01-28',
     updatedDate: '2026-02-18',
     readingTime: '9 min read',
@@ -193,7 +193,7 @@ Thankfully, millions of years of evolutionary history on dense rainforest floors
     excerpt: 'Overwatering is the number one cause of houseplant death. Learn the simple finger test, signs of distress, and why calendar watering schedules fail.',
     featuredImage: 'https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1200&q=80',
     altText: 'Watering a potted houseplant gently with a minimalist copper watering can',
-    author: defaultAuthor,
+    author: authorFiona,
     publishDate: '2026-01-18',
     updatedDate: '2026-02-10',
     readingTime: '8 min read',
@@ -239,7 +239,7 @@ Plant roots require oxygen just as much as water. When air pockets in the compos
     excerpt: 'Notice fungus gnats flying from your pots, brown leaf tips, or sticky residue on foliage? Here is how to diagnose and cure common indoor plant ailments organically.',
     featuredImage: 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=1200&q=80',
     altText: 'Inspecting indoor plant leaves for pests and leaf spots under natural light',
-    author: defaultAuthor,
+    author: authorEleanor,
     publishDate: '2026-01-08',
     updatedDate: '2026-01-29',
     readingTime: '9 min read',
@@ -283,7 +283,7 @@ Even the most conscientious indoor gardener will eventually encounter unexpected
     excerpt: 'Lack outdoor space? Learn how to style vertical plant ladders, kitchen herb windowsills, and sealed glass bottle terrariums inside compact British apartments.',
     featuredImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1200&q=80',
     altText: 'Stylishly curated small indoor garden shelf with cascading plants, ceramics, and terrarium',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2025-12-28',
     updatedDate: '2026-01-20',
     readingTime: '8 min read',

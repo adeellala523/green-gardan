@@ -6,15 +6,11 @@ export const initialSiteSettings: SiteSettings = {
   siteDescription: 'Expert UK gardening advice, seasonal schedules, plant profiles, houseplant care, and wildlife gardening guides for British gardeners.',
   canonicalBaseUrl: 'https://greengardan.co.uk',
   contactEmail: 'contact@greengardan.co.uk',
-  socialLinks: {
-    facebook: 'https://facebook.com/greengardanuk',
-    twitter: 'https://twitter.com/greengardanuk',
-    instagram: 'https://instagram.com/greengardanuk',
-    pinterest: 'https://pinterest.com/greengardanuk'
-  },
+  socialLinks: {},
   footerText: '© 2026 Green Gardan. An independent UK gardening publication. All rights reserved.',
   googleVerificationCode: '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M',
   googleSiteVerification: '1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M',
+  googleAnalyticsId: 'G-NVBMLP15K0',
   seasonalAdvice: {
     season: 'Spring',
     title: 'UK Spring Gardening Priorities',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sprout, Shield, ArrowUp, Mail, Instagram, Twitter, Lock, Infinity, ChevronRight } from 'lucide-react';
+import { Sprout, Shield, ArrowUp, Mail, Lock, Infinity, ChevronRight } from 'lucide-react';
 import { useBlog } from '../context/BlogContext';
 
 interface FooterProps {
@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#23533e]">
           
-          {/* Brand Info & Social Icons (Screenshot 3 style) */}
+          {/* Brand Info & Social Icons */}
           <div className="space-y-4">
             <a 
               href="/"
@@ -41,37 +41,20 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               Practical British gardening wisdom, seasonal guides, and peat-free advice. Built for UK gardeners. Free forever.
             </p>
 
-            {/* Social Icons matching Screenshot 3 */}
-            <div className="flex items-center gap-2.5 pt-2">
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="w-9 h-9 rounded-xl border border-[#2d6a4f] hover:border-[#52b788] bg-[#16382b] hover:bg-[#1b4332] text-[#c5dac8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
-                aria-label="Twitter / X"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="w-9 h-9 rounded-xl border border-[#2d6a4f] hover:border-[#52b788] bg-[#16382b] hover:bg-[#1b4332] text-[#c5dac8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
+            <div className="pt-2">
               <button 
                 onClick={() => navigate('/contact-us')}
-                className="w-9 h-9 rounded-xl border border-[#2d6a4f] hover:border-[#52b788] bg-[#16382b] hover:bg-[#1b4332] text-[#c5dac8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
-                aria-label="Email Editorial"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[#2d6a4f] hover:border-[#52b788] bg-[#16382b] hover:bg-[#1b4332] text-[#c5dac8] hover:text-white text-xs font-medium transition-all cursor-pointer"
+                aria-label="Contact Editorial Team"
+                title="Contact Editorial Desk"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 text-[#52b788]" />
+                <span>Contact Editorial Desk</span>
               </button>
             </div>
           </div>
 
-          {/* Topics Column (with > chevron prefix) */}
+          {/* Topics Column (Matching Main Menu exactly) */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#74c69d] mb-4 font-sans">
               TOPICS
@@ -100,31 +83,31 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               <li>
                 <button onClick={() => navigate('/gardening-tips')} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Peat-Free Soil Care</span>
+                  <span>Spring Gardening Checklist · <span className="text-[#8fb494] text-xs">Gardening Tips</span></span>
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/flowers-plants')} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Seasonal Rose Pruning</span>
+                  <span>Perennials for Beginners · <span className="text-[#8fb494] text-xs">Flowers</span></span>
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/indoor-gardening')} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Low-Light Houseplants</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => navigate('/wildlife-sustainable-gardening')} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Hedgehog Friendly Gardens</span>
+                  <span>Low-Light Houseplants · <span className="text-[#8fb494] text-xs">Indoor Gardening</span></span>
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/garden-design')} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Raised Bed Layouts</span>
+                  <span>Small Garden Design Ideas · <span className="text-[#8fb494] text-xs">Garden Design</span></span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/wildlife-sustainable-gardening')} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
+                  <span>Building a Wildlife Pond · <span className="text-[#8fb494] text-xs">Wildlife &amp; Nature</span></span>
                 </button>
               </li>
             </ul>
@@ -137,9 +120,9 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button onClick={() => navigate('/about-us')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                <button onClick={() => navigate('/about')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>About Us</span>
+                  <span>About Us &amp; Team</span>
                 </button>
               </li>
               <li>
@@ -161,9 +144,9 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/privacy-policy')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                <button onClick={() => navigate('/privacy.html')} className="text-[#c5dac8] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#52b788] opacity-70 group-hover:translate-x-0.5 transition-transform" />
-                  <span>Privacy Policy</span>
+                  <span>Privacy Policy &amp; Ezoic Disclosure</span>
                 </button>
               </li>
               <li>

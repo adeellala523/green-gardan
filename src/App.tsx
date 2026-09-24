@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { AdContainer } from './components/AdContainer';
 import { HomeView } from './components/HomeView';
 import { updatePageSeo } from './utils/seo';
+import { initGoogleAnalytics, trackPageView } from './utils/analytics';
 import { Sprout, ArrowLeft, Search } from 'lucide-react';
 
 // Code-split non-critical and secondary views for optimal mobile performance
@@ -128,15 +129,27 @@ function BlogApp() {
     }
 
     // Check if matching a category (e.g. /gardening-tips)
-    const categoryMatch = categories.find(c => c.slug === segments[0]);
+    let categoryMatch = categories.find(c => c.slug === segments[0]);
+    if (!categoryMatch && segments.length === 1) {
+      if (segments[0] === 'flowers' || segments[0] === 'flower') {
+        categoryMatch = categories.find(c => c.slug === 'flowers-plants');
+      } else if (segments[0] === 'wildlife-nature' || segments[0] === 'wildlife-and-nature' || segments[0] === 'wildlife' || segments[0] === 'nature') {
+        categoryMatch = categories.find(c => c.slug === 'wildlife-sustainable-gardening');
+      } else if (segments[0] === 'tips' || segments[0] === 'gardening') {
+        categoryMatch = categories.find(c => c.slug === 'gardening-tips');
+      }
+    }
     if (categoryMatch && segments.length === 1) {
       return { type: 'category' as const, category: categoryMatch };
     }
 
     // Check if matching an article: e.g. /{categorySlug}/{articleSlug}
     if (segments.length === 2) {
-      const [catSlug, artSlug] = segments;
-      const articleMatch = articles.find(a => a.slug === artSlug && a.categorySlug === catSlug);
+      let [catSlug, artSlug] = segments;
+      if (catSlug === 'flowers' || catSlug === 'flower') catSlug = 'flowers-plants';
+      if (catSlug === 'wildlife-nature' || catSlug === 'wildlife-and-nature' || catSlug === 'wildlife' || catSlug === 'nature') catSlug = 'wildlife-sustainable-gardening';
+      if (catSlug === 'tips' || catSlug === 'gardening') catSlug = 'gardening-tips';
+      const articleMatch = articles.find(a => a.slug === artSlug && (a.categorySlug === catSlug || a.categorySlug === segments[0]));
       if (articleMatch) {
         return { type: 'article' as const, article: articleMatch };
       }
@@ -153,22 +166,40 @@ function BlogApp() {
     return { type: 'not-found' as const };
   }, [normalizedPath, segments, staticPages, categories, articles]);
 
-  // Synchronize SEO tags whenever route changes
+  // Initialize Google Analytics on load
   useEffect(() => {
+    initGoogleAnalytics(siteSettings.googleAnalyticsId || 'G-NVBMLP15K0');
+  }, [siteSettings.googleAnalyticsId]);
+
+  // Synchronize SEO tags and Google Analytics whenever route changes
+  useEffect(() => {
+    let pageTitle = `${siteSettings?.siteName || 'Green Gardan'} - UK Gardening & Lifestyle Blog`;
     if (route.type === 'home') {
       updatePageSeo('home', { siteSettings });
     } else if (route.type === 'category' && route.category) {
       updatePageSeo('category', { category: route.category, siteSettings });
+      pageTitle = `${route.category.name} | ${siteSettings?.siteName || 'Green Gardan'}`;
     } else if (route.type === 'article' && route.article) {
       updatePageSeo('article', { article: route.article, siteSettings });
+      pageTitle = route.article.seoTitle || `${route.article.title} | ${siteSettings?.siteName || 'Green Gardan'}`;
     } else if (route.type === 'page' && route.page) {
       updatePageSeo('page', { page: route.page, siteSettings });
+      pageTitle = `${route.page.title} | ${siteSettings?.siteName || 'Green Gardan'}`;
     } else if (route.type === 'admin') {
       updatePageSeo('admin', { siteSettings });
+      pageTitle = `Editorial Admin | ${siteSettings?.siteName || 'Green Gardan'}`;
     } else if (route.type === 'search') {
       updatePageSeo('search', { siteSettings });
+      pageTitle = `Search Guides | ${siteSettings?.siteName || 'Green Gardan'}`;
     }
-  }, [route, siteSettings]);
+
+    // Fire Google Analytics SPA page_view event for real-time tracking
+    trackPageView(
+      normalizedPath,
+      pageTitle,
+      siteSettings.googleAnalyticsId || 'G-NVBMLP15K0'
+    );
+  }, [route, siteSettings, normalizedPath]);
 
   // Render content based on route
   const renderContent = () => {

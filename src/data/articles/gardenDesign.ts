@@ -1,5 +1,5 @@
 import { Article } from '../../types';
-import { defaultAuthor } from '../author';
+import { authorMuhammad, authorFiona } from '../author';
 
 export const gardenDesignArticles: Article[] = [
   {
@@ -11,7 +11,7 @@ export const gardenDesignArticles: Article[] = [
     excerpt: 'Turn a modest Victorian terrace yard or compact suburban new-build plot into an inviting, multi-zoned outdoor living room using optical perspective and vertical planting.',
     featuredImage: 'https://images.unsplash.com/photo-1584738766473-61c083514bf4?auto=format&fit=crop&w=1200&q=80',
     altText: 'Elegantly designed small urban UK courtyard garden with timber seating, lush perimeter borders, and stone pavers',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-03-04',
     updatedDate: '2026-03-25',
     readingTime: '9 min read',
@@ -86,7 +86,7 @@ When square footage on the ground is limited, look upwards to your boundary wall
     excerpt: 'Contemporary garden styling marries architectural hardscaping with soft, naturalistic planting schemes. Learn how to achieve a clean, modern aesthetic with ease.',
     featuredImage: 'https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1200&q=80',
     altText: 'Contemporary garden with porcelain paving, raised rendered planters, and ornamental grasses',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-02-22',
     updatedDate: '2026-03-14',
     readingTime: '8 min read',
@@ -132,7 +132,7 @@ Achieving this seamless architectural flow does not require sterile concrete; th
     excerpt: 'Overcome stubborn clay, poor drainage, and back strain. Discover how to build, fill, and plant productive wooden raised garden beds in British conditions.',
     featuredImage: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80',
     altText: 'Sturdy wooden timber raised vegetable beds in a sunny British allotment garden filled with lush crops',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-02-14',
     updatedDate: '2026-03-01',
     readingTime: '9 min read',
@@ -193,7 +193,7 @@ Filling a deep raised bed entirely with expensive bagged compost can be costly. 
     excerpt: 'Desire a breathtaking garden without spending every weekend weeding, mowing, and spraying? Learn how smart layout decisions and self-sufficient plants slash maintenance.',
     featuredImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
     altText: 'Peaceful low maintenance gravel and shrub garden with stone bench in morning sun',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-01-30',
     updatedDate: '2026-02-15',
     readingTime: '8 min read',
@@ -235,7 +235,7 @@ Bare soil is an ecological vacuum that nature immediately seeks to colonise with
     excerpt: 'From slippery moss on Indian sandstone to frost heave and drainage regulations, choose the right patio paving for the wet British climate.',
     featuredImage: 'https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1200&q=80',
     altText: 'Pristine light grey outdoor porcelain paving patio laid outside modern British home',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-01-15',
     updatedDate: '2026-02-05',
     readingTime: '8 min read',
@@ -281,7 +281,7 @@ Choosing the right paving material and installing a solid sub-base ensures your 
     excerpt: 'Billowing foxgloves, fragrant climbing roses, rustic brick pathways, and informal abundance. Learn how to recreate authentic English cottage garden charm.',
     featuredImage: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
     altText: 'Traditional English country cottage garden with rustic wooden picket gate and foxgloves',
-    author: defaultAuthor,
+    author: authorFiona,
     publishDate: '2026-01-05',
     updatedDate: '2026-01-22',
     readingTime: '9 min read',

@@ -1,5 +1,5 @@
 import { Article } from '../../types';
-import { defaultAuthor } from '../author';
+import { authorMuhammad, authorAlistair, defaultAuthor } from '../author';
 export { defaultAuthor };
 
 export const gardeningTipsArticles: Article[] = [
@@ -12,7 +12,7 @@ export const gardeningTipsArticles: Article[] = [
     excerpt: 'Step-by-step checklist of vital gardening jobs to carry out in a UK garden during spring. From border tidying and peat-free mulching to seed sowing and late frost precautions.',
     featuredImage: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80',
     altText: 'A bright British spring garden border with budding perennials, fresh compost mulch and narcissi flowers',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-03-01',
     updatedDate: '2026-03-24',
     readingTime: '9 min read',
@@ -125,7 +125,7 @@ Keep several rolls of 30gsm horticultural fleece, cloches, or upturned terracott
     excerpt: 'Whether you battle dense London clay, thin chalky South Downs gravel, or acidic sandy soil, natural soil conditioning transforms your plant vigour, drainage, and drought resilience.',
     featuredImage: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=80',
     altText: 'Dark crumbly organic humus-rich soil tested in hands with gardening trowel',
-    author: defaultAuthor,
+    author: authorAlistair,
     publishDate: '2026-03-05',
     updatedDate: '2026-03-22',
     readingTime: '10 min read',
@@ -217,7 +217,7 @@ Cut down green manures in spring with a sharp spade just as the first flowers ap
     excerpt: 'Starting your first kitchen garden is deeply satisfying. Discover which crops thrive in the British climate, foolproof starter vegetables, and how to outsmart slugs naturally.',
     featuredImage: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=80',
     altText: 'Freshly harvested homegrown beetroot, heirloom carrots, and radishes in an allotment basket',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-02-20',
     updatedDate: '2026-03-20',
     readingTime: '11 min read',
@@ -313,7 +313,7 @@ Ask any British allotment holder about their greatest adversary, and the answer 
     excerpt: 'Avoid shallow daily sprinkling that creates weak surface roots. Master the golden rules of deep root watering, rainwater harvesting, hosepipe ban resilience, and drought care.',
     featuredImage: 'https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&w=1200&q=80',
     altText: 'Vintage green watering can pouring fresh water onto garden perennial roots in warm morning sunlight',
-    author: defaultAuthor,
+    author: authorMuhammad,
     publishDate: '2026-02-10',
     updatedDate: '2026-03-18',
     readingTime: '8 min read',
@@ -393,7 +393,7 @@ Rainwater is naturally soft, free from added chemicals, slightly acidic (pH 6.0â
     excerpt: 'Turn kitchen scraps, lawn clippings, and cardboard into rich, dark, peat-free compost. Master the golden carbon-nitrogen ratio, aeration secrets, and winter maintenance.',
     featuredImage: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80',
     altText: 'Wooden slatted garden compost bin filled with dark crumbly rich compost',
-    author: defaultAuthor,
+    author: authorAlistair,
     publishDate: '2026-02-01',
     updatedDate: '2026-03-15',
     readingTime: '9 min read',
@@ -455,7 +455,7 @@ The biological engine of compost consists of aerobic bacteria and fungi. They ne
     excerpt: 'Protect your roses, vegetables, and fruit without synthetic chemicals. Learn how to manage aphids, caterpillars, vine weevils, and slugs by working with nature.',
     featuredImage: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=80',
     altText: 'A beneficial seven-spot ladybird hunting aphids on a rose stem in an organic garden',
-    author: defaultAuthor,
+    author: authorAlistair,
     publishDate: '2026-01-25',
     updatedDate: '2026-03-10',
     readingTime: '9 min read',

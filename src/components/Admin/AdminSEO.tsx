@@ -13,9 +13,12 @@ import {
   Terminal,
   Layers,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  BarChart3,
+  Activity
 } from 'lucide-react';
 import { useBlog } from '../../context/BlogContext';
+import { trackPageView, trackEvent, initGoogleAnalytics } from '../../utils/analytics';
 
 export const AdminSEO: React.FC = () => {
   const { siteSettings, updateSiteSettings, articles, categories } = useBlog();
@@ -25,10 +28,12 @@ export const AdminSEO: React.FC = () => {
   const [googleVerification, setGoogleVerification] = useState(siteSettings.googleVerificationCode || siteSettings.googleSiteVerification || '');
   const [canonicalBase, setCanonicalBase] = useState(siteSettings.canonicalBaseUrl || 'https://greengardan.co.uk');
   const [googleHtmlFileName, setGoogleHtmlFileName] = useState(siteSettings.googleHtmlFileName || '');
+  const [googleAnalyticsId, setGoogleAnalyticsId] = useState(siteSettings.googleAnalyticsId || 'G-NVBMLP15K0');
   const [activeVerifyMethod, setActiveVerifyMethod] = useState<'meta_tag' | 'html_file' | 'dns'>('meta_tag');
   
   const [msg, setMsg] = useState('');
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [testHitSent, setTestHitSent] = useState(false);
 
   // Clean token helper
   const extractCleanToken = (raw: string) => {
@@ -42,6 +47,7 @@ export const AdminSEO: React.FC = () => {
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
     const tokenToSave = extractCleanToken(googleVerification);
+    const cleanGaId = googleAnalyticsId.trim().toUpperCase();
 
     updateSiteSettings({
       siteName: siteName.trim(),
@@ -49,10 +55,24 @@ export const AdminSEO: React.FC = () => {
       googleVerificationCode: tokenToSave,
       googleSiteVerification: tokenToSave,
       googleHtmlFileName: googleHtmlFileName.trim(),
+      googleAnalyticsId: cleanGaId,
       canonicalBaseUrl: canonicalBase.trim().replace(/\/$/, '')
     });
-    setMsg('Google Search Console & SEO settings saved and active!');
+
+    if (cleanGaId) {
+      initGoogleAnalytics(cleanGaId);
+    }
+
+    setMsg('Google Analytics & Search Console SEO settings saved and active!');
     setTimeout(() => setMsg(''), 4500);
+  };
+
+  const handleSendTestHit = () => {
+    const gaId = googleAnalyticsId.trim() || 'G-NVBMLP15K0';
+    trackPageView(window.location.pathname, document.title, gaId);
+    trackEvent('admin_test_hit', { source: 'AdminSEO_Panel', timestamp: new Date().toISOString() }, gaId);
+    setTestHitSent(true);
+    setTimeout(() => setTestHitSent(false), 5000);
   };
 
   const copyToClipboard = (text: string, fieldName: string) => {
@@ -431,6 +451,102 @@ ${publishedArticles.map(a => `  <url>
             <p className="text-[11px] text-neutral-400 mt-1">
               Used in XML sitemap, canonical meta tags, and structured schema data.
             </p>
+          </div>
+        </div>
+
+        {/* Google Analytics 4 (GA4) Configuration */}
+        <div className="p-5 rounded-2xl bg-[#f4f9f5] border border-[#cde5d3] space-y-4">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-[#1b4332] text-white flex items-center justify-center">
+                <BarChart3 className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#14281c]">
+                  Google Analytics 4 (GA4) Tracking
+                </h4>
+                <p className="text-[11px] text-[#406a4e]">
+                  Linked to your Google Account (<span className="font-semibold text-[#1b4332]">harpalgeo670@gmail.com</span>)
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-[11px] font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                SPA Real-time Tracking Active
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+            <div className="md:col-span-2">
+              <label className="block text-xs font-bold text-neutral-700 mb-1">
+                Google Analytics Measurement ID (Stream ID)
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={googleAnalyticsId}
+                  onChange={(e) => setGoogleAnalyticsId(e.target.value)}
+                  placeholder="G-NVBMLP15K0"
+                  className="w-full pl-4 pr-10 py-2.5 rounded-xl border border-neutral-300 text-xs font-mono font-bold text-[#1b4332] focus:ring-2 focus:ring-[#2d6a4f]"
+                />
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(googleAnalyticsId, 'ga-id')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-700"
+                  title="Copy Measurement ID"
+                >
+                  {copiedField === 'ga-id' ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">
+                Format: <code>G-XXXXXXXXXX</code>. Find this in <em>Google Analytics &rarr; Admin &rarr; Data Streams &rarr; Web Stream</em>.
+              </p>
+            </div>
+
+            <div>
+              <button
+                type="button"
+                onClick={handleSendTestHit}
+                className="w-full py-2.5 px-4 rounded-xl border border-[#2d6a4f] bg-white hover:bg-[#edf5ee] text-[#1b4332] text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+              >
+                <Activity className="w-4 h-4 text-emerald-600" />
+                <span>{testHitSent ? '✓ Realtime Hit Sent!' : 'Send Test Realtime Hit'}</span>
+              </button>
+              <p className="text-[10px] text-neutral-400 text-center mt-1">
+                Instant test for GA Realtime report
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-white border border-[#d6ebd9] text-[11px] text-[#33533c] space-y-2 leading-relaxed">
+            <p className="font-bold text-[#14281c] flex items-center gap-1.5">
+              <span>Why newly linked Google Analytics doesn't show in standard reports today:</span>
+            </p>
+            <ol className="list-decimal list-inside space-y-1 text-neutral-600">
+              <li>
+                <strong>24–48 Hour Processing Window:</strong> Google Analytics 4 (GA4) takes 24 to 48 hours to process and display visitors in standard reports (Overview, Traffic acquisition, Demographics).
+              </li>
+              <li>
+                <strong>Check "Realtime" Tab:</strong> To verify right now, go to <strong>analytics.google.com &rarr; Reports &rarr; Realtime</strong>. When you open any page on your site or click "Send Test Realtime Hit", you will see your visit live on the world map within 10–30 seconds!
+              </li>
+              <li>
+                <strong>Single-Page App (SPA) Tracking:</strong> We have configured automatic route-change tracking so every time a reader clicks any article or category, GA4 captures a verified <code>page_view</code> event.
+              </li>
+            </ol>
+            <div className="pt-1 flex items-center gap-2">
+              <a
+                href="https://analytics.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-semibold text-[#1b4332] hover:underline"
+              >
+                <span>Open Google Analytics Dashboard</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
         </div>
 
