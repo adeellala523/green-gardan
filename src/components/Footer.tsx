@@ -4,35 +4,14 @@ import { useBlog } from '../context/BlogContext';
 
 interface FooterProps {
   navigate: (path: string) => void;
-  isPrivacyRoute?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ navigate, isPrivacyRoute = false }) => {
+export const Footer: React.FC<FooterProps> = ({ navigate }) => {
   const { siteSettings, categories } = useBlog();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  // On privacy route, hide redundant navigation (topics, popular guides, newsletter, back-to-top) for compliance
-  if (isPrivacyRoute) {
-    return (
-      <footer className="bg-[#122b20] text-[#e7f2e8] border-t border-[#1b4332] py-8 mt-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a3c4ab]">
-          <div className="flex items-center gap-2">
-            <Sprout className="w-4 h-4 text-[#52b788]" />
-            <span>&copy; {new Date().getFullYear()} Green Gardan. All rights reserved.</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <button onClick={() => navigate('/about')} className="hover:text-white transition-colors cursor-pointer">About Us</button>
-            <button onClick={() => navigate('/contact-us')} className="hover:text-white transition-colors cursor-pointer">Contact</button>
-            <button onClick={() => navigate('/privacy-policy')} className="text-white font-semibold cursor-pointer">Privacy Policy</button>
-            <button onClick={() => navigate('/terms-and-conditions')} className="hover:text-white transition-colors cursor-pointer">Terms</button>
-          </div>
-        </div>
-      </footer>
-    );
-  }
 
   return (
     <footer className="bg-[#122b20] text-[#e7f2e8] border-t border-[#1b4332] pt-16 pb-12 mt-20">

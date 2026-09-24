@@ -128,25 +128,15 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [pages, setPages] = useState<PageContent[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_pages_v7') || localStorage.getItem('greengarden_pages_v6');
+      const saved = localStorage.getItem('greengarden_pages_v8');
       if (saved) {
         const parsed = JSON.parse(saved) as PageContent[];
         return parsed.map(p => {
           const initMatch = initialPages.find(ip => ip.id === p.id);
-          if (p.id === 'page-privacy' || p.slug === 'privacy-policy' || p.slug === 'privacy') {
-            return initMatch ? { ...initMatch } : { ...p, content: '', subtitle: '', title: 'Privacy Policy' };
-          }
-          return initMatch ? { ...p, title: initMatch.title, subtitle: initMatch.subtitle } : p;
+          return initMatch ? { ...p, title: initMatch.title, subtitle: initMatch.subtitle, content: initMatch.content } : p;
         });
       }
-      const oldSaved = localStorage.getItem('greengarden_pages_v5') || localStorage.getItem('greengarden_pages');
-      if (oldSaved) {
-        const parsedOld = JSON.parse(oldSaved) as PageContent[];
-        const customPages = parsedOld.filter(p => !initialPages.some(ip => ip.id === p.id));
-        const merged = [...initialPages, ...customPages];
-        localStorage.setItem('greengarden_pages_v7', JSON.stringify(merged));
-        return merged;
-      }
+      localStorage.setItem('greengarden_pages_v8', JSON.stringify(initialPages));
     } catch {
       // fallback
     }
@@ -289,6 +279,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [categories]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_pages_v8', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages_v7', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages_v6', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages_v5', JSON.stringify(pages));

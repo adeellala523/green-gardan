@@ -109,9 +109,59 @@ Our team reviews messages from Monday to Friday. We endeavour to reply to all ge
     title: 'Privacy Policy',
     subtitle: '',
     metaTitle: 'Privacy Policy | Green Gardan',
-    metaDescription: 'Read the Green Gardan Privacy Policy in compliance with UK GDPR and Ezoic advertising partner standards.',
+    metaDescription: 'Read the Green Gardan Privacy Policy. Learn how we protect your personal data in compliance with UK GDPR and privacy standards.',
     lastUpdated: '2026-09-24',
-    content: ''
+    content: `
+## 1. Introduction & Data Controller
+
+Green Gardan ("we", "our", or "us"), operating at **https://greengardan.co.uk**, is dedicated to protecting the privacy and personal data of visitors to our website. This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
+
+The Data Controller for this website is:
+- **Green Gardan Editorial Desk**, 74 High Street, Guildford, Surrey, GU1 3HE, United Kingdom.
+- **Email:** contact@greengardan.co.uk
+
+---
+
+## 2. Google Analytics & Advertising Disclosures
+
+We use **Google Analytics (Measurement ID: G-NVBMLP15K0)** to measure visitor traffic and understand reader engagement with our gardening guides. Google Analytics collects pseudonymous data regarding browser types, operating systems, and page views. IP anonymisation is enabled.
+
+When third-party advertising partners (such as Google AdSense and Google Ad Manager) serve advertisements on our site:
+- Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.
+- Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
+- Users may opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com).
+
+---
+
+## 3. How to Opt Out of Interest-Based Advertising
+
+If you wish to opt out of interest-based and personalised advertising across participating advertising networks, you may utilize the following consumer choice mechanisms:
+- **United Kingdom & Europe:** European Interactive Digital Advertising Alliance (EDAA): [https://www.youronlinechoices.eu/](https://www.youronlinechoices.eu/)
+- **United States:** Digital Advertising Alliance (DAA): [https://www.aboutads.info/choices/](https://www.aboutads.info/choices/)
+- **Network Advertising Initiative (NAI):** [https://optout.networkadvertising.org/](https://optout.networkadvertising.org/)
+
+---
+
+## 4. Information We Directly Collect
+
+### A. Newsletter Subscriptions
+When you voluntarily subscribe to our free seasonal gardening newsletter, we collect your email address. This is used exclusively to dispatch practical planting guides, seasonal checklists, and site updates. You can unsubscribe at any time by clicking the unsubscribe link present in every newsletter footer.
+
+### B. Contact & Reader Enquiries
+When you send us a message via our Contact form or email, we collect your name, email address, and message content solely to investigate and reply to your enquiry. We never share or sell contact details to third parties.
+
+---
+
+## 5. Your Rights Under UK GDPR
+
+Under the UK General Data Protection Regulation and the Data Protection Act 2018, you possess statutory rights regarding your personal data:
+- **Right to Access:** You can request a copy of personal information we hold about you.
+- **Right to Rectification:** You can request correction of any inaccurate or incomplete records.
+- **Right to Erasure ("Right to be Forgotten"):** You can request deletion of your personal data.
+- **Right to Object or Restrict Processing:** You can object to data processing for specific purposes.
+
+To exercise any of these rights, please email our Data Coordinator at **contact@greengardan.co.uk**. We respond to all verified statutory requests within 30 days.
+    `
   },
   {
     id: 'page-terms',
