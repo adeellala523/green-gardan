@@ -14,7 +14,8 @@ import {
   Flower2,
   Leaf,
   Compass,
-  HeartHandshake
+  HeartHandshake,
+  ArrowLeft
 } from 'lucide-react';
 import { useBlog } from '../context/BlogContext';
 
@@ -22,9 +23,10 @@ interface HeaderProps {
   currentPath: string;
   navigate: (path: string) => void;
   openSearch: () => void;
+  isPrivacyRoute?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearch }) => {
+export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearch, isPrivacyRoute = false }) => {
   const { siteSettings, categories } = useBlog();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
@@ -91,107 +93,121 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openSearc
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* If privacy route, hide redundant navigation for compliance */}
+          {isPrivacyRoute ? (
             <button
               onClick={() => handleNavClick('/')}
-              className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
-                currentPath === '/'
-                  ? 'text-[#1b4332] bg-[#e7f2e8]' 
-                  : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
-              }`}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#1b4332] bg-[#f0f6f1] hover:bg-[#e1ece3] transition-colors cursor-pointer"
+              aria-label="Return to Green Gardan Homepage"
             >
-              Home
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Home</span>
             </button>
-
-            {navLinks.map((link) => {
-              const isActive = isLinkActive(link.path);
-              return (
+          ) : (
+            <>
+              {/* Desktop Navigation */}
+              <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
                 <button
-                  key={link.path}
-                  onClick={() => handleNavClick(link.path)}
+                  onClick={() => handleNavClick('/')}
                   className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
-                    isActive 
+                    currentPath === '/'
                       ? 'text-[#1b4332] bg-[#e7f2e8]' 
                       : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
                   }`}
                 >
-                  {link.name}
+                  Home
                 </button>
-              );
-            })}
 
-            {/* About Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
-                onMouseEnter={() => setAboutDropdownOpen(true)}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
-                  aboutLinks.some(l => l.path === currentPath)
-                    ? 'text-[#1b4332] bg-[#e7f2e8]'
-                    : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
-                }`}
-                id="about-dropdown-btn"
-                aria-expanded={aboutDropdownOpen}
-              >
-                <span>About</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${aboutDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
+                {navLinks.map((link) => {
+                  const isActive = isLinkActive(link.path);
+                  return (
+                    <button
+                      key={link.path}
+                      onClick={() => handleNavClick(link.path)}
+                      className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
+                        isActive 
+                          ? 'text-[#1b4332] bg-[#e7f2e8]' 
+                          : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
+                      }`}
+                    >
+                      {link.name}
+                    </button>
+                  );
+                })}
 
-              {/* Dropdown Menu */}
-              {aboutDropdownOpen && (
-                <div 
-                  onMouseLeave={() => setAboutDropdownOpen(false)}
-                  className="absolute right-0 mt-1 w-56 rounded-2xl bg-white shadow-xl border border-[#e5ebe4] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
-                >
-                  <div className="px-3.5 py-1.5 text-[11px] uppercase tracking-wider text-neutral-400 font-bold border-b border-neutral-100">
-                    Publication &amp; Trust
-                  </div>
-                  {aboutLinks.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <button
-                        key={item.path}
-                        onClick={() => handleNavClick(item.path)}
-                        className="w-full text-left px-3.5 py-2 text-sm font-medium text-[#2b3a30] hover:bg-[#f4f8f4] hover:text-[#1b4332] flex items-center gap-2.5 transition-colors cursor-pointer"
-                      >
-                        <Icon className="w-4 h-4 text-[#52796f]" />
-                        <span>{item.name}</span>
-                      </button>
-                    );
-                  })}
+                {/* About Dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                    onMouseEnter={() => setAboutDropdownOpen(true)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
+                      aboutLinks.some(l => l.path === currentPath)
+                        ? 'text-[#1b4332] bg-[#e7f2e8]' 
+                        : 'text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#f1f6f1]'
+                    }`}
+                    id="about-dropdown-btn"
+                    aria-expanded={aboutDropdownOpen}
+                  >
+                    <span>About</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${aboutDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {aboutDropdownOpen && (
+                    <div 
+                      onMouseLeave={() => setAboutDropdownOpen(false)}
+                      className="absolute right-0 mt-1 w-56 rounded-2xl bg-white shadow-xl border border-[#e5ebe4] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                    >
+                      <div className="px-3.5 py-1.5 text-[11px] uppercase tracking-wider text-neutral-400 font-bold border-b border-neutral-100">
+                        Publication &amp; Trust
+                      </div>
+                      {aboutLinks.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <button
+                            key={item.path}
+                            onClick={() => handleNavClick(item.path)}
+                            className="w-full text-left px-3.5 py-2 text-sm font-medium text-[#2b3a30] hover:bg-[#f4f8f4] hover:text-[#1b4332] flex items-center gap-2.5 transition-colors cursor-pointer"
+                          >
+                            <Icon className="w-4 h-4 text-[#52796f]" />
+                            <span>{item.name}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </nav>
+              </nav>
 
-          {/* Action Buttons: Search & Mobile Hamburger */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={openSearch}
-              className="p-2.5 rounded-xl text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#edf4ed] border border-transparent hover:border-[#d6e3d7] transition-all cursor-pointer"
-              title="Search articles"
-              aria-label="Search articles"
-              id="search-open-btn"
-            >
-              <Search className="w-5 h-5" />
-            </button>
+              {/* Action Buttons: Search & Mobile Hamburger */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={openSearch}
+                  className="p-2.5 rounded-xl text-[#2b3a30] hover:text-[#1b4332] hover:bg-[#edf4ed] border border-transparent hover:border-[#d6e3d7] transition-all cursor-pointer"
+                  title="Search articles"
+                  aria-label="Search articles"
+                  id="search-open-btn"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
 
-            {/* Mobile menu button in OmniTools rounded-xl border style */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-xl border border-[#d6e3d7] bg-white text-[#1b4332] hover:bg-[#f1f6f1] transition-all cursor-pointer shadow-2xs"
-              aria-label="Toggle navigation menu"
-              id="mobile-nav-toggle"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+                {/* Mobile menu button in OmniTools rounded-xl border style */}
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="lg:hidden p-2.5 rounded-xl border border-[#d6e3d7] bg-white text-[#1b4332] hover:bg-[#f1f6f1] transition-all cursor-pointer shadow-2xs"
+                  aria-label="Toggle navigation menu"
+                  id="mobile-nav-toggle"
+                >
+                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation (Exactly like OmniTools Screenshot 2) */}
-      {mobileMenuOpen && (
+      {/* Mobile Drawer Navigation */}
+      {!isPrivacyRoute && mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-[#e5ebe4] px-5 py-6 space-y-3 animate-in fade-in duration-200 shadow-xl">
           <div className="space-y-2">
             {navLinks.map((link) => {

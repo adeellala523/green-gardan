@@ -166,6 +166,17 @@ function BlogApp() {
     return { type: 'not-found' as const };
   }, [normalizedPath, segments, staticPages, categories, articles]);
 
+  // Determine if currently on the Privacy Policy route
+  const isPrivacyRoute = useMemo(() => {
+    if (normalizedPath === '/privacy' || normalizedPath === '/privacy-policy' || normalizedPath === '/privacy.html') {
+      return true;
+    }
+    if (route.type === 'page' && route.page && (route.page.slug === 'privacy-policy' || route.page.slug === 'privacy' || route.page.id === 'page-privacy')) {
+      return true;
+    }
+    return false;
+  }, [normalizedPath, route]);
+
   // Initialize Google Analytics on load
   useEffect(() => {
     initGoogleAnalytics(siteSettings.googleAnalyticsId || 'G-NVBMLP15K0');
@@ -305,10 +316,11 @@ function BlogApp() {
         currentPath={normalizedPath}
         navigate={navigate}
         openSearch={() => setIsSearchOpen(true)}
+        isPrivacyRoute={isPrivacyRoute}
       />
 
-      {/* Top Header Leaderboard Ad Placement */}
-      {route.type !== 'admin' && (
+      {/* Top Header Leaderboard Ad Placement (Hidden on Privacy Policy route for compliance) */}
+      {route.type !== 'admin' && !isPrivacyRoute && (
         <div className="max-w-7xl mx-auto px-4 w-full">
           <AdContainer placement="header" />
         </div>
@@ -321,15 +333,15 @@ function BlogApp() {
         </Suspense>
       </main>
 
-      {/* Footer Leaderboard Ad Placement */}
-      {route.type !== 'admin' && (
+      {/* Footer Leaderboard Ad Placement (Hidden on Privacy Policy route for compliance) */}
+      {route.type !== 'admin' && !isPrivacyRoute && (
         <div className="max-w-7xl mx-auto px-4 w-full">
           <AdContainer placement="footer" />
         </div>
       )}
 
       {/* Search Modal Overlay */}
-      {isSearchOpen && (
+      {isSearchOpen && !isPrivacyRoute && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-start justify-center pt-16 px-4 animate-in fade-in duration-150">
           <div className="bg-white rounded-3xl border border-[#cde2cf] w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl p-6 relative">
             <Suspense fallback={<RouteLoadingFallback />}>
@@ -340,7 +352,7 @@ function BlogApp() {
       )}
 
       {/* Global Footer */}
-      <Footer navigate={navigate} />
+      <Footer navigate={navigate} isPrivacyRoute={isPrivacyRoute} />
     </div>
   );
 }

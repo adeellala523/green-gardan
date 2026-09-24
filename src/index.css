@@ -51,3 +51,38 @@ h1, h2, h3, .font-editorial {
 ::-webkit-scrollbar-thumb:hover {
   background: #8fae92;
 }
+
+/* Ezoic Dynamic Injected Privacy Policy Elements */
+[id*="ezoic"],
+[class*="ezoic"],
+[class*="ez-"] {
+  font-family: var(--font-sans);
+  color: #2b3e31;
+}
+
+.privacy-headline h1,
+.privacy-headline h2 {
+  font-family: var(--font-editorial, serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #172e20;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.privacy-content {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2b3e31;
+}
+
+.privacy-content a {
+  color: #2d6a4f;
+  text-decoration: underline;
+}
+
+.privacy-content a:hover {
+  color: #1b4332;
+}
+

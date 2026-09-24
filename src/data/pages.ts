@@ -106,85 +106,12 @@ Our team reviews messages from Monday to Friday. We endeavour to reply to all ge
   {
     id: 'page-privacy',
     slug: 'privacy-policy',
-    title: 'Privacy Policy & Official Ezoic Disclosure',
-    subtitle: 'Compliant with the UK General Data Protection Regulation (UK GDPR), Data Protection Act 2018, Google AdSense and Ezoic Policies.',
-    metaTitle: 'Privacy Policy & Ezoic Disclosure | Green Gardan',
-    metaDescription: 'Read the Green Gardan Privacy Policy. Learn how we protect your personal information, in compliance with UK GDPR, Google AdSense, and official Ezoic disclosures.',
+    title: 'Privacy Policy',
+    subtitle: '',
+    metaTitle: 'Privacy Policy | Green Gardan',
+    metaDescription: 'Read the Green Gardan Privacy Policy in compliance with UK GDPR and Ezoic advertising partner standards.',
     lastUpdated: '2026-09-24',
-    content: `
-## 1. Introduction & Data Controller
-
-Green Gardan ("we", "our", or "us"), operating at **https://greengardan.co.uk**, is dedicated to protecting the privacy and personal data of visitors to our website. This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
-
-The Data Controller for this website is:
-- **Green Gardan Editorial Desk**, 74 High Street, Guildford, Surrey, GU1 3HE, United Kingdom.
-- **Email:** contact@greengardan.co.uk
-
----
-
-## 2. Official Ezoic Privacy Policy Disclosure
-
-This website uses the services of **Ezoic Inc. ("Ezoic")** for content optimization, website layout testing, performance analytics, and digital advertising monetization.
-
-Ezoic's official privacy policy can be viewed here:  
-[https://www.ezoic.com/privacy-policy/](https://www.ezoic.com/privacy-policy/)
-
-Additionally, you may view Ezoic's dynamic site privacy policy disclosure, including the specific advertising partners and vendors participating on this website, at:  
-[https://g.ezoic.net/privacy/greengardan.co.uk](https://g.ezoic.net/privacy/greengardan.co.uk)
-
-### Technologies Employed by Ezoic
-Ezoic employs various technologies on this website including content delivery, automated ad placement testing, security verification, and performance monitoring. Ezoic and its advertising partners use cookies, web beacons, and unique device identifiers to collect information about your visits to this and other websites in order to serve relevant advertisements, prevent ad fraud, and measure ad performance.
-
-### Information Collected by Ezoic
-- **Technical Data:** IP address (which may be truncated or anonymised to determine country/region for regulatory compliance), browser user-agent, operating system, device screen resolution, and connection speeds.
-- **Usage Data:** Pages viewed, time spent on pages, referral URL, interaction with ad slots, and layout variants.
-- **Consent Signals:** TC string and Gatekeeper consent preferences under IAB Europe Transparency and Consent Framework (TCF v2.2).
-
-### Gatekeeper Consent Management Platform (CMP) & Geo Location
-Our website utilises Ezoic's **Gatekeeper Consent Management Platform (CMP)** to obtain and record consent from visitors located in the United Kingdom, European Economic Area (EEA), and other jurisdictions with strict privacy regulations. The CMP detects your geographic location (Geo Country) to present the appropriate consent banner compliant with UK GDPR, EU GDPR, and US state privacy laws (such as CCPA/CPRA). You have the right to grant, withhold, or revoke consent at any time through our on-site cookie consent controls.
-
----
-
-## 3. Google Analytics & Advertising Disclosures
-
-We use **Google Analytics (Measurement ID: G-NVBMLP15K0)** to measure visitor traffic and understand reader engagement with our gardening guides. Google Analytics collects pseudonymous data regarding browser types, operating systems, and page views. IP anonymisation is enabled.
-
-When third-party advertising partners (such as Google AdSense and Google Ad Manager) serve advertisements on our site:
-- Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.
-- Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
-- Users may opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com).
-
----
-
-## 4. How to Opt Out of Interest-Based Advertising
-
-If you wish to opt out of interest-based and personalised advertising across participating advertising networks, you may utilize the following consumer choice mechanisms:
-- **United Kingdom & Europe:** European Interactive Digital Advertising Alliance (EDAA): [https://www.youronlinechoices.eu/](https://www.youronlinechoices.eu/)
-- **United States:** Digital Advertising Alliance (DAA): [https://www.aboutads.info/choices/](https://www.aboutads.info/choices/)
-- **Network Advertising Initiative (NAI):** [https://optout.networkadvertising.org/](https://optout.networkadvertising.org/)
-
----
-
-## 5. Information We Directly Collect
-
-### A. Newsletter Subscriptions
-When you voluntarily subscribe to our free seasonal gardening newsletter, we collect your email address. This is used exclusively to dispatch practical planting guides, seasonal checklists, and site updates. You can unsubscribe at any time by clicking the unsubscribe link present in every newsletter footer.
-
-### B. Contact & Reader Enquiries
-When you send us a message via our Contact form or email, we collect your name, email address, and message content solely to investigate and reply to your enquiry. We never share or sell contact details to third parties.
-
----
-
-## 6. Your Rights Under UK GDPR
-
-Under the UK General Data Protection Regulation and the Data Protection Act 2018, you possess statutory rights regarding your personal data:
-- **Right to Access:** You can request a copy of personal information we hold about you.
-- **Right to Rectification:** You can request correction of any inaccurate or incomplete records.
-- **Right to Erasure ("Right to be Forgotten"):** You can request deletion of your personal data.
-- **Right to Object or Restrict Processing:** You can object to data processing for specific purposes.
-
-To exercise any of these rights, please email our Data Coordinator at **contact@greengardan.co.uk**. We respond to all verified statutory requests within 30 days.
-    `
+    content: ''
   },
   {
     id: 'page-terms',
