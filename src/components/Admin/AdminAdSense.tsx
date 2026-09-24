@@ -209,6 +209,68 @@ export const AdminAdSense: React.FC = () => {
           </p>
         </div>
 
+        {/* Ezoic Ad Placements Status & Active Snippet */}
+        <div className="bg-gradient-to-br from-[#f0f7f3] to-[#e4f3e9] rounded-2xl border border-[#b6dec3] p-6 shadow-2xs space-y-4">
+          <div className="flex items-center gap-3 border-b border-[#cde4ce] pb-3">
+            <div className="w-10 h-10 rounded-xl bg-[#1b4332] text-emerald-300 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-base font-bold font-editorial text-[#14281c]">
+                  Ezoic Automated Ad Placements (Active)
+                </h3>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                  Live
+                </span>
+              </div>
+              <p className="text-xs text-[#40684a] mt-0.5">
+                Ezoic AI dynamically optimizes and controls responsive sizing across all configured ad placement slots.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <span className="text-xs font-bold text-[#14281c] block">
+              Active Placement Snippet:
+            </span>
+            <div className="p-3 bg-neutral-900 text-emerald-300 font-mono text-xs rounded-xl flex items-center justify-between gap-3 overflow-x-auto">
+              <pre className="text-[11px] leading-relaxed">
+{`<script>
+    ezstandalone.cmd.push(function () {
+        ezstandalone.showAds({});
+    });
+</script>`}
+              </pre>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(`<script>\n    ezstandalone.cmd.push(function () {\n        ezstandalone.showAds({});\n    });\n</script>`);
+                  setSavedMsg('Copied Ezoic ad placement snippet to clipboard!');
+                  setTimeout(() => setSavedMsg(''), 3000);
+                }}
+                className="px-2.5 py-1 bg-neutral-800 hover:bg-neutral-700 text-white rounded text-[11px] font-semibold shrink-0 cursor-pointer self-start"
+              >
+                Copy Snippet
+              </button>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-[11px]">
+              <div className="p-2 rounded-lg bg-white/80 border border-[#cde2cf] text-[#1b4332]">
+                <strong className="block">Header</strong> Top Leaderboard
+              </div>
+              <div className="p-2 rounded-lg bg-white/80 border border-[#cde2cf] text-[#1b4332]">
+                <strong className="block">Homepage</strong> Top, Mid &amp; Bottom
+              </div>
+              <div className="p-2 rounded-lg bg-white/80 border border-[#cde2cf] text-[#1b4332]">
+                <strong className="block">Articles</strong> Top, Native &amp; Bottom
+              </div>
+              <div className="p-2 rounded-lg bg-white/80 border border-[#cde2cf] text-[#1b4332]">
+                <strong className="block">Footer</strong> Bottom Leaderboard
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="flex justify-end">
           <button
             type="submit"

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react';
 import { BlogProvider, useBlog } from './context/BlogContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { AdContainer } from './components/AdContainer';
 import { HomeView } from './components/HomeView';
 import { updatePageSeo } from './utils/seo';
 import { Sprout, ArrowLeft, Search } from 'lucide-react';
@@ -275,12 +276,26 @@ function BlogApp() {
         openSearch={() => setIsSearchOpen(true)}
       />
 
+      {/* Top Header Leaderboard Ad Placement */}
+      {route.type !== 'admin' && (
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <AdContainer placement="header" />
+        </div>
+      )}
+
       {/* Main Content Area */}
       <main className="flex-grow">
         <Suspense fallback={<RouteLoadingFallback />}>
           {renderContent()}
         </Suspense>
       </main>
+
+      {/* Footer Leaderboard Ad Placement */}
+      {route.type !== 'admin' && (
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <AdContainer placement="footer" />
+        </div>
+      )}
 
       {/* Search Modal Overlay */}
       {isSearchOpen && (

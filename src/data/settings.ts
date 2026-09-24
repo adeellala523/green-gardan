@@ -45,7 +45,7 @@ export const initialAdUnits: AdUnit[] = [
     format: 'horizontal_banner',
     placement: 'header',
     device: 'desktop',
-    status: 'inactive',
+    status: 'active',
     customLabel: 'Advertisement'
   },
   {
@@ -55,7 +55,7 @@ export const initialAdUnits: AdUnit[] = [
     format: 'responsive',
     placement: 'homepage_top',
     device: 'all',
-    status: 'inactive',
+    status: 'active',
     customLabel: 'Advertisement'
   },
   {
@@ -65,8 +65,8 @@ export const initialAdUnits: AdUnit[] = [
     format: 'responsive',
     placement: 'homepage_middle',
     device: 'all',
-    status: 'inactive',
-    customLabel: 'Sponsored'
+    status: 'active',
+    customLabel: 'Advertisement'
   },
   {
     id: 'ad-homepage-bottom',
@@ -75,7 +75,7 @@ export const initialAdUnits: AdUnit[] = [
     format: 'horizontal_banner',
     placement: 'homepage_bottom',
     device: 'all',
-    status: 'inactive',
+    status: 'active',
     customLabel: 'Advertisement'
   },
   {
@@ -85,7 +85,7 @@ export const initialAdUnits: AdUnit[] = [
     format: 'responsive',
     placement: 'article_top',
     device: 'all',
-    status: 'inactive',
+    status: 'active',
     customLabel: 'Advertisement'
   },
   {
@@ -95,8 +95,8 @@ export const initialAdUnits: AdUnit[] = [
     format: 'in_article',
     placement: 'article_in_content',
     device: 'all',
-    status: 'inactive',
-    customLabel: 'Sponsored Guide'
+    status: 'active',
+    customLabel: 'Advertisement'
   },
   {
     id: 'ad-article-bottom',
@@ -105,7 +105,7 @@ export const initialAdUnits: AdUnit[] = [
     format: 'rectangle',
     placement: 'article_bottom',
     device: 'all',
-    status: 'inactive',
+    status: 'active',
     customLabel: 'Advertisement'
   },
   {
@@ -114,8 +114,8 @@ export const initialAdUnits: AdUnit[] = [
     slotId: '',
     format: 'rectangle',
     placement: 'sidebar',
-    device: 'desktop',
-    status: 'inactive',
+    device: 'all',
+    status: 'active',
     customLabel: 'Advertisement'
   },
   {
@@ -125,7 +125,7 @@ export const initialAdUnits: AdUnit[] = [
     format: 'horizontal_banner',
     placement: 'footer',
     device: 'all',
-    status: 'inactive',
+    status: 'active',
     customLabel: 'Advertisement'
   }
 ];

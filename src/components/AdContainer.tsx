@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useBlog } from '../context/BlogContext';
-import { AdPlacement } from '../types';
+import { initialAdUnits } from '../data/settings';
+import { AdPlacement, AdUnit } from '../types';
 
 interface AdContainerProps {
   placement: AdPlacement;
@@ -8,48 +9,85 @@ interface AdContainerProps {
 }
 
 export const AdContainer: React.FC<AdContainerProps> = ({ placement, className = '' }) => {
-  const { adUnits, adsenseSettings } = useBlog();
+  const { adUnits } = useBlog();
+  const adSlotRef = useRef<HTMLDivElement>(null);
 
-  // Find active ad unit matching this placement
-  const activeAd = adUnits.find(u => u.placement === placement && u.status === 'active');
+  // Match in adUnits, fallback to initialAdUnits, or create default unit
+  const matchedAd = adUnits.find(u => u.placement === placement);
+  const fallbackAd = initialAdUnits.find(u => u.placement === placement);
 
-  // If no ad is configured or active, return null to maintain clean layout without empty spaces
-  if (!activeAd) {
+  const activeAd: AdUnit = matchedAd || fallbackAd || {
+    id: `ad-${placement}`,
+    name: placement.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+    slotId: '',
+    format: 'responsive',
+    placement: placement,
+    device: 'all',
+    status: 'active',
+    customLabel: 'Advertisement'
+  };
+
+  // Only hide if the ad unit is explicitly marked as disabled by the user
+  if (matchedAd && matchedAd.status === 'disabled') {
     return null;
   }
 
-  const isConfigured = Boolean(adsenseSettings.publisherId && activeAd.slotId);
+  // Check if running on live production domain
+  const isProduction = typeof window !== 'undefined' && 
+    (window.location.hostname === 'greengardan.co.uk' || window.location.hostname === 'www.greengardan.co.uk');
+
+  useEffect(() => {
+    // 1. If running on production, queue Ezoic showAds
+    if (typeof window !== 'undefined' && isProduction) {
+      window.ezstandalone = window.ezstandalone || {};
+      window.ezstandalone.cmd = window.ezstandalone.cmd || [];
+      window.ezstandalone.cmd.push(function () {
+        if (typeof window.ezstandalone?.showAds === 'function') {
+          try {
+            window.ezstandalone.showAds({});
+          } catch {
+            // Non-blocking in dev
+          }
+        }
+      });
+    }
+
+    // 2. Append the physical <script> tag into the ad placement container DOM
+    const container = adSlotRef.current;
+    if (container) {
+      const existing = container.querySelector('script[data-ez-placement]');
+      if (!existing) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.setAttribute('data-ez-placement', placement);
+        script.text = `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`;
+        container.appendChild(script);
+      }
+    }
+  }, [placement, isProduction]);
+
+  const label = activeAd.customLabel || activeAd.label || 'Advertisement';
 
   return (
-    <div className={`my-6 mx-auto w-full max-w-4xl text-center overflow-hidden transition-all ${className}`}>
-      <div className="text-[11px] tracking-wider uppercase text-neutral-400 font-sans mb-1 select-none">
-        {activeAd.customLabel || 'Advertisement'}
+    <div 
+      className={`my-6 mx-auto w-full max-w-4xl text-center overflow-hidden transition-all ${className}`}
+      data-ad-placement={placement}
+    >
+      {/* Editorial Compliance Label (FTC & UK ASA standard) */}
+      <div className="text-[10px] sm:text-[11px] font-sans font-medium tracking-widest uppercase text-neutral-400/80 mb-1 select-none text-center">
+        {label}
       </div>
 
-      {isConfigured ? (
-        <div className="bg-neutral-50/50 border border-neutral-200/60 rounded-lg p-2 min-h-[90px] flex items-center justify-center">
-          {/* Real Google AdSense Tag Container */}
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'block', textAlign: 'center' }}
-            data-ad-client={adsenseSettings.publisherId}
-            data-ad-slot={activeAd.slotId}
-            data-ad-format={activeAd.format === 'responsive' ? 'auto' : undefined}
-            data-full-width-responsive={activeAd.format === 'responsive' ? 'true' : 'false'}
-          />
-        </div>
-      ) : (
-        /* AdSense Placeholder Preview (Visible only in Admin/Dev preview to verify placement) */
-        <div className="border border-dashed border-[#c2d6c5] bg-[#f4f8f4]/60 rounded-xl p-4 text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#2d6a4f]">
-            <span className="w-2 h-2 rounded-full bg-[#40916c] animate-pulse"></span>
-            Ad Unit Placement: {activeAd.name} ({activeAd.format})
-          </div>
-          <p className="text-xs text-neutral-500 mt-1 max-w-md mx-auto">
-            Ready for Google AdSense. Enter your Publisher ID and Slot ID in the Admin Panel to display live ads.
-          </p>
-        </div>
-      )}
+      {/* Ezoic Ad Placement Container */}
+      <div 
+        ref={adSlotRef}
+        id={`ez-ad-${placement}`}
+        className="ezoic-ad border border-dashed border-neutral-300/80 bg-neutral-50/70 rounded-xl py-8 px-4 flex flex-col items-center justify-center min-h-[100px] sm:min-h-[130px] md:min-h-[180px] my-1 relative transition-all text-center"
+      >
+        <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-neutral-400 select-none">
+          Ad Placeholder
+        </span>
+      </div>
     </div>
   );
 };

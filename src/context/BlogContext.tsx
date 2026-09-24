@@ -135,12 +135,28 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [adUnits, setAdUnits] = useState<AdUnit[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_adunits');
-      if (saved) return JSON.parse(saved);
+      const saved = localStorage.getItem('greengarden_adunits_v3');
+      if (saved) {
+        const parsed = JSON.parse(saved) as AdUnit[];
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge with initialAdUnits to ensure all standard placements are present
+          return initialAdUnits.map(initialUnit => {
+            const existing = parsed.find(p => p.placement === initialUnit.placement);
+            if (existing) {
+              return {
+                ...initialUnit,
+                ...existing,
+                status: existing.status === 'disabled' ? 'disabled' : 'active'
+              };
+            }
+            return { ...initialUnit, status: 'active' };
+          });
+        }
+      }
     } catch {
       // fallback
     }
-    return initialAdUnits;
+    return initialAdUnits.map(u => ({ ...u, status: 'active' }));
   });
 
   const [adsenseSettings, setAdsenseSettings] = useState<AdSenseSettings>(() => {
@@ -252,6 +268,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [pages]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_adunits_v3', JSON.stringify(adUnits));
     localStorage.setItem('greengarden_adunits', JSON.stringify(adUnits));
   }, [adUnits]);
 

@@ -9,35 +9,77 @@
       (function() {
         var isProd = window.location.hostname === 'greengardan.co.uk' || window.location.hostname === 'www.greengardan.co.uk';
         
+        function isIgnoredMessage(msg) {
+          if (!msg) return false;
+          var s = String(msg);
+          return (
+            s === 'Script error.' ||
+            s.indexOf('Script error') !== -1 ||
+            s.indexOf('Ezoic') !== -1 ||
+            s.indexOf('Monetization not allowed') !== -1 ||
+            s.indexOf('bad response') !== -1 ||
+            s.indexOf('postAndAddScript') !== -1 ||
+            s.indexOf('gatekeeper') !== -1 ||
+            s.indexOf('ezstandalone') !== -1 ||
+            s.indexOf('ezodn') !== -1 ||
+            s.indexOf('ezojs') !== -1
+          );
+        }
+
         // Suppress non-fatal development/sandbox network errors from third-party ad networks
         var origConsoleError = console.error;
         console.error = function() {
-          if (arguments.length > 0) {
-            var msg = String(arguments[0] || '') + (arguments[1] ? ' ' + String(arguments[1]) : '');
-            if (msg.indexOf('postAndAddScript') !== -1 || msg.indexOf('gatekeeper') !== -1) {
-              return;
-            }
+          var fullMsg = '';
+          for (var i = 0; i < arguments.length; i++) {
+            fullMsg += ' ' + String(arguments[i] || '');
+          }
+          if (isIgnoredMessage(fullMsg)) {
+            return;
           }
           return origConsoleError.apply(console, arguments);
         };
 
-        // If in preview or dev container, prevent unhandled fetch rejections for third-party scripts
-        if (!isProd && typeof window.fetch === 'function') {
-          var origFetch = window.fetch;
-          window.fetch = function(input, init) {
-            var url = typeof input === 'string' ? input : (input && input.url ? input.url : '');
-            if (typeof url === 'string' && (url.indexOf('gatekeeperconsent') !== -1 || url.indexOf('ezoic') !== -1 || url.indexOf('ezojs') !== -1 || url.indexOf('ezodn') !== -1)) {
-              return origFetch.apply(this, arguments).catch(function() {
-                return new Response('{}', { status: 200, headers: { 'Content-Type': 'application/json' } });
-              });
-            }
-            return origFetch.apply(this, arguments);
-          };
-        }
+        var origConsoleWarn = console.warn;
+        console.warn = function() {
+          var fullMsg = '';
+          for (var i = 0; i < arguments.length; i++) {
+            fullMsg += ' ' + String(arguments[i] || '');
+          }
+          if (isIgnoredMessage(fullMsg)) {
+            return;
+          }
+          return origConsoleWarn.apply(console, arguments);
+        };
+
+        // Global unhandled error interception for cross-origin third-party scripts (Ezoic & CMP)
+        window.onerror = function(message, source, lineno, colno, error) {
+          var sMsg = String(message || '');
+          var sSrc = String(source || '');
+          if (
+            sMsg === 'Script error.' ||
+            isIgnoredMessage(sMsg) ||
+            sSrc.indexOf('gatekeeper') !== -1 ||
+            sSrc.indexOf('ezoic') !== -1 ||
+            sSrc.indexOf('ezojs') !== -1 ||
+            sSrc.indexOf('ezodn') !== -1
+          ) {
+            return true; // Mark as handled
+          }
+          return false;
+        };
 
         window.addEventListener('error', function(e) {
           var msg = e && e.message ? String(e.message) : '';
-          if (msg.indexOf('postAndAddScript') !== -1 || msg.indexOf('gatekeeper') !== -1) {
+          var filename = e && e.filename ? String(e.filename) : '';
+          if (
+            msg === 'Script error.' ||
+            isIgnoredMessage(msg) ||
+            filename.indexOf('gatekeeper') !== -1 ||
+            filename.indexOf('ezoic') !== -1 ||
+            filename.indexOf('ezojs') !== -1 ||
+            filename.indexOf('ezodn') !== -1 ||
+            (!filename && msg === 'Script error.')
+          ) {
             if (e.preventDefault) e.preventDefault();
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
             return true;
@@ -46,7 +88,7 @@
 
         window.addEventListener('unhandledrejection', function(e) {
           var reason = e && (e.reason ? (e.reason.message || String(e.reason)) : '');
-          if (reason && (reason.indexOf('postAndAddScript') !== -1 || reason.indexOf('gatekeeper') !== -1)) {
+          if (isIgnoredMessage(reason)) {
             if (e.preventDefault) e.preventDefault();
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
           }
@@ -59,12 +101,31 @@
     <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
 
     <!-- Ezoic Header Script (Ad System Initialization & Analytics) -->
-    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script>
-        window.ezstandalone = window.ezstandalone || {};
-        ezstandalone.cmd = ezstandalone.cmd || [];
+      window.ezstandalone = window.ezstandalone || {};
+      window.ezstandalone.cmd = window.ezstandalone.cmd || [];
+
+      // Automatically load live Ezoic ad auction and analytics on the authorized production domain
+      (function() {
+        var isProd = window.location.hostname === 'greengardan.co.uk' || window.location.hostname === 'www.greengardan.co.uk';
+        if (isProd) {
+          var saScript = document.createElement('script');
+          saScript.async = true;
+          saScript.src = '//www.ezojs.com/ezoic/sa.min.js';
+          document.head.appendChild(saScript);
+
+          var anScript = document.createElement('script');
+          anScript.async = true;
+          anScript.src = '//ezoicanalytics.com/analytics.js';
+          document.head.appendChild(anScript);
+        } else {
+          // In development and preview sandbox, safe stub to avoid 403 authorization rejections
+          window.ezstandalone.showAds = function() {};
+          window.ezstandalone.init = function() {};
+          window.ezstandalone.define = function() {};
+        }
+      })();
     </script>
-    <script src="//ezoicanalytics.com/analytics.js"></script>
 
     <meta name="google-site-verification" content="1U14EiBKEz1zWj5o9sptgROEqgSUR9kELH6-4B_sD3M" />
     <title>Green Gardan - UK Gardening &amp; Lifestyle Blog</title>
