@@ -11,14 +11,15 @@
         
         function isIgnoredMessage(msg) {
           if (!msg) return false;
-          var s = String(msg);
+          var s = String(msg).toLowerCase();
           return (
-            s === 'Script error.' ||
-            s.indexOf('Script error') !== -1 ||
-            s.indexOf('Ezoic') !== -1 ||
-            s.indexOf('Monetization not allowed') !== -1 ||
+            s === 'script error.' ||
+            s.indexOf('script error') !== -1 ||
+            s.indexOf('consent') !== -1 ||
+            s.indexOf('ezoic') !== -1 ||
+            s.indexOf('monetization not allowed') !== -1 ||
             s.indexOf('bad response') !== -1 ||
-            s.indexOf('postAndAddScript') !== -1 ||
+            s.indexOf('postandaddscript') !== -1 ||
             s.indexOf('gatekeeper') !== -1 ||
             s.indexOf('ezstandalone') !== -1 ||
             s.indexOf('ezodn') !== -1 ||
@@ -59,6 +60,7 @@
             sMsg === 'Script error.' ||
             isIgnoredMessage(sMsg) ||
             sSrc.indexOf('gatekeeper') !== -1 ||
+            sSrc.indexOf('consent') !== -1 ||
             sSrc.indexOf('ezoic') !== -1 ||
             sSrc.indexOf('ezojs') !== -1 ||
             sSrc.indexOf('ezodn') !== -1
@@ -75,6 +77,7 @@
             msg === 'Script error.' ||
             isIgnoredMessage(msg) ||
             filename.indexOf('gatekeeper') !== -1 ||
+            filename.indexOf('consent') !== -1 ||
             filename.indexOf('ezoic') !== -1 ||
             filename.indexOf('ezojs') !== -1 ||
             filename.indexOf('ezodn') !== -1 ||
@@ -91,14 +94,29 @@
           if (isIgnoredMessage(reason)) {
             if (e.preventDefault) e.preventDefault();
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+            return true;
           }
         });
       })();
     </script>
 
-    <!-- Ezoic Privacy Scripts (Consent Management - Must load first) -->
-    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
-    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <!-- Ezoic Privacy Scripts (Consent Management - Must load on authorized domain) -->
+    <script>
+      (function() {
+        var isProd = window.location.hostname === 'greengardan.co.uk' || window.location.hostname === 'www.greengardan.co.uk';
+        if (isProd) {
+          var cmp1 = document.createElement('script');
+          cmp1.setAttribute('data-cfasync', 'false');
+          cmp1.src = 'https://cmp.gatekeeperconsent.com/min.js';
+          document.head.appendChild(cmp1);
+
+          var cmp2 = document.createElement('script');
+          cmp2.setAttribute('data-cfasync', 'false');
+          cmp2.src = 'https://the.gatekeeperconsent.com/cmp.min.js';
+          document.head.appendChild(cmp2);
+        }
+      })();
+    </script>
 
     <!-- Ezoic Header Script (Ad System Initialization & Analytics) -->
     <script>
