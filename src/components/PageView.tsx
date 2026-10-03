@@ -36,8 +36,25 @@ export const PageView: React.FC<PageViewProps> = ({ page, navigate }) => {
   };
 
   const renderFormattedText = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+    const parts = text.split(/(\[.*?\]\(.*?\)|\*\*.*?\*\*|\*.*?\*)/g);
     return parts.map((part, i) => {
+      if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+        const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
+        if (match) {
+          const [, linkText, linkUrl] = match;
+          return (
+            <a
+              key={i}
+              href={linkUrl}
+              target={linkUrl.startsWith('http') ? '_blank' : undefined}
+              rel={linkUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="text-[#2d6a4f] underline hover:text-[#1b4332] font-medium"
+            >
+              {linkText}
+            </a>
+          );
+        }
+      }
       if (part.startsWith('**') && part.endsWith('**')) {
         return <strong key={i} className="font-semibold text-[#14281c]">{part.slice(2, -2)}</strong>;
       }
@@ -137,6 +154,11 @@ export const PageView: React.FC<PageViewProps> = ({ page, navigate }) => {
             </p>
           );
         })}
+
+        {/* Ezoic Privacy Policy Embed Target Anchor for Compliance Verification */}
+        {(page.id === 'page-privacy' || page.slug === 'privacy-policy' || page.slug === 'privacy') && (
+          <span id="ezoic-privacy-policy-embed" className="block my-4" />
+        )}
       </div>
 
       {/* About Page Visual Team Cards Showcase (Ezoic & Google Quality Compliance) */}

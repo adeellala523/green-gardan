@@ -14,7 +14,7 @@ interface CategoryViewProps {
 export const CategoryView: React.FC<CategoryViewProps> = ({ category, navigate }) => {
   const { articles } = useBlog();
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 6;
+  const articlesPerPage = 12;
 
   // Filter published articles for this category
   const categoryArticles = articles.filter(

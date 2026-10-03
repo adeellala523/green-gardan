@@ -1,5 +1,5 @@
 import { Article } from '../../types';
-import { authorMuhammad, authorFiona } from '../author';
+import { authorMuhammad, authorFiona, authorAlistair } from '../author';
 
 export const gardenDesignArticles: Article[] = [
   {
@@ -316,6 +316,241 @@ Unlike rigid geometric landscaping, a cottage garden embraces joyful abundance, 
 | **Vertical Spires** | *Digitalis purpurea* (Foxglove), *Delphinium*, *Verbascum*, *Alcea rosea* (Hollyhock). | Dramatic vertical rhythm puncturing horizontal clouds. |
 | **Billowing Mounds** | *Nepeta*, English shrub roses, *Paeonia* (Peonies), *Phlox paniculata*. | Soft, romantic volume and colour saturation. |
 | **Self-Seeding Weavers** | *Aquilegia* (Granny’s Bonnet), *Erigeron karvinskianus*, *Nigella damascena* (Love-in-a-Mist). | Naturally fills every bare gap between larger perennials. |
+    `
+  },
+  {
+    id: 'art-43',
+    title: 'How to Create Garden Rooms: Dividing Your Plot into Distinct Zones',
+    slug: 'how-to-create-garden-rooms-zoning-guide',
+    categorySlug: 'garden-design',
+    categoryName: 'Garden Design',
+    excerpt: 'Make your garden feel twice as large. Use hedges, timber screens, pleached trees, and archways to create mystery, journey, and distinct functional outdoor spaces.',
+    featuredImage: 'https://images.unsplash.com/photo-1558904541-efa8c4a08931?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Beautifully designed garden room with formal yew hedging and timber archway leading into a secret seating terrace',
+    author: authorMuhammad,
+    publishDate: '2026-03-07',
+    updatedDate: '2026-03-28',
+    readingTime: '10 min read',
+    tags: ['Garden Rooms', 'Spatial Design', 'Hedging', 'Zoning', 'Layouts'],
+    isFeatured: false,
+    isPopular: true,
+    status: 'published',
+    seoTitle: 'How to Create Garden Rooms: Layout & Zoning Design Guide UK',
+    metaDescription: 'Step-by-step masterclass on dividing long narrow UK gardens into enchanting garden rooms. Hedging dividers, focal points, and hidden seating areas.',
+    focusKeyword: 'how to create garden rooms UK',
+    canonicalUrl: '/garden-design/how-to-create-garden-rooms-zoning-guide',
+    faqs: [
+      {
+        question: 'Why do garden rooms make a small plot look bigger instead of smaller?',
+        answer: 'When a visitor can see the rear boundary fence from the kitchen window in a single glance, the human brain instantly registers the exact limits of the space. Subdividing the plot with permeable screens or archways forces the eye to explore in stages, creating an optical illusion of depth, mystery, and scale.'
+      },
+      {
+        question: 'What is the best compact hedging for dividing garden rooms in the UK?',
+        answer: 'Yew (*Taxus baccata*) can be clipped razor-thin (30cm wide) and grows predictably. For informal boundaries, beech (*Fagus sylvatica*) retains warm copper winter leaves, while hornbeam (*Carpinus betulus*) thrives in heavy, wet UK clay.'
+      },
+      {
+        question: 'How many separate rooms can a standard 15-metre UK suburban garden accommodate?',
+        answer: 'Two to three distinct zones work harmoniously: Zone 1 (paved dining patio near house), Zone 2 (central lawn or gravel reflection space framed by mixed herbaceous borders), and Zone 3 (a secluded evening firepit nook, greenhouse, or kitchen garden).'
+      }
+    ],
+    content: `
+## Spatial Sorcery: The Sissinghurst Philosophy for Domestic Plots
+
+Pioneered at legendary British properties like Sissinghurst Castle and Hidcote Manor, the "garden room" concept is the ultimate design weapon for overcoming the classic British "corridor" garden—the long, narrow, rectangular strip bounded by 1.8-metre timber lap panels.
+
+By breaking a continuous visual vista into framed chapters, each with its own character, colour palette, and functional purpose, you turn an ordinary backyard into an exploratory journey.
+
+---
+
+## 1. Structural Boundaries for Modern Garden Rooms
+
+| Boundary Element | Spatial Impact | Light Permeability | Maintenance |
+| --- | --- | --- | --- |
+| **Yew or Beech Hedge** | Formal, traditional green architectural wall | Solid backdrop | Clip once yearly in August |
+| **Batten Trellis / Slatted Cedar** | Sleek contemporary division; filters breezes | 50% light through slats | Zero pruning; oil every 2 years |
+| **Pleached Hornbeam Trees** | 'Hedge on stilts'; screens neighbours above fences | Open at ground eye level | Winter framework pruning |
+| **Rose & Clematis Archway** | Natural living threshold inviting passage | High overhead canopy | Annual spring tie-in |
+
+---
+
+## 2. Thresholds and Borrowed Views
+
+Every successful room requires a doorway. Frame the transition between spaces using a rustic oak arch, a pair of symmetrical terracotta urns, or a change in ground material (such as stepping from smooth sandstone pavers onto crunchy Thames river shingle).
+    `
+  },
+  {
+    id: 'art-44',
+    title: 'Shaded Garden Design: Transforming North-Facing UK Plots with Foliage & Texture',
+    slug: 'north-facing-shaded-garden-design-uk',
+    categorySlug: 'garden-design',
+    categoryName: 'Garden Design',
+    excerpt: 'Turn dark, damp north-facing gardens into luminous woodland sanctuaries. Master leaf contrast, architectural ferns, silver variegation, and reflective materials.',
+    featuredImage: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Lush shade garden with large hosta leaves, delicate ferns, and dappled woodland sunlight',
+    author: authorFiona,
+    publishDate: '2026-03-13',
+    updatedDate: '2026-04-01',
+    readingTime: '9 min read',
+    tags: ['Shade Garden', 'North-Facing', 'Hostas', 'Ferns', 'Foliage Design'],
+    isFeatured: false,
+    isPopular: false,
+    status: 'published',
+    seoTitle: 'Shade Garden Design: Transforming North-Facing UK Gardens',
+    metaDescription: 'How to design lush, vibrant north-facing and shaded gardens in the UK. Architectural ferns, variegated foliage, white flowers, and lighting tricks.',
+    focusKeyword: 'shade garden design UK',
+    canonicalUrl: '/garden-design/north-facing-shaded-garden-design-uk',
+    faqs: [
+      {
+        question: 'Which flowers thrive and bloom reliably in deep, damp shade?',
+        answer: 'Foxgloves (*Digitalis*), Japanese anemones, bleeding hearts (*Dicentra spectabilis*), sweet woodruff (*Galium odoratum*), and Martagon lilies excel in full shade where sunny bedding annuals simply rot.'
+      },
+      {
+        question: 'How do I brighten up a gloomy north-facing garden boundary fence?',
+        answer: "Paint the fence in a warm pale stone or heritage sage green rather than dark brown or black. Plant climbing hydrangeas (*Hydrangea petiolaris*) or variegated ivies (*Hedera helix* 'Glacier') to bounce ambient natural daylight back into the space."
+      },
+      {
+        question: 'Why is foliage more important than flowers when designing shade borders?',
+        answer: 'Shade-tolerant perennials flower for relatively brief windows in spring before dense tree canopies fully leaf out. Designing with varying leaf forms—giant puckered hostas, feathery ferns, glossy aspidistras, and slender carex grasses—delivers seven months of compelling textural contrast.'
+      }
+    ],
+    content: `
+## Embracing the Calming Serenity of the Shaded Glade
+
+North-facing gardens and shaded urban courtyards are often viewed with dread by prospective homeowners. However, British landscape designers know that shade is not a handicap—it is an extraordinary opportunity to cultivate an opulent, tranquil woodland retreat that requires a fraction of the watering demanded by sun-baked south-facing borders.
+
+By prioritising leaf shape, surface texture, and pale variegated colours that glow in twilight, you can transform dark corners into the most enchanting areas of your home.
+
+---
+
+## 1. The Foliage Texture Triad for Shade
+
+1. **Broad Architectural Leaves:** *Hosta* 'Empress Wu', *Rodgersia pinnata*, and *Darmera peltata* establish bold structural focal points that anchor the composition.
+2. **Delicate Feathery Fronds:** Male fern (*Dryopteris filix-mas*), Hart’s tongue fern (*Asplenium scolopendrium*), and Japanese painted fern (*Athyrium niponicum*) introduce intricate lacy softness.
+3. **Luminous Variegated Edges:** *Brunnera macrophylla* 'Jack Frost' and *Hakonechloa macra* 'Aureola' shimmer in dim corners like internal woodland lighting.
+
+---
+
+## 2. Hard Landscaping in Damp Shade
+
+Avoid slippery timber decking in permanent shade; damp UK winters cause algae to turn wet wood dangerously slick. Instead, choose textured textured Yorkstone flags, tumbled limestone pavers, or light-coloured pea gravel which remain safe underfoot and reflect overhead sky light.
+    `
+  },
+  {
+    id: 'art-45',
+    title: 'Gravel Gardens & Drought-Tolerant Planting: Low-Maintenance UK Landscaping',
+    slug: 'gravel-garden-design-drought-tolerant-uk',
+    categorySlug: 'garden-design',
+    categoryName: 'Garden Design',
+    excerpt: 'Inspired by Beth Chatto’s dry garden. Create a self-sustaining Mediterranean gravel landscape that thrives through UK dry spells without supplemental watering.',
+    featuredImage: 'https://images.unsplash.com/photo-1584479898061-15742e14f50d?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Contemporary gravel garden with silvery drought tolerant plants, alliums, and ornamental grasses',
+    author: authorAlistair,
+    publishDate: '2026-03-17',
+    updatedDate: '2026-04-03',
+    readingTime: '9 min read',
+    tags: ['Gravel Garden', 'Beth Chatto', 'Drought Tolerant', 'Low Maintenance', 'Gravel'],
+    isFeatured: false,
+    isPopular: true,
+    status: 'published',
+    seoTitle: 'Gravel Garden Design UK: Beth Chatto Drought-Tolerant Landscaping',
+    metaDescription: 'How to build and plant an unwatered gravel garden in the UK. Sub-base preparation, weed control without plastic membranes, and dry-loving perennials.',
+    focusKeyword: 'gravel garden design UK',
+    canonicalUrl: '/garden-design/gravel-garden-design-drought-tolerant-uk',
+    faqs: [
+      {
+        question: 'Should I lay plastic weed membrane underneath a gravel garden?',
+        answer: 'Leading British ecological designers advise against non-woven plastic weed membranes in planted gravel gardens. Over time, blown dust and leaf litter settle on top of the fabric, allowing weed seeds to root into the matting while suffocating earthworms and preventing self-seeding perennials (like verbena and erigeron) from naturalising. A 7.5cm deep layer of clean angular shingle laid directly over weed-free native subsoil prevents most weed germination naturally.'
+      },
+      {
+        question: 'Which gravel size is most comfortable to walk on in a domestic garden?',
+        answer: '10mm to 14mm angular gravel (such as Cotswold Buff or Scottish Beach pebbles) packs down firmly underfoot without rolling like loose marbles, making it ideal for walking while allowing rainwater to penetrate instantly.'
+      },
+      {
+        question: 'How do you water newly planted specimens in a gravel garden?',
+        answer: 'Give plants a deep soaking at planting time. For the first two months, water once a week during dry spells to encourage roots to push deep through the gravel into the subsoil. Once established, an authentic gravel garden requires zero supplemental watering.'
+      }
+    ],
+    content: `
+## The Beth Chatto Revolution: The Unwatered Garden
+
+In 1992, legendary British plantswoman Beth Chatto converted a dried-out car park on poor gravel soil in Essex into an internationally acclaimed garden that was never once watered from a garden hose.
+
+Today, as British summers experience hotter dry spells and hosepipe restrictions become regular occurrences, gravel gardening offers the perfect blend of Mediterranean aesthetics, ecological sustainability, and relaxed, low-maintenance beauty.
+
+---
+
+## 1. Plant Palette for UK Gravel Landscapes
+
+| Plant | Foliage Character | Flower Display | Soil Requirements |
+| --- | --- | --- | --- |
+| ***Stipa tenuissima* (Pony Tails)** | Silky feathery green/gold grass | All summer movement | Sharp, gritty drainage |
+| ***Verbena bonariensis*** | Slender see-through stems | Purple nectar clouds (July–Oct) | Self-seeds freely in gravel |
+| ***Euphorbia characias* wulfenii** | Blue-grey architectural evergreen | Acid-yellow spring domes | Drought-tolerant sun lover |
+| ***Phlomis tuberosa* 'Amazon'** | Fuzzy felted sage-green leaves | Whorled pinkish-lilac towers | Hardy; architectural winter seedheads |
+| ***Sedum* (Hylotelephium)** | Fleshy succulent moisture store | Flat pink autumn landing pads | Poor, unimproved gravel |
+
+---
+
+## 2. Maintenance Simplicity
+
+Gravel gardens do not require mowing, edging, or daily watering. Seasonal maintenance consists of a single spring clean in late February (cutting back dead ornamental grasses and perennials) and weeding out unwanted windblown seedlings while leaving self-seeding volunteers to create natural drifts.
+    `
+  },
+  {
+    id: 'art-46',
+    title: 'Lighting Your UK Garden: Ambient, Pathway, and Feature Illumination',
+    slug: 'garden-lighting-design-guide-uk',
+    categorySlug: 'garden-design',
+    categoryName: 'Garden Design',
+    excerpt: 'Extend garden usability into warm summer evenings and dark winter nights. Master low-voltage warm LED beam angles, uplighting trees, and wildlife-friendly design.',
+    featuredImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Atmospheric outdoor garden lighting illuminating a stone pathway, architectural shrubs and patio dining terrace',
+    author: authorMuhammad,
+    publishDate: '2026-03-25',
+    updatedDate: '2026-04-05',
+    readingTime: '8 min read',
+    tags: ['Garden Lighting', 'Outdoor Living', 'LED Lights', 'Patios', 'Landscape Design'],
+    isFeatured: false,
+    isPopular: false,
+    status: 'published',
+    seoTitle: 'Garden Lighting Design Guide: Outdoor LED Illumination UK',
+    metaDescription: 'Expert guide to designing outdoor garden lighting in the UK. Uplighting trees, safe step illumination, warm colour temperatures, and protecting nocturnal wildlife.',
+    focusKeyword: 'garden lighting design UK',
+    canonicalUrl: '/garden-design/garden-lighting-design-guide-uk',
+    faqs: [
+      {
+        question: 'What colour temperature is best for outdoor garden lighting?',
+        answer: 'Always choose warm white LEDs (2700K to 3000K). Cold white lights (4000K+) look sterile and harsh against natural stone and foliage, making gardens look like commercial parking lots, while warm light enhances natural brick and plant greens.'
+      },
+      {
+        question: 'How do I light my garden without disorienting nocturnal wildlife like bats and hedgehogs?',
+        answer: 'Use downlighting rather than upward-pointing floodlights, fit hoods or baffles to prevent light trespass into tree canopies, and connect outdoor circuits to timers or motion sensors so lights switch off automatically by 10:30 PM.'
+      },
+      {
+        question: 'Is 12V low-voltage lighting safer than 230V mains power in British gardens?',
+        answer: 'Yes; low-voltage (12V) plug-and-play systems operate through an outdoor transformer. If an allotment fork or lawn mower accidentally slices a low-voltage cable, there is zero risk of fatal electric shock, and cables do not need burying 50cm deep in armored steel conduit.'
+      }
+    ],
+    content: `
+## Extending the Living Boundary: Night Garden Alchemy
+
+In the UK, where daylight diminishes rapidly during autumn and spring evenings can be crisp, thoughtful landscape illumination transforms an outdoor plot into a dramatic, year-round living theatre viewed from the comfort of your kitchen or conservatory sofa.
+
+Effective landscape lighting is not about flooding every corner with blinding glare; it is about creating pools of warm illumination, celebrating architectural silhouettes, and ensuring safe navigation along stepping paths.
+
+---
+
+## 1. The Three Layers of Garden Illumination
+
+1. **Ambient Task Lighting:** Soft illumination around dining tables, outdoor kitchens, and seating benches to facilitate conversation and dining.
+2. **Pathway & Safety Lighting:** Low-level bollards or recessed step-riser lights directed strictly downward onto stone flags to prevent tripping on dark nights.
+3. **Feature Uplighting:** Narrow-beam (24°–38°) spike spotlights positioned at the base of multi-stem birch trees (*Betula utilis* 'Jacquemontii') or architectural stone water features.
+
+---
+
+## 2. Positioning and Glare Control
+
+Always aim spotlights *away* from the house and patio seating so visitors never look directly into bare LED bulbs. Conceal fixtures behind low evergreen mounds like *Hebe* or dwarf box balls so only the enchanting illuminated effect is visible.
     `
   }
 ];

@@ -354,5 +354,242 @@ By selecting powerhouse varieties celebrated for persistent flowering endurance,
 | ***Clematis* 'Princess Diana'** | July to October (4 months) | 3m climber | Cut back to 20cm from ground level in late February (Group 3). |
 | ***Geum* 'Totally Tangerine'** | May to October (5 months) | 70cm x 50cm | Keep picking flowers for indoor vases; it responds with more buds. |
     `
+  },
+  {
+    id: 'art-35',
+    title: 'Top 10 Scented Flowers for UK Cottage Gardens: Evening Fragrance',
+    slug: 'top-scented-flowers-uk-cottage-gardens',
+    categorySlug: 'flowers-plants',
+    categoryName: 'Flowers',
+    excerpt: 'Fill your garden path and seating patio with intoxicating botanical perfume. From old English shrub roses and night-scented stocks to philadelphus and sweet peas.',
+    featuredImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Delicate fragrant English cottage garden flowers in soft pink and purple morning light',
+    author: authorFiona,
+    publishDate: '2026-03-14',
+    updatedDate: '2026-04-02',
+    readingTime: '9 min read',
+    tags: ['Scented Flowers', 'Cottage Garden', 'Fragrant Plants', 'Roses', 'Sweet Peas'],
+    isFeatured: false,
+    isPopular: true,
+    status: 'published',
+    seoTitle: 'Top 10 Scented Flowers for UK Gardens: Evening Fragrance',
+    metaDescription: 'Discover the best fragrant flowers for British borders and patio containers. Sweet peas, night-scented stocks, honeysuckle, and English shrub roses.',
+    focusKeyword: 'scented flowers UK cottage garden',
+    canonicalUrl: '/flowers-plants/top-scented-flowers-uk-cottage-gardens',
+    faqs: [
+      {
+        question: 'Which flowers release their scent in the evening for patio sitting?',
+        answer: 'Night-scented stock (*Matthiola bicornis*), tobacco plant (*Nicotiana sylvestris*), and evening primrose (*Oenothera biennis*) hold their essential oils during daytime heat and release powerful perfume at dusk to attract night-flying pollinating moths.'
+      },
+      {
+        question: 'Where should I position scented flowers in my UK garden layout?',
+        answer: 'Plant fragrant varieties where outdoor air is still and trapped—beside courtyard walls, down narrow entry pathways, or adjacent to sheltered outdoor seating areas. Enclosed microclimates prevent breezes from dispersing delicate floral oils.'
+      },
+      {
+        question: 'Do modern hybrid roses smell as sweet as old heritage shrub roses?',
+        answer: "Many modern supermarket cut-flower roses have had scent bred out of them in exchange for petal longevity. However, David Austin English shrub roses (such as 'Gertrude Jekyll' and 'Munstead Wood') specifically pair traditional damask perfume with modern repeat-flowering reliability."
+      }
+    ],
+    content: `
+## Crafting an Olfactory Haven in British Green Spaces
+
+A truly enchanting garden speaks to all senses. While bold colours catch the eye, fragrance evokes deep nostalgia, calms the nervous system, and elevates ordinary evening relaxation into a restorative sensory retreat.
+
+In the UK climate, where summer evenings can be cool and sheltered by brick garden walls, choosing flowers with distinct scent profiles creates evolving waves of aroma from early June through to the first autumn frosts.
+
+---
+
+## 1. Top Fragrant Bloom Matrix for UK Borders
+
+| Variety | Scent Profile | Bloom Season | Positioning Recommendation |
+| --- | --- | --- | --- |
+| ***Rosa* 'Gertrude Jekyll'** | Rich, classic Damask rose | June to October | Main border beside entryway or bench |
+| ***Lathyrus odoratus* (Sweet Pea)** | Sweet, honeyed floral | June to September | Climbing over hazel tepees near patios |
+| ***Philadelphus* 'Belle Etoile'** | Crushed orange blossom / bubblegum | June and July | Shrub border backdrop in dappled shade |
+| ***Lonicera periclymenum* (Honeysuckle)** | Intoxicating evening spice | July to September | Scrambling over fences and arches |
+| ***Lavandula angustifolia* (English Lavender)** | Crisp, resinous herbal | June to August | Sunny path edges where brushed by passersby |
+
+---
+
+## 2. Tips for Prolonging Garden Perfume
+
+1. **Pick Early Morning:** Harvest sweet pea and garden rose stems at 8:00 AM while stems are cool and fully turgid with moisture.
+2. **Companion Placement:** Group daytime scented perennials (lavender, dianthus) near sunny lawns, and twilight bloomers (evening primrose, night-scented stock) right around patio doors.
+3. **Moisture Matters:** Plants release stronger aroma when soil moisture is consistent; water the soil thoroughly in the morning rather than the flower heads.
+    `
+  },
+  {
+    id: 'art-36',
+    title: 'How to Plant and Care for Hydrangeas in British Acid and Alkaline Soils',
+    slug: 'hydrangeas-care-planting-guide-uk',
+    categorySlug: 'flowers-plants',
+    categoryName: 'Flowers',
+    excerpt: 'Demystify mopheads, lacecaps, and paniculatas. Master soil pH colour changing, moisture retention in peat-free loam, and safe spring pruning.',
+    featuredImage: 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Large blooming blue and pink hydrangea flower heads in a shady British garden border',
+    author: authorFiona,
+    publishDate: '2026-03-18',
+    updatedDate: '2026-04-03',
+    readingTime: '10 min read',
+    tags: ['Hydrangeas', 'Soil pH', 'Shade Plants', 'Shrubs', 'Pruning'],
+    isFeatured: false,
+    isPopular: false,
+    status: 'published',
+    seoTitle: 'Hydrangea Care Guide UK: Soil pH, Pruning & Blue Flower Secrets',
+    metaDescription: 'Complete British guide to growing vibrant mophead, lacecap, and paniculata hydrangeas. How soil aluminium turns flowers blue vs pink.',
+    focusKeyword: 'hydrangeas care guide UK',
+    canonicalUrl: '/flowers-plants/hydrangeas-care-planting-guide-uk',
+    faqs: [
+      {
+        question: 'Why did my blue hydrangea turn pink when planted in my garden?',
+        answer: 'Flower colour in *Hydrangea macrophylla* is determined by aluminium uptake, which only occurs in acidic soils (pH 5.5 and below). In neutral or alkaline clay/chalk soils (pH 6.5+), aluminium is locked away, turning petals pink. To restore blue blooms, grow in a pot with ericaceous peat-free compost and treat with aluminium sulphate blueing tonic.'
+      },
+      {
+        question: 'When is the correct time to prune mophead hydrangeas in Britain?',
+        answer: "Leave faded flowerheads on the bush throughout winter; they insulate next spring's developing buds from frost damage. Prune them off in late March or early April, cutting back to the first pair of healthy, plump green buds below the old flower."
+      },
+      {
+        question: 'Can hydrangeas tolerate full sun in south-facing UK gardens?',
+        answer: 'Paniculata hydrangeas (cone-shaped blossoms) tolerate full sunshine provided soil never bakes dry. Mopheads and lacecaps prefer morning sun and afternoon shade; strong midday sun scorches their tender, leafy crowns.'
+      }
+    ],
+    content: `
+## Celebrating Britain's Most Dramatic Cottage Shrub
+
+Hydrangeas are cornerstones of late-summer British gardens. When early summer perennials like delphiniums and lupins fade in July, hydrangeas step into the spotlight, carrying lavish globes, delicate florets, and conical panicles straight through to late autumn frost.
+
+Their dramatic responses to soil mineral chemistry make them fascinating botanical specimens for UK gardeners eager to fine-tune border colour palettes.
+
+---
+
+## 1. Navigating Hydrangea Species & Pruning Rules
+
+- ***Hydrangea macrophylla* (Mopheads & Lacecaps):** Flowers on *old wood* produced the previous summer. Never chop stems to the ground in autumn or winter, or you will remove all next summer’s flowers.
+- ***Hydrangea paniculata* & *H. arborescens* ('Annabelle'):** Flowers on *new wood* formed in current spring. Cut back hard in late winter (February/March) to within 30cm of the ground for giant, upright blooms.
+- ***Hydrangea petiolaris* (Climbing Hydrangea):** Self-clinging shade lover ideal for dreary north-facing brick walls. Prune immediately after flowering in July.
+
+---
+
+## 2. Soil Preparation & Moisture Retention
+
+Hydrangeas have shallow, fibrous root systems that transpire large volumes of water through broad leaves. Incorporate copious leaf mould or composted bark mulch into the planting hole, and mulch heavily every spring to lock in rainfall.
+    `
+  },
+  {
+    id: 'art-37',
+    title: 'Best Climbing Roses for UK Walls, Pergolas, and Shaded Fences',
+    slug: 'best-climbing-roses-uk-pergolas-walls',
+    categorySlug: 'flowers-plants',
+    categoryName: 'Flowers',
+    excerpt: 'Clothe vertical garden surfaces with repeat-flowering English climbing and rambling roses. Tested for blackspot resistance and north-facing shade tolerance.',
+    featuredImage: 'https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Magnificent English climbing rose scrambling over timber pergola with creamy white blooms',
+    author: authorFiona,
+    publishDate: '2026-03-21',
+    updatedDate: '2026-04-04',
+    readingTime: '9 min read',
+    tags: ['Climbing Roses', 'Vertical Gardening', 'Pergolas', 'David Austin', 'Shade Tolerant'],
+    isFeatured: false,
+    isPopular: true,
+    status: 'published',
+    seoTitle: 'Best Climbing Roses for UK Gardens: Walls, Fences & Pergolas',
+    metaDescription: 'Expert guide to top repeat-blooming climbing roses for British fences and brick walls. Disease resistance, horizontal training, and shade performance.',
+    focusKeyword: 'best climbing roses UK',
+    canonicalUrl: '/flowers-plants/best-climbing-roses-uk-pergolas-walls',
+    faqs: [
+      {
+        question: 'What is the secret to getting climbing roses to flower from bottom to top?',
+        answer: "Train main framework stems horizontally (the 'fan' method) along support wires rather than letting them shoot straight up. Horizontal training slows apical sap dominance, prompting every leaf node along the stem to send up a vertical flowering shoot."
+      },
+      {
+        question: 'What is the difference between a climbing rose and a rambling rose?',
+        answer: 'Climbers usually repeat-flower across summer and autumn, produce stiff main stems, and produce larger blooms in small clusters. Ramblers produce vigorous, pliable shoots that flower once in June in massive trusses, ideal for scrambling into mature trees.'
+      },
+      {
+        question: 'Which climbing rose performs best on a cold north-facing brick wall?',
+        answer: "'Madame Alfred Carrière' and 'Gertrude Jekyll' are renowned for exceptional shade tolerance, cold hardiness, and sweet scent even when receiving minimal direct sunshine."
+      }
+    ],
+    content: `
+## Vertical Elegance Across British Brickwork and Trellises
+
+Vertical gardening is essential in modern British properties where plot sizes are compact. A bare timber boundary fence or cold brick cavity wall can be transformed into a living cascade of perfumed blossoms with the right climbing rose.
+
+By training stems horizontally along horizontal galvanised wires spaced 30cm apart, you turn bare vertical boundaries into summer flowering screens that shelter nesting songbirds and attract beneficial insects.
+
+---
+
+## 1. Top Recommended Climbing Roses for British Conditions
+
+| Variety | Bloom Colour & Style | Shade Tolerance | Repeat Flowering |
+| --- | --- | --- | --- |
+| ***Madame Alfred Carrière*** | Soft creamy-white blush | Excellent (ideal for north walls) | Continuous June to October |
+| ***Generous Gardener*** | Pale glowing pink | Good (tolerates east-facing) | Strong repeat flushes |
+| ***Golden Celebrations*** | Giant rich golden-yellow | Moderate (south/west preferred) | June, August, late September |
+| ***Lady of Shalott*** | Warm apricot-orange chalice | Good (very disease resistant) | Highly reliable |
+
+---
+
+## 2. Spring Feeding & Blackspot Defense
+
+To avoid fungal blackspot and powdery mildew without synthetic chemicals, plant roses where breezes circulate freely. Mulch bases in March with well-rotted farmyard manure, keeping mulch 5cm away from the woody graft union.
+    `
+  },
+  {
+    id: 'art-38',
+    title: 'Growing Peonies in Britain: Staking, Soil Depth, and Flowering Secrets',
+    slug: 'growing-peonies-uk-planting-staking-care',
+    categorySlug: 'flowers-plants',
+    categoryName: 'Flowers',
+    excerpt: 'Why newly planted peonies fail to bloom, how shallow to plant bare-root tubers, and how to protect lavish double blossoms from summer storms.',
+    featuredImage: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Luxurious ruffled pink peony flowers in full bloom against dark green border foliage',
+    author: authorAlistair,
+    publishDate: '2026-03-24',
+    updatedDate: '2026-04-05',
+    readingTime: '8 min read',
+    tags: ['Peonies', 'Perennials', 'Bare Root', 'Summer Flowers', 'Cutting Garden'],
+    isFeatured: false,
+    isPopular: false,
+    status: 'published',
+    seoTitle: 'Growing Peonies in the UK: Planting Depth & Flowering Secrets',
+    metaDescription: 'Master growing herbaceous and Itoh peonies in British soil. Avoid the fatal planting depth mistake, support heavy heads, and prevent peony wilt.',
+    focusKeyword: 'growing peonies UK',
+    canonicalUrl: '/flowers-plants/growing-peonies-uk-planting-staking-care',
+    faqs: [
+      {
+        question: 'Why has my established peony stopped flowering?',
+        answer: 'By far the number one reason peonies fail to flower (blindness) is planting too deeply. The reddish growth eyes on the tuber crown must be buried no deeper than 2.5cm to 5cm below the soil surface. Heavy mulching that covers the crown can also prevent blooming.'
+      },
+      {
+        question: 'When is the best time of year to plant or divide peonies in the UK?',
+        answer: 'Autumn (October to November) is the gold standard for planting bare-root tubers and dividing mature clumps. The ground is still warm, triggering winter root establishment before spring shoots push upward.'
+      },
+      {
+        question: 'Why do ants crawl all over unopened peony buds?',
+        answer: 'Peony buds secrete sweet, sugary nectar droplets. Ants feed harmlessly on this nectar and actually protect the buds by discouraging thrips and small caterpillars. Do not spray them; they will depart naturally once petals open.'
+      }
+    ],
+    content: `
+## Indulgent Ruffles for Classic British herbaceous Borders
+
+With their sumptuous silk-like petals, intoxicating sweet perfume, and heirloom longevity, peonies (*Paeonia*) are the crown jewels of late spring British borders. A single clump can thrive and flower continuously in the same garden bed for more than fifty years without needing division.
+
+While they have a reputation for being temperamental, their care requirements are straightforward: shallow planting depth, good drainage, and sturdy early season staking.
+
+---
+
+## 1. Herbaceous vs Tree vs Itoh Peonies
+
+- **Herbaceous Peonies (*Paeonia lactiflora*):** Die down completely to ground level in late autumn. Renowned for classic double-headed blooms like 'Sarah Bernhardt' and 'Duchesse de Nemours'.
+- **Tree Peonies (*Paeonia suffruticosa*):** Woody shrubs that retain architectural winter framework stems. Produce colossal, saucer-sized blossoms.
+- **Itoh Peonies (Intersectional Hybrids):** Combine tree peony floral grandeur with herbaceous pest resilience and strong stems that rarely collapse in rain.
+
+---
+
+## 2. Preventing Summer Rain Collapse
+
+Peony flowers are heavy, containing hundreds of individual petals. A sudden British June thunderstorm can waterlog bloom heads and snap stems flat to the ground. Install circular metal grid peony supports over crowns in early April when shoots are only 15cm high so foliage naturally grows up through the support.
+    `
   }
 ];

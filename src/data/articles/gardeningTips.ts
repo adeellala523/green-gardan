@@ -1,5 +1,5 @@
 import { Article } from '../../types';
-import { authorMuhammad, authorAlistair, defaultAuthor } from '../author';
+import { authorMuhammad, authorAlistair, authorFiona, defaultAuthor } from '../author';
 export { defaultAuthor };
 
 export const gardeningTipsArticles: Article[] = [
@@ -504,6 +504,250 @@ Insects locate their host plants primarily through acute olfactory senses. By in
 - **French Marigolds (*Tagetes patula*):** Plant alongside greenhouse tomatoes and runner beans; their pungent roots produce alpha-terthienyl, which deters harmful root-knot nematodes and repels whitefly.
 - **Poached Egg Plant (*Limnanthes douglasii*):** Sow around brassica borders; its vibrant yellow and white blossoms attract adult hoverflies whose predatory larvae consume up to 50 aphids each night.
 - **Borage (*Borago officinalis*):** Interplant with strawberries and courgettes to attract bumblebees and parasitic wasps that prey on leaf-mining caterpillars.
+    `
+  },
+  {
+    id: 'art-31',
+    title: 'Peat-Free Potting Compost: How to Choose, Water, and Feed Container Plants',
+    slug: 'peat-free-compost-guide-uk-containers',
+    categorySlug: 'gardening-tips',
+    categoryName: 'Gardening Tips',
+    excerpt: 'Master peat-free container growing across British gardens. Discover how bark, coir, and wood fibre blends absorb moisture, and how to prevent nitrogen lock-up.',
+    featuredImage: 'https://images.unsplash.com/photo-1592417817098-8f3d691023c9?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Gardener potting terracotta containers with fresh dark peat-free organic compost',
+    author: authorAlistair,
+    publishDate: '2026-03-12',
+    updatedDate: '2026-04-01',
+    readingTime: '9 min read',
+    tags: ['Peat-Free', 'Soil Care', 'Potting Mix', 'Containers', 'Composting'],
+    isFeatured: false,
+    isPopular: true,
+    status: 'published',
+    seoTitle: 'Peat-Free Potting Compost Guide for UK Gardeners: Tips & Feeding',
+    metaDescription: 'Learn how to succeed with peat-free compost in UK gardens. Watering schedules, nitrogen lock-up prevention, and coir vs bark formulations.',
+    focusKeyword: 'peat-free potting compost UK',
+    canonicalUrl: '/gardening-tips/peat-free-compost-guide-uk-containers',
+    faqs: [
+      {
+        question: 'Why does peat-free compost dry out on top while remaining wet underneath?',
+        answer: 'Wood fibre and coir blends have different capillary actions compared to traditional sphagnum peat. The top centimetre dries quickly from wind and sun, forming a crust, while the root zone below remains moist. Always stick your finger 5cm into the pot before reaching for the watering can.'
+      },
+      {
+        question: 'Why do my young seedlings turn pale yellow in peat-free mix?',
+        answer: 'Decomposing wood particles in budget peat-free mixes can temporarily lock up available nitrogen as soil microbes consume it to break down raw lignin. Feed seedlings with a gentle organic seaweed or diluted liquid comfrey feed from week 3 onward.'
+      },
+      {
+        question: 'Which peat-free formulation is best for long-term shrubs in pots?',
+        answer: 'Choose a loam-based peat-free formulation (such as a peat-free John Innes No. 3 equivalent). Loam provides weight, mineral buffering, trace elements, and superior moisture retention for trees, roses, and perennial shrubs.'
+      }
+    ],
+    content: `
+## Navigating Britain's Peat-Free Horticultural Evolution
+
+Under the UK Peat Action Plan and evolving environmental standards, British gardeners are embracing 100% peat-free growing mediums. Protecting irreplaceable lowland peat bogs—which sequester more atmospheric carbon than all tropical rainforests combined—is the single most impactful conservation choice an allotment keeper or patio container grower can make.
+
+However, modern peat-free composts behave very differently from traditional peat-based formulations. Understanding their physical structure, watering dynamics, and nutritional demands will guarantee vigorous, green, bloom-laden pots from May to October.
+
+---
+
+## 1. Comparing Core Peat-Free Components
+
+| Ingredient | Moisture Behaviour | Nutrient Retention | Best Used For |
+| --- | --- | --- | --- |
+| **Composted Bark / Pine** | Free-draining; resists compaction | High trace minerals, slightly acidic | Perennials, shrubs, ericaceous blends |
+| **Coir (Coconut Pith)** | Rapid re-wetting; spongy aeration | Low initial nutrients, pH neutral | Seed starting, hanging baskets, herbs |
+| **Wood Fibre (SylvaFibre)** | Porous; dries on surface rapidly | Can draw available nitrogen | Bedding plants, multipurpose composts |
+| **Green Waste Compost** | Heavy, moisture-retentive | Rich in potash and phosphorus | Soil conditioning, hungry veg pots |
+
+---
+
+## 2. Essential Watering & Nutrition Protocols
+
+- **The Finger Test Over Visual Inspection:** Because the surface of coir and wood fibre crusts pale brown within hours of sun exposure, gardeners frequently overwater. Never water based on surface appearance; check 5cm deep.
+- **Earlier Supplemental Feeding:** Peat-free mediums carry roughly 4 to 6 weeks of starter fertiliser. Begin feeding container specimens with an organic liquid seaweed or comfrey extract slightly earlier than you would with traditional compost.
+- **Top-Dressing Pots Annually:** Scrape away the top 5cm of exhausted compost every March and replenish with a fresh blend of loam-based peat-free compost mixed with well-rotted leaf mould.
+    `
+  },
+  {
+    id: 'art-32',
+    title: 'Composting at Home: The UK Hot and Cold Composting Masterclass',
+    slug: 'home-composting-guide-uk-gardens',
+    categorySlug: 'gardening-tips',
+    categoryName: 'Gardening Tips',
+    excerpt: 'Transform kitchen peelings, lawn mowings, and shredded cardboard into rich, dark garden humus. Solve soggy bins, bad odours, and accelerate decomposition.',
+    featuredImage: 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Rich dark homemade organic compost being turned in an outdoor wooden slatted compost bin',
+    author: authorMuhammad,
+    publishDate: '2026-03-16',
+    updatedDate: '2026-04-02',
+    readingTime: '10 min read',
+    tags: ['Composting', 'Soil Fertility', 'Recycling', 'Organic Gardening', 'Kitchen Garden'],
+    isFeatured: false,
+    isPopular: false,
+    status: 'published',
+    seoTitle: 'Home Composting Guide: Hot vs Cold Composting in the UK',
+    metaDescription: 'Step-by-step masterclass on turning kitchen scraps and garden prunings into black gold compost in British gardens. Carbon to nitrogen ratios explained.',
+    focusKeyword: 'home composting guide UK',
+    canonicalUrl: '/gardening-tips/home-composting-guide-uk-gardens',
+    faqs: [
+      {
+        question: 'Why has my compost heap turned into a slimy, smelly black sludge?',
+        answer: 'Your bin has become anaerobic due to an excess of wet, nitrogen-rich greens (such as thick grass clippings) and a lack of oxygen. Empty the heap, mix in two wheelbarrows of shredded corrugated cardboard or dry autumn leaves, and turn thoroughly.'
+      },
+      {
+        question: 'Can I compost perennial weed roots and diseased tomato blight leaves?',
+        answer: 'Do not add couch grass, bindweed, or horsetail roots to ordinary cold heaps; they will survive and infest your beds. Blighted potato or tomato haulms should also be burned or disposed of in council green waste where high industrial heat pasteurises pathogens.'
+      },
+      {
+        question: 'How long does cold composting take in the British maritime climate?',
+        answer: 'In an uninsulated wooden slatted or plastic bin, cold composting typically takes 9 to 12 months. Turning the heap every 6 weeks cuts this duration down to 4 to 6 months.'
+      }
+    ],
+    content: `
+## Unlocking Black Gold: Organic Recycling in British Soil
+
+Making your own garden compost is the ultimate horticultural superpower. Homemade compost introduces billions of beneficial mycorrhizal fungi, bacteria, and actinomycetes into your soil beds, breaking heavy UK boulder clay into crumbly loam and enabling sandy gravels to hold moisture through July heatwaves.
+
+Whether you operate a small 220-litre plastic Dalek bin in a suburban courtyard or a triple-bay wooden pallet system on a breezy allotment, success boils down to balancing greens (nitrogen) and browns (carbon).
+
+---
+
+## 1. The Golden 50/50 Carbon to Nitrogen Ratio
+
+| Material Type | Garden Examples | Role in Heap |
+| --- | --- | --- |
+| **Greens (Nitrogen)** | Fresh grass mowings, vegetable peels, coffee grounds, green nettles | Feeds heat-generating bacterial colonies |
+| **Browns (Carbon)** | Torn corrugated cardboard, dry autumn leaves, straw, chipped hedge twigs | Creates microscopic air chimneys; prevents sludge |
+
+---
+
+## 2. Step-by-Step Hot Composting Technique
+
+1. **Base Layer:** Lay 10cm of coarse twigs or chopped sunflower stems at the bottom to ensure bottom ventilation and worm entry from the subsoil.
+2. **Layer in Ratios:** Alternate 10cm layers of green garden waste with equal volumes of scrunched brown cardboard egg cartons or dry leaves.
+3. **Moisture Balance:** The contents should feel like a wrung-out damp sponge. If dry during summer, sprinkle with rainwater; if saturated in November, cover with carpet or a tarpaulin.
+4. **Insulate:** Keep the bin lid tightly sealed to retain the heat generated as thermophilic bacteria raise internal core temperatures to 55°C–65°C.
+    `
+  },
+  {
+    id: 'art-33',
+    title: 'How to Water Plants in a UK Summer Drought: Hosepipe Ban Strategies',
+    slug: 'how-to-water-garden-drought-hosepipe-ban',
+    categorySlug: 'gardening-tips',
+    categoryName: 'Gardening Tips',
+    excerpt: 'Protect your borders, fruit trees, and containers through summer heatwaves and regional hosepipe restrictions with deep-soaking and greywater best practices.',
+    featuredImage: 'https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Watering can pouring water around the base of lush green garden plants during summer',
+    author: authorFiona,
+    publishDate: '2026-03-19',
+    updatedDate: '2026-04-03',
+    readingTime: '8 min read',
+    tags: ['Watering', 'Drought Care', 'Hosepipe Ban', 'Summer Tips', 'Mulching'],
+    isFeatured: false,
+    isPopular: true,
+    status: 'published',
+    seoTitle: 'Watering During a UK Drought: Practical Garden Strategies',
+    metaDescription: 'Learn how to keep your garden alive during UK hosepipe bans and summer droughts. Timing, greywater safety, olla pots, and deep root soaking.',
+    focusKeyword: 'watering garden during drought UK',
+    canonicalUrl: '/gardening-tips/how-to-water-garden-drought-hosepipe-ban',
+    faqs: [
+      {
+        question: 'Is domestic bath and washing-up greywater safe for garden vegetables?',
+        answer: 'Bath, shower, and washing-machine rinse water can be used on ornamental borders, fruit trees, and bushes provided you use eco-friendly, low-sodium detergents. Avoid using greywater on crops eaten raw (such as lettuce and radishes) to prevent any bacterial contamination.'
+      },
+      {
+        question: 'Is it better to water little and often or thoroughly once a week?',
+        answer: 'Always water thoroughly and deeply once or twice a week rather than light daily sprinkling. Daily sprinkling dampens only the top 10mm of soil, encouraging roots to stay near the surface where the midday sun scorches them. Deep watering encourages deep taproots that seek subsoil moisture.'
+      },
+      {
+        question: 'What time of day is most water-efficient during hot weather?',
+        answer: 'Dawn or early morning is ideal; water sinks directly into the cool soil and is absorbed by roots before midday evaporation starts. Late evening is a secondary choice, though foliage remaining wet overnight in muggy weather can encourage fungal powdery mildew.'
+      }
+    ],
+    content: `
+## Resilient Hydration for British Gardens Under Pressure
+
+Changing weather patterns in Great Britain mean that long periods of soggy spring rain can be followed by prolonged summer droughts and temporary hosepipe restrictions across southern, eastern, and midland water authority zones.
+
+Preserving precious ornamental borders, kitchen crops, and potted investments does not require hundreds of gallons of treated mains water. By changing *how* and *when* you hydrate your plants, you can cut water consumption by 60% while growing healthier, deeper-rooted specimens.
+
+---
+
+## 1. Watering Priority Ladder During Drought
+
+When water availability is strictly limited, triage your garden according to replacement cost and root depth:
+
+1. **High Priority (Crucial):** Newly planted shrubs, trees under 2 years old, greenhouse tomatoes, hanging baskets, and shallow-rooted soft fruits.
+2. **Medium Priority:** Established perennial borders, soft fruit canes, autumn brassicas.
+3. **Low Priority (Leave Alone):** Established deciduous trees, mature hedging, established shrubs, and lawns (lawns brown off naturally in drought but turn green again within 5 days of autumn rain).
+
+---
+
+## 2. Water Conservation Techniques
+
+- **Targeted Subsoil Pipes:** When planting new shrubs or fruit trees, sink an upturned plastic bottle with its base cut off beside the rootball. Pour water directly into the pipe to bypass surface evaporation.
+- **Olla Clay Pots:** Bury unglazed terracotta pots up to their necks among vegetable plants and fill with water. The porous clay slowly seeps moisture directly into root zones over 4 to 5 days.
+- **Thick Organic Mulch:** Spread a 7.5cm blanket of well-rotted peat-free compost, shredded bark, or straw over moist soil in May to trap ground water and prevent baking.
+    `
+  },
+  {
+    id: 'art-34',
+    title: 'Winter Mulching & Frost Protection: Safeguarding Tender UK Perennials',
+    slug: 'winter-mulching-frost-protection-uk-perennials',
+    categorySlug: 'gardening-tips',
+    categoryName: 'Gardening Tips',
+    excerpt: 'Insulate crowns, shield vulnerable roots from frost-heave, and shelter agapanthus, salvias, and bananas with fleece jackets, straw collars, and bark mulch.',
+    featuredImage: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Frost-covered foliage and thick organic mulch protecting dormant herbaceous border in winter',
+    author: authorAlistair,
+    publishDate: '2026-03-22',
+    updatedDate: '2026-04-04',
+    readingTime: '9 min read',
+    tags: ['Winter Protection', 'Frost', 'Mulching', 'Perennials', 'Horticultural Fleece'],
+    isFeatured: false,
+    isPopular: false,
+    status: 'published',
+    seoTitle: 'Winter Mulching & Frost Protection Guide for UK Gardens',
+    metaDescription: 'How to insulate border perennials and potted shrubs through British winters. Protect crowns against freeze-thaw cycles and cold wet soils.',
+    focusKeyword: 'winter frost protection UK garden',
+    canonicalUrl: '/gardening-tips/winter-mulching-frost-protection-uk-perennials',
+    faqs: [
+      {
+        question: 'When should I apply winter mulch to perennial borders in the UK?',
+        answer: 'Apply mulch in late autumn (November to early December) after the first couple of light frosts have cooled the ground, but before heavy freezing sets in. Mulching too early in warm October can trap residual heat and encourage soft, rot-prone new growth.'
+      },
+      {
+        question: 'Can I leave horticultural fleece covers on my plants all winter?',
+        answer: 'Breathable spun-bonded fleece can stay in place over tender shrubs during sub-zero snaps, but on mild, humid winter days, open or remove covers periodically to circulate air and prevent grey mould (*Botrytis*) from attacking dormant crowns.'
+      },
+      {
+        question: 'Which kills more UK plants: extreme cold or winter wet?',
+        answer: 'In the British maritime climate, cold winter wet kills vastly more plants than sub-zero temperatures. Damp soil rots roots and crowns. Adding coarse grit and lifting vulnerable container pots onto pot feet prevents waterlogging and increases frost survival by several degrees.'
+      }
+    ],
+    content: `
+## Sheltering Borders from British Frost and Winter Wet
+
+Winters in the British Isles rarely deliver persistent continental snow shields; instead, they present unpredictable cycles of freezing rain, bitter easterly winds, deep overnight frosts (-6°C to -10°C), and waterlogged thawing clay.
+
+This combination of wetness and frost-heave is particularly hazardous for borderline-hardy favourites like *Salvia*, *Agapanthus*, *Dahlia*, *Phormium*, and *Echinacea*. With targeted insulation, you can safeguard your investments without digging up every specimen.
+
+---
+
+## 1. Plant Hardiness & Winter Action Checklist
+
+| Plant Group | Hardiness Rating | Protective Winter Strategy |
+| --- | --- | --- |
+| **Agapanthus & Penstemons** | RHS H4 (-5°C to -10°C) | Leave old foliage intact; mound 10cm compost or chipped bark over crowns in November. |
+| **Salvias & Fuchsias** | RHS H3/H4 (-5°C) | Do not prune in autumn; surround base with straw or bracken held down by wire mesh. |
+| **Musa basjoo (Hardy Banana)** | Stem hardy to -2°C, roots to -10°C | Strip leaves after first frost; wrap trunk in hessian and straw inside a chicken-wire cage. |
+| **Potted Olives & Citrus** | RHS H2/H3 (0°C to -5°C) | Move against a sheltered south-facing brick wall under house eaves; wrap pot in bubble wrap. |
+
+---
+
+## 2. The Art of Pot Elevation
+
+Freezing moisture expands and cracks terracotta pots while freezing roots against saturated base drainage holes. Slip ceramic or rubber pot feet under every outdoor container in October to allow rainwater to drain freely away from rootballs all winter long.
     `
   }
 ];

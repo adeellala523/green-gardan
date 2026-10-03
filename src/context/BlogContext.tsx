@@ -82,10 +82,10 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Load state from localStorage with fallback to initial data
   const [articles, setArticles] = useState<Article[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_articles_v6');
+      const saved = localStorage.getItem('greengarden_articles_v7') || localStorage.getItem('greengarden_articles_v6');
       if (saved) {
         const parsed = JSON.parse(saved) as Article[];
-        return parsed.map(a => {
+        const updated = parsed.map(a => {
           const initMatch = initialArticles.find(init => init.id === a.id);
           return {
             ...a,
@@ -94,6 +94,9 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
             featuredImage: sanitizeImageUrl(a.featuredImage)
           };
         });
+        // Ensure any newly added initialArticles are merged in
+        const missing = initialArticles.filter(init => !updated.some(u => u.id === init.id));
+        return [...updated, ...missing];
       }
       // If previous version exists, preserve any user-created custom articles while taking the updated guides
       const oldSaved = localStorage.getItem('greengarden_articles_v5') || localStorage.getItem('greengarden_articles_v3') || localStorage.getItem('greengarden_articles');
@@ -101,7 +104,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const parsedOld = JSON.parse(oldSaved) as Article[];
         const customArticles = parsedOld.filter(a => !initialArticles.some(init => init.id === a.id));
         const merged = [...initialArticles, ...customArticles];
-        localStorage.setItem('greengarden_articles_v6', JSON.stringify(merged));
+        localStorage.setItem('greengarden_articles_v7', JSON.stringify(merged));
         return merged;
       }
     } catch {
@@ -112,13 +115,17 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_categories_v5');
+      const saved = localStorage.getItem('greengarden_categories_v6');
       if (saved) {
         const parsed = JSON.parse(saved) as Category[];
-        return parsed.map(c => ({
-          ...c,
-          image: sanitizeImageUrl(c.image)
-        }));
+        return parsed.map(c => {
+          const initMatch = initialCategories.find(init => init.id === c.id || init.slug === c.slug);
+          return {
+            ...c,
+            articleCount: initMatch ? initMatch.articleCount : c.articleCount,
+            image: sanitizeImageUrl(c.image)
+          };
+        });
       }
     } catch {
       // fallback
@@ -267,6 +274,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [indexingApiSettings]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_articles_v7', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles_v6', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles_v5', JSON.stringify(articles));
     localStorage.setItem('greengarden_articles_v3', JSON.stringify(articles));
@@ -274,6 +282,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [articles]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_categories_v6', JSON.stringify(categories));
     localStorage.setItem('greengarden_categories_v5', JSON.stringify(categories));
     localStorage.setItem('greengarden_categories', JSON.stringify(categories));
   }, [categories]);
