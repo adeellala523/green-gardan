@@ -135,15 +135,15 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [pages, setPages] = useState<PageContent[]>(() => {
     try {
-      const saved = localStorage.getItem('greengarden_pages_v8');
+      const saved = localStorage.getItem('greengarden_pages_v9') || localStorage.getItem('greengarden_pages_v8');
       if (saved) {
         const parsed = JSON.parse(saved) as PageContent[];
         return parsed.map(p => {
           const initMatch = initialPages.find(ip => ip.id === p.id);
-          return initMatch ? { ...p, title: initMatch.title, subtitle: initMatch.subtitle, content: initMatch.content } : p;
+          return initMatch ? { ...p, title: initMatch.title, subtitle: initMatch.subtitle, content: initMatch.content, metaTitle: initMatch.metaTitle, metaDescription: initMatch.metaDescription } : p;
         });
       }
-      localStorage.setItem('greengarden_pages_v8', JSON.stringify(initialPages));
+      localStorage.setItem('greengarden_pages_v9', JSON.stringify(initialPages));
     } catch {
       // fallback
     }
@@ -288,6 +288,7 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [categories]);
 
   useEffect(() => {
+    localStorage.setItem('greengarden_pages_v9', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages_v8', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages_v7', JSON.stringify(pages));
     localStorage.setItem('greengarden_pages_v6', JSON.stringify(pages));

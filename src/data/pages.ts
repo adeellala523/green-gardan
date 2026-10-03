@@ -107,39 +107,19 @@ Our team reviews messages from Monday to Friday. We endeavour to reply to all ge
     id: 'page-privacy',
     slug: 'privacy-policy',
     title: 'Privacy Policy',
-    subtitle: 'How Green Gardan protects your privacy and personal data in accordance with UK GDPR and advertising standards.',
+    subtitle: 'Ezoic Services disclosure and third-party advertising privacy practices.',
     metaTitle: 'Privacy Policy | Green Gardan',
-    metaDescription: 'Read the Green Gardan Privacy Policy. Learn how we protect your personal data in compliance with UK GDPR and Ezoic advertising partner standards.',
+    metaDescription: 'Read the Green Gardan Privacy Policy and Ezoic Services disclosure.',
     lastUpdated: '2026-10-03',
     content: `
-## 1. Introduction & Data Controller
-
-Green Gardan ("we", "our", or "us"), operating at **https://greengardan.co.uk**, is dedicated to protecting the privacy and personal data of visitors to our website. This Privacy Policy outlines our practices regarding data collection, usage, and protection in strict compliance with the **UK Data Protection Act 2018** and the **UK General Data Protection Regulation (UK GDPR)**.
-
-The Data Controller for this website is:
-- **Green Gardan Editorial Desk**, 74 High Street, Guildford, Surrey, GU1 3HE, United Kingdom.
-- **Email:** contact@greengardan.co.uk
-
----
-
-## 2. Google Analytics & Advertising Disclosures
-
-We use **Google Analytics (Measurement ID: G-NVBMLP15K0)** to measure visitor traffic and understand reader engagement with our gardening guides. Google Analytics collects pseudonymous data regarding browser types, operating systems, and page views. IP anonymisation is enabled.
-
-When third-party advertising partners (such as Google AdSense and Google Ad Manager) serve advertisements on our site:
-- Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.
-- Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
-- Users may opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com).
-
----
-
-## 3. Ezoic Services & Advertising Partner Disclosures
+## Ezoic Services
 
 This website uses the services of Ezoic Inc. (“Ezoic”), including to manage third-party interest-based advertising. Ezoic may employ a variety of technologies on this website, including tools to serve content, display advertisements and enable advertising to visitors of this website, which may utilize first and third-party cookies.
 
-A cookie is a small text file sent to your device by a web server that enables the website to remember information about your browsing activity. First-party cookies are created by the site you are visiting, while third-party cookies are set by domains other than the one you're visiting. Ezoic and our partners may place third-party cookies, tags, beacons, pixels, and similar technologies to monitor interactions with advertisements and optimize ad targeting. Please note that disabling cookies may limit access to certain content and features on the website, and rejecting cookies does not eliminate advertisements but will result in non-personalized advertising. You can find more information about cookies and how to manage them at [allaboutcookies.org](https://allaboutcookies.org/).
+A cookie is a small text file sent to your device by a web server that enables the website to remember information about your browsing activity. First-party cookies are created by the site you are visiting, while third-party cookies are set by domains other than the one you're visiting. Ezoic and our partners may place third-party cookies, tags, beacons, pixels, and similar technologies to monitor interactions with advertisements and optimize ad targeting. Please note that disabling cookies may limit access to certain content and features on the website, and rejecting cookies does not eliminate advertisements but will result in non-personalized advertising. You can find more information about cookies and how to manage them [here](https://allaboutcookies.org/).
 
 The following information may be collected, used, and stored in a cookie when serving personalized ads:
+
 - IP address
 - Operating system type and version
 - Device type
@@ -147,40 +127,9 @@ The following information may be collected, used, and stored in a cookie when se
 - Web browser type
 - Email (in a hashed or encrypted form)
 
-Ezoic and its partners may use this data in combination with information that has been independently collected to deliver targeted advertisements across various platforms and websites. Ezoic’s partners may also gather additional data, such as unique IDs, advertising IDs, geolocation data, usage data, device information, traffic data, referral sources, and interactions between users and websites or advertisements, to create audience segments for targeted advertising across different devices, browsers, and apps. You can find more information about interest-based advertising and how to manage them at [youradchoices.com](https://youradchoices.com/).
+Ezoic and its partners may use this data in combination with information that has been independently collected to deliver targeted advertisements across various platforms and websites. Ezoic’s partners may also gather additional data, such as unique IDs, advertising IDs, geolocation data, usage data, device information, traffic data, referral sources, and interactions between users and websites or advertisements, to create audience segments for targeted advertising across different devices, browsers, and apps. You can find more information about interest-based advertising and how to manage them [here](https://youradchoices.com/).
 
-You can view Ezoic’s privacy policy at [https://ezoic.com/privacy/](https://ezoic.com/privacy/), and for additional information about Ezoic’s advertising and other partners, you can view Ezoic’s advertising partners directory at [https://www.ezoic.com/privacy-policy/advertising-partners/](https://www.ezoic.com/privacy-policy/advertising-partners/).
-
----
-
-## 4. How to Opt Out of Interest-Based Advertising
-
-If you wish to opt out of interest-based and personalised advertising across participating advertising networks, you may utilize the following consumer choice mechanisms:
-- **United Kingdom & Europe:** European Interactive Digital Advertising Alliance (EDAA): [https://www.youronlinechoices.eu/](https://www.youronlinechoices.eu/)
-- **United States:** Digital Advertising Alliance (DAA): [https://www.aboutads.info/choices/](https://www.aboutads.info/choices/)
-- **Network Advertising Initiative (NAI):** [https://optout.networkadvertising.org/](https://optout.networkadvertising.org/)
-
----
-
-## 5. Information We Directly Collect
-
-### A. Newsletter Subscriptions
-When you voluntarily subscribe to our free seasonal gardening newsletter, we collect your email address. This is used exclusively to dispatch practical planting guides, seasonal checklists, and site updates. You can unsubscribe at any time by clicking the unsubscribe link present in every newsletter footer.
-
-### B. Contact & Reader Enquiries
-When you send us a message via our Contact form or email, we collect your name, email address, and message content solely to investigate and reply to your enquiry. We never share or sell contact details to third parties.
-
----
-
-## 6. Your Rights Under UK GDPR
-
-Under the UK General Data Protection Regulation and the Data Protection Act 2018, you possess statutory rights regarding your personal data:
-- **Right to Access:** You can request a copy of personal information we hold about you.
-- **Right to Rectification:** You can request correction of any inaccurate or incomplete records.
-- **Right to Erasure ("Right to be Forgotten"):** You can request deletion of your personal data.
-- **Right to Object or Restrict Processing:** You can object to data processing for specific purposes.
-
-To exercise any of these rights, please email our Data Coordinator at **contact@greengardan.co.uk**. We respond to all verified statutory requests within 30 days.
+You can view Ezoic’s privacy policy [here](https://ezoic.com/privacy/), or for additional information about Ezoic’s advertising and other partners, you can view Ezoic’s advertising partners [here](https://www.ezoic.com/privacy-policy/advertising-partners/).
     `
   },
   {
